@@ -6,11 +6,15 @@ import edu.ntnu.paths.GameDetails.Player;
 public class HealthAction implements Action{
     private int health;
 
-    public void healthAction(int health) {
+    public boolean healthAction(int health) {
+        if (health <= 0) return false;
         this.health = health;
+        return true;
     }
     @Override
-    public void execute(Player player) {
+    public boolean execute(Player player) {
+        if (player == null) return false;
         player.addHealth(this.health);
+        return true;
     }
 }
