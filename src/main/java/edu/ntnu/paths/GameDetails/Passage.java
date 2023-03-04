@@ -13,6 +13,10 @@ public class Passage {
         this.content = content;
     }
 
+    public Passage(Passage passageCopy) {
+        this(passageCopy.getTittle(), passageCopy.getContent());
+    }
+
     public String getTittle() {
         return tittle;
     }

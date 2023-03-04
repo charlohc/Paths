@@ -1,7 +1,7 @@
 package edu.ntnu.paths.GameDetails;
 
 import java.util.List;
-
+//Mabye create builder class here
 public class Player {
     private final String name;
     private int health;
@@ -14,6 +14,10 @@ public class Player {
         this.health = health;
         this.score = score;
         this.gold = gold;
+    }
+
+    public Player(Player playerCopy) {
+        this(playerCopy.getName(), playerCopy.getHealth(),playerCopy.getScore(), playerCopy.getGold());
     }
 
     public String getName() {
