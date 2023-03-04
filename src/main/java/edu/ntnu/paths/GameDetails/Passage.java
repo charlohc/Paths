@@ -9,8 +9,15 @@ public class Passage {
     private List<Link> links;
 
     public Passage(String tittle, String content) {
-        this.tittle = tittle;
-        this.content = content;
+        if (tittle.isEmpty()) {
+            throw new NullPointerException("Tittle cannot be null");
+        }
+         else if ( content.isEmpty()) {
+        throw new NullPointerException("Content cannot be null");
+    } else {
+            this.tittle = tittle;
+            this.content = content;
+        }
     }
 
     public Passage(Passage passageCopy) {

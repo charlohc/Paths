@@ -9,8 +9,14 @@ public class Story {
     private final Passage openingPassage;
 
     public Story(String tittle, Passage openingPassage) {
-        this.tittle = tittle;
-        this.openingPassage = openingPassage;
+        if (tittle.isEmpty()) {
+            throw new NullPointerException("tittle cannot be null");
+        } else if (openingPassage == null) {
+            throw new NullPointerException("Opening passage cannot be null");
+        } else {
+            this.tittle = tittle;
+            this.openingPassage = openingPassage;
+        }
     }
 
     public Story(Story storyCopy) {

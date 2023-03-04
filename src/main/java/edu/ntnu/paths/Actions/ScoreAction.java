@@ -6,11 +6,15 @@ public class ScoreAction implements Action {
     private int points;
 
 
-    public void scoreAction(int points) {
+    public boolean scoreAction(int points) {
+        if (points <= 0) return false;
         this.points = points;
+        return true;
     }
     @Override
-    public void execute(Player player) {
+    public boolean execute(Player player) {
+        if (player == null) return false;
         player.addScore(this.points);
+        return true;
     }
 }

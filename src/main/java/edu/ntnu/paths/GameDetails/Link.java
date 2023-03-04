@@ -11,6 +11,11 @@ final class Link {
     private final List<Action> actions;
 
     public Link(LinkBuilder linkBuilder) {
+        if (linkBuilder.text.isEmpty()) { throw new NullPointerException("Text cannot be null");
+        }
+        else if (linkBuilder.reference.isEmpty()) { throw new NullPointerException("Reference cannot be null");
+        }
+        
         this.text = linkBuilder.text;
         this.reference = linkBuilder.reference;
         this.actions = linkBuilder.actions;

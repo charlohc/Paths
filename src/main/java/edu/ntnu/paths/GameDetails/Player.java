@@ -10,10 +10,20 @@ public class Player {
     private List<String> inventory;
 
     public Player(String name, int health, int score, int gold) {
-        this.name = name;
-        this.health = health;
-        this.score = score;
-        this.gold = gold;
+        if (name.isEmpty()) {
+            throw new NullPointerException("Name cannot be null");
+        } else if (health <= 0) {
+            throw new IllegalArgumentException("Health cannot be zero or negative");
+        } else if (score < 0) {
+            throw new IllegalArgumentException("Score cannot negative");
+        } else if (gold < 0) {
+            throw new IllegalArgumentException("Gold cannot negative");
+        } else {
+            this.name = name;
+            this.health = health;
+            this.score = score;
+            this.gold = gold;
+        }
     }
 
     public Player(Player playerCopy) {
