@@ -1,25 +1,19 @@
 package edu.ntnu.paths.GameDetails;
 
 import edu.ntnu.paths.Actions.Action;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Link {
+//Need deep copy on Link when has builder?
+final class Link {
     private final String text;
     private final String reference;
     private final List<Action> actions;
 
-    public Link(String text, String reference, List<Action> actions) {
-        this.text = text;
-        this.reference = reference;
-        this.actions = actions;
-    }
-
-    public Link(String text, String reference) {
-        this.text = text;
-        this.reference = reference;
-        this.actions = new ArrayList<>();
+    public Link(LinkBuilder linkBuilder) {
+        this.text = linkBuilder.text;
+        this.reference = linkBuilder.reference;
+        this.actions = linkBuilder.actions;
     }
 
     public String getText() {
@@ -64,3 +58,6 @@ public class Link {
         return Objects.hash(text, reference, actions);
     }
 }
+
+
+
