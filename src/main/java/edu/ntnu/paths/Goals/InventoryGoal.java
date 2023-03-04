@@ -1,6 +1,6 @@
 package edu.ntnu.paths.Goals;
 
-import edu.ntnu.paths.gameDetails.Player;
+import edu.ntnu.paths.GameDetails.Player;
 
 import java.util.List;
 

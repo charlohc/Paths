@@ -1,6 +1,6 @@
 package edu.ntnu.paths.Goals;
 
-import edu.ntnu.paths.gameDetails.Player;
+import edu.ntnu.paths.GameDetails.Player;
 
 public class GoldGoal implements Goal{
     private int minimumGold;
