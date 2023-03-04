@@ -1,6 +1,8 @@
 package edu.ntnu.paths.GameDetails;
 
 
+import edu.ntnu.paths.Goals.Goal;
+
 import java.util.List;
 
 //Add exceptions
