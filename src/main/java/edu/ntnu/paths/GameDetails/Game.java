@@ -1,6 +1,9 @@
 package edu.ntnu.paths.GameDetails;
 
 
+import edu.ntnu.paths.StoryDetails.LinkBuilder;
+import edu.ntnu.paths.StoryDetails.Passage;
+import edu.ntnu.paths.StoryDetails.Story;
 import edu.ntnu.paths.Goals.Goal;
 
 import java.util.List;
@@ -49,7 +52,7 @@ public class Game {
         return story.getOpeningPassage();
     }
 
-    public Passage go(Link link) {
-        return story.getPassage(link);
+    public Passage go(LinkBuilder link) {
+        return story.getPassage(link.build());
     }
 }

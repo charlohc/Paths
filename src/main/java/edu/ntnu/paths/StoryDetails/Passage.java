@@ -1,4 +1,4 @@
-package edu.ntnu.paths.GameDetails;
+package edu.ntnu.paths.StoryDetails;
 
 import java.util.List;
 import java.util.Objects;

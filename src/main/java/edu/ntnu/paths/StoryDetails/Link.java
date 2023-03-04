@@ -1,4 +1,4 @@
-package edu.ntnu.paths.GameDetails;
+package edu.ntnu.paths.StoryDetails;
 
 import edu.ntnu.paths.Actions.Action;
 import java.util.List;
@@ -15,7 +15,7 @@ final class Link {
         }
         else if (linkBuilder.reference.isEmpty()) { throw new NullPointerException("Reference cannot be null");
         }
-        
+
         this.text = linkBuilder.text;
         this.reference = linkBuilder.reference;
         this.actions = linkBuilder.actions;

@@ -1,5 +1,6 @@
 package edu.ntnu.paths.GameDetails;
 
+import java.util.ArrayList;
 import java.util.List;
 //Mabye create builder class here
 public class Player {
@@ -23,6 +24,7 @@ public class Player {
             this.health = health;
             this.score = score;
             this.gold = gold;
+            this.inventory = new ArrayList<>();
         }
     }
 
@@ -65,9 +67,20 @@ public class Player {
         return inventory;
     }
 
+    //can collect more items of one type? check if is in list already
     public void addToInventory(String item) {
-        if (item.isEmpty()) throw new IllegalArgumentException("Item cannot be blank");
-        if (inventory.contains(item)) throw new IllegalArgumentException("Item is already in inventory");
-        inventory.add(item);
+        if (item.isEmpty()) throw new NullPointerException("Item cannot be blank");
+        inventory.add(item.trim().toLowerCase());
+    }
+
+    @Override
+    public String toString() {
+        return "Player{" +
+                "name='" + name + '\'' +
+                ", health=" + health +
+                ", score=" + score +
+                ", gold=" + gold +
+                ", inventory=" + inventory +
+                '}';
     }
 }

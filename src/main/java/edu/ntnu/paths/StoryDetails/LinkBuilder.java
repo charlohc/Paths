@@ -1,4 +1,4 @@
-package edu.ntnu.paths.GameDetails;
+package edu.ntnu.paths.StoryDetails;
 
 import edu.ntnu.paths.Actions.Action;
 
