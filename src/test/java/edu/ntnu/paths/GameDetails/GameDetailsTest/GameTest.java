@@ -6,7 +6,6 @@ import edu.ntnu.paths.GameDetails.Player;
 import edu.ntnu.paths.Goals.*;
 import edu.ntnu.paths.StoryDetails.*;
 import org.junit.jupiter.api.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +16,7 @@ class GameTest {
     Player player;
     Passage openingPassage, porchPassage;
     Story story;
+
     GoldGoal goldGoal;
 
     HealthGoal healthGoal;
@@ -92,8 +92,7 @@ class GameTest {
         goals.add(scoreGoal);
         goals.add(inventoryGoal);
 
-        game = new Game(new Player(player),story, new ArrayList<>(goals));
-
+        game = new Game(new Player(player), new Story(story), new ArrayList<>(goals));
 
     }
     @Nested
@@ -152,25 +151,7 @@ class GameTest {
 
         @Test
         void go() {
-            /*System.out.println(game.getStory().getPassages());*/
-
-
-            //Spillet skal ha to passages, beginning skal ha en link til porch, når søker på pasasje basert på link skal
-            //få opp porch siden det er neste "sene"
-
-            //Jeg har link fra openingPassage til prochPassage
-
-            //Den som referer har referansen i links hvor referansen i linken matcher tittel i passage objektet.
-
-
-
-           System.out.println(game.getStory().getPassages());
-            System.out.println();
-            System.out.println();
-            System.out.println(game.go(linkToPorchPassage));
-
-
-
+            Assertions.assertEquals(porchPassage, game.go(linkToPorchPassage));
         }
     }
 }

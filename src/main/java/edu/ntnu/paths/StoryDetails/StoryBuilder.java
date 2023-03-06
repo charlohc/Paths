@@ -17,16 +17,6 @@ public class StoryBuilder {
 
     private StoryBuilder() {}
 
-    /*public StoryBuilder copyStory(Story storyCopy) {
-        setTitle(storyCopy.getTittle());
-        setOpeningPassage(storyCopy.getPassage());
-*//*
-        setPassages(storyCopy.getPassages().ge)
-*//*
-        return this;
-    }*/
-
-
     // Setter methods
     public StoryBuilder setTitle(String title)
     {

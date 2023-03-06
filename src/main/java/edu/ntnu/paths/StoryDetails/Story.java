@@ -5,9 +5,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Story {
-    private  String title;
-    private  HashMap<Link, Passage> passages;
-    private  Passage passage;
+    private final String title;
+    private final HashMap<Link, Passage> passages;
+    private final Passage passage;
 
     public Story(StoryBuilder storyBuilder) {
         if (storyBuilder.title.isEmpty()) {
@@ -20,6 +20,13 @@ public class Story {
             this.passages = (HashMap<Link, Passage>) storyBuilder.passages;
 
     }
+
+    public Story (Story copyStory) {
+        this.title = copyStory.title;
+        this.passage = copyStory.passage;
+        this.passages = copyStory.passages;
+    }
+
 
     public String getTittle() {
         return title;
@@ -45,7 +52,6 @@ public class Story {
 
     //TODO: exception if passages does not contain link
     public Passage getPassage(Link link) {
-
         for (Map.Entry<Link, Passage> entry : passages.entrySet()) {
            if(entry.getValue().getTittle().equals(link.getReference())) {
                return passages.get(entry.getKey());
