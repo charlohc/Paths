@@ -1,5 +1,6 @@
-package edu.ntnu.paths.GameDetails;
+package edu.ntnu.paths.GameDetails.GameDetailsTest;
 
+import edu.ntnu.paths.GameDetails.Player;
 import org.junit.jupiter.api.*;
 
 import java.util.ArrayList;

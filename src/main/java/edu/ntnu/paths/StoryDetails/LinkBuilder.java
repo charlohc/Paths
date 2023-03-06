@@ -2,6 +2,7 @@ package edu.ntnu.paths.StoryDetails;
 
 import edu.ntnu.paths.Actions.Action;
 
+import java.util.ArrayList;
 import java.util.List;
 
 //Should these parameters be public? or else cant reach in Link class
@@ -9,7 +10,7 @@ public class LinkBuilder {
 
     public String text;
     public String reference;
-    public List<Action> actions;
+    public List<Action> actions = new ArrayList<>();
 
     public static LinkBuilder newInstance() {
         return new LinkBuilder();
@@ -28,7 +29,7 @@ public class LinkBuilder {
         this.reference = reference;
         return this;
     }
-    public LinkBuilder setAddress(List<Action> actions)
+    public LinkBuilder setActions(List<Action> actions)
     {
         this.actions = actions;
         return this;

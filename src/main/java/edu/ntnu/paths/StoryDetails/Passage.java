@@ -1,5 +1,6 @@
 package edu.ntnu.paths.StoryDetails;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -17,6 +18,7 @@ public class Passage {
     } else {
             this.tittle = tittle;
             this.content = content;
+            this.links = new ArrayList<>();
         }
     }
 
@@ -48,7 +50,7 @@ public class Passage {
     }
 
     public boolean hasLink(Link link) {
-        return !links.contains(link);
+        return links.contains(link);
     }
 
     @Override

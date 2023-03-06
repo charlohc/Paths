@@ -6,7 +6,7 @@ public class GoldGoal implements Goal{
     private int minimumGold;
 
     public boolean goldGoal(int minimumGold) {
-        if (minimumGold < 0) return false;
+     if (minimumGold < 0) return false;
         this.minimumGold = minimumGold;
         return true;
     }

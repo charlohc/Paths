@@ -1,11 +1,13 @@
 package edu.ntnu.paths.StoryDetails;
 
 import edu.ntnu.paths.Actions.Action;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 //Need deep copy on Link when has builder?
-final class Link {
+public final class Link {
     private final String text;
     private final String reference;
     private final List<Action> actions;
@@ -20,6 +22,7 @@ final class Link {
         this.reference = linkBuilder.reference;
         this.actions = linkBuilder.actions;
     }
+
 
     public String getText() {
         return text;

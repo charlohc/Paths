@@ -1,7 +1,7 @@
 package edu.ntnu.paths.GameDetails;
 
 
-import edu.ntnu.paths.StoryDetails.LinkBuilder;
+import edu.ntnu.paths.StoryDetails.Link;
 import edu.ntnu.paths.StoryDetails.Passage;
 import edu.ntnu.paths.StoryDetails.Story;
 import edu.ntnu.paths.Goals.Goal;
@@ -17,10 +17,13 @@ public class Game {
     private final Story story;
     private final List<Goal> goals;
 
-    protected Game(Player player, Story story, List<Goal> goals) {
+    public Game(Player player, Story story, List<Goal> goals) {
         if (player == null) { throw new NullPointerException("Player cannot be null");
         }
         else if (story == null) { throw new NullPointerException("Story cannot be null");
+        }
+        else if (goals.isEmpty()) { throw new NullPointerException("The game must contain at least one goal");
+
         }
         else {
             this.player = player;
@@ -49,10 +52,11 @@ public class Game {
 
 
     public Passage begin() {
-        return story.getOpeningPassage();
+        return story.getPassage();
     }
 
-    public Passage go(LinkBuilder link) {
-        return story.getPassage(link.build());
+    public Passage go(Link link) {
+        return story.getPassage(link);
+
     }
 }
