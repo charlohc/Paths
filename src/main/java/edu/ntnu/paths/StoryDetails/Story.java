@@ -1,53 +1,62 @@
 package edu.ntnu.paths.StoryDetails;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Map;
 
 public class Story {
-    private final String tittle;
-    private Map<Link, Passage> passages;
-    private final Passage openingPassage;
+    private  String title;
+    private  HashMap<Link, Passage> passages;
+    private  Passage passage;
 
-    public Story(String tittle, Passage openingPassage) {
-        if (tittle.isEmpty()) {
+    public Story(StoryBuilder storyBuilder) {
+        if (storyBuilder.title.isEmpty()) {
             throw new NullPointerException("tittle cannot be null");
-        } else if (openingPassage == null) {
+        } else if (storyBuilder.openingPassage == null) {
             throw new NullPointerException("Opening passage cannot be null");
-        } else {
-            this.tittle = tittle;
-            this.openingPassage = openingPassage;
         }
-    }
+            this.title = storyBuilder.title;
+            this.passage = storyBuilder.openingPassage;
+            this.passages = (HashMap<Link, Passage>) storyBuilder.passages;
 
-    public Story(Story storyCopy) {
-        this(storyCopy.getTittle(), storyCopy.getOpeningPassage());
     }
 
     public String getTittle() {
-        return tittle;
+        return title;
     }
 
-    public Passage getOpeningPassage() {
-        return openingPassage;
+    public Passage getPassage() {
+        return passage;
     }
 
 
   public boolean addPassage(Passage passage) {
     if(passages.containsValue(passage)) return false;
     Link link = LinkBuilder.newInstance()
-              .setText(this.tittle)
-              .setReference(this.tittle)
+              .setText(passage.getTittle())
+              .setReference(passage.getTittle())
               .build();
+
 
       passages.put(link, passage);
       return true;
     }
 
+
+    //TODO: exception if passages does not contain link
     public Passage getPassage(Link link) {
-        return passages.get(link);
+
+        for (Map.Entry<Link, Passage> entry : passages.entrySet()) {
+           if(entry.getValue().getTittle().equals(link.getReference())) {
+               return passages.get(entry.getKey());
+           }
+        }
+        return null;
     }
 
     public Collection<Passage> getPassages() {
         return passages.values();
     }
+
+
 }
