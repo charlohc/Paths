@@ -9,22 +9,19 @@ public class Passage {
     private final String content;
     private List<Link> links;
 
-    public Passage(String tittle, String content) {
-        if (tittle.isEmpty()) {
+    public Passage(PassageBuilder passageBuilder) {
+        if (passageBuilder.title.isEmpty()) {
             throw new NullPointerException("Tittle cannot be null");
         }
-         else if ( content.isEmpty()) {
+         else if ( passageBuilder.content.isEmpty()) {
         throw new NullPointerException("Content cannot be null");
     } else {
-            this.tittle = tittle;
-            this.content = content;
-            this.links = new ArrayList<>();
+            this.tittle = passageBuilder.title;
+            this.content = passageBuilder.content;
+            this.links = passageBuilder.links;
         }
     }
 
-    public Passage(Passage passageCopy) {
-        this(passageCopy.getTittle(), passageCopy.getContent());
-    }
 
     public String getTittle() {
         return tittle;
