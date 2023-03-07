@@ -104,6 +104,7 @@ class GameTest {
         goals.add(scoreGoal);
         goals.add(inventoryGoal);
 
+        //this is what need extra security, player, story and list of goals
         game = new Game(new Player(player), new Story(story), new ArrayList<>(goals));
 
 

@@ -62,13 +62,9 @@ class PlayerTest {
         }
 
         @Test
-        @DisplayName("Test that the original player object and copy object contains the same data")
+        @DisplayName("Test that the original player object and copy object contains the same data, for instance name")
         void differentObjectSameData() {
-            Assertions.assertEquals(originalPlayer.toString(), copyPlayer.toString());
-        }
-        @Test
-        @DisplayName("Test when modifying the original player object the copy does not change")
-        void modifyingOriginalTest() {
+            Assertions.assertEquals(originalPlayer.getName(), copyPlayer.getName());
         }
     }
 

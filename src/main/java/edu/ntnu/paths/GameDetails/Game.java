@@ -32,10 +32,6 @@ public class Game {
         }
     }
 
-    public Game(Game copy) {
-        this(copy.player, copy.story,copy.goals);
-    }
-
 
     public Player getPlayer() {
         return player;

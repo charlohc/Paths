@@ -17,9 +17,15 @@ class StoryTest {
     @BeforeEach
     void setUp() {
 
-        openingPassage = new Passage("Beginning", "You woke up and felt at once all alone");
+        openingPassage = PassageBuilder.newInstance()
+                .setTitle("Beginning")
+                .setContent("You woke up and felt at once all alone")
+                .build();
 
-        porchPassage = new Passage("The porch", "There are no people outside, and its all so quite");
+        porchPassage = PassageBuilder.newInstance()
+                .setTitle("The porch")
+                .setContent("There are no people outside, and its all so quite")
+                .build();
 
         story = StoryBuilder.newInstance()
                 .setTitle("The last person on earth")
@@ -123,7 +129,11 @@ class StoryTest {
 
     @Test
     void addPassage() {
-        Passage addedPassage = new Passage("passage tittle", "content");
+        Passage addedPassage = PassageBuilder.newInstance()
+                        .setTitle("title")
+                        .setContent("content")
+                        .build();
+
         story.addPassage(addedPassage);
         Assertions.assertTrue(story.getPassages().contains(addedPassage));
     }

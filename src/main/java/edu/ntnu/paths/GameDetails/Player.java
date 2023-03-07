@@ -72,15 +72,4 @@ public class Player {
         if (item.isEmpty()) throw new NullPointerException("Item cannot be blank");
         inventory.add(item.trim().toLowerCase());
     }
-
-    @Override
-    public String toString() {
-        return "Player{" +
-                "name='" + name + '\'' +
-                ", health=" + health +
-                ", score=" + score +
-                ", gold=" + gold +
-                ", inventory=" + inventory +
-                '}';
-    }
 }
