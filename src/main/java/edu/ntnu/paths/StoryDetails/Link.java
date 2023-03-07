@@ -2,11 +2,9 @@ package edu.ntnu.paths.StoryDetails;
 
 import edu.ntnu.paths.Actions.Action;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-//Need deep copy on Link when has builder?
 public final class Link {
     private final String text;
     private final String reference;
@@ -40,8 +38,10 @@ public final class Link {
      * change to void, and return true or false depending on if already in list or not
      * @param action
      */
-    public void addAction(Action action) {
+    public boolean addAction(Action action) {
+        if(actions.contains(action)) return false;
         actions.add(action);
+        return true;
     }
 
     @Override
