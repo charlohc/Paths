@@ -9,7 +9,7 @@ import java.util.Collection;
 import static org.junit.jupiter.api.Assertions.*;
 
 class StoryTest {
-    Story story;
+    Story story, copyStory;
     Passage openingPassage, porchPassage;
 
     Link linkToPorchPassage;
@@ -34,8 +34,9 @@ class StoryTest {
                 .setReference("The porch")
                 .build();
 
-
         openingPassage.addLink(linkToPorchPassage);
+
+        copyStory = new Story(story);
 
     }
 
@@ -61,6 +62,23 @@ class StoryTest {
                         .setOpeningPassage(null)
                         .build();
             });
+        }
+    }
+
+    @Nested
+    @DisplayName("Testing the security of the story object")
+    class securePlayerObject {
+
+        @Test
+        @DisplayName("Test that the original player object and copy object get different addresses")
+        void differentObjectDifferentAddress() {
+            Assertions.assertNotEquals(copyStory,story);
+        }
+
+        @Test
+        @DisplayName("Test that the original player object and copy object contains the same data, for instance tittle")
+        void differentObjectSameData() {
+            Assertions.assertEquals(copyStory.getTittle(), story.getTittle());
         }
     }
 

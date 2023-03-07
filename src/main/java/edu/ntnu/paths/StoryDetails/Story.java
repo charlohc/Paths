@@ -22,8 +22,8 @@ public class Story {
     }
 
     public Story (Story copyStory) {
-        this.title = copyStory.title;
-        this.passage = copyStory.passage;
+        this.title = copyStory.getTittle();
+        this.passage = copyStory.getPassage();
         this.passages = copyStory.passages;
     }
 
