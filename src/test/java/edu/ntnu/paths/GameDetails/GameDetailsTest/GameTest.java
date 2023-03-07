@@ -28,7 +28,7 @@ class GameTest {
     HealthAction healthAction;
     List<Goal> goals;
 
-    Link linkToPorchPassage;
+    Link linkToPorchPassage, linkToNowhere;
 
     @BeforeEach
     void setUp(){
@@ -49,9 +49,15 @@ class GameTest {
 
         player = new Player("Kari", 100, 10,10);
 
-        openingPassage = new Passage("Beginning", "You woke up and felt at once all alone");
+        openingPassage = PassageBuilder.newInstance()
+                .setTitle("Beginning")
+                .setContent("You woke up and felt at once all alone")
+                .build();
 
-        porchPassage = new Passage("The porch", "There are no people outside, and its all so quite");
+        porchPassage = PassageBuilder.newInstance()
+                .setTitle("The porch")
+                .setContent("There are no people outside, and its all so quite")
+                .build();
 
 
         story = StoryBuilder.newInstance()
@@ -65,6 +71,12 @@ class GameTest {
                 .setText("Go outside")
                 .setReference("The porch")
                 .build();
+
+        linkToNowhere = LinkBuilder.newInstance()
+                .setText("text")
+                .setReference("nowhere")
+                .build();
+
 
 
         openingPassage.addLink(linkToPorchPassage);
@@ -93,6 +105,8 @@ class GameTest {
         goals.add(inventoryGoal);
 
         game = new Game(new Player(player), new Story(story), new ArrayList<>(goals));
+
+
 
     }
     @Nested
@@ -126,7 +140,7 @@ class GameTest {
     class testingGameGetMethods {
         @Test
         void getPlayer() {
-            Assertions.assertEquals(player.toString(),game.getPlayer().toString());
+            Assertions.assertEquals(player.getName(),game.getPlayer().getName());
         }
 
         //ok to test this way vs with whole object
@@ -142,8 +156,8 @@ class GameTest {
     }
 
     @Nested
-    @DisplayName("Testing the game methods")
-    class testingGameMethods {
+    @DisplayName("Testing the game methods with valid input")
+    class testingGameMethodsValidInput {
         @Test
         void begin() {
             Assertions.assertEquals(openingPassage, game.begin());
@@ -152,6 +166,16 @@ class GameTest {
         @Test
         void go() {
             Assertions.assertEquals(porchPassage, game.go(linkToPorchPassage));
+        }
+    }
+
+    @Nested
+    @DisplayName("Testing the game methods with invalid input")
+    class testingGameMethodsInvalidInput {
+
+        @Test
+        void go() {
+            Assertions.assertNull(game.go(linkToNowhere));
         }
     }
 }
