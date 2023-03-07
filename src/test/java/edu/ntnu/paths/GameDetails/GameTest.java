@@ -1,16 +1,14 @@
-package edu.ntnu.paths.GameDetails.GameDetailsTest;
+package edu.ntnu.paths.GameDetails;
 
 import edu.ntnu.paths.Actions.HealthAction;
-import edu.ntnu.paths.GameDetails.Game;
-import edu.ntnu.paths.GameDetails.Player;
 import edu.ntnu.paths.Goals.*;
 import edu.ntnu.paths.StoryDetails.*;
 import org.junit.jupiter.api.*;
 import java.util.ArrayList;
 import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
 
+//need to do more test containing action and goal, make sure that action and goal are changing between passages
 class GameTest {
     Game game;
     Player player;

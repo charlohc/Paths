@@ -1,4 +1,4 @@
-package edu.ntnu.paths.GameDetails.GameDetailsTest;
+package edu.ntnu.paths.GameDetails;
 
 import edu.ntnu.paths.GameDetails.Player;
 import org.junit.jupiter.api.*;
