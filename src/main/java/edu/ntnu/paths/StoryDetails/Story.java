@@ -1,10 +1,8 @@
 package edu.ntnu.paths.StoryDetails;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
-public class Story {
+public final class Story {
     private final String title;
     private final HashMap<Link, Passage> passages;
     private final Passage passage;
@@ -64,5 +62,28 @@ public class Story {
         return passages.values();
     }
 
+    public Boolean removePassage(Link link) {
 
+        if (getPassage(link) == null) return false;
+
+        boolean passageHasLink = passages.values().stream().anyMatch(passage1 -> passage1.hasLink(link));
+        if(passageHasLink) return false;
+
+        passages.remove(getPassage(link));
+        return true;
+
+    }
+
+    public List<Link> getBrokenLinks() {
+        ArrayList<Link> brokenLinks = new ArrayList<>();
+
+        passages.forEach(((link, passage1) -> {
+            for (Link link1 : passage1.getLinks()) {
+                if (getPassage(link1) == null) brokenLinks.add(link1);
+            }
+        }));
+
+        return brokenLinks;
+
+    }
 }

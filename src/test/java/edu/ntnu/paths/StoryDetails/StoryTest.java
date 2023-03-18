@@ -1,6 +1,5 @@
 package edu.ntnu.paths.StoryDetails;
 
-import edu.ntnu.paths.GameDetails.Player;
 import org.junit.jupiter.api.*;
 
 import java.util.ArrayList;
@@ -136,5 +135,72 @@ class StoryTest {
 
         story.addPassage(addedPassage);
         Assertions.assertTrue(story.getPassages().contains(addedPassage));
+    }
+
+    //fjerner passasjen hvis det ikke er noen linker til den og den eksisterer
+
+    @Nested
+    @DisplayName("Testing the removePassage function with valid and invalid data")
+    class removePassageMethod {
+        @Test
+        void removePassageWithLinksToPassage() {
+            Assertions.assertFalse(story.removePassage(linkToPorchPassage));
+        }
+
+
+        @Test
+        void removePassageThatDoesNotExist() {
+            Link linkToAPassageThatDoesNotExist = LinkBuilder.newInstance()
+                    .setText("text")
+                    .setReference("reference")
+                    .build();
+
+            openingPassage.addLink(linkToAPassageThatDoesNotExist);
+
+            Assertions.assertFalse(story.removePassage(linkToAPassageThatDoesNotExist));
+        }
+
+        @Test
+        @DisplayName("Removes the passage, which has a link that refers to it, but no passage owns the link")
+        void removePassageValid() {
+            Passage functioningPassageWithLink = PassageBuilder.newInstance()
+                    .setTitle("title of the functioning passage")
+                    .setContent("content")
+                    .build();
+
+            story.addPassage(functioningPassageWithLink);
+
+            Link linkToTheFunctioningPassageWithLink = LinkBuilder.newInstance()
+                    .setText("text about link")
+                    .setReference("title of the functioning passage")
+                    .build();
+
+            Assertions.assertTrue(story.removePassage(linkToTheFunctioningPassageWithLink));
+
+        }
+    }
+
+    @Nested
+    @DisplayName("Testing the brokenLinks method")
+    class brokenLinksMethod {
+
+        @Test
+        void brokenLinkTestWithOnlyLinksConnectedToPassages(){
+            Assertions.assertEquals(0,story.getBrokenLinks().size());
+        }
+
+        @Test
+        void brokenLinkTestWithOneLinkNotConnectedToAPassage() {
+            Link linkToAPassageThatDoesNotExist = LinkBuilder.newInstance()
+                    .setText("text")
+                    .setReference("reference to a passage that does not exist")
+                    .build();
+
+            story.getPassage().addLink(linkToAPassageThatDoesNotExist);
+
+            Assertions.assertEquals(1, story.getBrokenLinks().size());
+        }
+
+
     }
 }
