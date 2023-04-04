@@ -18,4 +18,9 @@ public class HealthAction implements Action{
         player.addHealth(this.health);
         return true;
     }
+
+    @Override
+    public String toString() {
+        return "{HealthAction: " + health + '}';
+    }
 }

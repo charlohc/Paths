@@ -16,4 +16,10 @@ public class InventoryAction implements Action{
         player.addToInventory(this.item);
         return true;
     }
+
+    @Override
+    public String toString() {
+        return "{InventoryAction: " + item + '\'' +
+                '}';
+    }
 }
