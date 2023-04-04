@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 class LinkTest {
     Link  linkToNextPassage;
 
-    HealthAction healthAction;
+    HealthAction healthAction, healthActionTestTwoWithSameClass;
 
     ScoreAction scoreAction;
 
@@ -100,5 +100,17 @@ class LinkTest {
       void addActionAlreadyInList() {
           Assertions.assertFalse(linkToNextPassage.addAction(healthAction));
       }
+
+      @Test
+      void addActionOfSameClassInList(){
+
+          healthActionTestTwoWithSameClass = new HealthAction();
+
+          healthActionTestTwoWithSameClass.healthAction(10);
+
+          Assertions.assertFalse(linkToNextPassage.addAction(healthActionTestTwoWithSameClass));
+      }
   }
+
+
 }

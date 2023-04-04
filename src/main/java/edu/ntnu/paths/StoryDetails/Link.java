@@ -40,6 +40,7 @@ public final class Link {
      */
     public boolean addAction(Action action) {
         if(actions.contains(action)) return false;
+        if(actions.stream().anyMatch(action1 -> action1.getClass().getSimpleName().equals(action.getClass().getSimpleName()))) return false;
         actions.add(action);
         return true;
     }
