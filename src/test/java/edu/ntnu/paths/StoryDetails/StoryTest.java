@@ -1,5 +1,10 @@
 package edu.ntnu.paths.StoryDetails;
 
+import edu.ntnu.paths.Actions.GoldAction;
+import edu.ntnu.paths.Actions.HealthAction;
+import edu.ntnu.paths.Actions.InventoryAction;
+import edu.ntnu.paths.Actions.ScoreAction;
+import edu.ntnu.paths.FileHandling.WriteFile;
 import org.junit.jupiter.api.*;
 
 import java.util.ArrayList;
@@ -9,6 +14,13 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class StoryTest {
     Story story, copyStory;
+
+    GoldAction goldActionIncrease10 = new GoldAction();
+
+    ScoreAction scoreActionIncrease10 = new ScoreAction();
+
+    InventoryAction inventoryActionSword = new InventoryAction();
+    HealthAction healthActionIncrease10 = new HealthAction();
     Passage openingPassage, porchPassage;
 
     Link linkToPorchPassage;
@@ -40,6 +52,17 @@ class StoryTest {
                 .build();
 
         openingPassage.addLink(linkToPorchPassage);
+
+        goldActionIncrease10.goldAction(10);
+        healthActionIncrease10.healthAction(10);
+        scoreActionIncrease10.scoreAction(10);
+        inventoryActionSword.inventoryAction("Sword");
+
+        linkToPorchPassage.addAction(goldActionIncrease10);
+        linkToPorchPassage.addAction(healthActionIncrease10);
+        linkToPorchPassage.addAction(scoreActionIncrease10);
+        linkToPorchPassage.addAction(inventoryActionSword);
+        linkToPorchPassage.addAction(goldActionIncrease10);
 
         copyStory = new Story(story);
 
@@ -201,6 +224,13 @@ class StoryTest {
             Assertions.assertEquals(1, story.getBrokenLinks().size());
         }
 
+    }
 
+    @Test
+    void testingStoryToString() {
+
+        WriteFile writeFile = new WriteFile();
+
+        writeFile.writeGameToFile(story);
     }
 }

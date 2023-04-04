@@ -19,17 +19,10 @@ public class WriteFile {
                     "ntnu" + System.getProperty("file.separator") + "paths" + System.getProperty("file.separator")  + "FileHandling"
                     +  System.getProperty("file.separator") + fileName + ".paths");
 
-            System.out.println("Present Project Directory : "+ System.getProperty("user.dir"));
-
-
             fWriter.write(text);
-
-            System.out.println(text);
 
             fWriter.close();
 
-            System.out.println(
-                    "File is created successfully with the content.");
         } catch (IOException e) {
 
             System.out.print(e.getMessage());
@@ -37,7 +30,6 @@ public class WriteFile {
 
     }
 
-    // Main driver method
     public static void main(String[] args) {
 
     }

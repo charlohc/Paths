@@ -19,7 +19,6 @@ public class InventoryAction implements Action{
 
     @Override
     public String toString() {
-        return "{InventoryAction: " + item + '\'' +
-                '}';
+        return "{InventoryAction:" + item  + '}';
     }
 }
