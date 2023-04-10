@@ -21,6 +21,6 @@ public class HealthAction implements Action{
 
     @Override
     public String toString() {
-        return "{HealthAction: " + health + '}';
+        return "HealthAction:" + health;
     }
 }

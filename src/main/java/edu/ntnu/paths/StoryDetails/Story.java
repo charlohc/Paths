@@ -1,6 +1,9 @@
 package edu.ntnu.paths.StoryDetails;
 
+import edu.ntnu.paths.Actions.Action;
+
 import java.util.*;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public final class Story {
     private final String title;
@@ -84,6 +87,60 @@ public final class Story {
         }));
 
         return brokenLinks;
+    }
+
+     public String passagesContent() {
+
+        StringBuilder passageContent = new StringBuilder();
+
+       passages.values().forEach(passage1 -> {
+           if(!passage1.equals(passage)) {
+               passageContent.append("::").append(passage1.getTittle()).append("\n")
+                       .append(passage1.getContent()).append("\n");
+
+               passage1.getLinks().forEach(link -> {
+                   passageContent.append("[").append(link.getText()).append("]")
+                           .append("(").append(link.getReference()).append(")");
+
+                   link.getActions().forEach(action -> {
+                       passageContent.append("{").append(action.toString()).append("}");
+                   });
+               });
+           }
+           passageContent.append("\n");
+       });
+
+
+        return passageContent.toString();
+     }
+
+     public String openingPassageLinks() {
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < passage.getLinks().size(); i++) {
+            sb.append("[").append(passage.getLinks().get(i).getText()).append("]")
+                    .append("(").append(passage.getLinks().get(i).getReference()).append(")");
+
+                    for (int j = 0; j < passage.getLinks().get(i).getActions().size(); j++) {
+                        sb.append("{").append(passage.getLinks().get(i).getActions().get(j)).append("}");
+                    }
+
+            sb.append("\n");
+        }
+
+        return sb.toString();
+     }
+
+
+    @Override
+    public String toString() {
+        return title + " \n" +
+                " \n" + "::" + passage.getTittle() +
+                "\n" + passage.getContent() + " \n" +
+                openingPassageLinks() + "\n" +
+                passagesContent();
+
+
 
     }
 }

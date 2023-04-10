@@ -1,14 +1,15 @@
 package edu.ntnu.paths.FileHandling;
 
-import edu.ntnu.paths.StoryDetails.Passage;
-import edu.ntnu.paths.StoryDetails.Story;
-import edu.ntnu.paths.StoryDetails.StoryBuilder;
 
-import java.io.File;  // Import the File class
-import java.io.FileNotFoundException;  // Import this class to handle errors
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Scanner; // Import the Scanner class to read text files
+import edu.ntnu.paths.StoryDetails.Link;
+import edu.ntnu.paths.StoryDetails.Story;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.*;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+
 public class ReadFile {
 
     public static void main(String[] args) {
@@ -39,16 +40,53 @@ public class ReadFile {
     public static Story getStory(String storyInfo){
 
         String[] storyInfoArr = storyInfo.split("\n");
-        System.out.println(Arrays.toString(storyInfoArr));
 
-        
+ String[] storyArr = Arrays.stream(storyInfoArr).filter((s) -> !Objects.equals(s, " ")).toArray(String[]::new);
+       // System.out.println(Arrays.toString(storyArr));
 
-     /*   Story story = StoryBuilder.newInstance()
-                .setTitle(storyInfoArr[0])
-                .setOpeningPassage(new Passage(storyInfoArr[2]))
-                .build();*/
+
+        int titleOpeningPassageIndex = 0;
+        int contentOpeningPassageIndex = 0;
+
+
+        for (int i = storyArr.length - 1 ; i >= 0 ; i--) {
+            if(storyInfoArr[i].contains("::"))  {
+                titleOpeningPassageIndex = i;
+                break;
+            }
+        }
+
+        contentOpeningPassageIndex = titleOpeningPassageIndex + 1;
+
+
+        List<Link> linksFromOpeningPassage = new ArrayList<>();
+        int linksOpeningPassageIndex = contentOpeningPassageIndex + 1;
+       // System.out.println(linksOpeningPassageIndex);
+
+        for (int i = linksOpeningPassageIndex; i <= storyArr.length; i++) {
+            String[] linkInfo =  storyInfoArr[i].split("[\\s@&.?$+-]+");
+           /* System.out.println(linkInfo[0].replaceAll("[^a-zA-Z]+", ""));
+            System.out.println(linkInfo[1].replaceAll("[^a-zA-Z]+", ""));*/
+            System.out.println(Arrays.toString(linkInfo));
+
+
+        }
+
+      /*  Link linkFromOpeningPassage = LinkBuilder.newInstance()
+                .set*/
+
+
+       /* Passage openingPassage = PassageBuilder.newInstance()
+                .setTitle(storyInfoArr[titleOpeningPassageIndex])
+                .setContent(storyInfoArr[contentOpeningPassageIndex])
+                .setLinks()*/
+
 
         return null;
     }
 
 }
+/*  String[] linkInfo =  storyInfoArr[i].split(" ");
+            System.out.println(linkInfo[0].replaceAll("[^a-zA-Z]+", ""));
+            System.out.println(linkInfo[1].replaceAll("[^a-zA-Z]+", ""));
+            */

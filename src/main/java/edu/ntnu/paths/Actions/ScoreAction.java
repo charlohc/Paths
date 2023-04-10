@@ -20,7 +20,6 @@ public class ScoreAction implements Action {
 
     @Override
     public String toString() {
-        return "{ScoreAction:" + points +
-                '}';
+        return "ScoreAction:" + points;
     }
 }

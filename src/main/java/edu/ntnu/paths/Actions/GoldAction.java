@@ -19,6 +19,6 @@ public class GoldAction implements Action{
 
     @Override
     public String toString() {
-        return "{GoldAction: " + gold + '}';
+        return "GoldAction:" + gold;
     }
 }

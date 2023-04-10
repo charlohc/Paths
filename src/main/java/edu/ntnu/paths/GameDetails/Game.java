@@ -55,4 +55,5 @@ public class Game {
         return story.getPassage(link);
 
     }
+
 }
