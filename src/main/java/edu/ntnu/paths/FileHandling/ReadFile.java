@@ -1,8 +1,8 @@
 package edu.ntnu.paths.FileHandling;
 
 
-import edu.ntnu.paths.StoryDetails.Link;
-import edu.ntnu.paths.StoryDetails.Story;
+import edu.ntnu.paths.Actions.*;
+import edu.ntnu.paths.StoryDetails.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -25,9 +25,12 @@ public class ReadFile {
             Scanner myReader = new Scanner(myObj);
             StringBuilder storyInfo = new StringBuilder();
 
+
+
+
             while (myReader.hasNextLine()) {
                  String data = myReader.nextLine();
-                 storyInfo.append(data + "\n");
+                 storyInfo.append(data).append("\n");
             }
             myReader.close();
             getStory(storyInfo.toString());
@@ -37,56 +40,94 @@ public class ReadFile {
         }
     }
 
-    public static Story getStory(String storyInfo){
+    public static void getStory(String storyInfo) {
 
-        String[] storyInfoArr = storyInfo.split("\n");
-
- String[] storyArr = Arrays.stream(storyInfoArr).filter((s) -> !Objects.equals(s, " ")).toArray(String[]::new);
-       // System.out.println(Arrays.toString(storyArr));
+        String[] storyContentArray = storyInfo.split("\n");
 
 
-        int titleOpeningPassageIndex = 0;
-        int contentOpeningPassageIndex = 0;
+        System.out.println(Arrays.toString(storyContentArray));
 
 
-        for (int i = storyArr.length - 1 ; i >= 0 ; i--) {
-            if(storyInfoArr[i].contains("::"))  {
-                titleOpeningPassageIndex = i;
-                break;
+
+        Passage openingPassage = PassageBuilder.newInstance()
+                .setTitle(storyContentArray[2].replace(":", ""))
+                .setContent(storyContentArray[3])
+                .build();
+
+        Story story = StoryBuilder.newInstance()
+                .setTitle(storyContentArray[0])
+                .setOpeningPassage(openingPassage)
+                .build();
+
+
+        int index = 4;
+
+        while (!storyContentArray[index].isEmpty()) {
+
+            String[] links = storyContentArray[index].split("[{}()]");
+
+            String[] linksWithoutBlank = Arrays.stream(links).filter(x -> !x.isEmpty()).toArray(String[]::new);
+
+
+
+            Link openingPassageLink = null;
+
+                 openingPassageLink = LinkBuilder.newInstance()
+                        .setText(linksWithoutBlank[0])
+                        .setReference(linksWithoutBlank[1])
+                        .build();
+
+
+
+            for (int j = 2; j < linksWithoutBlank.length; j++) {
+
+                    openingPassageLink.addAction(setAction(linksWithoutBlank[j]));
+
             }
+            
+            openingPassage.addLink(openingPassageLink);
+            index++;
         }
 
-        contentOpeningPassageIndex = titleOpeningPassageIndex + 1;
 
 
-        List<Link> linksFromOpeningPassage = new ArrayList<>();
-        int linksOpeningPassageIndex = contentOpeningPassageIndex + 1;
-       // System.out.println(linksOpeningPassageIndex);
 
-        for (int i = linksOpeningPassageIndex; i <= storyArr.length; i++) {
-            String[] linkInfo =  storyInfoArr[i].split("[\\s@&.?$+-]+");
-           /* System.out.println(linkInfo[0].replaceAll("[^a-zA-Z]+", ""));
-            System.out.println(linkInfo[1].replaceAll("[^a-zA-Z]+", ""));*/
-            System.out.println(Arrays.toString(linkInfo));
+    }
 
+   public static Action setAction(String action) {
 
-        }
+     if (action.contains("GoldAction")) {
+         GoldAction goldAction = new GoldAction();
+         int valueGoldAction = Integer.parseInt(action.replaceAll("[^0-9]", ""));
 
-      /*  Link linkFromOpeningPassage = LinkBuilder.newInstance()
-                .set*/
+         goldAction.goldAction(valueGoldAction);
+         return goldAction;
 
+     }  else if (action.contains("HealthAction")) {
+         HealthAction healthAction = new HealthAction();
+         int valueHealthAction = Integer.parseInt(action.replaceAll("[^0-9]", ""));
 
-       /* Passage openingPassage = PassageBuilder.newInstance()
-                .setTitle(storyInfoArr[titleOpeningPassageIndex])
-                .setContent(storyInfoArr[contentOpeningPassageIndex])
-                .setLinks()*/
+         healthAction.healthAction(valueHealthAction);
+         return healthAction;
 
+     }   else if (action.contains("ScoreAction")) {
+         ScoreAction scoreAction = new ScoreAction();
+         int valueScoreAction = Integer.parseInt(action.replaceAll("[^0-9]", ""));
+
+         scoreAction.scoreAction(valueScoreAction);
+         return scoreAction;
+     }
+     else if (action.contains("InventoryAction")) {
+        InventoryAction inventoryAction = new InventoryAction();
+         String[] inventoryItemArr = action.split(":");
+         String valueInventoryAction = inventoryItemArr[1];
+         inventoryAction.inventoryAction(valueInventoryAction);
+         return inventoryAction;
+     }
+     else {
+         System.out.println("problem");
+     }
 
         return null;
     }
-
 }
-/*  String[] linkInfo =  storyInfoArr[i].split(" ");
-            System.out.println(linkInfo[0].replaceAll("[^a-zA-Z]+", ""));
-            System.out.println(linkInfo[1].replaceAll("[^a-zA-Z]+", ""));
-            */
