@@ -45,7 +45,7 @@ public class ReadFile {
         String[] storyContentArray = storyInfo.split("\n");
 
 
-        System.out.println(Arrays.toString(storyContentArray));
+        //System.out.println(Arrays.toString(storyContentArray));
 
 
 
@@ -89,8 +89,53 @@ public class ReadFile {
             index++;
         }
 
+        Passage passage = null;
+
+        while (!(index == storyContentArray.length)) {
 
 
+                if (storyContentArray[index].contains("::")) {
+                     passage = PassageBuilder.newInstance()
+                            .setTitle(storyContentArray[index].replaceAll("::",""))
+                            .setContent(storyContentArray[index + 1])
+                            .build();
+
+                     story.addPassage(passage);
+                    index += 2;
+                } else {
+
+                    while (!storyContentArray[index].isEmpty()) {
+
+                        String[] links = storyContentArray[index].split("[{}()]");
+
+                        String[] linksWithoutBlank = Arrays.stream(links).filter(x -> !x.isEmpty()).toArray(String[]::new);
+
+
+
+                        Link passageLink = null;
+
+                        passageLink = LinkBuilder.newInstance()
+                                .setText(linksWithoutBlank[0])
+                                .setReference(linksWithoutBlank[1])
+                                .build();
+
+
+
+                        for (int j = 2; j < linksWithoutBlank.length; j++) {
+
+                            passageLink.addAction(setAction(linksWithoutBlank[j]));
+
+                        }
+
+                        assert passage != null;
+                        passage.addLink(passageLink);
+                        index++;
+                    }
+
+                    index++;
+                }
+
+        }
 
     }
 
