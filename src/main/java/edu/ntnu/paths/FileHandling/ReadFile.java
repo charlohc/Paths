@@ -62,32 +62,8 @@ public class ReadFile {
 
         int index = 4;
 
-        while (!storyContentArray[index].isEmpty()) {
+       index =  addLink(storyContentArray, openingPassage, index);
 
-            String[] links = storyContentArray[index].split("[{}()]");
-
-            String[] linksWithoutBlank = Arrays.stream(links).filter(x -> !x.isEmpty()).toArray(String[]::new);
-
-
-
-            Link openingPassageLink = null;
-
-                 openingPassageLink = LinkBuilder.newInstance()
-                        .setText(linksWithoutBlank[0])
-                        .setReference(linksWithoutBlank[1])
-                        .build();
-
-
-
-            for (int j = 2; j < linksWithoutBlank.length; j++) {
-
-                    openingPassageLink.addAction(setAction(linksWithoutBlank[j]));
-
-            }
-            
-            openingPassage.addLink(openingPassageLink);
-            index++;
-        }
 
         Passage passage = null;
 
@@ -95,6 +71,7 @@ public class ReadFile {
 
 
                 if (storyContentArray[index].contains("::")) {
+
                      passage = PassageBuilder.newInstance()
                             .setTitle(storyContentArray[index].replaceAll("::",""))
                             .setContent(storyContentArray[index + 1])
@@ -104,39 +81,47 @@ public class ReadFile {
                     index += 2;
                 } else {
 
-                    while (!storyContentArray[index].isEmpty()) {
+              addLink(storyContentArray, passage, index);
 
-                        String[] links = storyContentArray[index].split("[{}()]");
-
-                        String[] linksWithoutBlank = Arrays.stream(links).filter(x -> !x.isEmpty()).toArray(String[]::new);
-
-
-
-                        Link passageLink = null;
-
-                        passageLink = LinkBuilder.newInstance()
-                                .setText(linksWithoutBlank[0])
-                                .setReference(linksWithoutBlank[1])
-                                .build();
-
-
-
-                        for (int j = 2; j < linksWithoutBlank.length; j++) {
-
-                            passageLink.addAction(setAction(linksWithoutBlank[j]));
-
-                        }
-
-                        assert passage != null;
-                        passage.addLink(passageLink);
-                        index++;
-                    }
-
-                    index++;
-                }
+              index++;
+            }
 
         }
 
+    }
+
+    public static int addLink(String[] storyContentArray,Passage passage, int index) {
+        while (!storyContentArray[index].isEmpty()) {
+
+            String[] links = storyContentArray[index].split("[{}()]");
+
+            String[] linksWithoutBlank = Arrays.stream(links).filter(x -> !x.isEmpty()).toArray(String[]::new);
+
+
+
+            Link linkFromNewPassage = null;
+
+            linkFromNewPassage = LinkBuilder.newInstance()
+                    .setText(linksWithoutBlank[0].replace("[","").replace("]",""))
+                    .setReference(linksWithoutBlank[1])
+                    .build();
+
+
+
+            for (int j = 2; j < linksWithoutBlank.length; j++) {
+
+                linkFromNewPassage.addAction(setAction(linksWithoutBlank[j]));
+
+            }
+
+            passage.addLink(linkFromNewPassage);
+
+            if ((index + 1) == storyContentArray.length) {
+                break;
+            }
+            index++;
+        }
+        return index + 1;
     }
 
    public static Action setAction(String action) {
