@@ -12,8 +12,11 @@ public final class Link {
 
     public Link(LinkBuilder linkBuilder) {
         if (linkBuilder.text.isEmpty()) { throw new NullPointerException("Text cannot be null");
-        }
-        else if (linkBuilder.reference.isEmpty()) { throw new NullPointerException("Reference cannot be null");
+        } else if (linkBuilder.text.matches("[{}()]")) {
+            throw new IllegalArgumentException("link text can not contain special characters!");
+        } else if (linkBuilder.reference.isEmpty()) { throw new NullPointerException("Reference cannot be null");
+        } else if (linkBuilder.reference.matches("[{}()]")) {
+            throw new IllegalArgumentException("link text can not contain special characters!");
         }
 
         this.text = linkBuilder.text;

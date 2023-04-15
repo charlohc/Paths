@@ -12,8 +12,9 @@ public final class Passage {
     public Passage(PassageBuilder passageBuilder) {
         if (passageBuilder.title.isEmpty()) {
             throw new NullPointerException("Tittle cannot be null");
-        }
-         else if ( passageBuilder.content.isEmpty()) {
+        } else if (passageBuilder.title.matches("[{}()]")) {
+            throw new IllegalArgumentException("Passage tittle can not contain special characters!");
+        } else if ( passageBuilder.content.isEmpty()) {
         throw new NullPointerException("Content cannot be null");
     } else {
             this.tittle = passageBuilder.title;
