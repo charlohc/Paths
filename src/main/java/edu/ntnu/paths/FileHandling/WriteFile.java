@@ -17,7 +17,7 @@ public class WriteFile {
                     + "src" + System.getProperty("file.separator") + "main" + System.getProperty("file.separator")
                     + "java" + System.getProperty("file.separator")  + "edu" + System.getProperty("file.separator") +
                     "ntnu" + System.getProperty("file.separator") + "paths" + System.getProperty("file.separator")  + "FileHandling"
-                    +  System.getProperty("file.separator") + fileName + ".paths");
+                    +  System.getProperty("file.separator") + "StoryFiles" + System.getProperty("file.separator") + fileName + ".paths");
 
             fWriter.write(text);
 

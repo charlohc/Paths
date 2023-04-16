@@ -1,19 +1,20 @@
 package edu.ntnu.paths.FileHandling;
 
-import edu.ntnu.paths.Actions.GoldAction;
-import edu.ntnu.paths.Actions.HealthAction;
-import edu.ntnu.paths.Actions.InventoryAction;
-import edu.ntnu.paths.Actions.ScoreAction;
+import edu.ntnu.paths.Actions.*;
 import edu.ntnu.paths.StoryDetails.*;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.*;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
 
 class WriteFileTest {
 
     Story story, copyStoryWriteToFile;
 
     GoldAction goldActionIncrease10 = new GoldAction();
-
-    GoldAction goldActionIncrease20 = new GoldAction();
 
     ScoreAction scoreActionIncrease10 = new ScoreAction();
 
@@ -25,6 +26,11 @@ class WriteFileTest {
 
     WriteFile writeFile = new WriteFile();
 
+    File storyFromFile;
+
+    String[] storyContentArray;
+
+    String storyInfoString = "";
 
     @BeforeEach
     void setUp() {
@@ -75,7 +81,6 @@ class WriteFileTest {
         scoreActionIncrease10.scoreAction(10);
         inventoryActionSword.inventoryAction("Sword");
 
-        goldActionIncrease20.goldAction(20);
 
         linkToPorchPassage.addAction(goldActionIncrease10);
         linkToPorchPassage.addAction(healthActionIncrease10);
@@ -83,17 +88,178 @@ class WriteFileTest {
         linkToPorchPassage.addAction(inventoryActionSword);
         linkToPorchPassage.addAction(goldActionIncrease10);
 
-        linkToKitchenPassage.addAction(goldActionIncrease20);
+        linkToKitchenPassage.addAction(scoreActionIncrease10);
 
         copyStoryWriteToFile = new Story(story);
 
         writeFile.writeGameToFile(copyStoryWriteToFile);
+
+        String fileName = story.getTittle();
+
+         storyFromFile = new File(System.getProperty("user.dir") + System.getProperty("file.separator")
+                + "src" + System.getProperty("file.separator") + "main" + System.getProperty("file.separator")
+                + "java" + System.getProperty("file.separator")  + "edu" + System.getProperty("file.separator") +
+                "ntnu" + System.getProperty("file.separator") + "paths" + System.getProperty("file.separator")  + "FileHandling"
+                +  System.getProperty("file.separator") + "StoryFiles" + System.getProperty("file.separator") + fileName + ".paths");
+
+
+        try {
+            Scanner myReader = new Scanner(storyFromFile);
+            StringBuilder storyInfoFromFile = new StringBuilder();
+
+            while (myReader.hasNextLine()) {
+                String data = myReader.nextLine();
+                storyInfoFromFile.append(data).append("\n");
+                 storyInfoString = storyInfoFromFile.toString();
+            }
+            myReader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+
+        storyContentArray = storyInfoString.split("\n");
+
+}
+
+    //todo: teste å skrive til fil med to like pasasjer (??, burde få feilmelding når blir lagt til før kan skrive til fil)
+
+
+    @Nested
+    @DisplayName("Tests file properties")
+    class testFileProperties {
+
+        @Test
+        void fileExist() {
+            Assertions.assertTrue(storyFromFile.exists());
+        }
+
+        @Test
+        void fileNotEmpty() {
+            Assertions.assertNotEquals(0, storyFromFile.length());
+        }
+
+        @Test
+        void correctFileName() {
+            Assertions.assertEquals(story.getTittle() + ".paths", storyFromFile.getName());
+        }
     }
 
-    //Teste at det er tittel på første linje, også mellomrom hvis ikke kaste exception
+    @Test
+    void correctNameOfStory() {
+        Assertions.assertEquals(story.getTittle(), storyContentArray[0]);
+    }
 
-    //Teste at
+    @Nested
+    @DisplayName("Tests that the opening passages gets correctly written to file")
+    class testOpeningPassage {
+        @Test
+        void firstPassageIsOpeningPassage() {
+            Assertions.assertEquals("::Beginning", storyContentArray[2]);
+        }
 
-    //passa på at tekst strenger til objektene ikke kan inneha annet enn spesial tegn
+        @Test
+        void correctNameOfOpeningPassage() {
+            Assertions.assertEquals(story.getPassage().getTittle(), storyContentArray[2].replace("::", ""));
+        }
+
+        @Test
+        void correctContentOpeningPassage() {
+            Assertions.assertEquals(story.getPassage().getContent(), storyContentArray[3]);
+        }
+
+        @Test
+        void correctTextFirstLinkOpeningPassage() {
+            String[] linkOpeningPassage = storyContentArray[4].split("[{}()]");
+            Assertions.assertEquals(story.getPassage().getLinks().get(0).getText(), linkOpeningPassage[0].replace("[", "").replace("]", ""));
+        }
+
+        @Test
+        void correctReferenceFirstLinkOpeningPassage() {
+            String[] linkOpeningPassage = storyContentArray[4].split("[{}()]");
+            Assertions.assertEquals(story.getPassage().getLinks().get(0).getReference(), linkOpeningPassage[1].replace("(", "").replace(")", ""));
+        }
+
+        @Test
+        void correctActionsFirstLinkOpeningPassage() {
+            String[] linkOpeningPassage = storyContentArray[4].split("[{}()]");
+            String[] linkOpeningPassageWithoutBlank = Arrays.stream(linkOpeningPassage).filter(x -> !x.isEmpty()).toArray(String[]::new);
+            ArrayList<Action> actionsFirstLinkOpeningPassage = (ArrayList<Action>) story.getPassage().getLinks().get(0).getActions();
+
+
+            Assertions.assertTrue(actionsFirstLinkOpeningPassage.get(0).toString().equals(linkOpeningPassageWithoutBlank[2]) &&
+                    actionsFirstLinkOpeningPassage.get(1).toString().equals(linkOpeningPassageWithoutBlank[3]) &&
+                    actionsFirstLinkOpeningPassage.get(2).toString().equals(linkOpeningPassageWithoutBlank[4]));
+        }
+
+        @Test
+        void correctTextSecondLinkOpeningPassage() {
+            String[] linkOpeningPassage = storyContentArray[5].split("[{}()]");
+            Assertions.assertEquals(story.getPassage().getLinks().get(1).getText(), linkOpeningPassage[0].replace("[", "").replace("]", ""));
+        }
+
+        @Test
+        void correctReferenceSecondLinkOpeningPassage() {
+            String[] linkOpeningPassage = storyContentArray[5].split("[{}()]");
+            Assertions.assertEquals(story.getPassage().getLinks().get(1).getReference(), linkOpeningPassage[1].replace("(", "").replace(")", ""));
+        }
+
+        @Test
+        void correctActionsSecondLinkOpeningPassage() {
+            String[] linkOpeningPassage = storyContentArray[5].split("[{}()]");
+            String[] linkOpeningPassageWithoutBlank = Arrays.stream(linkOpeningPassage).filter(x -> !x.isEmpty()).toArray(String[]::new);
+
+            Assertions.assertEquals(story.getPassage().getLinks().get(1).getActions().get(0).toString(), linkOpeningPassageWithoutBlank[2].replace("{", "").replace("}", ""));
+        }
+
+    }
+
+    @Nested
+    @DisplayName("Test that passage name, link reference and text, action get special characters")
+    class testSpecialCharacters {
+        @Test
+        void nameOfPassagesContainsColon() {
+            Assertions.assertTrue(storyContentArray[2].contains("::") && storyContentArray[7].contains("::") &&
+                    storyContentArray[11].contains("::"));
+        }
+
+        @Test
+        void linkTextContainsBrackets() {
+            Assertions.assertTrue((storyContentArray[4].charAt(0) == '[' && storyContentArray[4].charAt(11) == ']') &&
+                    (storyContentArray[5].charAt(0) == '[' && storyContentArray[5].charAt(18) == ']') &&
+                    (storyContentArray[9].charAt(0) == '[' && storyContentArray[9].charAt(18) == ']'));
+        }
+
+        @Test
+        void linkReferenceContainsParentheses() {
+            Assertions.assertTrue((storyContentArray[4].charAt(12) == '(' && storyContentArray[4].charAt(22) == ')') &&
+                    (storyContentArray[5].charAt(19) == '(' && storyContentArray[5].charAt(31) == ')') &&
+                    (storyContentArray[9].charAt(19) == '(' && storyContentArray[9].charAt(31) == ')'));
+        }
+
+        @Test
+        void linkActionContainsCurlyBracket() {
+
+            Assertions.assertTrue((storyContentArray[4].charAt(23) == '{' && storyContentArray[4].charAt(37) == '}') &&
+                    (storyContentArray[4].charAt(38) == '{' && storyContentArray[4].charAt(54) == '}') &&
+                    (storyContentArray[4].charAt(55) == '{' && storyContentArray[4].charAt(70) == '}') &&
+                    (storyContentArray[4].charAt(71) == '{' && storyContentArray[4].charAt(93) == '}') &&
+                    (storyContentArray[5].charAt(32) == '{' && storyContentArray[5].charAt(47) == '}') &&
+                    (storyContentArray[9].charAt(32) == '{' && storyContentArray[9].charAt(47) == '}'));
+        }
+    }
+
+    @Test
+    void afterEveryPassageNewLineIfNotLastPassage() {
+        Assertions.assertTrue(storyContentArray[6].isEmpty() && storyContentArray[10].isEmpty());
+    }
+
+    @Test
+    void storyObjectIsTheSameInFile() {
+        ReadFile readFile = new ReadFile();
+
+        Assertions.assertEquals(story.toString(), readFile.getStory(storyInfoString).toString());
+    }
+
 
 }
