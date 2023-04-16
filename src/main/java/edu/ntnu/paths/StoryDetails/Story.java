@@ -1,7 +1,5 @@
 package edu.ntnu.paths.StoryDetails;
 
-import edu.ntnu.paths.Actions.Action;
-
 import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -93,6 +91,7 @@ public final class Story {
 
         StringBuilder passageContent = new StringBuilder();
 
+
        passages.values().forEach(passage1 -> {
            if(!passage1.equals(passage)) {
                passageContent.append("::").append(passage1.getTittle()).append("\n")
@@ -106,10 +105,11 @@ public final class Story {
                        passageContent.append("{").append(action.toString()).append("}");
                    });
                });
+               passageContent.append("\n\n");
            }
-           passageContent.append("\n");
-       });
 
+
+       });
 
         return passageContent.toString();
      }
@@ -139,8 +139,6 @@ public final class Story {
                 "\n" + passage.getContent() + "\n" +
                 openingPassageLinks() + "\n" +
                 passagesContent();
-
-
 
     }
 }
