@@ -4,6 +4,7 @@ import edu.ntnu.paths.Actions.Action;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.regex.Pattern;
 
 public final class Link {
     private final String text;
@@ -11,17 +12,20 @@ public final class Link {
     private final List<Action> actions;
 
     public Link(LinkBuilder linkBuilder) {
+        Pattern p = Pattern.compile("[@#$%&*:()_+=|<>{}\\[\\]\n~]", Pattern.CASE_INSENSITIVE);
+
         if (linkBuilder.text.isEmpty()) { throw new NullPointerException("Text cannot be null");
-        } else if (linkBuilder.text.matches("[{}()]")) {
+        } else if (p.matcher(linkBuilder.text).find()) {
             throw new IllegalArgumentException("link text can not contain special characters!");
         } else if (linkBuilder.reference.isEmpty()) { throw new NullPointerException("Reference cannot be null");
-        } else if (linkBuilder.reference.matches("[{}()]")) {
-            throw new IllegalArgumentException("link text can not contain special characters!");
-        }
+        } else if (p.matcher(linkBuilder.reference).find()) {
+            throw new IllegalArgumentException("link reference can not contain special characters!");
+        } else {
 
-        this.text = linkBuilder.text;
-        this.reference = linkBuilder.reference;
-        this.actions = linkBuilder.actions;
+            this.text = linkBuilder.text;
+            this.reference = linkBuilder.reference;
+            this.actions = linkBuilder.actions;
+        }
     }
 
 
