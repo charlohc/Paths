@@ -22,11 +22,10 @@ public final class Passage {
         throw new NullPointerException("Content cannot be null");
         } else if (p.matcher(passageBuilder.content).find()) {
             throw new IllegalArgumentException("Passage content can not contain special characters");
-        }else {
-            this.tittle = passageBuilder.title;
-            this.content = passageBuilder.content;
-            this.links = passageBuilder.links;
         }
+            this.tittle = passageBuilder.title.trim();
+            this.content = passageBuilder.content.trim();
+            this.links = passageBuilder.links;
     }
 
 

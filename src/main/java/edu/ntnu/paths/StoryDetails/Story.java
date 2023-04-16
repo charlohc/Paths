@@ -16,7 +16,7 @@ public final class Story {
         }  else if (storyBuilder.openingPassage == null) {
             throw new NullPointerException("Opening passage cannot be null");
         }
-            this.title = storyBuilder.title;
+            this.title = storyBuilder.title.trim();
             this.passage = storyBuilder.openingPassage;
             this.passages = (HashMap<Link, Passage>) storyBuilder.passages;
 

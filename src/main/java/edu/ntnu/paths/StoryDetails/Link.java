@@ -20,12 +20,12 @@ public final class Link {
         } else if (linkBuilder.reference.isEmpty()) { throw new NullPointerException("Reference cannot be null");
         } else if (p.matcher(linkBuilder.reference).find()) {
             throw new IllegalArgumentException("link reference can not contain special characters!");
-        } else {
-
-            this.text = linkBuilder.text;
-            this.reference = linkBuilder.reference;
-            this.actions = linkBuilder.actions;
         }
+
+            this.text = linkBuilder.text.trim();
+            this.reference = linkBuilder.reference.trim();
+            this.actions = linkBuilder.actions;
+
     }
 
 

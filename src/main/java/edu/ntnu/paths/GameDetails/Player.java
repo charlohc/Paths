@@ -20,7 +20,7 @@ public class Player {
         } else if (gold < 0) {
             throw new IllegalArgumentException("Gold cannot negative");
         } else {
-            this.name = name;
+            this.name = name.trim();
             this.health = health;
             this.score = score;
             this.gold = gold;
