@@ -10,7 +10,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class LinkTest {
-    Link  linkToNextPassage;
+    Link linkToPorchPassage;
 
     HealthAction healthAction, healthActionTestTwoWithSameClass;
 
@@ -18,9 +18,9 @@ class LinkTest {
 
     @BeforeEach
     void setUp() {
-        linkToNextPassage = LinkBuilder.newInstance()
-                .setText("text about next passage")
-                .setReference("reference to the next passage")
+        linkToPorchPassage = LinkBuilder.newInstance()
+                .setText("Go outside")
+                .setReference("The porch")
                 .build();
 
         healthAction = new HealthAction();
@@ -31,9 +31,9 @@ class LinkTest {
 
         scoreAction.scoreAction(5);
 
-        linkToNextPassage.addAction(healthAction);
+        linkToPorchPassage.addAction(healthAction);
 
-        linkToNextPassage.addAction(scoreAction);
+        linkToPorchPassage.addAction(scoreAction);
     }
 
     @Nested
@@ -45,7 +45,27 @@ class LinkTest {
             assertThrows(NullPointerException.class, () -> {
                 Link linkWithoutText = LinkBuilder.newInstance()
                         .setText("")
-                        .setReference("reference to the next passage")
+                        .setReference("The porch")
+                        .build();
+            });
+        }
+
+        @Test
+        void linkWithInvalidTextSpecialCharacter() {
+            assertThrows(IllegalArgumentException.class, () -> {
+                Link linkTextWithSpecialCharacter = LinkBuilder.newInstance()
+                        .setText("{ go outside}")
+                        .setReference("The porch")
+                        .build();
+            });
+        }
+
+        @Test
+        void linkWithInvalidTextNewLine() {
+            assertThrows(IllegalArgumentException.class, () -> {
+                Link linkTextWithNewLine = LinkBuilder.newInstance()
+                        .setText("Go outside \n")
+                        .setReference("The porch")
                         .build();
             });
         }
@@ -60,6 +80,26 @@ class LinkTest {
             });
         }
 
+        @Test
+        void linkWithInvalidReferenceSpecialCharacter() {
+            assertThrows(IllegalArgumentException.class, () -> {
+                Link linkReferenceWithSpecialCharacter = LinkBuilder.newInstance()
+                        .setText("Go outside")
+                        .setReference("*The porch")
+                        .build();
+            });
+        }
+
+        @Test
+        void linkWithInvalidReferenceNewLine() {
+            assertThrows(IllegalArgumentException.class, () -> {
+                Link linkReferenceWithNewLine = LinkBuilder.newInstance()
+                        .setText("Go outside")
+                        .setReference("The porch" + "\n")
+                        .build();
+            });
+        }
+
     }
 
     @Nested
@@ -67,12 +107,12 @@ class LinkTest {
     class testingGetMethods {
         @Test
         void getText() {
-            Assertions.assertEquals("text about next passage", linkToNextPassage.getText());
+            Assertions.assertEquals("text about next passage", linkToPorchPassage.getText());
         }
 
         @Test
         void getReference() {
-            Assertions.assertEquals("reference to the next passage", linkToNextPassage.getReference());
+            Assertions.assertEquals("reference to the next passage", linkToPorchPassage.getReference());
         }
 
         @Test
@@ -81,7 +121,7 @@ class LinkTest {
             actions.add(healthAction);
             actions.add(scoreAction);
 
-            Assertions.assertEquals(actions, linkToNextPassage.getActions());
+            Assertions.assertEquals(actions, linkToPorchPassage.getActions());
         }
     }
 
@@ -93,12 +133,12 @@ class LinkTest {
           GoldAction goldAction = new GoldAction();
           goldAction.goldAction(25);
 
-          Assertions.assertTrue(linkToNextPassage.addAction(goldAction));
+          Assertions.assertTrue(linkToPorchPassage.addAction(goldAction));
       }
 
       @Test
       void addActionAlreadyInList() {
-          Assertions.assertFalse(linkToNextPassage.addAction(healthAction));
+          Assertions.assertFalse(linkToPorchPassage.addAction(healthAction));
       }
 
       @Test
@@ -108,7 +148,7 @@ class LinkTest {
 
           healthActionTestTwoWithSameClass.healthAction(10);
 
-          Assertions.assertFalse(linkToNextPassage.addAction(healthActionTestTwoWithSameClass));
+          Assertions.assertFalse(linkToPorchPassage.addAction(healthActionTestTwoWithSameClass));
       }
   }
 
