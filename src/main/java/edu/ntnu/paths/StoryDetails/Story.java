@@ -13,7 +13,7 @@ public final class Story {
     public Story(StoryBuilder storyBuilder) {
         if (storyBuilder.title.isEmpty()) {
             throw new NullPointerException("tittle cannot be null");
-        } else if (storyBuilder.openingPassage == null) {
+        }  else if (storyBuilder.openingPassage == null) {
             throw new NullPointerException("Opening passage cannot be null");
         }
             this.title = storyBuilder.title;
@@ -134,9 +134,9 @@ public final class Story {
 
     @Override
     public String toString() {
-        return title + " \n" +
-                " \n" + "::" + passage.getTittle() +
-                "\n" + passage.getContent() + " \n" +
+        return title + "\n" +
+                "\n" + "::" + passage.getTittle() +
+                "\n" + passage.getContent() + "\n" +
                 openingPassageLinks() + "\n" +
                 passagesContent();
 
