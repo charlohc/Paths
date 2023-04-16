@@ -3,6 +3,7 @@ package edu.ntnu.paths.StoryDetails;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.regex.Pattern;
 
 public final class Passage {
     private final String tittle;
@@ -10,13 +11,18 @@ public final class Passage {
     private List<Link> links;
 
     public Passage(PassageBuilder passageBuilder) {
+        Pattern p = Pattern.compile("[@#$%&*:()_+=|<>{}\\[\\]\n~]", Pattern.CASE_INSENSITIVE);
+
+
         if (passageBuilder.title.isEmpty()) {
             throw new NullPointerException("Tittle cannot be null");
-        } else if (passageBuilder.title.matches("[{}()]")) {
-            throw new IllegalArgumentException("Passage tittle can not contain special characters!");
-        } else if ( passageBuilder.content.isEmpty()) {
+        } else if (p.matcher(passageBuilder.title).find()) {
+            throw new IllegalArgumentException("Passage tittle can not contain special characters");
+        } else if (passageBuilder.content.isEmpty()) {
         throw new NullPointerException("Content cannot be null");
-    } else {
+        } else if (p.matcher(passageBuilder.content).find()) {
+            throw new IllegalArgumentException("Passage content can not contain special characters");
+        }else {
             this.tittle = passageBuilder.title;
             this.content = passageBuilder.content;
             this.links = passageBuilder.links;

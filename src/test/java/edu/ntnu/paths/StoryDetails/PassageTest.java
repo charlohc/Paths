@@ -22,6 +22,7 @@ class PassageTest {
                 .build();
 
         openingPassage.addLink(linkToPorchPassage);
+
     }
 
     @Nested
@@ -39,6 +40,26 @@ class PassageTest {
         }
 
         @Test
+        void passageInvalidTittleColon() {
+            assertThrows(IllegalArgumentException.class, () -> {
+                Passage passageWithInvalidTittleColon = PassageBuilder.newInstance()
+                        .setTitle("::The Beginning")
+                        .setContent("You woke up and felt at once all alone")
+                        .build();
+            });
+        }
+
+        @Test
+        void passageInvalidTittleNumber() {
+            assertThrows(IllegalArgumentException.class, () -> {
+                Passage passageWithInvalidTittleNumber = PassageBuilder.newInstance()
+                        .setTitle("The Beginning99")
+                        .setContent("You woke up and felt at once all alone")
+                        .build();
+            });
+        }
+
+        @Test
         void passageWithoutContent() {
             assertThrows(NullPointerException.class, () -> {
                 Passage passageWithoutContent = PassageBuilder.newInstance()
@@ -48,7 +69,27 @@ class PassageTest {
             });
         }
 
+        @Test
+        void passageWithInvalidContentNewLine() {
+            assertThrows(IllegalArgumentException.class, () -> {
+                Passage passageWithInvalidContentNewLine = PassageBuilder.newInstance()
+                        .setTitle("The Beginning")
+                        .setContent("You woke up and felt at once all alone \n")
+                        .build();
+            });
         }
+
+        @Test
+        void passageWithInvalidContentSpecialCharacters() {
+            assertThrows(IllegalArgumentException.class, () -> {
+                Passage passageWithInvalidContentSpecialCharacters = PassageBuilder.newInstance()
+                        .setTitle("The Beginning")
+                        .setContent("[You woke up and felt at once all alone]")
+                        .build();
+            });
+        }
+
+    }
 
     @Nested
     @DisplayName("Testing get methods from Passage object")
