@@ -1,6 +1,7 @@
 package edu.ntnu.paths.FileHandling;
 
 import edu.ntnu.paths.Actions.*;
+import edu.ntnu.paths.Exceptions.StoryExist;
 import edu.ntnu.paths.StoryDetails.*;
 import org.junit.jupiter.api.*;
 
@@ -9,6 +10,8 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
+
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class WriteFileTest {
 
@@ -31,6 +34,8 @@ class WriteFileTest {
     String[] storyContentArray;
 
     String storyInfoString = "";
+
+    String filePath = "";
 
     @BeforeEach
     void setUp() {
@@ -92,15 +97,21 @@ class WriteFileTest {
 
         copyStoryWriteToFile = new Story(story);
 
-        writeFile.writeGameToFile(copyStoryWriteToFile);
+        try {
+            writeFile.writeStoryToFile(copyStoryWriteToFile);
+        } catch (StoryExist e) {
+            throw new RuntimeException(e);
+        }
 
         String fileName = story.getTittle();
 
-         storyFromFile = new File(System.getProperty("user.dir") + System.getProperty("file.separator")
+         filePath = System.getProperty("user.dir") + System.getProperty("file.separator")
                 + "src" + System.getProperty("file.separator") + "main" + System.getProperty("file.separator")
                 + "java" + System.getProperty("file.separator")  + "edu" + System.getProperty("file.separator") +
                 "ntnu" + System.getProperty("file.separator") + "paths" + System.getProperty("file.separator")  + "FileHandling"
-                +  System.getProperty("file.separator") + "StoryFiles" + System.getProperty("file.separator") + fileName + ".paths");
+                +  System.getProperty("file.separator") + "StoryFiles" + System.getProperty("file.separator") + fileName + ".paths";
+
+         storyFromFile = new File(filePath);
 
 
         try {
@@ -122,8 +133,10 @@ class WriteFileTest {
 
 }
 
-    //todo: teste å skrive til fil med to like pasasjer (??, burde få feilmelding når blir lagt til før kan skrive til fil)
-
+    @AfterEach
+    void tearDown() {
+      storyFromFile.delete();
+    }
 
     @Nested
     @DisplayName("Tests file properties")
@@ -140,8 +153,24 @@ class WriteFileTest {
         }
 
         @Test
+        void fileAtCorrectPlace() {
+            Assertions.assertEquals(filePath, storyFromFile.getAbsolutePath());
+        }
+
+        @Test
         void correctFileName() {
             Assertions.assertEquals(story.getTittle() + ".paths", storyFromFile.getName());
+        }
+    }
+
+    @Nested
+    @DisplayName("Test for exception handling when faults in story object or setup")
+    class testExceptions {
+        @Test
+        void writeSameStoryTwice() {
+            assertThrows(StoryExist.class, () -> {
+                writeFile.writeStoryToFile(copyStoryWriteToFile);
+            });
         }
     }
 
@@ -257,7 +286,6 @@ class WriteFileTest {
     @Test
     void storyObjectIsTheSameInFile() {
         ReadFile readFile = new ReadFile();
-
         Assertions.assertEquals(story.toString(), readFile.getStory(storyInfoString).toString());
     }
 
