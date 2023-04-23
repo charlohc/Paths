@@ -1,0 +1,16 @@
+The last person on earth
+
+::Beginning
+You woke up and felt at once all alone
+[Go outside](The porch){GoldAction:10}{HealthAction:10}{ScoreAction:10}{InventoryAction:Sword}
+[Go to the kitchen](The kitchen){ScoreAction:10}
+
+
+
+::The porch
+There are no people outside, and its all so quite
+[Go to the kitchen](The kitchen){ScoreAction:10}
+
+::The Kitchen
+The kitchen has a wierd smell, and on the counter lies a letter
+
