@@ -1,7 +1,8 @@
 package edu.ntnu.paths.FileHandling;
 
 import edu.ntnu.paths.Actions.*;
-import edu.ntnu.paths.Exceptions.StoryExist;
+import edu.ntnu.paths.Exceptions.InvalidFileDataException;
+import edu.ntnu.paths.Exceptions.StoryExistException;
 import edu.ntnu.paths.StoryDetails.*;
 import org.junit.jupiter.api.*;
 
@@ -99,7 +100,7 @@ class WriteFileTest {
 
         try {
             writeFile.writeStoryToFile(copyStoryWriteToFile);
-        } catch (StoryExist e) {
+        } catch (StoryExistException e) {
             throw new RuntimeException(e);
         }
 
@@ -137,7 +138,6 @@ class WriteFileTest {
     void tearDown() {
       storyFromFile.delete();
     }
-
     @Nested
     @DisplayName("Tests file properties")
     class testFileProperties {
@@ -168,7 +168,7 @@ class WriteFileTest {
     class testExceptions {
         @Test
         void writeSameStoryTwice() {
-            assertThrows(StoryExist.class, () -> {
+            assertThrows(StoryExistException.class, () -> {
                 writeFile.writeStoryToFile(copyStoryWriteToFile);
             });
         }
@@ -284,7 +284,7 @@ class WriteFileTest {
     }
 
     @Test
-    void storyObjectIsTheSameInFile() {
+    void storyObjectIsTheSameInFile() throws InvalidFileDataException {
         ReadFile readFile = new ReadFile();
         Assertions.assertEquals(story.toString(), readFile.getStory(storyInfoString).toString());
     }

@@ -1,17 +1,15 @@
 package edu.ntnu.paths.FileHandling;
 
-import edu.ntnu.paths.Exceptions.StoryExist;
+import edu.ntnu.paths.Exceptions.StoryExistException;
 import edu.ntnu.paths.StoryDetails.Story;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 
 public class WriteFile {
 
-    public void writeStoryToFile(Story story) throws StoryExist {
+    public void writeStoryToFile(Story story) throws StoryExistException {
 
         String text = story.toString();
 
@@ -25,7 +23,7 @@ public class WriteFile {
                     +  System.getProperty("file.separator") + "StoryFiles" + System.getProperty("file.separator") + fileName + ".paths";
 
             if (new File(filePath).exists()) {
-                throw new StoryExist("Story with the given name already exist");
+                throw new StoryExistException("Story with the given name already exist");
             }
             FileWriter fWriter = new FileWriter(filePath);
 

@@ -1,32 +1,98 @@
 package edu.ntnu.paths.FileHandling;
 
-import org.junit.jupiter.api.BeforeEach;
+import edu.ntnu.paths.Exceptions.EmptyFileException;
+import edu.ntnu.paths.Exceptions.InvalidFileDataException;
+import org.junit.jupiter.api.*;
 
-import static org.junit.jupiter.api.Assertions.*;
+import java.io.File;
+import java.io.FileNotFoundException;
 
 class ReadFileTest {
 
+    ReadFile readFile = new ReadFile();
+    String pathTestFiles = "";
+
     @BeforeEach
     void setUp() {
+        pathTestFiles = System.getProperty("user.dir") + System.getProperty("file.separator")
+                + "src" + System.getProperty("file.separator") + "test" + System.getProperty("file.separator")
+                + "java" + System.getProperty("file.separator") + "edu" + System.getProperty("file.separator") +
+                "ntnu" + System.getProperty("file.separator") + "paths" + System.getProperty("file.separator") + "FileHandling"
+                + System.getProperty("file.separator") + "TestFiles" + System.getProperty("file.separator");
 
     }
 
-    //Todo: test for at hvis man skriver inn spesial tegn, feks :: i navnet, skal den kaste en exception, samme for passage content og reference og action
+    @Nested
+    @DisplayName("Testing the read file method with exceptions in file properties")
+    class testExceptionsFileProperties {
+        @Test
+        void testReadFileWithNonExistentFile() {
 
-    //Todo: teste for at hvis noe mangler skal kaste exception, feks mangler navn, mangler content, mangler noe
+            Assertions.assertThrows(FileNotFoundException.class, () -> {
+                readFile.readFileFromPath("non_existing_file");
+            });
+        }
 
-    //todo: i passage (Spesial tegn, har content men ikke text osv...)
+        @Test
+        void testReadFileWithInvalidFilePath() {
 
-    //todo: Teste at det som det leser returnerer et ordentlig objekt osv..
+            Assertions.assertThrows(FileNotFoundException.class, () -> {
+                readFile.readFile(new File("invalid/file/path.paths"));
+            });
 
-    //todo: teste med forskjellige histori typer, lange korte osv..
+        }
 
-    //todo: teste hva hvis det er to like passager feks
+        @Test
+        void testReadFileWithEmptyFile() {
+            Assertions.assertThrows(EmptyFileException.class, () -> {
+                readFile.readFile(new File(pathTestFiles + "EmptyFile.paths"));
+            });
+        }
 
-    //todo: teste hvis det er en tom linje midt i en passage
+        @Test
+        void fileCompressedText() {
+            Assertions.assertThrows(InvalidFileDataException.class, () -> {
+                readFile.readFile(new File(pathTestFiles + "CompressedText.paths"));
+            });
 
-    //todo: teste action greiene satt opp feil
+        }
 
-    //todo: teste flere av samme action
+    }
 
+    @Nested
+    @DisplayName("Testing the read file method with exceptions when creating story object")
+    class testExceptionsStoryObject {
+    }
+
+
+    @Nested
+    @DisplayName("Testing the getStory method with exceptions")
+    class getStoryExceptions {
+        @Test
+        public void testGetStoryWithNullStoryInfo() {
+            ReadFile readFile = new ReadFile();
+
+            Assertions.assertThrows(NullPointerException.class, () -> {
+                readFile.getStory(null);
+            });
+        }
+
+        @Test
+        public void testGetStoryWithInvalidStoryInfo() {
+            ReadFile readFile = new ReadFile();
+
+            String invalidStoryInfo = "This is an invalid story info";
+
+            Assertions.assertThrows(InvalidFileDataException.class, () -> {
+                readFile.getStory(invalidStoryInfo);
+            });
+        }
+
+        @Nested
+        @DisplayName("Test the readFile method with functioning file")
+        class functioningFile {
+
+        }
+
+    }
 }

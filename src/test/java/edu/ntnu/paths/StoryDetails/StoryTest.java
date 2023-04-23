@@ -4,7 +4,7 @@ import edu.ntnu.paths.Actions.GoldAction;
 import edu.ntnu.paths.Actions.HealthAction;
 import edu.ntnu.paths.Actions.InventoryAction;
 import edu.ntnu.paths.Actions.ScoreAction;
-import edu.ntnu.paths.Exceptions.StoryExist;
+import edu.ntnu.paths.Exceptions.StoryExistException;
 import edu.ntnu.paths.FileHandling.WriteFile;
 import org.junit.jupiter.api.*;
 
@@ -257,7 +257,7 @@ class StoryTest {
 
         try {
             writeFile.writeStoryToFile(story);
-        } catch (StoryExist e) {
+        } catch (StoryExistException e) {
             throw new RuntimeException(e);
         }
     }
