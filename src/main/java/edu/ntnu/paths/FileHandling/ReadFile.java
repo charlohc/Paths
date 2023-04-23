@@ -7,12 +7,12 @@ import edu.ntnu.paths.StoryDetails.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
 
 public class ReadFile {
 
     public static void main(String[] args) {
+
+        ReadFile readFile = new ReadFile();
 
         String fileName = "The last person on earth";
         try {
@@ -20,12 +20,10 @@ public class ReadFile {
                     + "src" + System.getProperty("file.separator") + "main" + System.getProperty("file.separator")
                     + "java" + System.getProperty("file.separator")  + "edu" + System.getProperty("file.separator") +
                     "ntnu" + System.getProperty("file.separator") + "paths" + System.getProperty("file.separator")  + "FileHandling"
-                    +  System.getProperty("file.separator") + fileName + ".paths");
+                    +  System.getProperty("file.separator") + "StoryFiles" + System.getProperty("file.separator") + fileName + ".paths");
 
             Scanner myReader = new Scanner(myObj);
             StringBuilder storyInfo = new StringBuilder();
-
-
 
 
             while (myReader.hasNextLine()) {
@@ -33,20 +31,17 @@ public class ReadFile {
                  storyInfo.append(data).append("\n");
             }
             myReader.close();
-            getStory(storyInfo.toString());
+            readFile.getStory(storyInfo.toString());
         } catch (FileNotFoundException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
     }
 
-    public static void getStory(String storyInfo) {
+
+    public Story getStory(String storyInfo) {
 
         String[] storyContentArray = storyInfo.split("\n");
-
-
-        //System.out.println(Arrays.toString(storyContentArray));
-
 
 
         Passage openingPassage = PassageBuilder.newInstance()
@@ -88,6 +83,7 @@ public class ReadFile {
 
         }
 
+        return story;
     }
 
     public static int addLink(String[] storyContentArray,Passage passage, int index) {
