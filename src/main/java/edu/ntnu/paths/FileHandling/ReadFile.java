@@ -4,10 +4,10 @@ package edu.ntnu.paths.FileHandling;
 import edu.ntnu.paths.Actions.*;
 import edu.ntnu.paths.Exceptions.EmptyFileException;
 import edu.ntnu.paths.Exceptions.InvalidFileDataException;
+import edu.ntnu.paths.Exceptions.InvalidFilePathException;
 import edu.ntnu.paths.StoryDetails.*;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.*;
 
 public class ReadFile {
@@ -46,30 +46,33 @@ public class ReadFile {
 
     }
 
-    public Story readFileFromFile(File file) throws FileNotFoundException, EmptyFileException, InvalidFileDataException {
+    public Story readFileFromFile(File file) {
         ReadFile readFile = new ReadFile();
 
-        if (!file.exists()) {
-            throw new FileNotFoundException("File " + file.getName() + " not found.");
+        try {
+            new InvalidFilePathException("Invalid path ending").checkFilePathEnding(file.getPath());
+            new EmptyFileException("Empty file content").checkFileContent(file);
+
+            Scanner myReader = new Scanner(file);
+            StringBuilder storyInfo = new StringBuilder();
+
+
+            while (myReader.hasNextLine()) {
+                String data = myReader.nextLine();
+                storyInfo.append(data).append("\n");
+            }
+            myReader.close();
+
+
+            return readFile.getStory(storyInfo.toString());
+
+
+        } catch (InvalidFilePathException | EmptyFileException | InvalidFileDataException |
+                 java.io.FileNotFoundException e) {
+            System.err.println(e.getMessage());
         }
-        if (file.length() == 0) {
-            throw new EmptyFileException("File " + file.getName() + "is empty.");
-        }
 
-        Scanner myReader = new Scanner(file);
-        StringBuilder storyInfo = new StringBuilder();
-
-
-        while (myReader.hasNextLine()) {
-            String data = myReader.nextLine();
-            storyInfo.append(data).append("\n");
-        }
-        myReader.close();
-
-        return readFile.getStory(storyInfo.toString());
-
-
-
+        return null;
     }
 
 
