@@ -1,11 +1,9 @@
 package edu.ntnu.paths.FileHandling;
 
-import edu.ntnu.paths.Exceptions.EmptyFileException;
 import edu.ntnu.paths.Exceptions.InvalidFileDataException;
 import org.junit.jupiter.api.*;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 
 class ReadFileTest {
     ReadFile readFile;
@@ -28,7 +26,7 @@ class ReadFileTest {
         @Test
         void testReadFileWithNonExistentFile() {
 
-            Assertions.assertThrows(FileNotFoundException.class, () -> {
+            Assertions.assertThrows(RuntimeException.class, () -> {
                 readFile.readFileFromFileName("non_existing_file");
             });
         }
@@ -36,7 +34,7 @@ class ReadFileTest {
         @Test
         void testReadFileWithInvalidFilePath() {
 
-            Assertions.assertThrows(FileNotFoundException.class, () -> {
+            Assertions.assertThrows(RuntimeException.class, () -> {
                 readFile.readFileFromFile(new File("invalid/file/path.paths"));
             });
 
@@ -44,26 +42,26 @@ class ReadFileTest {
 
         @Test
         void testReadFileWithEmptyFile() {
-            Assertions.assertThrows(EmptyFileException.class, () -> {
+            Assertions.assertThrows(RuntimeException.class, () -> {
                 readFile.readFileFromFile(new File(pathTestFiles + "EmptyFile.paths"));
             });
         }
 
         @Test
         void fileCompressedText() {
-            Assertions.assertThrows(InvalidFileDataException.class, () -> {
+            Assertions.assertThrows(RuntimeException.class, () -> {
                 readFile.readFileFromFile(new File(pathTestFiles + "CompressedText.paths"));
             });
+        }
 
+        @Test
+        void fileWithoutPathsEnding() {
+            Assertions.assertThrows(RuntimeException.class, () -> {
+                readFile.readFileFromFile(new File(pathTestFiles + "FileWithoutPathsEnding.txt"));
+            });
         }
 
     }
-
-    @Nested
-    @DisplayName("Testing the read file method with exceptions when creating story object")
-    class testExceptionsStoryObject {
-    }
-
 
     @Nested
     @DisplayName("Testing the getStory method with exceptions")
@@ -85,6 +83,7 @@ class ReadFileTest {
                 readFile.getStory(invalidStoryInfo);
             });
         }
+    }
 
         @Nested
         @DisplayName("Testing the getStory method with invalid info in the files")
@@ -103,17 +102,65 @@ class ReadFileTest {
                     readFile.readFileFromFile(new File(pathTestFiles + "FileWithEmptyLink.paths"));
                 });
             }
+
+            @Test
+            public void fileWithMoreColons() {
+                Assertions.assertThrows(IllegalArgumentException.class, () -> {
+                    readFile.readFileFromFile(new File(pathTestFiles + "FileWithMoreColons.paths"));
+                });
+            }
+
+            @Test
+            public void fileWithoutColon() {
+                Assertions.assertThrows(RuntimeException.class, () -> {
+                    readFile.readFileFromFile(new File(pathTestFiles + "FileWithoutColon.paths"));
+                });
+            }
+
+            @Test
+            public void fileWithoutLink() {
+                Assertions.assertThrows(NullPointerException.class, () -> {
+                    readFile.readFileFromFile(new File(pathTestFiles + "FileWithoutLink.paths"));
+                });
+            }
+            @Test
+            public void fileWithoutPassage() {
+                Assertions.assertThrows(RuntimeException.class, () -> {
+                    readFile.readFileFromFile(new File(pathTestFiles + "FileWithoutPassage.paths"));
+                });
+            }
+            @Test
+            public void fileWithoutSpecialCharactersForLinks() {
+                Assertions.assertThrows(RuntimeException.class, () -> {
+                    readFile.readFileFromFile(new File(pathTestFiles + "FileWithoutSpecialCharsForLinks.paths"));
+                });
+            }
         }
+
 
         @Nested
         @DisplayName("Test the readFile method with functioning file")
         class functioningFile {
             @Test
-            public void testReadStoryWithValidStory() {
+            public void fileWithMoreBreakLines() {
+                Assertions.assertNotNull(readFile.readFileFromFile(new File(pathTestFiles + "FileWithMoreBreakLines.paths")));
+            }
 
+            @Test
+            public void fileWithoutAction() {
+                Assertions.assertNotNull(readFile.readFileFromFile(new File(pathTestFiles + "FileWithoutAction.paths")));
 
+            }
+
+            @Test
+            public void fileWithNorwegianChars() {
+                Assertions.assertTrue(readFile.readFileFromFile(new File(pathTestFiles + "FileWithNorwegianChars.paths")).getPassage().getContent().contains("ÆØÅ"));
+            }
+
+            @Test
+            public void fileWithTheSameActionInLink() {
+                    Assertions.assertEquals(1, readFile.readFileFromFile(new File(pathTestFiles + "FileWithTheSameActionInLink.paths")).getPassage().getLinks().get(0).getActions().size());
             }
 
         }
     }
-}

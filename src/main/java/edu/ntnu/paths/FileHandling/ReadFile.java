@@ -2,12 +2,11 @@ package edu.ntnu.paths.FileHandling;
 
 
 import edu.ntnu.paths.Actions.*;
-import edu.ntnu.paths.Exceptions.EmptyFileException;
 import edu.ntnu.paths.Exceptions.InvalidFileDataException;
-import edu.ntnu.paths.Exceptions.InvalidFilePathException;
 import edu.ntnu.paths.StoryDetails.*;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.*;
 
 public class ReadFile {
@@ -27,35 +26,44 @@ public class ReadFile {
 
             readFile.readFileFromFile(storyFromFile);
 
+
     }
 
-    public Story readFileFromFile(File file) {
+    public Story readFileFromFile(File file){
         ReadFile readFile = new ReadFile();
 
-        try {
-            new InvalidFilePathException("Invalid path ending").checkFilePathEnding(file.getPath());
-            new EmptyFileException("Empty file content").checkFileContent(file);
-
-            Scanner myReader = new Scanner(file);
-            StringBuilder storyInfo = new StringBuilder();
-
-
-            while (myReader.hasNextLine()) {
-                String data = myReader.nextLine();
-                storyInfo.append(data).append("\n");
+        if (!file.exists() || file.length() == 0 || !file.getName().endsWith(".paths")) {
+            String errorMessage = "";
+            if (!file.exists()) {
+                errorMessage = "File " + file.getName() + " not found.";
+            } else if (file.length() == 0) {
+                errorMessage = "File " + file.getName() + " is empty.";
+            } else {
+                errorMessage = "File must end with '.paths'";
             }
-            myReader.close();
-
-
-            return readFile.getStory(storyInfo.toString());
-
-
-        } catch (InvalidFilePathException | EmptyFileException | InvalidFileDataException |
-                 java.io.FileNotFoundException e) {
-            System.err.println(e.getMessage());
+            throw new RuntimeException(new Exception(errorMessage));
         }
 
-        return null;
+        Scanner myReader;
+        try {
+            myReader = new Scanner(file);
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        StringBuilder storyInfo = new StringBuilder();
+
+        while (myReader.hasNextLine()) {
+            String data = myReader.nextLine();
+            storyInfo.append(data).append("\n");
+        }
+        myReader.close();
+
+        try {
+            return readFile.getStory(storyInfo.toString());
+        } catch (InvalidFileDataException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
 
