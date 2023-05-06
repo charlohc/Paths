@@ -16,9 +16,8 @@ public class ReadFile {
 
     }
 
-    public void readFileFromFileName(String fileName) throws FileNotFoundException, EmptyFileException, InvalidFileDataException {
+    public void readFileFromFileName(String fileName) {
         ReadFile readFile = new ReadFile();
-
 
             File storyFromFile = new File(System.getProperty("user.dir") + System.getProperty("file.separator")
                     + "src" + System.getProperty("file.separator") + "main" + System.getProperty("file.separator")
@@ -26,23 +25,7 @@ public class ReadFile {
                     "ntnu" + System.getProperty("file.separator") + "paths" + System.getProperty("file.separator")  + "FileHandling"
                     +  System.getProperty("file.separator") + "StoryFiles" + System.getProperty("file.separator") + fileName + ".paths");
 
-            if (!storyFromFile.exists()) {
-                throw new FileNotFoundException("File " + fileName + " not found.");
-            }
-            if (storyFromFile.length() == 0) {
-                throw new EmptyFileException("File " + fileName + "is empty.");
-            }
-
-            Scanner myReader = new Scanner(storyFromFile);
-            StringBuilder storyInfo = new StringBuilder();
-
-
-            while (myReader.hasNextLine()) {
-                String data = myReader.nextLine();
-                storyInfo.append(data).append("\n");
-            }
-            myReader.close();
-            readFile.getStory(storyInfo.toString());
+            readFile.readFileFromFile(storyFromFile);
 
     }
 
