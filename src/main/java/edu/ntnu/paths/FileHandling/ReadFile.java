@@ -16,7 +16,7 @@ public class ReadFile {
 
     }
 
-    public void readFileFromPath(String fileName) throws FileNotFoundException, EmptyFileException, InvalidFileDataException {
+    public void readFileFromFileName(String fileName) throws FileNotFoundException, EmptyFileException, InvalidFileDataException {
         ReadFile readFile = new ReadFile();
 
 
@@ -46,7 +46,7 @@ public class ReadFile {
 
     }
 
-    public void readFile(File file) throws FileNotFoundException, EmptyFileException, InvalidFileDataException {
+    public Story readFileFromFile(File file) throws FileNotFoundException, EmptyFileException, InvalidFileDataException {
         ReadFile readFile = new ReadFile();
 
         if (!file.exists()) {
@@ -66,7 +66,7 @@ public class ReadFile {
         }
         myReader.close();
 
-        readFile.getStory(storyInfo.toString());
+        return readFile.getStory(storyInfo.toString());
 
 
 

@@ -8,12 +8,12 @@ import java.io.File;
 import java.io.FileNotFoundException;
 
 class ReadFileTest {
-
-    ReadFile readFile = new ReadFile();
+    ReadFile readFile;
     String pathTestFiles = "";
 
     @BeforeEach
     void setUp() {
+        readFile = new ReadFile();
         pathTestFiles = System.getProperty("user.dir") + System.getProperty("file.separator")
                 + "src" + System.getProperty("file.separator") + "test" + System.getProperty("file.separator")
                 + "java" + System.getProperty("file.separator") + "edu" + System.getProperty("file.separator") +
@@ -29,7 +29,7 @@ class ReadFileTest {
         void testReadFileWithNonExistentFile() {
 
             Assertions.assertThrows(FileNotFoundException.class, () -> {
-                readFile.readFileFromPath("non_existing_file");
+                readFile.readFileFromFileName("non_existing_file");
             });
         }
 
@@ -37,7 +37,7 @@ class ReadFileTest {
         void testReadFileWithInvalidFilePath() {
 
             Assertions.assertThrows(FileNotFoundException.class, () -> {
-                readFile.readFile(new File("invalid/file/path.paths"));
+                readFile.readFileFromFile(new File("invalid/file/path.paths"));
             });
 
         }
@@ -45,14 +45,14 @@ class ReadFileTest {
         @Test
         void testReadFileWithEmptyFile() {
             Assertions.assertThrows(EmptyFileException.class, () -> {
-                readFile.readFile(new File(pathTestFiles + "EmptyFile.paths"));
+                readFile.readFileFromFile(new File(pathTestFiles + "EmptyFile.paths"));
             });
         }
 
         @Test
         void fileCompressedText() {
             Assertions.assertThrows(InvalidFileDataException.class, () -> {
-                readFile.readFile(new File(pathTestFiles + "CompressedText.paths"));
+                readFile.readFileFromFile(new File(pathTestFiles + "CompressedText.paths"));
             });
 
         }
@@ -70,7 +70,6 @@ class ReadFileTest {
     class getStoryExceptions {
         @Test
         public void testGetStoryWithNullStoryInfo() {
-            ReadFile readFile = new ReadFile();
 
             Assertions.assertThrows(NullPointerException.class, () -> {
                 readFile.getStory(null);
@@ -79,7 +78,6 @@ class ReadFileTest {
 
         @Test
         public void testGetStoryWithInvalidStoryInfo() {
-            ReadFile readFile = new ReadFile();
 
             String invalidStoryInfo = "This is an invalid story info";
 
@@ -89,10 +87,33 @@ class ReadFileTest {
         }
 
         @Nested
-        @DisplayName("Test the readFile method with functioning file")
-        class functioningFile {
+        @DisplayName("Testing the getStory method with invalid info in the files")
+        class invalidInfoFile {
 
+            @Test
+            public void fileWithBreakLineCommand() {
+                Assertions.assertThrows(IllegalArgumentException.class, () -> {
+                    readFile.readFileFromFile(new File(pathTestFiles + "FileWithBreakLineCommand.paths"));
+                });
+            }
+
+            @Test
+            public void fileWithEmptyLink() {
+                Assertions.assertThrows(IllegalArgumentException.class, () -> {
+                    readFile.readFileFromFile(new File(pathTestFiles + "FileWithEmptyLink.paths"));
+                });
+            }
         }
 
+        @Nested
+        @DisplayName("Test the readFile method with functioning file")
+        class functioningFile {
+            @Test
+            public void testReadStoryWithValidStory() {
+
+
+            }
+
+        }
     }
 }
