@@ -1,8 +1,0 @@
-The last person on earth
-
-::Beginning
-You woke up and felt at once all alone
-[Go outside](The porch){GoldAction:10}{GoldAction:10}{GoldAction:10}
-[Go to the kitchen](The kitchen){ScoreAction:10}
-
-
