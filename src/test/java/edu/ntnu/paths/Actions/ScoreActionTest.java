@@ -1,7 +1,6 @@
 package edu.ntnu.paths.Actions;
 
 import edu.ntnu.paths.GameDetails.Player;
-import edu.ntnu.paths.Goals.ScoreGoal;
 import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;

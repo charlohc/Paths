@@ -1,8 +1,8 @@
 package edu.ntnu.paths.FileHandling;
 
-import edu.ntnu.paths.Actions.*;
 import edu.ntnu.paths.Exceptions.InvalidFileDataException;
 import edu.ntnu.paths.Exceptions.StoryExistException;
+import edu.ntnu.paths.Actions.*;
 import edu.ntnu.paths.StoryDetails.*;
 import org.junit.jupiter.api.*;
 

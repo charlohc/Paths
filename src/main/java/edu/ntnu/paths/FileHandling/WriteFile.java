@@ -1,7 +1,7 @@
 package edu.ntnu.paths.FileHandling;
 
-import edu.ntnu.paths.Exceptions.StoryExistException;
 import edu.ntnu.paths.StoryDetails.Story;
+import edu.ntnu.paths.Exceptions.StoryExistException;
 
 import java.io.File;
 import java.io.FileWriter;

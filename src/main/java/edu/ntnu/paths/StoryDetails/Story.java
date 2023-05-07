@@ -1,7 +1,6 @@
 package edu.ntnu.paths.StoryDetails;
 
 import java.util.*;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 public final class Story {
     private final String title;
