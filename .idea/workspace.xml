@@ -4,11 +4,37 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53a0d0a9-2fe9-40cf-a5cf-95adcfb50728" name="Changes" comment="" />
+    <list default="true" id="53a0d0a9-2fe9-40cf-a5cf-95adcfb50728" name="Changes" comment="New project with previous files - can now run fxml files">
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/GameDetails/PlayerBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/GameDetails/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/GameDetails/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/StoryDetails/Story.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/StoryDetails/Story.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/Actions/GoldActionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/Actions/GoldActionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/Actions/HealthActionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/Actions/HealthActionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/Actions/InventoryActionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/Actions/InventoryActionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/Actions/ScoreActionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/Actions/ScoreActionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/GameDetails/GameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/GameDetails/GameTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/GameDetails/PlayerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/GameDetails/PlayerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/Goals/GoldGoalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/Goals/GoldGoalTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/Goals/HealthGoalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/Goals/HealthGoalTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/Goals/InventoryGoalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/Goals/InventoryGoalTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/Goals/ScoreGoalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/Goals/ScoreGoalTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/StoryDetails/StoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/StoryDetails/StoryTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -28,7 +54,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Charlotte/IdeaProjects/Paths_V2/src&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Charlotte/IdeaProjects/Paths_V2/paths_charlotte&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -36,21 +62,23 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.ReadFileTest">
-    <configuration name="edu.ntnu.paths.HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.HelloApplication" />
+  <component name="RunManager" selected="JUnit.StoryTest">
+    <configuration name="GoldActionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Paths_V2" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="edu.ntnu.paths.*" />
+          <option name="PATTERN" value="edu.ntnu.paths.Actions.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="edu.ntnu.paths.Actions" />
+      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.Actions.GoldActionTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GameTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PlayerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Paths_V2" />
       <extension name="coverage">
         <pattern>
@@ -59,52 +87,54 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="edu.ntnu.paths.GameDetails" />
-      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.GameDetails.GameTest" />
+      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.GameDetails.PlayerTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ReadFileTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="StoryTest$brokenLinksMethod.brokenLinkTestWithOnlyLinksConnectedToPassages" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Paths_V2" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="edu.ntnu.paths.FileHandling.*" />
+          <option name="PATTERN" value="edu.ntnu.paths.StoryDetails.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="edu.ntnu.paths.FileHandling" />
-      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.FileHandling.ReadFileTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="edu.ntnu.paths.StoryDetails.StoryTest" />
+      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.StoryDetails.StoryTest$brokenLinksMethod" />
+      <option name="METHOD_NAME" value="brokenLinkTestWithOnlyLinksConnectedToPassages" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WriteFileTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="StoryTest$validGetMethods.getPassages" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Paths_V2" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="edu.ntnu.paths.FileHandling.*" />
+          <option name="PATTERN" value="edu.ntnu.paths.StoryDetails.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="edu.ntnu.paths.FileHandling" />
-      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.FileHandling.WriteFileTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="edu.ntnu.paths.StoryDetails.StoryTest" />
+      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.StoryDetails.StoryTest$validGetMethods" />
+      <option name="METHOD_NAME" value="getPassages" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WriteFileTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="StoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Paths_V2" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="edu.ntnu.idatt2001.paths_v2.FileHandling.*" />
+          <option name="PATTERN" value="edu.ntnu.paths.StoryDetails.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="edu.ntnu.idatt2001.paths_v2.FileHandling" />
-      <option name="MAIN_CLASS_NAME" value="edu.ntnu.idatt2001.paths_v2.FileHandling.WriteFileTest" />
+      <option name="PACKAGE_NAME" value="edu.ntnu.paths.StoryDetails" />
+      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.StoryDetails.StoryTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -112,11 +142,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ReadFileTest" />
-        <item itemvalue="Application.edu.ntnu.paths.HelloApplication" />
-        <item itemvalue="JUnit.GameTest" />
-        <item itemvalue="JUnit.WriteFileTest (1)" />
-        <item itemvalue="JUnit.WriteFileTest" />
+        <item itemvalue="JUnit.StoryTest" />
+        <item itemvalue="JUnit.StoryTest$brokenLinksMethod.brokenLinkTestWithOnlyLinksConnectedToPassages" />
+        <item itemvalue="JUnit.StoryTest$validGetMethods.getPassages" />
+        <item itemvalue="JUnit.GoldActionTest" />
+        <item itemvalue="JUnit.PlayerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -129,10 +159,23 @@
       <option name="presentableId" value="Default" />
       <updated>1683465476801</updated>
       <workItem from="1683465477798" duration="301000" />
+      <workItem from="1683466235264" duration="338000" />
+      <workItem from="1683485993839" duration="3592000" />
     </task>
+    <task id="LOCAL−00001" summary="New project with previous files - can now run fxml files">
+      <created>1683466326399</created>
+      <option name="number" value="LOCAL−00001" />
+      <option name="presentableId" value="LOCAL−00001" />
+      <updated>1683466326399</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="New project with previous files - can now run fxml files" />
+    <option name="LAST_COMMIT_MESSAGE" value="New project with previous files - can now run fxml files" />
   </component>
 </project>

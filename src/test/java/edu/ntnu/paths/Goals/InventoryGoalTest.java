@@ -1,6 +1,7 @@
 package edu.ntnu.paths.Goals;
 
 import edu.ntnu.paths.GameDetails.Player;
+import edu.ntnu.paths.GameDetails.PlayerBuilder;
 import org.junit.jupiter.api.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +16,12 @@ class InventoryGoalTest {
     void setUp() {
         inventoryGoal = new InventoryGoal();
 
-        player = new Player("Kari", 10,10,10);
+        player = PlayerBuilder.newInstance()
+                .setName("Kari")
+                .setHealth(50)
+                .setGold(10)
+                .setScore(10)
+                .build();
 
         mandatoryItems = new ArrayList<>();
         mandatoryItems.add("axe");

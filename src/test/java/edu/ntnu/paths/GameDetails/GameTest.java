@@ -45,7 +45,12 @@ class GameTest {
         healthAction.healthAction(10);
 
 
-        player = new Player("Kari", 100, 10,10);
+        player = PlayerBuilder.newInstance()
+                .setName("Kari")
+                .setHealth(50)
+                .setGold(10)
+                .setScore(10)
+                .build();
 
         openingPassage = PassageBuilder.newInstance()
                 .setTitle("Beginning")

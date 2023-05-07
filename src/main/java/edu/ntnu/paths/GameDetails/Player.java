@@ -1,6 +1,5 @@
 package edu.ntnu.paths.GameDetails;
 
-import java.util.ArrayList;
 import java.util.List;
 //Mabye create builder class here
 public class Player {
@@ -10,26 +9,30 @@ public class Player {
     private int gold;
     private List<String> inventory;
 
-    public Player(String name, int health, int score, int gold) {
-        if (name.isEmpty()) {
+    Player(PlayerBuilder playerBuilder) {
+        if (playerBuilder.name.isEmpty()) {
             throw new NullPointerException("Name cannot be null");
-        } else if (health <= 0) {
+        } else if (playerBuilder.health <= 0) {
             throw new IllegalArgumentException("Health cannot be zero or negative");
-        } else if (score < 0) {
+        } else if (playerBuilder.score < 0) {
             throw new IllegalArgumentException("Score cannot negative");
-        } else if (gold < 0) {
+        } else if (playerBuilder.gold < 0) {
             throw new IllegalArgumentException("Gold cannot negative");
         } else {
-            this.name = name.trim();
-            this.health = health;
-            this.score = score;
-            this.gold = gold;
-            this.inventory = new ArrayList<>();
+            this.name = playerBuilder.name.trim();
+            this.health = playerBuilder.health;
+            this.score = playerBuilder.score;
+            this.gold = playerBuilder.gold;
+            this.inventory = playerBuilder.inventory;
         }
     }
 
-    public Player(Player playerCopy) {
-        this(playerCopy.getName(), playerCopy.getHealth(),playerCopy.getScore(), playerCopy.getGold());
+    public Player (Player copyPlayer) {
+        this.name = copyPlayer.getName();
+        this.health = copyPlayer.getHealth();
+        this.score = copyPlayer.getScore();
+        this.gold = copyPlayer.getGold();
+        this.inventory = copyPlayer.getInventory();
     }
 
     public String getName() {

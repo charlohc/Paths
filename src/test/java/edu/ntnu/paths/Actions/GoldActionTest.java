@@ -1,6 +1,7 @@
 package edu.ntnu.paths.Actions;
 
 import edu.ntnu.paths.GameDetails.Player;
+import edu.ntnu.paths.GameDetails.PlayerBuilder;
 import org.junit.jupiter.api.*;
 
 class GoldActionTest {
@@ -12,7 +13,12 @@ class GoldActionTest {
     void setUp() {
         goldAction = new GoldAction();
 
-        player = new Player("Kari", 100,10,10);
+        player = PlayerBuilder.newInstance()
+                .setName("Kari")
+                .setHealth(50)
+                .setGold(10)
+                .setScore(10)
+                .build();
     }
 
     @Nested

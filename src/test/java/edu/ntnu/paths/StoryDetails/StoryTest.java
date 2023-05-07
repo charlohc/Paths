@@ -168,6 +168,7 @@ class StoryTest {
             Collection<Passage> listOfPassages = new ArrayList<>();
             listOfPassages.add(porchPassage);
             listOfPassages.add(openingPassage);
+            listOfPassages.add(kitchenPassage);
             assertEquals(listOfPassages.toString(),story.getPassages().toString());
 
         }
@@ -183,8 +184,6 @@ class StoryTest {
         story.addPassage(addedPassage);
         assertTrue(story.getPassages().contains(addedPassage));
     }
-
-    //fjerner passasjen hvis det ikke er noen linker til den og den eksisterer
 
     @Nested
     @DisplayName("Testing the removePassage function with valid and invalid data")
@@ -248,17 +247,5 @@ class StoryTest {
             assertEquals(1, story.getBrokenLinks().size());
         }
 
-    }
-
-    @Test
-    void testingStoryToString() {
-
-        WriteFile writeFile = new WriteFile();
-
-        try {
-            writeFile.writeStoryToFile(story);
-        } catch (StoryExistException e) {
-            throw new RuntimeException(e);
-        }
     }
 }

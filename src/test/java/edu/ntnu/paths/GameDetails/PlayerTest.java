@@ -13,9 +13,15 @@ class PlayerTest {
 
     @BeforeEach
     void setUp() {
-        originalPlayer = new Player("Kari",50,10,10);
-        copyPlayer = new Player(originalPlayer);
-    }
+       originalPlayer = PlayerBuilder.newInstance()
+               .setName("Kari")
+               .setHealth(50)
+               .setGold(10)
+               .setScore(10)
+               .build();
+       copyPlayer = new Player(originalPlayer);
+
+   }
 
     @Nested
     @DisplayName("Testing player object constructor with invalid fields")
@@ -24,27 +30,47 @@ class PlayerTest {
         @Test
         void playerWithoutName() {
             assertThrows(NullPointerException.class, () -> {
-                Player playerWithZeroHealth = new Player("",50,10,10);
+                Player playerWithOutName = PlayerBuilder.newInstance()
+                        .setName("")
+                        .setHealth(100)
+                        .setGold(10)
+                        .setScore(10)
+                        .build();
             });
         }
         @Test
         void playerWithZeroHealth() {
             assertThrows(IllegalArgumentException.class, () -> {
-                Player playerWithZeroHealth = new Player("Kari",0,10,10);
+                Player playerWithZeroHealth = PlayerBuilder.newInstance()
+                        .setName("Kari")
+                        .setHealth(0)
+                        .setGold(10)
+                        .setScore(10)
+                        .build();
             });
         }
 
         @Test
         void playerWithNegativeScore() {
             assertThrows(IllegalArgumentException.class, () -> {
-                Player playerWithZeroHealth = new Player("Kari",50,-5,10);
+                Player playerWithNegativeScore = PlayerBuilder.newInstance()
+                        .setName("Kari")
+                        .setHealth(100)
+                        .setGold(10)
+                        .setScore(-10)
+                        .build();
             });
         }
 
         @Test
         void playerWithNegativeGold() {
             assertThrows(IllegalArgumentException.class, () -> {
-                Player playerWithZeroHealth = new Player("Kari",50,10,-5);
+                Player playerWithNegativeGold= PlayerBuilder.newInstance()
+                        .setName("Kari")
+                        .setHealth(100)
+                        .setGold(-10)
+                        .setScore(10)
+                        .build();
             });
         }
 

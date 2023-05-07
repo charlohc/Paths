@@ -1,6 +1,7 @@
 package edu.ntnu.paths.Goals;
 
 import edu.ntnu.paths.GameDetails.Player;
+import edu.ntnu.paths.GameDetails.PlayerBuilder;
 import org.junit.jupiter.api.*;
 
 
@@ -12,7 +13,12 @@ class ScoreGoalTest {
     void setUp() {
         scoreGoal = new ScoreGoal();
 
-        player = new Player("Kari", 10,0,10);
+        player = PlayerBuilder.newInstance()
+                .setName("Kari")
+                .setHealth(50)
+                .setGold(10)
+                .setScore(10)
+                .build();
 
         scoreGoal.scoreGoal(10);
     }

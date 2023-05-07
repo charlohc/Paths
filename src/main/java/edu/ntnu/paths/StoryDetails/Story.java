@@ -51,10 +51,11 @@ public final class Story {
     //TODO: exception if passages does not contain link
     public Passage getPassage(Link link) {
         for (Map.Entry<Link, Passage> entry : passages.entrySet()) {
-           if(entry.getValue().getTittle().equals(link.getReference())) {
+           if(entry.getValue().getTittle().equalsIgnoreCase(link.getReference())) {
                return passages.get(entry.getKey());
            }
         }
+        System.out.println("false " + link.getReference());
         return null;
     }
 
