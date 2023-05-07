@@ -3,7 +3,7 @@ package edu.ntnu.paths.Controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-public class HelloController {
+public class HomePage {
     @FXML
     private Label welcomeText;
 

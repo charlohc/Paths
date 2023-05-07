@@ -58,7 +58,7 @@
             <!-- Default configuration for running with: mvn clean javafx:run -->
             <id>default-cli</id>
             <configuration>
-              <mainClass>edu.ntnu.idatt2001.paths_v2/edu.ntnu.paths.Controller.HelloApplication</mainClass>
+              <mainClass>edu.ntnu.idatt2001.paths_v2/edu.ntnu.paths.Controller.Main</mainClass>
               <launcher>app</launcher>
               <jlinkZipName>app</jlinkZipName>
               <jlinkImageName>app</jlinkImageName>
