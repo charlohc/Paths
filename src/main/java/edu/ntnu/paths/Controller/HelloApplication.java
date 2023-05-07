@@ -1,4 +1,4 @@
-package edu.ntnu.paths;
+package edu.ntnu.paths.Controller;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

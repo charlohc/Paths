@@ -1,4 +1,4 @@
-package edu.ntnu.paths;
+package edu.ntnu.paths.Controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

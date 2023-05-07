@@ -4,22 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53a0d0a9-2fe9-40cf-a5cf-95adcfb50728" name="Changes" comment="New project with previous files - can now run fxml files">
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/GameDetails/PlayerBuilder.java" afterDir="false" />
+    <list default="true" id="53a0d0a9-2fe9-40cf-a5cf-95adcfb50728" name="Changes" comment="Implemented builder pattern to player class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/GameDetails/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/GameDetails/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/StoryDetails/Story.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/StoryDetails/Story.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/Actions/GoldActionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/Actions/GoldActionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/Actions/HealthActionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/Actions/HealthActionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/Actions/InventoryActionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/Actions/InventoryActionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/Actions/ScoreActionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/Actions/ScoreActionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/GameDetails/GameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/GameDetails/GameTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/GameDetails/PlayerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/GameDetails/PlayerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/Goals/GoldGoalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/Goals/GoldGoalTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/Goals/HealthGoalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/Goals/HealthGoalTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/Goals/InventoryGoalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/Goals/InventoryGoalTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/Goals/ScoreGoalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/Goals/ScoreGoalTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/StoryDetails/StoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/StoryDetails/StoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/hello-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +26,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -49,46 +41,49 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Charlotte/IdeaProjects/Paths_V2/paths_charlotte&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/Charlotte/IdeaProjects/Paths_V2/paths_charlotte",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RunManager" selected="JUnit.StoryTest">
-    <configuration name="GoldActionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Charlotte\IdeaProjects\Paths_V2\paths_charlotte\src\main\resources\edu\ntnu\paths\Controller" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.HelloApplication">
+    <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.Controller.HelloApplication" />
       <module name="Paths_V2" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="edu.ntnu.paths.Actions.*" />
+          <option name="PATTERN" value="edu.ntnu.paths.Controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="edu.ntnu.paths.Actions" />
-      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.Actions.GoldActionTest" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PlayerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.Controller.Main" />
       <module name="Paths_V2" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="edu.ntnu.paths.GameDetails.*" />
+          <option name="PATTERN" value="edu.ntnu.paths.Controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="edu.ntnu.paths.GameDetails" />
-      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.GameDetails.PlayerTest" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -142,11 +137,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.HelloApplication" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.StoryTest" />
         <item itemvalue="JUnit.StoryTest$brokenLinksMethod.brokenLinkTestWithOnlyLinksConnectedToPassages" />
         <item itemvalue="JUnit.StoryTest$validGetMethods.getPassages" />
-        <item itemvalue="JUnit.GoldActionTest" />
-        <item itemvalue="JUnit.PlayerTest" />
       </list>
     </recent_temporary>
   </component>
