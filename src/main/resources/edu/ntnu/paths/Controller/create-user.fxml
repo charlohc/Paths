@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.AnchorPane?>
+<StackPane xmlns:fx="http://javafx.com/fxml"
+           fx:controller="edu.ntnu.paths.Controller.CreateUser"
+           stylesheets="@Style/style.css">
+
+    <Label text="Create user" style="-fx-font-size: 36pt; -fx-text-fill: black;"
+           StackPane.alignment="TOP_CENTER"/>
+
+
+
+    <AnchorPane>
+        <Button text="Import story" AnchorPane.bottomAnchor="20" AnchorPane.rightAnchor="50" onAction="#importStory" prefWidth="120" prefHeight="40"/>
+        <Button text="Go Back" AnchorPane.bottomAnchor="20" AnchorPane.leftAnchor="50" onAction="#goBack" prefWidth="120" prefHeight="40"/>
+    </AnchorPane>
+
+</StackPane>

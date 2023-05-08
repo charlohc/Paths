@@ -1,24 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="edu.ntnu.paths.Controller.HomePage">
-  <padding>
-    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-  </padding>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.HBox?>
+<StackPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-size: cover;" xmlns="http://javafx.com/javafx/17"
+           xmlns:fx="http://javafx.com/fxml/1" stylesheets="@Style/style.css, @Style/home-page.css"   fx:controller="edu.ntnu.paths.Controller.HomePage">
 
-  <Label text="Welcome to Paths"/>
-  <Label text="Paths is an elective game with passages"/>
+  <Label text="Paths" style="-fx-font-size: 36pt; -fx-text-fill: black;" prefWidth="400" prefHeight="10"
+         wrapText="true" maxWidth="350" minWidth="200" StackPane.alignment="TOP_CENTER"/>
 
-  <VBox alignment="CENTER" spacing="10.0">
-    <Button text="Choose File" onAction="#onSelectFileButtonClick"/>
-    <Label fx:id="filePathLabel"/>
-  </VBox>
+  <Label text="Welcome to Story Game" style="-fx-font-size: 18pt; -fx-text-fill: black; -fx-padding: 100 0 0 0;" prefWidth="350"
+         prefHeight="20" wrapText="true" maxWidth="350" minWidth="250" StackPane.alignment="TOP_CENTER"/>
 
-  <Button text="Imported story" onAction="#onImportButtonClick"/>
-</VBox>
+  <Button text="Create player" StackPane.alignment="CENTER" onAction="#createUser"/>
+
+</StackPane>
 
