@@ -4,17 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53a0d0a9-2fe9-40cf-a5cf-95adcfb50728" name="Changes" comment="Renamed classes">
+    <list default="true" id="53a0d0a9-2fe9-40cf-a5cf-95adcfb50728" name="Changes" comment="Implemented the CreateGoals controller and fxml file">
       <change afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/CreateGoals.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Managers/PlayerManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/Style/create-user.css" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/create-goals.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/CreateUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/CreateUser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/Style/home-page.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/Style/home-page.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/Style/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/Style/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/create-user.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/create-user.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,7 +162,7 @@
       <workItem from="1683620849354" duration="108000" />
       <workItem from="1683622058953" duration="25000" />
       <workItem from="1683623558899" duration="157000" />
-      <workItem from="1683746029128" duration="9164000" />
+      <workItem from="1683746029128" duration="9548000" />
     </task>
     <task id="LOCAL−00001" summary="New project with previous files - can now run fxml files">
       <created>1683466326399</created>
@@ -188,7 +182,19 @@
       <option name="presentableId" value="LOCAL−00003" />
       <updated>1683497126466</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL−00004" summary="Improved the create user file">
+      <created>1683755521105</created>
+      <option name="number" value="LOCAL−00004" />
+      <option name="presentableId" value="LOCAL−00004" />
+      <updated>1683755521105</updated>
+    </task>
+    <task id="LOCAL−00005" summary="Implemented the PlayerManager class to store information about the current player">
+      <created>1683755578523</created>
+      <option name="number" value="LOCAL−00005" />
+      <option name="presentableId" value="LOCAL−00005" />
+      <updated>1683755578523</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -198,6 +204,9 @@
     <MESSAGE value="New project with previous files - can now run fxml files" />
     <MESSAGE value="Created new folder for javaFxml classes" />
     <MESSAGE value="Renamed classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Renamed classes" />
+    <MESSAGE value="Improved the create user file" />
+    <MESSAGE value="Implemented the PlayerManager class to store information about the current player" />
+    <MESSAGE value="Implemented the CreateGoals controller and fxml file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented the CreateGoals controller and fxml file" />
   </component>
 </project>
