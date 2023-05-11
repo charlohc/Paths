@@ -1,6 +1,7 @@
 package edu.ntnu.paths.FileHandling;
 
 import edu.ntnu.paths.Exceptions.InvalidFileDataException;
+import edu.ntnu.paths.StoryDetails.Story;
 import org.junit.jupiter.api.*;
 
 import java.io.File;
@@ -35,7 +36,7 @@ class ReadFileTest {
         void testReadFileWithInvalidFilePath() {
 
             Assertions.assertThrows(RuntimeException.class, () -> {
-                readFile.readFileFromFile(new File("invalid/file/path.paths"));
+                readFile.readFile(new File("invalid/file/path.paths"));
             });
 
         }
@@ -43,21 +44,21 @@ class ReadFileTest {
         @Test
         void testReadFileWithEmptyFile() {
             Assertions.assertThrows(RuntimeException.class, () -> {
-                readFile.readFileFromFile(new File(pathTestFiles + "EmptyFile.paths"));
+                readFile.readFile(new File(pathTestFiles + "EmptyFile.paths"));
             });
         }
 
         @Test
         void fileCompressedText() {
             Assertions.assertThrows(RuntimeException.class, () -> {
-                readFile.readFileFromFile(new File(pathTestFiles + "CompressedText.paths"));
+                readFile.readFile(new File(pathTestFiles + "CompressedText.paths"));
             });
         }
 
         @Test
         void fileWithoutPathsEnding() {
             Assertions.assertThrows(RuntimeException.class, () -> {
-                readFile.readFileFromFile(new File(pathTestFiles + "FileWithoutPathsEnding.txt"));
+                readFile.readFile(new File(pathTestFiles + "FileWithoutPathsEnding.txt"));
             });
         }
 
@@ -92,47 +93,47 @@ class ReadFileTest {
             @Test
             public void fileWithBreakLineCommand() {
                 Assertions.assertThrows(IllegalArgumentException.class, () -> {
-                    readFile.readFileFromFile(new File(pathTestFiles + "FileWithBreakLineCommand.paths"));
+                    readFile.readFile(new File(pathTestFiles + "FileWithBreakLineCommand.paths"));
                 });
             }
 
             @Test
             public void fileWithEmptyLink() {
                 Assertions.assertThrows(IllegalArgumentException.class, () -> {
-                    readFile.readFileFromFile(new File(pathTestFiles + "FileWithEmptyLink.paths"));
+                    readFile.readFile(new File(pathTestFiles + "FileWithEmptyLink.paths"));
                 });
             }
 
             @Test
             public void fileWithMoreColons() {
                 Assertions.assertThrows(IllegalArgumentException.class, () -> {
-                    readFile.readFileFromFile(new File(pathTestFiles + "FileWithMoreColons.paths"));
+                    readFile.readFile(new File(pathTestFiles + "FileWithMoreColons.paths"));
                 });
             }
 
             @Test
             public void fileWithoutColon() {
                 Assertions.assertThrows(RuntimeException.class, () -> {
-                    readFile.readFileFromFile(new File(pathTestFiles + "FileWithoutColon.paths"));
+                    readFile.readFile(new File(pathTestFiles + "FileWithoutColon.paths"));
                 });
             }
 
             @Test
             public void fileWithoutLink() {
                 Assertions.assertThrows(NullPointerException.class, () -> {
-                    readFile.readFileFromFile(new File(pathTestFiles + "FileWithoutLink.paths"));
+                    readFile.readFile(new File(pathTestFiles + "FileWithoutLink.paths"));
                 });
             }
             @Test
             public void fileWithoutPassage() {
                 Assertions.assertThrows(RuntimeException.class, () -> {
-                    readFile.readFileFromFile(new File(pathTestFiles + "FileWithoutPassage.paths"));
+                    readFile.readFile(new File(pathTestFiles + "FileWithoutPassage.paths"));
                 });
             }
             @Test
             public void fileWithoutSpecialCharactersForLinks() {
                 Assertions.assertThrows(RuntimeException.class, () -> {
-                    readFile.readFileFromFile(new File(pathTestFiles + "FileWithoutSpecialCharsForLinks.paths"));
+                    readFile.readFile(new File(pathTestFiles + "FileWithoutSpecialCharsForLinks.paths"));
                 });
             }
         }
@@ -143,23 +144,25 @@ class ReadFileTest {
         class functioningFile {
             @Test
             public void fileWithMoreBreakLines() {
-                Assertions.assertNotNull(readFile.readFileFromFile(new File(pathTestFiles + "FileWithMoreBreakLines.paths")));
+                Assertions.assertNotNull(readFile.readFile(new File(pathTestFiles + "FileWithMoreBreakLines.paths")));
             }
 
             @Test
             public void fileWithoutAction() {
-                Assertions.assertNotNull(readFile.readFileFromFile(new File(pathTestFiles + "FileWithoutAction.paths")));
+                Assertions.assertNotNull(readFile.readFile(new File(pathTestFiles + "FileWithoutAction.paths")));
 
             }
 
             @Test
             public void fileWithNorwegianChars() {
-                Assertions.assertTrue(readFile.readFileFromFile(new File(pathTestFiles + "FileWithNorwegianChars.paths")).getPassage().getContent().contains("ÆØÅ"));
+                Story storyFromFile = (Story) readFile.readFile(new File(pathTestFiles + "FileWithNorwegianChars.paths"));
+                Assertions.assertTrue(storyFromFile.getPassage().getContent().contains("ÆØÅ"));
             }
 
             @Test
             public void fileWithTheSameActionInLink() {
-                    Assertions.assertEquals(1, readFile.readFileFromFile(new File(pathTestFiles + "FileWithTheSameActionInLink.paths")).getPassage().getLinks().get(0).getActions().size());
+                Story storyFromFile = (Story) readFile.readFile(new File(pathTestFiles + "FileWithTheSameActionInLink.paths"));
+                    Assertions.assertEquals(1, storyFromFile.getPassage().getLinks().get(0).getActions().size());
             }
 
         }

@@ -24,31 +24,34 @@ public class ReadFile {
                     "ntnu" + System.getProperty("file.separator") + "paths" + System.getProperty("file.separator")  + "FileHandling"
                     +  System.getProperty("file.separator") + "StoryFiles" + System.getProperty("file.separator") + fileName + ".paths");
 
-            readFile.readFileFromFile(storyFromFile);
+            readFile.readFile(storyFromFile);
 
 
     }
 
-    public Story readFileFromFile(File file){
+    public Story readFile(File file) {
         ReadFile readFile = new ReadFile();
 
         if (!file.exists() || file.length() == 0 || !file.getName().endsWith(".paths")) {
             String errorMessage = "";
             if (!file.exists()) {
-                errorMessage = "File " + file.getName() + " not found.";
+                return null;
+               /* errorMessage = "File " + file.getName() + " not found.";*/
             } else if (file.length() == 0) {
-                errorMessage = "File " + file.getName() + " is empty.";
+                return null;
+                /*errorMessage = "File " + file.getName() + " is empty.";*/
             } else {
-                errorMessage = "File must end with '.paths'";
+                return null;
+               /* errorMessage = "File must end with '.paths'";*/
             }
-            throw new RuntimeException(new Exception(errorMessage));
+            /*throw new RuntimeException(new Exception(errorMessage));*/
         }
 
         Scanner myReader;
         try {
             myReader = new Scanner(file);
         } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+            return null;
         }
         StringBuilder storyInfo = new StringBuilder();
 
@@ -61,9 +64,8 @@ public class ReadFile {
         try {
             return readFile.getStory(storyInfo.toString());
         } catch (InvalidFileDataException e) {
-            throw new RuntimeException(e);
+            return null;
         }
-
     }
 
 
@@ -112,9 +114,8 @@ public class ReadFile {
         }
 
         return story;
-    } catch (IndexOutOfBoundsException e ) {
-            throw new InvalidFileDataException("Invalid file");
-
+    } catch (IndexOutOfBoundsException | IllegalArgumentException e ) {
+        return null;
     }
     }
 
