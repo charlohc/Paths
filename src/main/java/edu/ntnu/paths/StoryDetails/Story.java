@@ -55,7 +55,6 @@ public final class Story {
                return passages.get(entry.getKey());
            }
         }
-        System.out.println("false " + link.getReference());
         return null;
     }
 

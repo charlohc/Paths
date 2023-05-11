@@ -35,18 +35,20 @@
         <HBox alignment="CENTER" spacing="50" fx:id="fileInfo">
             <VBox>
             <Label text="Location"/>
-            <TextArea editable="false" disable="true" fx:id="filePathField"/>
+            <TextArea editable="false" disable="true" fx:id="filePath"/>
             </VBox>
             <VBox>
             <Label text="Name"/>
-            <TextField editable="false" disable="true" fx:id="fileName"/>
+            <TextArea editable="false" disable="true" fx:id="fileName"/>
             </VBox>
             <VBox>
             <Label text="Dead links"/>
             <Label fx:id="deadLinks"/>
             </VBox>
         </HBox>
+            <StackPane>
             <Label fx:id="errorMessage"/>
+            </StackPane>
         </VBox>
     </center>
 

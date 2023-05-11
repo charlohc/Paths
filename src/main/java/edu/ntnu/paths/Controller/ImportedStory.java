@@ -1,7 +1,6 @@
 package edu.ntnu.paths.Controller;
 
 import edu.ntnu.paths.FileHandling.ReadFile;
-import edu.ntnu.paths.GameDetails.Player;
 import edu.ntnu.paths.Managers.PlayerManager;
 import edu.ntnu.paths.Managers.StoryManager;
 import edu.ntnu.paths.StoryDetails.Story;
@@ -19,15 +18,36 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.prefs.Preferences;
 
 public class ImportedStory {
-    @FXML
-    private TextField fileName;
+    private final Preferences prefs = Preferences.userNodeForPackage(ImportedStory.class);
     @FXML
     private Label deadLinks, errorMessage;
 
     @FXML
-    private TextArea filePathField;
+    private TextArea filePath, fileName;
+
+
+    @FXML
+    private void initialize() {
+        filePath.setText(prefs.get("filePath", ""));
+        fileName.setText(prefs.get("fileName", ""));
+        deadLinks.setText(prefs.get("deadLink", ""));
+
+
+        filePath.textProperty().addListener((observable, oldValue, newValue) -> {
+            prefs.put("filePath", newValue);
+        });
+
+        fileName.textProperty().addListener((observable, oldValue, newValue) -> {
+            prefs.put("fileName", newValue);
+        });
+
+        deadLinks.textProperty().addListener((observable, oldValue, newValue) -> {
+            prefs.putInt("deadLink", Integer.parseInt(newValue));
+        });
+    }
 
     @FXML
     protected void onSelectFileButtonClick() {
@@ -35,19 +55,25 @@ public class ImportedStory {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Select a file");
         File selectedFile = fileChooser.showOpenDialog(null);
-        Story storyFromFile = (Story) readFile.readFile(selectedFile);
+        Story storyFromFile = readFile.readFile(selectedFile);
 
         if (storyFromFile != null) {
             errorMessage.setText("");
 
             StoryManager.getInstance().setStory(new Story(storyFromFile));
-            fileName.setText(selectedFile.getName());
+            fileName.setText(selectedFile.getName().replace(".paths",""));
             fileName.setDisable(false);
 
-            filePathField.setText(selectedFile.getAbsolutePath());
-            filePathField.setDisable(false);
+            filePath.setText(selectedFile.getAbsolutePath());
+            filePath.setDisable(false);
 
             deadLinks.setText(String.valueOf(StoryManager.getInstance().getStory().getBrokenLinks().size()));
+
+            prefs.put("filePath", filePath.getText());
+            prefs.put("fileName", fileName.getText());
+            prefs.putInt("deadLink", Integer.parseInt(deadLinks.getText()));
+
+
         } else {
             errorMessage.setText("Could not load file...");
         }
