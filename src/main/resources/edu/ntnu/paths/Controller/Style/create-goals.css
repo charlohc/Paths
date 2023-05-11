@@ -1,0 +1,25 @@
+
+#createGoalsContainer {
+ -fx-padding: 50px;
+    -fx-spacing: 200px;
+}
+
+@media (max-width: 600px) {
+    #createGoalsContainer {
+        -fx-spacing: 1px;
+    }
+}
+
+#createGoalsContainer > * {
+    -fx-hgrow: ALWAYS;
+}
+#goalsContainer {
+    -fx-border-color: black;
+    -fx-border-width: 2px;
+    -fx-border-radius: 10px;
+    -fx-max-width: 350px;
+    -fx-max-height: 200px;
+    -fx-pref-height: 200px;
+    -fx-pref-width: 250px;
+    -fx-padding: 10px;
+}

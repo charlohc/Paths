@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53a0d0a9-2fe9-40cf-a5cf-95adcfb50728" name="Changes" comment="Implemented the CreateGoals controller and fxml file">
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/CreateGoals.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/create-goals.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/Style/home-page.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/Style/home-page.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/Style/create-goals.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/CreateGoals.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/CreateGoals.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/create-goals.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/create-goals.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,9 +19,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
         <option value="FxmlFile" />
         <option value="Class" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -162,7 +163,9 @@
       <workItem from="1683620849354" duration="108000" />
       <workItem from="1683622058953" duration="25000" />
       <workItem from="1683623558899" duration="157000" />
-      <workItem from="1683746029128" duration="9548000" />
+      <workItem from="1683746029128" duration="9611000" />
+      <workItem from="1683801310917" duration="235000" />
+      <workItem from="1683801561275" duration="5792000" />
     </task>
     <task id="LOCAL−00001" summary="New project with previous files - can now run fxml files">
       <created>1683466326399</created>
@@ -194,7 +197,13 @@
       <option name="presentableId" value="LOCAL−00005" />
       <updated>1683755578523</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL−00006" summary="Implemented the CreateGoals controller and fxml file">
+      <created>1683755636722</created>
+      <option name="number" value="LOCAL−00006" />
+      <option name="presentableId" value="LOCAL−00006" />
+      <updated>1683755636722</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
