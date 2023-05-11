@@ -13,8 +13,8 @@ import java.io.IOException;
 public class HomePage {
 
     @FXML
-    private void createUser(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("create-user.fxml"));
+    private void importStory(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("import-story.fxml"));
         Parent importedStory = loader.load();
         Scene importedStoryScene = new Scene(importedStory,1000,600);
 

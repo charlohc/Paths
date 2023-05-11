@@ -46,7 +46,7 @@
 
     <bottom>
         <AnchorPane>
-            <Button text="Import story" disable="true" onAction="#importStory" prefWidth="120" prefHeight="40"
+            <Button text="Import story" disable="true" onAction="#beginGame" prefWidth="120" prefHeight="40"
                     AnchorPane.bottomAnchor="20" AnchorPane.rightAnchor="50"/>
             <Button text="Go Back" onAction="#goBack" prefWidth="120" prefHeight="40"
                     AnchorPane.bottomAnchor="20" AnchorPane.leftAnchor="50"/>

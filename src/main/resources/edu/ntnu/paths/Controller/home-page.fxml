@@ -17,7 +17,7 @@
   <Label text="Welcome to Story Game" style="-fx-font-size: 18pt; -fx-text-fill: black; -fx-padding: 100 0 0 0;" prefWidth="350"
          prefHeight="20" wrapText="true" maxWidth="350" minWidth="250" StackPane.alignment="TOP_CENTER"/>
 
-  <Button text="Create player" StackPane.alignment="CENTER" onAction="#createUser"/>
+  <Button text="Import story" StackPane.alignment="CENTER" onAction="#importStory"/>
 
 </StackPane>
 

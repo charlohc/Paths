@@ -1,7 +1,5 @@
 package edu.ntnu.paths.Controller;
 
-import edu.ntnu.paths.GameDetails.Player;
-import edu.ntnu.paths.Managers.PlayerManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -38,18 +36,12 @@ public class CreateGoals {
         }
     }
     @FXML
-    private void importStory(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("import-story.fxml"));
-        Parent importedStory = loader.load();
-        Scene importedStoryScene = new Scene(importedStory, 1000, 600);
+    private void beginGame(ActionEvent event) throws IOException {
 
-        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        currentStage.setScene(importedStoryScene);
-        currentStage.show();
     }
     @FXML
     private void goBack(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("create-user.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("create-player.fxml"));
         Parent importedStory = loader.load();
         Scene importedStoryScene = new Scene(importedStory, 1000, 600);
 
