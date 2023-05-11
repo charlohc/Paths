@@ -5,8 +5,8 @@
 
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="edu.ntnu.paths.Controller.CreateUser"
-            stylesheets="@Style/style.css, @Style/create-user.css">
+            fx:controller="edu.ntnu.paths.Controller.CreatePlayer"
+            stylesheets="@Style/style.css, @Style/create-player.css">
 
     <top>
         <Label text="Create user" style="-fx-font-size: 36pt; -fx-text-fill: black;"
@@ -32,7 +32,7 @@
 
     <bottom>
         <AnchorPane>
-            <Button fx:id="createGoalsButton" text="Create goals" disable="true" AnchorPane.bottomAnchor="20" AnchorPane.rightAnchor="50" onAction="#importStory" prefWidth="120" prefHeight="40"/>
+            <Button fx:id="createGoalsButton" text="Create goals" disable="true" AnchorPane.bottomAnchor="20" AnchorPane.rightAnchor="50" onAction="#createGoals" prefWidth="120" prefHeight="40"/>
             <Button text="Go Back" AnchorPane.bottomAnchor="20" AnchorPane.leftAnchor="50" onAction="#goBack" prefWidth="120" prefHeight="40"/>
         </AnchorPane>
     </bottom>

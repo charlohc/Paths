@@ -17,9 +17,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.prefs.Preferences;
 
-public class CreateUser {
+public class CreatePlayer {
 
-    private final Preferences prefs = Preferences.userNodeForPackage(CreateUser.class);
+    private final Preferences prefs = Preferences.userNodeForPackage(CreatePlayer.class);
 
     public Button createGoalsButton;
 
@@ -96,7 +96,7 @@ public class CreateUser {
     }
 
     @FXML
-    private void importStory(ActionEvent event) throws IOException {
+    private void createGoals(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("create-goals.fxml"));
         Parent importedStory = loader.load();
         Scene importedStoryScene = new Scene(importedStory, 1000, 600);
