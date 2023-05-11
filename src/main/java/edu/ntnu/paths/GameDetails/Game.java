@@ -17,19 +17,27 @@ public class Game {
     private final Story story;
     private final List<Goal> goals;
 
-    public Game(Player player, Story story, List<Goal> goals) {
-        if (player == null) { throw new NullPointerException("Player cannot be null");
+    public Game(GameBuilder gameBuilder) {
+        if (gameBuilder.player == null) { throw new NullPointerException("Player cannot be null");
         }
-        else if (story == null) { throw new NullPointerException("Story cannot be null");
+        else if (gameBuilder.story == null) { throw new NullPointerException("Story cannot be null");
         }
-        else if (goals.isEmpty()) { throw new NullPointerException("The game must contain at least one goal");
+
+        //TODO: does it?
+        else if (gameBuilder.goals.isEmpty()) { throw new NullPointerException("The game must contain at least one goal");
 
         }
         else {
-            this.player = player;
-            this.story = story;
-            this.goals = goals;
+            this.player = gameBuilder.player;
+            this.story = gameBuilder.story;
+            this.goals = gameBuilder.goals;
         }
+    }
+
+    public Game (Game copyGame) {
+       this.player = copyGame.player;
+       this.story = copyGame.story;
+       this.goals = copyGame.goals;
     }
 
 
