@@ -13,7 +13,7 @@ public class Main extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("home-page.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1000, 600);
         stage.setTitle("Paths");
-        stage.setMinWidth(450);
+        stage.setMinWidth(550);
         stage.setMinHeight(500);
         stage.setMaxWidth(1200);
         stage.setMaxHeight(700);

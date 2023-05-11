@@ -4,12 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53a0d0a9-2fe9-40cf-a5cf-95adcfb50728" name="Changes" comment="Implemented the CreateGoals controller and fxml file">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/Style/create-goals.css" afterDir="false" />
+    <list default="true" id="53a0d0a9-2fe9-40cf-a5cf-95adcfb50728" name="Changes" comment="Made the create goals fxml scalable">
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Managers/StoryManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/Style/import-story.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/CreateGoals.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/CreateGoals.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/CreateUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/CreatePlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/HomePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/ImportedStory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/ImportedStory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/FileHandling/ReadFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/FileHandling/ReadFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/Style/create-user.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/Style/create-player.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/Style/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/Style/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/create-goals.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/create-goals.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/create-user.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/create-player.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/home-page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/home-page.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/import-story.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/import-story.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/FileHandling/ReadFileTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/FileHandling/ReadFileTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,6 +102,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ReadFileTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Paths_V2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.ntnu.paths.FileHandling.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="edu.ntnu.paths.FileHandling" />
+      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.FileHandling.ReadFileTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="StoryTest$brokenLinksMethod.brokenLinkTestWithOnlyLinksConnectedToPassages" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Paths_V2" />
       <extension name="coverage">
@@ -141,10 +167,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.StoryTest" />
+        <item itemvalue="JUnit.ReadFileTest" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.StoryTest$brokenLinksMethod.brokenLinkTestWithOnlyLinksConnectedToPassages" />
-        <item itemvalue="JUnit.StoryTest$validGetMethods.getPassages" />
       </list>
     </recent_temporary>
   </component>
@@ -165,7 +191,8 @@
       <workItem from="1683623558899" duration="157000" />
       <workItem from="1683746029128" duration="9611000" />
       <workItem from="1683801310917" duration="235000" />
-      <workItem from="1683801561275" duration="5792000" />
+      <workItem from="1683801561275" duration="7071000" />
+      <workItem from="1683824426632" duration="5338000" />
     </task>
     <task id="LOCAL−00001" summary="New project with previous files - can now run fxml files">
       <created>1683466326399</created>
@@ -203,7 +230,13 @@
       <option name="presentableId" value="LOCAL−00006" />
       <updated>1683755636722</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL−00007" summary="Made the create goals fxml scalable">
+      <created>1683807454240</created>
+      <option name="number" value="LOCAL−00007" />
+      <option name="presentableId" value="LOCAL−00007" />
+      <updated>1683807454240</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -216,6 +249,7 @@
     <MESSAGE value="Improved the create user file" />
     <MESSAGE value="Implemented the PlayerManager class to store information about the current player" />
     <MESSAGE value="Implemented the CreateGoals controller and fxml file" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented the CreateGoals controller and fxml file" />
+    <MESSAGE value="Made the create goals fxml scalable" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made the create goals fxml scalable" />
   </component>
 </project>
