@@ -1,0 +1,17 @@
+#info {
+    -fx-padding: 20px;
+}
+
+#fileInfo {
+    -fx-padding: 80px;
+}
+
+.text-area {
+    -fx-max-height: 25px;
+    -fx-max-width: 200px;
+}
+
+.text-field {
+    -fx-max-height: 25px;
+    -fx-max-width: 200px;
+}
