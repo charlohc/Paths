@@ -248,4 +248,15 @@ class StoryTest {
         }
 
     }
+
+    @Nested
+    @DisplayName("Testing the get total actions methods")
+    class getTotalActions {
+
+        @Test
+        void getTotalGold() {
+            int highestGold = story.findMaxGold();
+            System.out.println(highestGold);
+        }
+    }
 }

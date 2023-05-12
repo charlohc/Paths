@@ -143,7 +143,7 @@ class PlayerTest {
         @Test
         void addHealth() {
             int previousHealth = copyPlayer.getHealth();
-            copyPlayer.addHealth(25);
+            copyPlayer.removeHealth(25);
             Assertions.assertEquals(previousHealth + 25, copyPlayer.getHealth());
         }
 

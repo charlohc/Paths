@@ -1,5 +1,6 @@
 package edu.ntnu.paths.StoryDetails;
 
+
 import java.util.*;
 
 public final class Story {
@@ -48,7 +49,6 @@ public final class Story {
     }
 
 
-    //TODO: exception if passages does not contain link
     public Passage getPassage(Link link) {
         for (Map.Entry<Link, Passage> entry : passages.entrySet()) {
            if(entry.getValue().getTittle().equalsIgnoreCase(link.getReference())) {
@@ -84,6 +84,46 @@ public final class Story {
         }));
 
         return brokenLinks;
+    }
+
+    public int getTotalGold() {
+        int totGold = 0;
+        for (Passage passage: getPassages()) {
+            for ( Link linkInPassage: passage.getLinks()) {
+               totGold += linkInPassage.getGoldActionsValue();
+            }
+        }
+        return totGold;
+    }
+
+    public int getTotalScore() {
+        int totScore = 0;
+        for (Passage passage: getPassages()) {
+            for ( Link linkInPassage: passage.getLinks()) {
+                totScore += linkInPassage.getScoreActionsValue();
+            }
+        }
+        return totScore;
+    }
+
+    public int getTotHealthLoss() {
+        int totHealth = 0;
+        for (Passage passage: getPassages()) {
+            for ( Link linkInPassage: passage.getLinks()) {
+                totHealth += linkInPassage.getHealthActionsValue();
+            }
+        }
+        return totHealth;
+    }
+
+    public ArrayList<String> getAllInventoryItems() {
+        ArrayList<String> allInventoryItemsList = new ArrayList<>();
+        for (Passage passage: getPassages()) {
+            for ( Link linkInPassage: passage.getLinks()) {
+                    allInventoryItemsList.addAll(linkInPassage.getInventory());
+            }
+        }
+        return allInventoryItemsList;
     }
 
      public String passagesContent() {
@@ -140,4 +180,48 @@ public final class Story {
                 passagesContent();
 
     }
+
+    public int findMaxGold() {
+        HashMap<Passage, Integer> maxGold = new HashMap<>();
+        PriorityQueue<Passage> queue = new PriorityQueue<>((p1, p2) -> maxGold.get(p2) - maxGold.get(p1));
+        maxGold.put(this.passage, 0);
+        queue.offer(this.passage);
+
+        while (!queue.isEmpty()) {
+            Passage curr = queue.poll();
+            int currGold = maxGold.get(curr);
+
+            for (Link link : curr.getLinks()) {
+                Passage next = passages.get(link);
+                int goldActionsValue = link.getGoldActionsValue();
+                System.out.println(link.getGoldActionsValue());
+
+                if (next == null) {
+                    continue;
+                }
+
+                int nextGold = currGold + goldActionsValue;
+                System.out.println("ja" + nextGold);
+
+                if (nextGold > maxGold.getOrDefault(next, Integer.MIN_VALUE)) {
+                    maxGold.put(next, nextGold);
+                    queue.offer(next);
+                }
+            }
+        }
+
+        int max = Integer.MIN_VALUE;
+        for (int value : maxGold.values()) {
+            if (value > max) {
+                max = value;
+            }
+        }
+
+        return max;
+    }
+
+
+
+
+
 }

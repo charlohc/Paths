@@ -1,7 +1,8 @@
 package edu.ntnu.paths.StoryDetails;
 
-import edu.ntnu.paths.Actions.Action;
+import edu.ntnu.paths.Actions.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.regex.Pattern;
@@ -41,6 +42,46 @@ public final class Link {
         return actions;
     }
 
+    public int getGoldActionsValue() {
+        int numberOfGold = 0;
+        for (Action action : actions) {
+            if (action instanceof GoldAction) {
+                numberOfGold += ((GoldAction) action).getGold();
+            }
+        }
+        return numberOfGold;
+    }
+
+    public int getHealthActionsValue() {
+        int healthValue = 0;
+        for (Action action : actions) {
+            if (action instanceof HealthAction) {
+                healthValue += ((HealthAction) action).getHealth();
+            }
+        }
+        return healthValue;
+    }
+
+    public int getScoreActionsValue() {
+        int scoreValue = 0;
+        for (Action action : actions) {
+            if (action instanceof ScoreAction) {
+                scoreValue += ((ScoreAction) action).getPoints();
+            }
+        }
+        return scoreValue;
+    }
+
+    public ArrayList<String> getInventory() {
+        ArrayList<String> inventoryList = new ArrayList<>();
+        for (Action action : actions) {
+            if (action instanceof InventoryAction) {
+                inventoryList.add(((InventoryAction) action).getItem());
+            }
+        }
+        return inventoryList;
+    }
+
     /**
      * change to void, and return true or false depending on if already in list or not
      * @param action
@@ -73,6 +114,10 @@ public final class Link {
     public int hashCode() {
         return Objects.hash(text, reference, actions);
     }
+
+
+
+
 }
 
 
