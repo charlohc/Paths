@@ -42,7 +42,7 @@ class HealthGoalTest {
         @Test
         @DisplayName("Testing the isFulfilled method with a valid player with the required amount of health")
         void isFulfilledValidPlayerFulfilledHealth() {
-            player.addHealth(40);
+            player.removeHealth(40);
             Assertions.assertTrue(healthGoal.isFulfilled(player));
         }
 
@@ -55,7 +55,7 @@ class HealthGoalTest {
         @Test
         @DisplayName("Testing the isFulfilled method with an invalid player with the required amount of health")
         void isFulfilledInvalidPlayerFulfilledHealth() {
-            player.addHealth(40);
+            player.removeHealth(40);
             Assertions.assertFalse(healthGoal.isFulfilled(null));
         }
 

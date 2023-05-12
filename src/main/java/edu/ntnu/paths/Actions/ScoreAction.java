@@ -5,6 +5,9 @@ import edu.ntnu.paths.GameDetails.Player;
 public class ScoreAction implements Action {
     private int points;
 
+    public int getPoints() {
+        return points;
+    }
 
     public boolean scoreAction(int points) {
         if (points <= 0) return false;

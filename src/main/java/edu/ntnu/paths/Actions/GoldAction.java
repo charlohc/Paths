@@ -5,6 +5,10 @@ import edu.ntnu.paths.GameDetails.Player;
 public class GoldAction implements Action{
     private int gold;
 
+    public int getGold() {
+        return gold;
+    }
+
     public Boolean goldAction(int gold) {
         if (gold <= 0) return false;
         this.gold = gold;

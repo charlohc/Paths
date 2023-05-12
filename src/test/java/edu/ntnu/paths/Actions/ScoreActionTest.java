@@ -23,6 +23,12 @@ class ScoreActionTest {
                 .build();
     }
 
+    @Test
+    void getMethod() {
+        scoreAction.scoreAction(10);
+        Assertions.assertEquals(10, scoreAction.getPoints());
+    }
+
     @Nested
     @DisplayName("Testing the score action method with valid and invalid score number input")
     class testingGoldActionMethod {

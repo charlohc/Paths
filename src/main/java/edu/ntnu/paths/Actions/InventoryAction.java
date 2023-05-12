@@ -5,6 +5,10 @@ import edu.ntnu.paths.GameDetails.Player;
 public class InventoryAction implements Action{
     private String item;
 
+    public String getItem() {
+        return item;
+    }
+
     public boolean inventoryAction(String item) {
        if (item.isEmpty()) return false;
         this.item = item;

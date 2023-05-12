@@ -4,14 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53a0d0a9-2fe9-40cf-a5cf-95adcfb50728" name="Changes" comment="Changed size window">
+    <list default="true" id="53a0d0a9-2fe9-40cf-a5cf-95adcfb50728" name="Changes" comment="Implemented more functionality to create goals">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/CreateGoals.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/CreateGoals.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/FileHandling/ReadFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/FileHandling/ReadFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/GameDetails/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/GameDetails/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/Style/create-goals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/Style/create-goals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/create-goals.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/create-goals.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/GameDetails/GameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/GameDetails/GameTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Actions/GoldAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Actions/GoldAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Actions/HealthAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Actions/HealthAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Actions/InventoryAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Actions/InventoryAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Actions/ScoreAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Actions/ScoreAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/GameDetails/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/GameDetails/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/StoryDetails/Link.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/StoryDetails/Link.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/StoryDetails/Story.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/StoryDetails/Story.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/Actions/GoldActionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/Actions/GoldActionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/Actions/HealthActionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/Actions/HealthActionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/Actions/InventoryActionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/Actions/InventoryActionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/Actions/ScoreActionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/Actions/ScoreActionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/GameDetails/PlayerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/GameDetails/PlayerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/Goals/HealthGoalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/Goals/HealthGoalTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +73,7 @@
       <recent name="C:\Users\Charlotte\IdeaProjects\Paths_V2\paths_charlotte\src\main\resources\edu\ntnu\paths\Controller" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.InventoryActionTest.getMethod">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.Controller.Main" />
       <module name="Paths_V2" />
@@ -80,87 +87,92 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.Controller.Main" />
+    <configuration name="GoldActionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Paths_V2" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="edu.ntnu.paths.Controller.*" />
+          <option name="PATTERN" value="edu.ntnu.paths.Actions.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="edu.ntnu.paths.Actions" />
+      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.Actions.GoldActionTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GameTest$creatingInvalidGameObject.gameWithoutGoals" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GoldActionTest.getMethod" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Paths_V2" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="edu.ntnu.paths.GameDetails.*" />
+          <option name="PATTERN" value="edu.ntnu.paths.Actions.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="edu.ntnu.paths.GameDetails.GameTest" />
-      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.GameDetails.GameTest$creatingInvalidGameObject" />
-      <option name="METHOD_NAME" value="gameWithoutGoals" />
+      <option name="PACKAGE_NAME" value="edu.ntnu.paths.Actions" />
+      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.Actions.GoldActionTest" />
+      <option name="METHOD_NAME" value="getMethod" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GameTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="HealthActionTest.getMethod" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Paths_V2" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="edu.ntnu.paths.GameDetails.*" />
+          <option name="PATTERN" value="edu.ntnu.paths.Actions.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="edu.ntnu.paths.GameDetails" />
-      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.GameDetails.GameTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="edu.ntnu.paths.Actions" />
+      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.Actions.HealthActionTest" />
+      <option name="METHOD_NAME" value="getMethod" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ReadFileTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="InventoryActionTest.getMethod" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Paths_V2" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="edu.ntnu.paths.FileHandling.*" />
+          <option name="PATTERN" value="edu.ntnu.paths.Actions.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="edu.ntnu.paths.FileHandling" />
-      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.FileHandling.ReadFileTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="edu.ntnu.paths.Actions" />
+      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.Actions.InventoryActionTest" />
+      <option name="METHOD_NAME" value="getMethod" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ScoreActionTest.getMethod" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Paths_V2" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="edu.ntnu.paths.StoryDetails.*" />
+          <option name="PATTERN" value="edu.ntnu.paths.Actions.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="edu.ntnu.paths.StoryDetails" />
-      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.StoryDetails.StoryTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="edu.ntnu.paths.Actions" />
+      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.Actions.ScoreActionTest" />
+      <option name="METHOD_NAME" value="getMethod" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.GameTest" />
-        <item itemvalue="JUnit.GameTest$creatingInvalidGameObject.gameWithoutGoals" />
-        <item itemvalue="JUnit.StoryTest" />
-        <item itemvalue="JUnit.ReadFileTest" />
+        <item itemvalue="JUnit.InventoryActionTest.getMethod" />
+        <item itemvalue="JUnit.ScoreActionTest.getMethod" />
+        <item itemvalue="JUnit.GoldActionTest.getMethod" />
+        <item itemvalue="JUnit.GoldActionTest" />
+        <item itemvalue="JUnit.HealthActionTest.getMethod" />
       </list>
     </recent_temporary>
   </component>
@@ -183,7 +195,7 @@
       <workItem from="1683801310917" duration="235000" />
       <workItem from="1683801561275" duration="7071000" />
       <workItem from="1683824426632" duration="8333000" />
-      <workItem from="1683910257647" duration="8875000" />
+      <workItem from="1683910257647" duration="11251000" />
     </task>
     <task id="LOCAL−00001" summary="New project with previous files - can now run fxml files">
       <created>1683466326399</created>
@@ -257,7 +269,13 @@
       <option name="presentableId" value="LOCAL−00012" />
       <updated>1683829974644</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL−00013" summary="Implemented more functionality to create goals">
+      <created>1683919313891</created>
+      <option name="number" value="LOCAL−00013" />
+      <option name="presentableId" value="LOCAL−00013" />
+      <updated>1683919313891</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -276,6 +294,7 @@
     <MESSAGE value="Improved exception handling" />
     <MESSAGE value="Implemented new functionality" />
     <MESSAGE value="Changed size window" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed size window" />
+    <MESSAGE value="Implemented more functionality to create goals" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented more functionality to create goals" />
   </component>
 </project>

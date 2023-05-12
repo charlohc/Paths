@@ -21,6 +21,12 @@ class GoldActionTest {
                 .build();
     }
 
+    @Test
+    void getMethod() {
+        goldAction.goldAction(10);
+        Assertions.assertEquals(10, goldAction.getGold());
+    }
+
     @Nested
     @DisplayName("Testing the gold action method with valid and invalid number input")
     class testingGoldActionMethod {

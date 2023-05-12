@@ -23,6 +23,13 @@ class HealthActionTest {
                 .build();
     }
 
+    @Test
+    void getMethod() {
+        healthAction.healthAction(50);
+        Assertions.assertEquals(50, healthAction.getHealth());
+    }
+
+
     @Nested
     @DisplayName("Testing the gold action method with valid and invalid number input")
     class testingGoldActionMethod {
@@ -51,7 +58,7 @@ class HealthActionTest {
             int previousHealthPlayer = player.getHealth();
             healthAction.healthAction(10);
             healthAction.execute(player);
-            assertEquals(previousHealthPlayer + 10, player.getHealth());
+            assertEquals(previousHealthPlayer - 10, player.getHealth());
         }
 
         @Test

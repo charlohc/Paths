@@ -22,6 +22,12 @@ class InventoryActionTest {
                 .build();
     }
 
+    @Test
+    void getMethod() {
+        inventoryAction.inventoryAction("axe");
+        Assertions.assertEquals("axe", inventoryAction.getItem());
+    }
+
     @Nested
     @DisplayName("Testing the inventory action method with valid and invalid score inventory input")
     class testingInventoryActionMethod {
