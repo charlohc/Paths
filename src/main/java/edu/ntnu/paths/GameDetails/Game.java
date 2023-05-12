@@ -22,11 +22,6 @@ public class Game {
         }
         else if (gameBuilder.story == null) { throw new NullPointerException("Story cannot be null");
         }
-
-        //TODO: does it?
-        else if (gameBuilder.goals.isEmpty()) { throw new NullPointerException("The game must contain at least one goal");
-
-        }
         else {
             this.player = gameBuilder.player;
             this.story = gameBuilder.story;

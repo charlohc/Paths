@@ -32,19 +32,8 @@ public class ReadFile {
     public Story readFile(File file) {
         ReadFile readFile = new ReadFile();
 
-        if (!file.exists() || file.length() == 0 || !file.getName().endsWith(".paths")) {
-            String errorMessage = "";
-            if (!file.exists()) {
-                return null;
-               /* errorMessage = "File " + file.getName() + " not found.";*/
-            } else if (file.length() == 0) {
-                return null;
-                /*errorMessage = "File " + file.getName() + " is empty.";*/
-            } else {
-                return null;
-               /* errorMessage = "File must end with '.paths'";*/
-            }
-            /*throw new RuntimeException(new Exception(errorMessage));*/
+        if (file == null || file.length() == 0 || !file.getName().endsWith(".paths")) {
+            return null;
         }
 
         Scanner myReader;

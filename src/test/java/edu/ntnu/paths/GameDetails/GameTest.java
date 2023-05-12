@@ -107,7 +107,6 @@ class GameTest {
         goals.add(scoreGoal);
         goals.add(inventoryGoal);
 
-        //this is what need extra security, player, story and list of goals
         game = GameBuilder.newInstance()
                 .setPlayer(new Player(player))
                 .setStory(new Story(story))
@@ -139,17 +138,6 @@ class GameTest {
                         .setPlayer(player)
                         .setStory(null)
                         .setGoals(goals)
-                        .build();
-            });
-        }
-
-        @Test
-        void gameWithoutGoals() {
-            assertThrows(NullPointerException.class, () -> {
-                Game gameWithOutGoals = GameBuilder.newInstance()
-                        .setPlayer(player)
-                        .setStory(story)
-                        .setGoals(null)
                         .build();
             });
         }

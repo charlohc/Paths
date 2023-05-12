@@ -1,7 +1,7 @@
 
 #createGoalsContainer {
- -fx-padding: 50px;
-    -fx-spacing: 200px;
+    -fx-padding: 40px 20px 20px 100px;
+ -fx-spacing: 120px;
 }
 
 @media (max-width: 600px) {
@@ -13,13 +13,17 @@
 #createGoalsContainer > * {
     -fx-hgrow: ALWAYS;
 }
+
+#labelGoal, #inputGoal, #setGoalButton {
+    -fx-padding: 40px 20px 20px 20px;
+}
+
 #goalsContainer {
     -fx-border-color: black;
     -fx-border-width: 2px;
     -fx-border-radius: 10px;
     -fx-max-width: 350px;
-    -fx-max-height: 200px;
-    -fx-pref-height: 200px;
+    -fx-max-height: 250px;
+    -fx-pref-height: 250px;
     -fx-pref-width: 250px;
-    -fx-padding: 10px;
 }

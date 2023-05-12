@@ -12,6 +12,9 @@
 <?import java.lang.String?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
+<?import com.sun.javafx.scene.control.IntegerField?>
 <BorderPane xmlns:fx="http://javafx.com/fxml"
             fx:controller="edu.ntnu.paths.Controller.CreateGoals"
             stylesheets="@Style/style.css, @Style/create-goals.css">
@@ -25,20 +28,27 @@
                 <Label text="In this game you can choose your own goals!"/>
             </StackPane>
             <HBox fx:id="createGoalsContainer">
-                <ComboBox promptText="View goals" fx:id="dropdown">
-                    <items>
-                        <FXCollections fx:factory="observableArrayList">
-                            <String fx:value="Gold" />
-                            <String fx:value="Health" />
-                            <String fx:value="Inventory" />
-                            <String fx:value="Score" />
-                        </FXCollections>
-                    </items>
-                </ComboBox>
+                <VBox>
+                    <ComboBox promptText="View goals" fx:id="dropdown">
+                        <items>
+                            <FXCollections fx:factory="observableArrayList">
+                                <String fx:value="Gold" />
+                                <String fx:value="Health" />
+                                <String fx:value="Inventory" />
+                                <String fx:value="Score" />
+                            </FXCollections>
+                        </items>
+                    </ComboBox>
+                    <VBox >
+                            <StackPane fx:id="labelGoal"></StackPane>
+                        <StackPane fx:id="inputGoal"></StackPane>
+                        <StackPane fx:id="setGoalButton"></StackPane>
+                    </VBox>
+                </VBox>
                 <Label fx:id="contentLabel" />
                 <VBox>
                     <Label text="Your selected goals" />
-                    <Pane fx:id="goalsContainer" />
+                    <VBox fx:id="goalsContainer" />
                 </VBox>
             </HBox>
         </VBox>
@@ -54,5 +64,6 @@
     </bottom>
 
 </BorderPane>
+
 
 
