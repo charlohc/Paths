@@ -8,7 +8,7 @@ public class PlayerBuilder {
     public int health;
     public int score;
     public int gold;
-    public List<String> inventory;
+    public List<String> inventory = new ArrayList<>();
 
     public static PlayerBuilder newInstance() {
         return new PlayerBuilder();

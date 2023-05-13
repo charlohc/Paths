@@ -6,10 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="53a0d0a9-2fe9-40cf-a5cf-95adcfb50728" name="Changes" comment="Implemented get functionality to action classes and added tests">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Actions/HealthAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Actions/HealthAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/CreateGoals.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/CreateGoals.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/GameDetails/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/GameDetails/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/StoryDetails/Link.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/StoryDetails/Link.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/GameDetails/PlayerBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/GameDetails/PlayerBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/StoryDetails/Story.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/StoryDetails/Story.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/Style/create-goals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/Style/create-goals.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/create-goals.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/create-goals.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/Actions/HealthActionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/Actions/HealthActionTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/GameDetails/PlayerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/GameDetails/PlayerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/Goals/HealthGoalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/Goals/HealthGoalTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/StoryDetails/StoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/StoryDetails/StoryTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -65,21 +71,8 @@
       <recent name="C:\Users\Charlotte\IdeaProjects\Paths_V2\paths_charlotte\src\main\resources\edu\ntnu\paths\Controller" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.StoryTest$getTotalActions.getTotalGold">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.Controller.Main" />
-      <module name="Paths_V2" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="edu.ntnu.paths.Controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GoldActionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.PlayerTest">
+    <configuration name="HealthActionTest$testingExecuteMethod" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Paths_V2" />
       <extension name="coverage">
         <pattern>
@@ -87,14 +80,14 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="edu.ntnu.paths.Actions" />
-      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.Actions.GoldActionTest" />
+      <option name="PACKAGE_NAME" value="edu.ntnu.paths.Actions.HealthActionTest" />
+      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.Actions.HealthActionTest$testingExecuteMethod" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GoldActionTest.getMethod" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="HealthActionTest$testingExecuteMethod.executeNotOverAHundred" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Paths_V2" />
       <extension name="coverage">
         <pattern>
@@ -102,15 +95,15 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="edu.ntnu.paths.Actions" />
-      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.Actions.GoldActionTest" />
-      <option name="METHOD_NAME" value="getMethod" />
+      <option name="PACKAGE_NAME" value="edu.ntnu.paths.Actions.HealthActionTest" />
+      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.Actions.HealthActionTest$testingExecuteMethod" />
+      <option name="METHOD_NAME" value="executeNotOverAHundred" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="InventoryActionTest.getMethod" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="HealthActionTest$testingExecuteMethod.executeNotUnderZero" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Paths_V2" />
       <extension name="coverage">
         <pattern>
@@ -118,53 +111,52 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="edu.ntnu.paths.Actions" />
-      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.Actions.InventoryActionTest" />
-      <option name="METHOD_NAME" value="getMethod" />
+      <option name="PACKAGE_NAME" value="edu.ntnu.paths.Actions.HealthActionTest" />
+      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.Actions.HealthActionTest$testingExecuteMethod" />
+      <option name="METHOD_NAME" value="executeNotUnderZero" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ScoreActionTest.getMethod" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PlayerTest$validGetMethods.getInventory" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Paths_V2" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="edu.ntnu.paths.Actions.*" />
+          <option name="PATTERN" value="edu.ntnu.paths.GameDetails.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="edu.ntnu.paths.Actions" />
-      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.Actions.ScoreActionTest" />
-      <option name="METHOD_NAME" value="getMethod" />
+      <option name="PACKAGE_NAME" value="edu.ntnu.paths.GameDetails.PlayerTest" />
+      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.GameDetails.PlayerTest$validGetMethods" />
+      <option name="METHOD_NAME" value="getInventory" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StoryTest$getTotalActions.getTotalGold" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PlayerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Paths_V2" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="edu.ntnu.paths.StoryDetails.*" />
+          <option name="PATTERN" value="edu.ntnu.paths.GameDetails.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="edu.ntnu.paths.StoryDetails.StoryTest" />
-      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.StoryDetails.StoryTest$getTotalActions" />
-      <option name="METHOD_NAME" value="getTotalGold" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="edu.ntnu.paths.GameDetails" />
+      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.GameDetails.PlayerTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.StoryTest$getTotalActions.getTotalGold" />
-        <item itemvalue="JUnit.InventoryActionTest.getMethod" />
-        <item itemvalue="JUnit.ScoreActionTest.getMethod" />
-        <item itemvalue="JUnit.GoldActionTest.getMethod" />
-        <item itemvalue="JUnit.GoldActionTest" />
+        <item itemvalue="JUnit.PlayerTest" />
+        <item itemvalue="JUnit.PlayerTest$validGetMethods.getInventory" />
+        <item itemvalue="JUnit.HealthActionTest$testingExecuteMethod.executeNotOverAHundred" />
+        <item itemvalue="JUnit.HealthActionTest$testingExecuteMethod.executeNotUnderZero" />
+        <item itemvalue="JUnit.HealthActionTest$testingExecuteMethod" />
       </list>
     </recent_temporary>
   </component>
@@ -188,6 +180,7 @@
       <workItem from="1683801561275" duration="7071000" />
       <workItem from="1683824426632" duration="8333000" />
       <workItem from="1683910257647" duration="13564000" />
+      <workItem from="1683984540771" duration="4193000" />
     </task>
     <task id="LOCAL−00001" summary="New project with previous files - can now run fxml files">
       <created>1683466326399</created>

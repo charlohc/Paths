@@ -31,20 +31,6 @@ class HealthActionTest {
 
 
     @Nested
-    @DisplayName("Testing the gold action method with valid and invalid number input")
-    class testingGoldActionMethod {
-        @Test
-        void healthActionValidInput() {
-            assertTrue(healthAction.healthAction(10));
-        }
-
-        @Test
-        void healthActionInvalidInput() {
-            assertFalse(healthAction.healthAction(-10));
-        }
-    }
-
-    @Nested
     @DisplayName("Testing the execute method with valid and invalid player and testing for correct value")
     class testingExecuteMethod {
         @Test
@@ -54,11 +40,33 @@ class HealthActionTest {
         }
 
         @Test
-        void executeGivesCorrectHealthValue() {
+        void executeGivesCorrectHealthValueWhenLoss() {
+            int previousHealthPlayer = player.getHealth();
+            healthAction.healthAction(-10);
+            healthAction.execute(player);
+            assertEquals(previousHealthPlayer - 10, player.getHealth());
+        }
+
+        @Test
+        void executeGivesCorrectHealthValueWhenImprove() {
             int previousHealthPlayer = player.getHealth();
             healthAction.healthAction(10);
             healthAction.execute(player);
-            assertEquals(previousHealthPlayer - 10, player.getHealth());
+            assertEquals(previousHealthPlayer + 10, player.getHealth());
+        }
+
+        @Test
+        void executeNotUnderZero() {
+            healthAction.healthAction(-60);
+            healthAction.execute(player);
+            assertEquals(0, player.getHealth());
+        }
+
+        @Test
+        void executeNotOverAHundred() {
+            healthAction.healthAction(60);
+            healthAction.execute(player);
+            assertEquals(100, player.getHealth());
         }
 
         @Test

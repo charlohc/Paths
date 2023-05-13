@@ -11,15 +11,13 @@ public class HealthAction implements Action{
         return health;
     }
 
-    public boolean healthAction(int health) {
-        if (health <= 0) return false;
+    public void healthAction(int health) {
         this.health = health;
-        return true;
     }
     @Override
     public boolean execute(Player player) {
         if (player == null) return false;
-        player.removeHealth(this.health);
+        player.changeHealth(this.health);
         return true;
     }
 

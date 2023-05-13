@@ -43,11 +43,13 @@ public class Player {
         return health;
     }
 
-    public void removeHealth(int health) {
-        if (health <= 0) throw new IllegalArgumentException("Cannot add negative or zero number to health");
-        if ((this.getHealth() - health) < 0) { this.health = 0;
-        } else {
-            this.health -= health;
+    public void changeHealth(int health) {
+        if ((this.health + health) < 0) { this.health = 0;
+        } else if ((this.health + health) > 100){
+            this.health = 100;
+        }
+        else {
+            this.health += health;
         }
     }
 

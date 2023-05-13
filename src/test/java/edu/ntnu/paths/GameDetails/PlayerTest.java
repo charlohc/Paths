@@ -19,6 +19,7 @@ class PlayerTest {
                .setGold(10)
                .setScore(10)
                .build();
+
        copyPlayer = new Player(originalPlayer);
 
    }
@@ -143,7 +144,7 @@ class PlayerTest {
         @Test
         void addHealth() {
             int previousHealth = copyPlayer.getHealth();
-            copyPlayer.removeHealth(25);
+            copyPlayer.changeHealth(25);
             Assertions.assertEquals(previousHealth + 25, copyPlayer.getHealth());
         }
 
