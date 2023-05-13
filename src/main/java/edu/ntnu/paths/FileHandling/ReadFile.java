@@ -73,6 +73,7 @@ public class ReadFile {
                 .setOpeningPassage(openingPassage)
                 .build();
 
+        story.addPassage(openingPassage);
 
         int index = 4;
 
@@ -108,7 +109,7 @@ public class ReadFile {
     }
     }
 
-    public static int addLink(String[] storyContentArray,Passage passage, int index) {
+    public static int addLink(String[] storyContentArray, Passage passage, int index) {
         while (!storyContentArray[index].isEmpty()) {
 
             String[] links = storyContentArray[index].split("[{}()]");

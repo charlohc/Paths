@@ -73,7 +73,6 @@ public class ImportedStory {
             prefs.put("fileName", fileName.getText());
             prefs.putInt("deadLink", Integer.parseInt(deadLinks.getText()));
 
-
         } else {
             errorMessage.setText("Could not load file...");
         }
