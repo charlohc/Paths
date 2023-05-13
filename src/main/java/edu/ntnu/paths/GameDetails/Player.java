@@ -12,7 +12,7 @@ public class Player {
     Player(PlayerBuilder playerBuilder) {
         if (playerBuilder.name.isEmpty()) {
             throw new NullPointerException("Name cannot be null");
-        } else if (playerBuilder.health <= 0) {
+        } else if (playerBuilder.health < 0) {
             throw new IllegalArgumentException("Health cannot be zero or negative");
         } else if (playerBuilder.score < 0) {
             throw new IllegalArgumentException("Score cannot negative");

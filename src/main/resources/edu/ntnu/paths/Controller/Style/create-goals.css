@@ -1,7 +1,11 @@
 
 #createGoalsContainer {
-    -fx-padding: 40px 20px 20px 100px;
- -fx-spacing: 120px;
+    -fx-padding: 40px 20px 20px 50px;
+ -fx-spacing: 50px;
+}
+
+#infoGoals {
+    -fx-padding: 0px 20px 20px 150px;
 }
 
 @media (max-width: 600px) {
@@ -26,4 +30,9 @@
     -fx-max-height: 250px;
     -fx-pref-height: 250px;
     -fx-pref-width: 250px;
+    -fx-padding: 10px;
+}
+
+#containerForGoalsContainer {
+    -fx-padding: 40px 20px 20px 60px;
 }

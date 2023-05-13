@@ -18,12 +18,6 @@
             <Label text="Player Name"/>
             <TextField fx:id="nameField" maxWidth="200"/>
 
-            <Label text="Player Health"/>
-            <Spinner fx:id="healthField" min="0" max="100"/>
-
-            <Label text="Player Gold"/>
-            <Spinner fx:id="goldField" min="0" max="9999"/>
-
             <Button fx:id="submitButton" text="Submit" onAction="#handleSubmit"/>
 
             <Label fx:id="feedBackLabel"/>

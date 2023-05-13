@@ -268,5 +268,10 @@ class StoryTest {
             Assertions.assertEquals(50, story.findMaxScore());
         }
 
+        @Test
+        void getAllInventoryItems() {
+           Assertions.assertEquals("Sword", story.getAllInventoryItems().toString().replace("[","").replace("]",""));
+        }
+
     }
 }

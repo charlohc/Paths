@@ -29,7 +29,7 @@
             </StackPane>
             <HBox fx:id="createGoalsContainer">
                 <VBox>
-                    <ComboBox promptText="View goals" fx:id="dropdown">
+                    <ComboBox promptText="View goals" fx:id="goalDropdown">
                         <items>
                             <FXCollections fx:factory="observableArrayList">
                                 <String fx:value="Gold" />
@@ -39,14 +39,16 @@
                             </FXCollections>
                         </items>
                     </ComboBox>
-                    <VBox >
-                            <StackPane fx:id="labelGoal"></StackPane>
-                        <StackPane fx:id="inputGoal"></StackPane>
-                        <StackPane fx:id="setGoalButton"></StackPane>
+                    <VBox fx:id="infoGoals">
+                            <StackPane fx:id="labelGoal"/>
+                        <StackPane fx:id="inputGoal"/>
+                        <StackPane fx:id="guidanceGoal"/>
+                        <VBox fx:id="allInventoryContainer"/>
+                        <StackPane fx:id="setGoalButton"/>
                     </VBox>
                 </VBox>
                 <Label fx:id="contentLabel" />
-                <VBox>
+                <VBox fx:id="containerForGoalsContainer">
                     <Label text="Your selected goals" />
                     <VBox fx:id="goalsContainer" />
                 </VBox>
