@@ -2,6 +2,7 @@ package edu.ntnu.paths.StoryDetails;
 
 
 import java.util.*;
+import java.util.function.Function;
 
 public final class Story {
     private final String title;
@@ -86,44 +87,63 @@ public final class Story {
         return brokenLinks;
     }
 
-    public int getTotalGold() {
-        int totGold = 0;
-        for (Passage passage: getPassages()) {
-            for ( Link linkInPassage: passage.getLinks()) {
-               totGold += linkInPassage.getGoldActionsValue();
-            }
-        }
-        return totGold;
-    }
-
-    public int getTotalScore() {
-        int totScore = 0;
-        for (Passage passage: getPassages()) {
-            for ( Link linkInPassage: passage.getLinks()) {
-                totScore += linkInPassage.getScoreActionsValue();
-            }
-        }
-        return totScore;
-    }
-
-    public int getTotHealthLoss() {
-        int totHealth = 0;
-        for (Passage passage: getPassages()) {
-            for ( Link linkInPassage: passage.getLinks()) {
-                totHealth += linkInPassage.getHealthActionsValue();
-            }
-        }
-        return totHealth;
-    }
-
     public ArrayList<String> getAllInventoryItems() {
         ArrayList<String> allInventoryItemsList = new ArrayList<>();
         for (Passage passage: getPassages()) {
             for ( Link linkInPassage: passage.getLinks()) {
-                    allInventoryItemsList.addAll(linkInPassage.getInventory());
+                for (String inventory: linkInPassage.getInventory()) {
+                    if (!allInventoryItemsList.contains(inventory)) {
+                        allInventoryItemsList.add(inventory);
+                    }
+                }
             }
         }
         return allInventoryItemsList;
+    }
+
+    public int findMaxGold() {
+        return findMaxValue(Link::getGoldActionsValue);
+    }
+
+    public int findMaxScore() {
+        return findMaxValue( Link::getScoreActionsValue);
+    }
+
+
+    public int findMaxValue( Function<Link, Integer> valueFunction) {
+        Map<Passage, Integer> distances = new HashMap<>();
+        PriorityQueue<Passage> pq = new PriorityQueue<>((a, b) -> distances.get(b) - distances.get(a));
+        Passage startingPassage = this.getPassage();
+
+        // Initialize all distances to -infinity except starting passage, which is set to 0.
+        for (Passage passage : passages.values()) {
+            distances.put(passage, Integer.MIN_VALUE);
+        }
+        distances.put(startingPassage, 0);
+        pq.offer(startingPassage);
+
+        // Run Dijkstra's algorithm.
+        while (!pq.isEmpty()) {
+            Passage curr = pq.poll();
+            for (Link link : curr.getLinks()) {
+                Passage next = getPassage(link);
+                int value = valueFunction.apply(link);
+                if (next == null || distances.get(curr) == Integer.MIN_VALUE) continue;
+                if (distances.get(curr) + value > distances.get(next)) {
+                    distances.put(next, distances.get(curr) + value);
+                    pq.offer(next);
+                }
+            }
+        }
+
+        // Find the highest amount of value.
+        int maxValue = Integer.MIN_VALUE;
+        for (Passage passage : passages.values()) {
+            if (distances.get(passage) > maxValue) {
+                maxValue = distances.get(passage);
+            }
+        }
+        return maxValue;
     }
 
      public String passagesContent() {
@@ -180,48 +200,5 @@ public final class Story {
                 passagesContent();
 
     }
-
-    public int findMaxGold() {
-        HashMap<Passage, Integer> maxGold = new HashMap<>();
-        PriorityQueue<Passage> queue = new PriorityQueue<>((p1, p2) -> maxGold.get(p2) - maxGold.get(p1));
-        maxGold.put(this.passage, 0);
-        queue.offer(this.passage);
-
-        while (!queue.isEmpty()) {
-            Passage curr = queue.poll();
-            int currGold = maxGold.get(curr);
-
-            for (Link link : curr.getLinks()) {
-                Passage next = passages.get(link);
-                int goldActionsValue = link.getGoldActionsValue();
-                System.out.println(link.getGoldActionsValue());
-
-                if (next == null) {
-                    continue;
-                }
-
-                int nextGold = currGold + goldActionsValue;
-                System.out.println("ja" + nextGold);
-
-                if (nextGold > maxGold.getOrDefault(next, Integer.MIN_VALUE)) {
-                    maxGold.put(next, nextGold);
-                    queue.offer(next);
-                }
-            }
-        }
-
-        int max = Integer.MIN_VALUE;
-        for (int value : maxGold.values()) {
-            if (value > max) {
-                max = value;
-            }
-        }
-
-        return max;
-    }
-
-
-
-
 
 }

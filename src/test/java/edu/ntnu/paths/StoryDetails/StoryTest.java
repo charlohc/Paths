@@ -10,6 +10,7 @@ import org.junit.jupiter.api.*;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -21,6 +22,8 @@ class StoryTest {
     GoldAction goldActionIncrease20 = new GoldAction();
 
     ScoreAction scoreActionIncrease10 = new ScoreAction();
+    ScoreAction scoreActionIncrease40 = new ScoreAction();
+
 
     InventoryAction inventoryActionSword = new InventoryAction();
     HealthAction healthActionIncrease10 = new HealthAction();
@@ -79,6 +82,7 @@ class StoryTest {
         inventoryActionSword.inventoryAction("Sword");
 
         goldActionIncrease20.goldAction(20);
+        scoreActionIncrease40.scoreAction(40);
 
         linkToPorchPassage.addAction(goldActionIncrease10);
         linkToPorchPassage.addAction(healthActionIncrease10);
@@ -87,6 +91,7 @@ class StoryTest {
         linkToPorchPassage.addAction(goldActionIncrease10);
 
         linkToKitchenPassage.addAction(goldActionIncrease20);
+        linkToKitchenPassage.addAction(scoreActionIncrease40);
 
         copyStory = new Story(story);
 
@@ -254,9 +259,14 @@ class StoryTest {
     class getTotalActions {
 
         @Test
-        void getTotalGold() {
-            int highestGold = story.findMaxGold();
-            System.out.println(highestGold);
+        void getTotalGoldBestPath() {
+           Assertions.assertEquals(30, story.findMaxGold());
         }
+
+        @Test
+        void getTotalScoreBestPath() {
+            Assertions.assertEquals(50, story.findMaxScore());
+        }
+
     }
 }
