@@ -20,7 +20,7 @@ import java.util.Objects;
 
 public class HomePage {
 
-    private Scene scene;
+    private final Scene scene;
 
     public HomePage() {
         Label titleLabel = new Label("Paths");

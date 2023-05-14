@@ -20,36 +20,51 @@ public class CreateGoals {
     private Spinner<Integer> intSpinner;
     private TextField inventoryTextField;
     private ArrayList<String> inventoryGoalList = new ArrayList<>();
-
-    private Pane labelGoal,guidanceGoal,inputGoal;
-    private BorderPane root;
-
-    private Pane goalsContainerPane;
-    private VBox goalsContainerVBox;
+    private Pane labelGoal,guidanceGoal,inputGoal, goalsContainerPane;
+    private VBox topVBox, dropdownContainer, goalsContainerVBox, createGoalContainer, allInventoryContainer;
     private ComboBox<String> goalDropdown;
-    private VBox createGoalContainer;
-    private VBox allInventoryContainer;
     private AnchorPane bottomAnchorPane;
     private Button addGoalButton;
 
     public void start(Stage stage) {
         currentStory = StoryManager.getInstance().getStory();
 
-        root = new BorderPane();
+        BorderPane root = new BorderPane();
         root.getStylesheets().addAll(
                 Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/Style/style.css")).toExternalForm(),
                 Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/Style/create-goals.css")).toExternalForm()
         );
 
-        // Top section
+        createTop();
+        createLeftSection();
+        createCentre();
+        createRightSection();
+        createBottom();
+
+        root.setTop(topVBox);
+
+        root.setLeft(dropdownContainer);
+
+        root.setCenter(createGoalContainer);
+
+        root.setRight(goalsContainerPane);
+
+        root.setBottom(bottomAnchorPane);
+
+        Scene scene = new Scene(root, 1000, 600);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    private void createTop() {
         Label header = new Label("Set your goals for the game");
         header.setId("header");
-        VBox pane = new VBox(header);
-        pane.setAlignment(Pos.CENTER);
-        root.setTop(pane);
+         topVBox = new VBox(header);
+        topVBox.setAlignment(Pos.CENTER);
+    }
 
-        // Left section
-        VBox dropdownContainer = new VBox();
+    private void createLeftSection() {
+        dropdownContainer = new VBox();
         dropdownContainer.setSpacing(10);
         dropdownContainer.setAlignment(Pos.TOP_LEFT);
         dropdownContainer.setId("dropDownContainer");
@@ -57,13 +72,12 @@ public class CreateGoals {
         goalDropdown.getItems().addAll("Gold", "Health", "Score", "Inventory");
         goalDropdown.setPromptText("Select a goal");
 
-        goalDropdown.setOnAction(e -> {  String selectedOption = goalDropdown.getValue().toString(); handleDropdownChange(selectedOption);});
+        goalDropdown.setOnAction(e -> {  String selectedOption = goalDropdown.getValue(); handleDropdownChange(selectedOption);});
 
         dropdownContainer.getChildren().add(goalDropdown);
+    }
 
-        root.setLeft(dropdownContainer);
-
-        // Center section
+    private void createCentre() {
         createGoalContainer = new VBox();
         createGoalContainer.setSpacing(15);
         createGoalContainer.setAlignment(Pos.TOP_LEFT);
@@ -71,27 +85,27 @@ public class CreateGoals {
 
         labelGoal = new Pane();
 
-         inputGoal = new Pane();
+        inputGoal = new Pane();
 
-         guidanceGoal = new VBox();
+        guidanceGoal = new VBox();
 
         allInventoryContainer = new VBox();
         allInventoryContainer.setSpacing(10);
         allInventoryContainer.setAlignment(Pos.TOP_CENTER);
 
         createGoalContainer.getChildren().addAll(labelGoal, inputGoal, guidanceGoal, allInventoryContainer);
-        root.setCenter(createGoalContainer);
+    }
 
-        // Right section
+    private void createRightSection() {
         goalsContainerVBox = new VBox();
         goalsContainerVBox.setSpacing(10);
         goalsContainerVBox.setId("goalsContainer");
         goalsContainerVBox.setAlignment(Pos.TOP_CENTER);
         goalsContainerPane = new Pane(goalsContainerVBox);
         BorderPane.setMargin(goalsContainerPane, new Insets(100, 50, 0, 0));
-        root.setRight(goalsContainerPane);
+    }
 
-        // Bottom section
+    private void createBottom() {
         bottomAnchorPane = new AnchorPane();
 
         Button startGameButton = new Button("Start game");
@@ -105,13 +119,7 @@ public class CreateGoals {
         AnchorPane.setLeftAnchor(goBackButton, 50.0);
 
         bottomAnchorPane.getChildren().addAll(startGameButton, goBackButton);
-        root.setBottom(bottomAnchorPane);
-
-        Scene scene = new Scene(root, 1000, 600);
-        stage.setScene(scene);
-        stage.show();
     }
-
 
     private void handleDropdownChange(String selectedOption) {
         clearAllContainers();
@@ -181,7 +189,6 @@ public class CreateGoals {
                 inputGoal.getChildren().add(inventoryTextField);
             }
         }
-        // Add the "add goal" button to the container if it doesn't exist
         if (!createGoalContainer.getChildren().contains(addGoalButton)) {
             createGoalContainer.getChildren().add(addGoalButton);
         }

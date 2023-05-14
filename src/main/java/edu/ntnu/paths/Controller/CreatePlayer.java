@@ -1,6 +1,7 @@
 package edu.ntnu.paths.Controller;
 
-import javafx.application.Application;
+import edu.ntnu.paths.Managers.PlayerManager;
+import edu.ntnu.paths.Managers.StoryManager;
 import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -11,32 +12,56 @@ import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 import java.util.Objects;
+import java.util.prefs.BackingStoreException;
 import java.util.prefs.Preferences;
 
 public class CreatePlayer {
 
     private final Preferences prefs = Preferences.userNodeForPackage(CreatePlayer.class);
 
-    public void start(Stage stage) {
+    private BorderPane root;
+    private VBox topVBox, centerVbox;
+    private AnchorPane bottomAnchorPane;
+    private Button createGoalsButton;
 
-        // Create layout
-        BorderPane root = new BorderPane();
+    private Label feedbackLabel;
+
+
+    public void start(Stage stage) {
+        root = new BorderPane();
         root.setPadding(new Insets(10));
         root.getStylesheets().addAll(
                 Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/Style/style.css")).toExternalForm(),
                 Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/Style/create-player.css")).toExternalForm()
         );
+        createGoalsButton = new Button("Create goals");
+        createGoalsButton.setDisable(!PlayerManager.getInstance().playerExist());
 
-        // Create header
-        Label header = new Label("Create user");
-        header.setStyle("-fx-font-size: 36pt; -fx-text-fill: black;");
-        header.setAlignment(Pos.CENTER);
-        root.setTop(header);
+        createTop();
+        createCentre();
+        createBottom();
 
-        // Create center
-        VBox center = new VBox(10);
-        center.setAlignment(Pos.CENTER);
-        center.setPadding(new Insets(20));
+        root.setTop(topVBox);
+        root.setCenter(centerVbox);
+        root.setBottom(bottomAnchorPane);
+
+        Scene scene = new Scene(root, 1000, 600);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    private void createTop() {
+        Label header = new Label("Create Player");
+        header.setId("header");
+        topVBox = new VBox(header);
+        topVBox.setAlignment(Pos.CENTER);
+    }
+
+    private void createCentre() {
+        centerVbox = new VBox(10);
+        centerVbox.setId("playerDetails");
+        centerVbox.setAlignment(Pos.CENTER);
+        centerVbox.setPadding(new Insets(20));
 
         Label nameLabel = new Label("Player Name");
         TextField nameField = new TextField(prefs.get("name", ""));
@@ -48,44 +73,35 @@ public class CreatePlayer {
         Label goldLabel = new Label("Player Gold");
         Spinner<Integer> goldField = new Spinner<>(0, 9999, prefs.getInt("gold", 10));
 
-        Label feedbackLabel = new Label();
+        feedbackLabel = new Label();
         feedbackLabel.setWrapText(true);
 
         Button submitButton = new Button("Submit");
-        submitButton.setOnAction(event -> handleSubmit(nameField, healthField, goldField, feedbackLabel));
+        submitButton.setOnAction(event -> handleSubmit(nameField, healthField, goldField));
 
-        center.getChildren().addAll(nameLabel, nameField, healthLabel, healthField, goldLabel, goldField, submitButton, feedbackLabel);
-        root.setCenter(center);
+        centerVbox.getChildren().addAll(nameLabel, nameField, healthLabel, healthField, goldLabel, goldField, submitButton, feedbackLabel);
 
-        // Create bottom
-        AnchorPane bottom = new AnchorPane();
-        bottom.setPadding(new Insets(20));
-        bottom.setPrefHeight(60);
-        bottom.setStyle("-fx-background-color: #F4F4F4;");
+        submitButton.setOnAction(event -> handleSubmit(nameField, healthField, goldField));
+    }
 
-        Button createGoalsButton = new Button("Create goals");
-        //createGoalsButton.setDisable(true);
+    private void createBottom() {
+        bottomAnchorPane = new AnchorPane();
+
         createGoalsButton.setOnAction(this::handleCreateGoals);
         AnchorPane.setBottomAnchor(createGoalsButton, 20.0);
         AnchorPane.setRightAnchor(createGoalsButton, 50.0);
-        createGoalsButton.setPrefSize(120, 40);
 
-        Button goBackButton = new Button("Go Back");
+        Button goBackButton = new Button("Go back");
         goBackButton.setOnAction(this::handleGoBack);
         AnchorPane.setBottomAnchor(goBackButton, 20.0);
         AnchorPane.setLeftAnchor(goBackButton, 50.0);
-        goBackButton.setPrefSize(120, 40);
 
-        bottom.getChildren().addAll(createGoalsButton, goBackButton);
-        root.setBottom(bottom);
+        bottomAnchorPane.getChildren().addAll(createGoalsButton, goBackButton);
+        root.setBottom(bottomAnchorPane);
 
-        // Create scene and show stage
-        Scene scene = new Scene(root, 1000, 600);
-        stage.setScene(scene);
-        stage.show();
     }
 
-    private void handleSubmit(TextField nameField, Spinner<Integer> healthField, Spinner<Integer> goldField, Label feedbackLabel) {
+    private void handleSubmit(TextField nameField, Spinner<Integer> healthField, Spinner<Integer> goldField) {
         String name = nameField.getText();
         int health = healthField.getValue();
         int gold = goldField.getValue();
@@ -107,17 +123,15 @@ public class CreatePlayer {
             feedbackLabel.setText("Gold must be between 0 and 9999.");
             return;
         }
-        // Store values in preferences
+
         prefs.put("name", name);
         prefs.putInt("health", health);
         prefs.putInt("gold", gold);
 
-        // Show success message
+
         feedbackLabel.getStyleClass().add("successMessage");
         feedbackLabel.setText("User created successfully.");
 
-        // Enable "Create goals" button
-        Button createGoalsButton = (Button) feedbackLabel.getParent().getChildrenUnmodifiable().get(0);
         createGoalsButton.setDisable(false);
     }
 

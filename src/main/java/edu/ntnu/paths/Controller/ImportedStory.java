@@ -16,37 +16,32 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.util.Objects;
+import java.util.prefs.BackingStoreException;
 import java.util.prefs.Preferences;
 
 public class ImportedStory {
 
     private final Preferences prefs = Preferences.userNodeForPackage(ImportedStory.class);
 
-    private Label headerLabel;
-    private Label infoLabel;
-    private Button chooseFileBtn;
+    private Label deadLinksValueLabel, feedbackLabel;
     private VBox topVBox;
-
-    private Label locationLabel;
-    private TextArea filePathTextArea;
-    private Label nameLabel;
-    private TextArea fileNameTextArea;
-    private Label deadLinksLabel;
-    private Label deadLinksValueLabel;
-    private HBox fileInfoHBox;
-    private Label errorLabel;
+    private TextArea filePathTextArea, fileNameTextArea;
     private VBox centerVBox;
-
-    private Button createPlayerButton;
-    private Button goBackButton;
-    private HBox bottomHBox;
     private AnchorPane bottomAnchorPane;
 
+    private Button createPlayerButton;
 
-    public void start(Stage stage) throws Exception {
+
+    public void start(Stage stage) {
         BorderPane root = new BorderPane();
-        root.setPrefSize(1000, 600);
-        root.getStyleClass().add("import-story");
+        root.getStylesheets().addAll(
+                Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/Style/style.css")).toExternalForm(),
+                Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/Style/import-story.css")).toExternalForm()
+        );
+        createPlayerButton = new Button("Create Player");
+        createPlayerButton.setDisable(StoryManager.getInstance().getStory() == null);
+
+        feedbackLabel = new Label();
 
         createTop();
         createCenter();
@@ -56,22 +51,17 @@ public class ImportedStory {
         root.setCenter(centerVBox);
         root.setBottom(bottomAnchorPane);
 
-        Scene scene = new Scene(root);
-        scene.getStylesheets().addAll(
-                Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/Style/style.css")).toExternalForm(),
-                Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/Style/import-story.css")).toExternalForm()
-        );
-
+        Scene scene = new Scene(root, 1000, 600);
         stage.setScene(scene);
         stage.show();
     }
 
     private void createTop() {
-        headerLabel = new Label("Import story from file");
+        Label headerLabel = new Label("Import story from file");
         headerLabel.setId("headerLabel");
-        infoLabel = new Label("Here you can add a story file");
+        Label infoLabel = new Label("Here you can add a story file");
         infoLabel.setId("infoLabel");
-        chooseFileBtn = new Button("Choose File");
+        Button chooseFileBtn = new Button("Choose File");
         chooseFileBtn.setOnAction(e -> onSelectFileButtonClick());
         topVBox = new VBox(30, headerLabel, infoLabel, chooseFileBtn);
         topVBox.setId("topVBox");
@@ -79,32 +69,31 @@ public class ImportedStory {
     }
 
     private void createCenter() {
-        locationLabel = new Label("Location");
-        filePathTextArea = new TextArea();
+        Label locationLabel = new Label("Location");
+        filePathTextArea = new TextArea( prefs.get("filePath", ""));
         filePathTextArea.setEditable(false);
         filePathTextArea.setDisable(true);
-        nameLabel = new Label("Name");
-        fileNameTextArea = new TextArea();
+        Label nameLabel = new Label("Name");
+        fileNameTextArea = new TextArea(prefs.get("fileName", ""));
         fileNameTextArea.setEditable(false);
         fileNameTextArea.setDisable(true);
-        deadLinksLabel = new Label("Dead links");
-        deadLinksValueLabel = new Label();
-        fileInfoHBox = new HBox(30, new VBox(10, locationLabel, filePathTextArea), new VBox(10, nameLabel, fileNameTextArea), new VBox(10, deadLinksLabel, deadLinksValueLabel));
+        Label deadLinksLabel = new Label("Dead links");
+        deadLinksValueLabel = new Label( prefs.get("deadLinks", ""));
+        HBox fileInfoHBox = new HBox(30, new VBox(10, locationLabel, filePathTextArea), new VBox(10, nameLabel, fileNameTextArea), new VBox(10, deadLinksLabel, deadLinksValueLabel));
         fileInfoHBox.setAlignment(Pos.CENTER);
-        errorLabel = new Label();
+        Label errorLabel = new Label();
         centerVBox = new VBox(10, fileInfoHBox, errorLabel);
+        centerVBox.getChildren().add(feedbackLabel);
         centerVBox.setAlignment(Pos.CENTER);
     }
 
     private void createBottom() {
         bottomAnchorPane = new AnchorPane();
-
-        createPlayerButton = new Button("Create Player");
         createPlayerButton.setOnAction(this::onCreatePlayerButtonClick);
         AnchorPane.setBottomAnchor(createPlayerButton, 20.0);
         AnchorPane.setRightAnchor(createPlayerButton, 50.0);
 
-        goBackButton = new Button("Go back");
+        Button goBackButton = new Button("Go back");
         goBackButton.setOnAction(this::onGoBackButtonClick);
         AnchorPane.setBottomAnchor(goBackButton, 20.0);
         AnchorPane.setLeftAnchor(goBackButton, 50.0);
@@ -113,16 +102,28 @@ public class ImportedStory {
     }
 
     private void onSelectFileButtonClick() {
+        feedbackLabel.setText("");
         FileChooser fileChooser = new FileChooser();
         ReadFile readFile = new ReadFile();
         fileChooser.setTitle("Choose story file");
         File file = fileChooser.showOpenDialog(null);
-        if (file != null) {
-            Story storyFromFile = readFile.readFile(file);
+        Story storyFromFile = readFile.readFile(file);
+        if (storyFromFile != null) {
             StoryManager.getInstance().setStory(storyFromFile);
             filePathTextArea.setText(file.getAbsolutePath());
             fileNameTextArea.setText(file.getName().replace(".paths",""));
             deadLinksValueLabel.setText(String.valueOf(storyFromFile.getBrokenLinks().size()));
+
+            prefs.put("filePath", file.getAbsolutePath());
+            prefs.put("fileName", file.getName().replace(".paths",""));
+            prefs.put("deadLinks", String.valueOf(storyFromFile.getBrokenLinks().size()));
+
+            filePathTextArea.setDisable(false);
+            fileNameTextArea.setDisable(false);
+            createPlayerButton.setDisable(false);
+
+        } else {
+            feedbackLabel.setText("Could not load file...");
         }
     }
 
