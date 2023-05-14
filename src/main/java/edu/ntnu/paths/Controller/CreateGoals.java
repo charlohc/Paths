@@ -18,23 +18,24 @@ import java.util.Objects;
 public class CreateGoals {
     private Story currentStory;
     private Spinner<Integer> intSpinner;
-    private TextField textField;
+    private TextField inventoryTextField;
     private ArrayList<String> inventoryGoalList = new ArrayList<>();
 
+    private Pane labelGoal,guidanceGoal,inputGoal;
     private BorderPane root;
-    private VBox goalsContainer;
+
+    private Pane goalsContainerPane;
+    private VBox goalsContainerVBox;
     private ComboBox<String> goalDropdown;
-    private VBox labelGoal;
-    private VBox inputGoal;
-    private VBox guidanceGoal;
-    private HBox setGoalButton;
+    private VBox createGoalContainer;
     private VBox allInventoryContainer;
+    private AnchorPane bottomAnchorPane;
+    private Button addGoalButton;
 
     public void start(Stage stage) {
         currentStory = StoryManager.getInstance().getStory();
 
         root = new BorderPane();
-        root.setPadding(new Insets(20));
         root.getStylesheets().addAll(
                 Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/Style/style.css")).toExternalForm(),
                 Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/Style/create-goals.css")).toExternalForm()
@@ -42,14 +43,16 @@ public class CreateGoals {
 
         // Top section
         Label header = new Label("Set your goals for the game");
-        header.setStyle("-fx-font-size: 24; -fx-font-weight: bold;");
-        header.setPadding(new Insets(0, 0, 20, 0));
-        root.setTop(header);
+        header.setId("header");
+        VBox pane = new VBox(header);
+        pane.setAlignment(Pos.CENTER);
+        root.setTop(pane);
 
         // Left section
         VBox dropdownContainer = new VBox();
         dropdownContainer.setSpacing(10);
-        dropdownContainer.setAlignment(Pos.CENTER_LEFT);
+        dropdownContainer.setAlignment(Pos.TOP_LEFT);
+        dropdownContainer.setId("dropDownContainer");
         goalDropdown = new ComboBox<>();
         goalDropdown.getItems().addAll("Gold", "Health", "Score", "Inventory");
         goalDropdown.setPromptText("Select a goal");
@@ -61,47 +64,48 @@ public class CreateGoals {
         root.setLeft(dropdownContainer);
 
         // Center section
-        VBox centerContainer = new VBox();
-        centerContainer.setSpacing(10);
-        centerContainer.setAlignment(Pos.CENTER);
+        createGoalContainer = new VBox();
+        createGoalContainer.setSpacing(15);
+        createGoalContainer.setAlignment(Pos.TOP_LEFT);
+        createGoalContainer.setStyle("-fx-padding: 110px 0px 0px 0px");
 
-        labelGoal = new VBox();
-        labelGoal.setSpacing(10);
-        labelGoal.setAlignment(Pos.CENTER);
+        labelGoal = new Pane();
 
-        inputGoal = new VBox();
-        inputGoal.setSpacing(10);
-        inputGoal.setAlignment(Pos.CENTER);
+         inputGoal = new Pane();
 
-        guidanceGoal = new VBox();
-        guidanceGoal.setSpacing(10);
-        guidanceGoal.setAlignment(Pos.CENTER);
+         guidanceGoal = new VBox();
 
         allInventoryContainer = new VBox();
         allInventoryContainer.setSpacing(10);
-        allInventoryContainer.setAlignment(Pos.CENTER);
+        allInventoryContainer.setAlignment(Pos.TOP_CENTER);
 
-        centerContainer.getChildren().addAll(labelGoal, inputGoal, guidanceGoal, allInventoryContainer);
-        root.setCenter(centerContainer);
+        createGoalContainer.getChildren().addAll(labelGoal, inputGoal, guidanceGoal, allInventoryContainer);
+        root.setCenter(createGoalContainer);
 
         // Right section
-        setGoalButton = new HBox();
-        setGoalButton.setAlignment(Pos.CENTER_RIGHT);
-
-        Button backButton = new Button("Back");
-        backButton.setOnAction(this::goBack);
-        Button startGameButton = new Button("Start game");
-        startGameButton.setOnAction(this::beginGame);
-
-        setGoalButton.getChildren().addAll(backButton, startGameButton);
-
-        root.setRight(setGoalButton);
+        goalsContainerVBox = new VBox();
+        goalsContainerVBox.setSpacing(10);
+        goalsContainerVBox.setId("goalsContainer");
+        goalsContainerVBox.setAlignment(Pos.TOP_CENTER);
+        goalsContainerPane = new Pane(goalsContainerVBox);
+        BorderPane.setMargin(goalsContainerPane, new Insets(100, 50, 0, 0));
+        root.setRight(goalsContainerPane);
 
         // Bottom section
-        goalsContainer = new VBox();
-        goalsContainer.setSpacing(10);
-        goalsContainer.setAlignment(Pos.CENTER);
-        root.setBottom(goalsContainer);
+        bottomAnchorPane = new AnchorPane();
+
+        Button startGameButton = new Button("Start game");
+        startGameButton.setOnAction(this::beginGame);
+        AnchorPane.setBottomAnchor(startGameButton, 20.0);
+        AnchorPane.setRightAnchor(startGameButton, 50.0);
+
+        Button goBackButton = new Button("Go back");
+        goBackButton.setOnAction(this::goBack);
+        AnchorPane.setBottomAnchor(goBackButton, 20.0);
+        AnchorPane.setLeftAnchor(goBackButton, 50.0);
+
+        bottomAnchorPane.getChildren().addAll(startGameButton, goBackButton);
+        root.setBottom(bottomAnchorPane);
 
         Scene scene = new Scene(root, 1000, 600);
         stage.setScene(scene);
@@ -113,11 +117,12 @@ public class CreateGoals {
         clearAllContainers();
 
         Label goalNameLabel = new Label(selectedOption + " goal");
-        goalNameLabel.setLayoutX(100);
         labelGoal.getChildren().add(goalNameLabel);
 
-        Button addGoalButton = new Button("add goal");
-        setGoalButton.getChildren().add(addGoalButton);
+        // Only create the "add goal" button if it doesn't already exist
+        if (addGoalButton == null) {
+            addGoalButton = new Button("add goal");
+        }
         addGoalButton.setOnAction(e -> {
             addGoal(selectedOption);
         });
@@ -135,14 +140,19 @@ public class CreateGoals {
 
                 SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(minVal, maxVal, initialValue, step);
                 intSpinner = new Spinner<>();
-                intSpinner.setEditable(true);
+                intSpinner.setEditable(false);
                 intSpinner.setValueFactory(valueFactory);
 
                 inputGoal.getChildren().add(intSpinner);
             }
             case "Health" -> {
+                int maxVal = 100;
+                int initialValue = 100;
+                SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(minVal, maxVal, initialValue, step);
                 intSpinner = new Spinner<>();
-                intSpinner.setEditable(true);
+                intSpinner.setEditable(false);
+                intSpinner.setValueFactory(valueFactory);
+
                 inputGoal.getChildren().add(intSpinner);
             }
             case "Score" -> {
@@ -154,7 +164,7 @@ public class CreateGoals {
 
                 SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(minVal, maxVal, initialValue, step);
                 intSpinner = new Spinner<>();
-                intSpinner.setEditable(true);
+                intSpinner.setEditable(false);
                 intSpinner.setValueFactory(valueFactory);
 
                 inputGoal.getChildren().add(intSpinner);
@@ -164,15 +174,19 @@ public class CreateGoals {
                 guidanceGoal.getChildren().add(inventoryGuidanceLabel);
                 for (String inventory : currentStory.getAllInventoryItems()) {
                     Pane inventoryPane = new Pane();
-                    Label inventoryLabel = new Label(inventory);
-                    inventoryPane.getChildren().add(inventoryLabel);
+                    inventoryPane.getChildren().add(new Label(inventory));
                     allInventoryContainer.getChildren().add(inventoryPane);
                 }
-                textField = new TextField();
-                inputGoal.getChildren().add(textField);
+                 inventoryTextField = new TextField();
+                inputGoal.getChildren().add(inventoryTextField);
             }
         }
+        // Add the "add goal" button to the container if it doesn't exist
+        if (!createGoalContainer.getChildren().contains(addGoalButton)) {
+            createGoalContainer.getChildren().add(addGoalButton);
+        }
     }
+
 
     private void addGoal(String goalName) {
         Pane pane = new Pane();
@@ -196,124 +210,24 @@ public class CreateGoals {
             }
             case "Inventory" -> {
                 InventoryGoal inventoryGoal = new InventoryGoal();
-                inventoryGoalList.add(textField.getText());
+                inventoryGoalList.add(inventoryTextField.getText());
                 inventoryGoal.inventoryGoal(inventoryGoalList);
-                label.setText(goalName + " : " + textField.getText());
+                label.setText(goalName + " : " + inventoryTextField.getText());
             }
         }
-
-        updateGoalsList();
-        clearAllContainers();
         pane.getChildren().add(label);
-        goalsContainer.getChildren().add(pane);
+        goalsContainerVBox.getChildren().add(pane);
     }
 
-
-
-    private void addGoldGoal() {
-        Label goalValueLabel = new Label("Enter gold value:");
-        goalValueLabel.setLayoutX(100);
-        inputGoal.getChildren().add(goalValueLabel);
-
-        intSpinner = new Spinner<>(0, Integer.MAX_VALUE, 0);
-        inputGoal.getChildren().add(intSpinner);
-
-        textField = new TextField();
-        textField.setPromptText("Goal name");
-        inputGoal.getChildren().add(textField);
-
-        Label guidanceLabel = new Label("Collect gold to reach your goal.");
-        guidanceGoal.getChildren().add(guidanceLabel);
-    }
-
-    private void addHealthGoal() {
-        Label goalValueLabel = new Label("Enter health value:");
-        goalValueLabel.setLayoutX(100);
-        inputGoal.getChildren().add(goalValueLabel);
-
-        intSpinner = new Spinner<>(0, Integer.MAX_VALUE, 0);
-        inputGoal.getChildren().add(intSpinner);
-
-        textField = new TextField();
-        textField.setPromptText("Goal name");
-        inputGoal.getChildren().add(textField);
-
-        Label guidanceLabel = new Label("Stay healthy to reach your goal.");
-        guidanceGoal.getChildren().add(guidanceLabel);
-    }
-
-    private void addScoreGoal() {
-        Label goalValueLabel = new Label("Enter score value:");
-        goalValueLabel.setLayoutX(100);
-        inputGoal.getChildren().add(goalValueLabel);
-
-        intSpinner = new Spinner<>(0, Integer.MAX_VALUE, 0);
-        inputGoal.getChildren().add(intSpinner);
-
-        textField = new TextField();
-        textField.setPromptText("Goal name");
-        inputGoal.getChildren().add(textField);
-
-        Label guidanceLabel = new Label("Score points to reach your goal.");
-        guidanceGoal.getChildren().add(guidanceLabel);
-    }
-
-    private void addInventoryGoal() {
-        Label inventoryLabel = new Label("Add items to the inventory goal:");
-        inventoryLabel.setLayoutX(100);
-        allInventoryContainer.getChildren().add(inventoryLabel);
-
-        HBox addInventoryBox = new HBox();
-        addInventoryBox.setSpacing(10);
-        addInventoryBox.setAlignment(Pos.CENTER);
-
-        TextField inventoryField = new TextField();
-        inventoryField.setPromptText("Item name");
-        addInventoryBox.getChildren().add(inventoryField);
-
-        Button addButton = new Button("Add");
-        addButton.setOnAction(e -> {
-            String item = inventoryField.getText();
-            inventoryGoalList.add(item);
-            inventoryField.clear();
-            updateInventoryList();
-        });
-
-        addInventoryBox.getChildren().add(addButton);
-        allInventoryContainer.getChildren().add(addInventoryBox);
-
-        updateInventoryList();
-
-        Label guidanceLabel = new Label("Collect all items in the inventory to reach your goal.");
-        guidanceGoal.getChildren().add(guidanceLabel);
-    }
-
-    private void updateInventoryList() {
-        allInventoryContainer.getChildren().clear();
-
-        for (String item : inventoryGoalList) {
-            Label itemLabel = new Label(item);
-            allInventoryContainer.getChildren().add(itemLabel);
-        }
-    }
-
-    private void updateGoalsList() {
-        goalsContainer.getChildren().clear();
-        /*for (Goal goal : currentStory.get) {
-            Label goalLabel = new Label(goal.toString());
-            goalsContainer.getChildren().add(goalLabel);
-        }*/
-    }
 
     private void clearAllContainers() {
         labelGoal.getChildren().clear();
-        setGoalButton.getChildren().clear();
         inputGoal.getChildren().clear();
         guidanceGoal.getChildren().clear();
         allInventoryContainer.getChildren().clear();
         inventoryGoalList.clear();
         intSpinner = null;
-        textField = null;
+        inventoryTextField = null;
     }
 
     private void beginGame(ActionEvent actionEvent) {

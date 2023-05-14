@@ -1,0 +1,23 @@
+.container {
+    -fx-background-size: cover;
+    -fx-alignment: center;
+    -fx-padding: 20px;
+}
+
+#titleLabel {
+    -fx-font-size: 36pt;
+    -fx-text-fill: black;
+    -fx-wrap-text: true;
+    -fx-margin-bottom: 20px;
+}
+
+#welcomeLabel {
+    -fx-font-size: 18pt;
+    -fx-text-fill: black;
+    -fx-wrap-text: true;
+    -fx-margin-bottom: 10px;
+}
+
+#importButton {
+    -fx-margin-bottom: 10px;
+}

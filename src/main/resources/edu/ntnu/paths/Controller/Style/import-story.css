@@ -18,3 +18,15 @@
     -fx-max-width: 200px;
 }
 
+#headerLabel {
+    -fx-font-size: 36px;
+}
+
+#infoLabel {
+    -fx-font-size: 20px;
+    -fx-padding: 0px 0px 0px 20px;
+}
+
+#topVBox {
+    -fx-padding: 20px 0px 0px 0px;
+}

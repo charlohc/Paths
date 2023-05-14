@@ -1,4 +1,8 @@
-
+#header {
+    -fx-font-weight: bold;
+    -fx-font-size: 36;
+    -fx-padding: 0px 0px 0px 20px;
+}
 #createGoalsContainer {
     -fx-padding: 40px 20px 20px 50px;
  -fx-spacing: 50px;
@@ -27,12 +31,16 @@
     -fx-border-width: 2px;
     -fx-border-radius: 10px;
     -fx-max-width: 350px;
-    -fx-max-height: 250px;
-    -fx-pref-height: 250px;
+    -fx-max-height: 300px;
+    -fx-pref-height: 300px;
     -fx-pref-width: 250px;
     -fx-padding: 10px;
 }
 
 #containerForGoalsContainer {
     -fx-padding: 40px 20px 20px 60px;
+}
+
+#dropDownContainer {
+    -fx-padding: 60px 20px 20px 60px;
 }

@@ -1,11 +1,9 @@
 package edu.ntnu.paths.Controller;
 
 import edu.ntnu.paths.FileHandling.ReadFile;
-import edu.ntnu.paths.Controller.CreatePlayer;
 import edu.ntnu.paths.Managers.StoryManager;
 import edu.ntnu.paths.StoryDetails.Story;
 
-import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -39,8 +37,8 @@ public class ImportedStory {
     private Label errorLabel;
     private VBox centerVBox;
 
-    private Button createPlayerBtn;
-    private Button goBackBtn;
+    private Button createPlayerButton;
+    private Button goBackButton;
     private HBox bottomHBox;
     private AnchorPane bottomAnchorPane;
 
@@ -64,19 +62,19 @@ public class ImportedStory {
                 Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/Style/import-story.css")).toExternalForm()
         );
 
-        stage.setTitle("Import Story");
         stage.setScene(scene);
         stage.show();
     }
 
     private void createTop() {
         headerLabel = new Label("Import story from file");
-        headerLabel.setFont(Font.font(36));
+        headerLabel.setId("headerLabel");
         infoLabel = new Label("Here you can add a story file");
-        infoLabel.setFont(Font.font(16));
+        infoLabel.setId("infoLabel");
         chooseFileBtn = new Button("Choose File");
         chooseFileBtn.setOnAction(e -> onSelectFileButtonClick());
-        topVBox = new VBox(10, headerLabel, infoLabel, chooseFileBtn);
+        topVBox = new VBox(30, headerLabel, infoLabel, chooseFileBtn);
+        topVBox.setId("topVBox");
         topVBox.setAlignment(Pos.CENTER);
     }
 
@@ -99,15 +97,19 @@ public class ImportedStory {
     }
 
     private void createBottom() {
-        createPlayerBtn = new Button("Create Player");
-        createPlayerBtn.setOnAction(this::onCreatePlayerButtonClick);
-        goBackBtn = new Button("Go back");
-        goBackBtn.setOnAction(this::onGoBackButtonClick);
-        bottomHBox = new HBox(20, createPlayerBtn, goBackBtn);
-        bottomHBox.setAlignment(Pos.CENTER);
-        bottomAnchorPane = new AnchorPane(bottomHBox);
-        AnchorPane.setRightAnchor(bottomHBox, 50.0);
-        AnchorPane.setBottomAnchor(bottomHBox, 50.0);
+        bottomAnchorPane = new AnchorPane();
+
+        createPlayerButton = new Button("Create Player");
+        createPlayerButton.setOnAction(this::onCreatePlayerButtonClick);
+        AnchorPane.setBottomAnchor(createPlayerButton, 20.0);
+        AnchorPane.setRightAnchor(createPlayerButton, 50.0);
+
+        goBackButton = new Button("Go back");
+        goBackButton.setOnAction(this::onGoBackButtonClick);
+        AnchorPane.setBottomAnchor(goBackButton, 20.0);
+        AnchorPane.setLeftAnchor(goBackButton, 50.0);
+
+        bottomAnchorPane.getChildren().addAll(createPlayerButton, goBackButton);
     }
 
     private void onSelectFileButtonClick() {
