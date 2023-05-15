@@ -1,6 +1,10 @@
 package edu.ntnu.paths.Controller;
 
+import edu.ntnu.paths.GameDetails.Game;
+import edu.ntnu.paths.GameDetails.GameBuilder;
 import edu.ntnu.paths.Goals.*;
+import edu.ntnu.paths.Managers.GameManager;
+import edu.ntnu.paths.Managers.PlayerManager;
 import edu.ntnu.paths.Managers.StoryManager;
 import edu.ntnu.paths.StoryDetails.Story;
 import javafx.event.ActionEvent;
@@ -15,8 +19,12 @@ import javafx.stage.Stage;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.prefs.Preferences;
 
 public class CreateGoals {
+    private final Preferences prefs = Preferences.userNodeForPackage(CreateGoals.class);
+
+    private Game newGame;
     private Story currentStory;
     private Spinner<Integer> intSpinner;
     private TextField inventoryTextField;
@@ -34,6 +42,7 @@ public class CreateGoals {
 
     public void start(Stage stage) {
         currentStory = StoryManager.getInstance().getStory();
+        newGame = GameManager.getInstance().getGame();
         allInventoryStory = currentStory.getAllInventoryItems();
 
         BorderPane root = new BorderPane();
@@ -41,6 +50,10 @@ public class CreateGoals {
                 Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/Style/style.css")).toExternalForm(),
                 Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/Style/create-goals.css")).toExternalForm()
         );
+
+        if (newGame != null) {
+            addGoalsToContainer();
+        }
 
         createTop();
         createLeftSection();
@@ -273,6 +286,14 @@ public class CreateGoals {
             }
 
         }
+         newGame = GameBuilder.newInstance()
+                        .setStory(currentStory)
+                                .setPlayer(PlayerManager.getInstance().getPlayer())
+                                        .setGoals(new ArrayList<>(goals))
+                                                .build();
+
+        GameManager.getInstance().setGame(new Game(newGame));
+        prefs.get("goals", String.valueOf(goals));
         addGoalsToContainer();
     }
 
