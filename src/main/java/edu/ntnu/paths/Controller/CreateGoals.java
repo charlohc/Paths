@@ -15,21 +15,18 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.prefs.Preferences;
 
 public class CreateGoals {
-    private final Preferences prefs = Preferences.userNodeForPackage(CreateGoals.class);
 
     private Game newGame;
     private Story currentStory;
     private Spinner<Integer> intSpinner;
     private TextField inventoryTextField;
     private ArrayList<String> inventoryGoalList = new ArrayList<>();
-
     private ArrayList<Goal> goals = new ArrayList<>();
     private ArrayList<String> allInventoryStory;
     private Pane labelGoal,guidanceGoal,inputGoal, goalsContainerPane;
@@ -44,16 +41,13 @@ public class CreateGoals {
         currentStory = StoryManager.getInstance().getStory();
         newGame = GameManager.getInstance().getGame();
         allInventoryStory = currentStory.getAllInventoryItems();
+        goalsContainerVBox = new VBox();
 
         BorderPane root = new BorderPane();
         root.getStylesheets().addAll(
                 Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/Style/style.css")).toExternalForm(),
                 Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/Style/create-goals.css")).toExternalForm()
         );
-
-        if (newGame != null) {
-            addGoalsToContainer();
-        }
 
         createTop();
         createLeftSection();
@@ -70,6 +64,11 @@ public class CreateGoals {
         root.setRight(goalsContainerPane);
 
         root.setBottom(bottomAnchorPane);
+
+        if (newGame != null) {
+            goals = (ArrayList<Goal>) newGame.getGoals();
+            addGoalsToContainer();
+        }
 
         Scene scene = new Scene(root, 1000, 600);
         stage.setScene(scene);
@@ -123,7 +122,6 @@ public class CreateGoals {
     private void createRightSection() {
         Label yourGoalsLabel = new Label("Your selected goals");
         yourGoalsLabel.setId("yourGoalsLabel");
-        goalsContainerVBox = new VBox();
         goalsContainerVBox.setSpacing(10);
         goalsContainerVBox.setId("goalsContainer");
         goalsContainerVBox.setAlignment(Pos.TOP_CENTER);
@@ -153,7 +151,6 @@ public class CreateGoals {
         Label goalNameLabel = new Label(selectedOption + " goal");
         labelGoal.getChildren().add(goalNameLabel);
 
-        // Only create the "add goal" button if it doesn't already exist
         if (addGoalButton == null) {
             addGoalButton = new Button("add goal");
         }
@@ -281,6 +278,7 @@ public class CreateGoals {
                     inventoryGoalList.add(inventorySuggestion.toLowerCase());
                     inventoryGoal.inventoryGoal(inventoryGoalList);
                     goals.add(inventoryGoal);
+                    feedbackLabel.setText("");
                 }
 
             }
@@ -293,7 +291,6 @@ public class CreateGoals {
                                                 .build();
 
         GameManager.getInstance().setGame(new Game(newGame));
-        prefs.get("goals", String.valueOf(goals));
         addGoalsToContainer();
     }
 
@@ -304,7 +301,7 @@ public class CreateGoals {
         for (Goal goal : goals) {
             if (goal instanceof InventoryGoal inventoryGoal) {
                 if (!addedInventoryGoal) {
-                    List<String> mandatoryItems = inventoryGoal.getMandatoryItems();
+                    List<String> mandatoryItems = inventoryGoal.getInventory();
                     for (String item : mandatoryItems) {
                         Pane pane = new Pane();
                         Label label = new Label("Inventory : " + item);
@@ -315,25 +312,22 @@ public class CreateGoals {
                 }
             } else if (goal instanceof GoldGoal goldGoal) {
                 Pane pane = new Pane();
-                Label label = new Label("Gold : " + goldGoal.getMinimumGold());
+                Label label = new Label("Gold : " + goldGoal.getGold());
                 pane.getChildren().add(label);
                 goalsContainerVBox.getChildren().add(pane);
             } else if (goal instanceof ScoreGoal scoreGoal) {
                 Pane pane = new Pane();
-                Label label = new Label("Score : " + scoreGoal.getMinimumPoints());
+                Label label = new Label("Score : " + scoreGoal.getScore());
                 pane.getChildren().add(label);
                 goalsContainerVBox.getChildren().add(pane);
             } else if (goal instanceof HealthGoal healthGoal) {
                 Pane pane = new Pane();
-                Label label = new Label("Health : " + healthGoal.getMinimumHealth());
+                Label label = new Label("Health : " + healthGoal.getHealth());
                 pane.getChildren().add(label);
                 goalsContainerVBox.getChildren().add(pane);
             }
         }
     }
-
-
-
 
 
     private void clearAllContainers() {

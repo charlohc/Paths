@@ -3,14 +3,14 @@ package edu.ntnu.paths.Goals;
 import edu.ntnu.paths.GameDetails.Player;
 
 public class HealthGoal implements Goal {
-    private int minimumHealth;
+    private int health;
 
-    public int getMinimumHealth(){
-        return minimumHealth;
+    public int getHealth(){
+        return health;
     }
     public boolean healthGoal(int minimumHealth) {
         if (minimumHealth <= 0) return false;
-        this.minimumHealth = minimumHealth;
+        this.health = minimumHealth;
         return true;
     }
 
@@ -18,6 +18,6 @@ public class HealthGoal implements Goal {
     @Override
     public Boolean isFulfilled(Player player) {
         if (player == null) return false;
-        return (player.getHealth() >= this.minimumHealth);
+        return (player.getHealth() >= this.health);
     }
 }
