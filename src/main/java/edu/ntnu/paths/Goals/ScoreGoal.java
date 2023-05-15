@@ -5,6 +5,9 @@ import edu.ntnu.paths.GameDetails.Player;
 public class ScoreGoal implements Goal{
     private int minimumPoints;
 
+    public int getMinimumPoints(){
+        return minimumPoints;
+    }
     public boolean scoreGoal(int minimumPoints) {
         if (minimumPoints < 0) return false;
         this.minimumPoints = minimumPoints;

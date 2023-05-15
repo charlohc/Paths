@@ -170,7 +170,7 @@ public class ReadFile {
         InventoryAction inventoryAction = new InventoryAction();
          String[] inventoryItemArr = action.split(":");
          String valueInventoryAction = inventoryItemArr[1];
-         inventoryAction.inventoryAction(valueInventoryAction);
+         inventoryAction.inventoryAction(valueInventoryAction.toLowerCase());
          return inventoryAction;
      }
      else {

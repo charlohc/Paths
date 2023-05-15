@@ -5,6 +5,9 @@ import edu.ntnu.paths.GameDetails.Player;
 public class HealthGoal implements Goal {
     private int minimumHealth;
 
+    public int getMinimumHealth(){
+        return minimumHealth;
+    }
     public boolean healthGoal(int minimumHealth) {
         if (minimumHealth <= 0) return false;
         this.minimumHealth = minimumHealth;

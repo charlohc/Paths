@@ -5,6 +5,9 @@ import edu.ntnu.paths.GameDetails.Player;
 public class GoldGoal implements Goal{
     private int minimumGold;
 
+    public int getMinimumGold() {
+        return minimumGold;
+    }
     public boolean goldGoal(int minimumGold) {
      if (minimumGold < 0) return false;
         this.minimumGold = minimumGold;
