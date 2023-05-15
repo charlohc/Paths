@@ -1,5 +1,7 @@
 package edu.ntnu.paths.Controller;
 
+import edu.ntnu.paths.GameDetails.Player;
+import edu.ntnu.paths.GameDetails.PlayerBuilder;
 import edu.ntnu.paths.Managers.PlayerManager;
 import edu.ntnu.paths.Managers.StoryManager;
 import javafx.event.ActionEvent;
@@ -35,7 +37,7 @@ public class CreatePlayer {
                 Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/Style/create-player.css")).toExternalForm()
         );
         createGoalsButton = new Button("Create goals");
-        createGoalsButton.setDisable(!PlayerManager.getInstance().playerExist());
+        createGoalsButton.setDisable(PlayerManager.getInstance().getPlayer() == null);
 
         createTop();
         createCentre();
@@ -129,8 +131,15 @@ public class CreatePlayer {
         prefs.putInt("gold", gold);
 
 
-        feedbackLabel.getStyleClass().add("successMessage");
+        feedbackLabel.setId("successMessage");
         feedbackLabel.setText("User created successfully.");
+
+        Player newPlayer = PlayerBuilder.newInstance()
+                .setName(name)
+                .setHealth(health)
+                .setGold(gold)
+                .build();
+        PlayerManager.getInstance().setPlayer(new Player(newPlayer));
 
         createGoalsButton.setDisable(false);
     }
