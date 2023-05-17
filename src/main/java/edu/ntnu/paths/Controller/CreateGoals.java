@@ -341,6 +341,21 @@ public class CreateGoals {
     }
 
     private void beginGame(ActionEvent actionEvent) {
+        if (goals.size() == 0) {
+            newGame = GameBuilder.newInstance()
+                .setStory(currentStory)
+                .setPlayer(PlayerManager.getInstance().getPlayer())
+                .build();
+
+            GameManager.getInstance().setGame(new Game(newGame));
+        }
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        BeginGame beginGame = new BeginGame();
+        try {
+            beginGame.start(stage);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void goBack(ActionEvent actionEvent) {

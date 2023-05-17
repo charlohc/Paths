@@ -1,0 +1,69 @@
+The Haunted Manor
+
+::The Library
+Inside an old manor, you enter a dusty library, shelves filled with ancient books and manuscripts. The air is heavy with the scent of old paper. As you browse through the titles, you notice a book that seems out of place, as if it's calling out to you.
+[Read the mysterious book](The Curse){HealthAction:-10}
+[Search for clues about the manor's history](The Archives)
+
+::The Curse
+As you open the book, a strange energy fills the air. The words on the pages seem to shift and writhe, forming a sinister incantation. Before you can react, a dark mist engulfs the room, and you feel a presence lurking in the shadows.
+[Confront the dark presence](The Ritual){HealthAction:-20}
+[Flee from the room](The Library)
+
+::The Ritual
+You gather your courage and attempt to perform a counter-ritual to dispel the dark presence. The room trembles, and the air crackles with dark energy. Your heart races as you chant the incantation, hoping to banish the curse that haunts the manor.
+[Succeed in the ritual](The Secret Chamber){ScoreAction:10}
+[Fail in the ritual](The Library){HealthAction:-30}
+
+::The Secret Chamber
+With the curse lifted, a hidden door creaks open, revealing a secret chamber. The walls are adorned with symbols and artifacts of an ancient cult. In the center of the room, a pedestal holds a gleaming jewel, emitting an otherworldly glow.
+[Approach the jewel](The Consequence){InventoryAction:Glowing Jewel}
+
+::The Consequence
+As you reach out to touch the jewel, a sense of dread washes over you. Suddenly, the room begins to shake, and the walls close in. You realize too late that the jewel was a trap, and now you're trapped in the collapsing chamber.
+[Fight against the collapsing chamber](Fight To Survive){HealthAction:-30}
+[Accept your fate](The End?){HealthAction:-70}
+
+::Fight To Survive
+You muster all your strength and wits to fight against the collapsing chamber. Debris falls around you, and the walls threaten to crush you. You desperately search for a way out, trying to dodge falling objects and find a safe spot.
+[Dodge the falling debris](Narrow Escape){HealthAction:-10}
+[Look for an exit](Escape Route){ScoreAction:5}
+
+::Narrow Escape
+With agility and quick reflexes, you narrowly avoid being hit by the falling debris. The chamber continues to crumble, and you push yourself to the limits to find an exit.
+[Search for an escape route](Escape Route){ScoreAction:5}
+
+::Escape Route
+You spot a small opening in the wall, partially hidden by rubble. With a burst of adrenaline, you squeeze through the tight space, narrowly escaping the collapsing chamber.
+[Flee the manor](Flee){ScoreAction:10}
+
+::Collapse
+Despite your best efforts, the chamber collapses around you. The impact is fierce, and you're buried under the rubble. Darkness envelops your senses, and your journey comes to a tragic end.
+
+::The Archives
+You search through the shelves in the library, looking for clues about the manor's history. Among the dusty tomes, you find a worn journal. As you flip through its pages, you discover a passage describing a hidden passage behind one of the bookshelves.
+[Investigate the hidden passage](The Secret Room){ScoreAction:5}
+[Continue searching for more information](The Library)
+
+::The Secret Room
+You push aside the bookshelf, revealing a hidden passage. The air grows colder as you step into a dimly lit room. Strange symbols cover the walls, and a pedestal sits at the center, holding a mysterious artifact.
+[Examine the artifact](The Cursed Relic){InventoryAction:Cursed Relic}
+[Leave the room](The Archives)
+
+::The Cursed Relic
+As you approach the artifact, a malevolent aura surrounds it. Your hands tremble as you reach out to touch it, and a surge of dark energy courses through your veins. You feel a curse taking hold of you.
+[Fight against the curse](Fight The Curse){HealthAction:-40}
+[Leave the room](The Secret Room)
+
+::Fight The Curse
+You feel the curse slowly taking control over your body. You get more relaxed as you feel the curse trough out you body. Maybe it was not so bad after all?
+[Explore the new you](The New You)
+
+::The New You
+You smile to yourself as you move your cold empty body closer and closer to the shadows. Hoping you were not the only one there.
+
+::The End?
+The manor collapses into ruins, burying its dark secrets forever. You wake up outside, covered in dust and debris, but relieved to be alive. The horrors of the haunted manor will forever haunt your memories, a chilling reminder of the dangers that lurk in the shadows.
+
+::Flee
+You run out of the manor as fast as you can, not looking back at the shadows that awaits in the darkness for the next person to come.

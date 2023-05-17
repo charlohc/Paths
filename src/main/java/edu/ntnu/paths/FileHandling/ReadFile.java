@@ -33,6 +33,7 @@ public class ReadFile {
         ReadFile readFile = new ReadFile();
 
         if (file == null || file.length() == 0 || !file.getName().endsWith(".paths")) {
+            System.out.println("here 1");
             return null;
         }
 
@@ -40,6 +41,7 @@ public class ReadFile {
         try {
             myReader = new Scanner(file);
         } catch (FileNotFoundException e) {
+            System.out.println("here 2");
             return null;
         }
         StringBuilder storyInfo = new StringBuilder();
@@ -53,6 +55,7 @@ public class ReadFile {
         try {
             return readFile.getStory(storyInfo.toString());
         } catch (InvalidFileDataException e) {
+            System.out.println("here 3");
             return null;
         }
     }
@@ -105,6 +108,7 @@ public class ReadFile {
 
         return story;
     } catch (IndexOutOfBoundsException | IllegalArgumentException e ) {
+        System.out.println(e.getMessage());
         return null;
     }
     }
@@ -154,8 +158,7 @@ public class ReadFile {
 
      }  else if (action.contains("HealthAction")) {
          HealthAction healthAction = new HealthAction();
-         int valueHealthAction = Integer.parseInt(action.replaceAll("[^0-9]", ""));
-
+         int valueHealthAction = Integer.parseInt(action.replaceAll("[^\\d-]", ""));
          healthAction.healthAction(valueHealthAction);
          return healthAction;
 

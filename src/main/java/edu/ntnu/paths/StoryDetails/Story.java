@@ -110,33 +110,38 @@ public final class Story {
     }
 
 
-    public int findMaxValue( Function<Link, Integer> valueFunction) {
+    public int findMaxValue(Function<Link, Integer> valueFunction) {
         Map<Passage, Integer> distances = new HashMap<>();
-        PriorityQueue<Passage> pq = new PriorityQueue<>((a, b) -> distances.get(b) - distances.get(a));
         Passage startingPassage = this.getPassage();
 
-        // Initialize all distances to -infinity except starting passage, which is set to 0.
+        // Initialize all distances to Integer.MIN_VALUE except starting passage, which is set to 0.
         for (Passage passage : passages.values()) {
             distances.put(passage, Integer.MIN_VALUE);
         }
         distances.put(startingPassage, 0);
-        pq.offer(startingPassage);
 
-        // Run Dijkstra's algorithm.
-        while (!pq.isEmpty()) {
-            Passage curr = pq.poll();
-            for (Link link : curr.getLinks()) {
-                Passage next = getPassage(link);
-                int value = valueFunction.apply(link);
-                if (next == null || distances.get(curr) == Integer.MIN_VALUE) continue;
-                if (distances.get(curr) + value > distances.get(next)) {
-                    distances.put(next, distances.get(curr) + value);
-                    pq.offer(next);
+        // Run Bellman-Ford algorithm
+        boolean updated;
+        for (int i = 0; i < passages.size(); i++) {
+            updated = false;
+            for (Passage passage : passages.values()) {
+                int currDist = distances.get(passage);
+                if (currDist == Integer.MIN_VALUE) continue;
+                for (Link link : passage.getLinks()) {
+                    Passage next = getPassage(link);
+                    int value = valueFunction.apply(link);
+                    if (next == null) continue;
+                    int nextDist = distances.get(next);
+                    if (currDist + value > nextDist) {
+                        distances.put(next, currDist + value);
+                        updated = true;
+                    }
                 }
             }
+            if (!updated) break; // No more updates, early termination
         }
 
-        // Find the highest amount of value.
+        // Find the highest amount of value
         int maxValue = Integer.MIN_VALUE;
         for (Passage passage : passages.values()) {
             if (distances.get(passage) > maxValue) {
@@ -146,7 +151,8 @@ public final class Story {
         return maxValue;
     }
 
-     public String passagesContent() {
+
+    public String passagesContent() {
 
         StringBuilder passageContent = new StringBuilder();
 
