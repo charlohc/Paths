@@ -5,18 +5,18 @@ import edu.ntnu.paths.Managers.StoryManager;
 import edu.ntnu.paths.StoryDetails.Story;
 
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
-import javafx.scene.text.Font;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.File;
 import java.util.Objects;
-import java.util.prefs.BackingStoreException;
 import java.util.prefs.Preferences;
 
 public class ImportedStory {
@@ -35,8 +35,8 @@ public class ImportedStory {
     public void start(Stage stage) {
         BorderPane root = new BorderPane();
         root.getStylesheets().addAll(
-                Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/Style/style.css")).toExternalForm(),
-                Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/Style/import-story.css")).toExternalForm()
+                Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/style/style.css")).toExternalForm(),
+                Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/style/import-story.css")).toExternalForm()
         );
         createPlayerButton = new Button("Create Player");
         createPlayerButton.setDisable(StoryManager.getInstance().getStory() == null);
@@ -57,13 +57,25 @@ public class ImportedStory {
     }
 
     private void createTop() {
+        ImageView imageView = new ImageView(getClass().getResource("/edu/ntnu/paths/Controller/img/help-button.png").toExternalForm());
+        imageView.setFitWidth(40);
+        imageView.setPreserveRatio(true);
+        imageView.setSmooth(true);
+
+        AnchorPane imgAnchorPane = new AnchorPane();
+        AnchorPane.setRightAnchor(imageView, 10.0);
+        imgAnchorPane.getChildren().add(imageView);
+
+        imgAnchorPane.setOnMouseClicked(this::handleHelpPage);
+
         Label headerLabel = new Label("Import story from file");
         headerLabel.setId("headerLabel");
+
         Label infoLabel = new Label("Here you can add a story file");
         infoLabel.setId("infoLabel");
         Button chooseFileBtn = new Button("Choose File");
         chooseFileBtn.setOnAction(e -> onSelectFileButtonClick());
-        topVBox = new VBox(30, headerLabel, infoLabel, chooseFileBtn);
+        topVBox = new VBox(30, imgAnchorPane, headerLabel, infoLabel, chooseFileBtn);
         topVBox.setId("topVBox");
         topVBox.setAlignment(Pos.CENTER);
     }
@@ -147,5 +159,10 @@ public class ImportedStory {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    private void handleHelpPage(Event event) {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        HelpPage helpPage = new HelpPage();
+        helpPage.displayPopUp(stage);
     }
 }
