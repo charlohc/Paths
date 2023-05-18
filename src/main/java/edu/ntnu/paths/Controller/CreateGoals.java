@@ -8,17 +8,19 @@ import edu.ntnu.paths.Managers.PlayerManager;
 import edu.ntnu.paths.Managers.StoryManager;
 import edu.ntnu.paths.StoryDetails.Story;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.prefs.Preferences;
 
 public class CreateGoals {
 
@@ -27,10 +29,12 @@ public class CreateGoals {
     private Spinner<Integer> intSpinner;
     private TextField inventoryTextField;
     private ArrayList<String> inventoryGoalList = new ArrayList<>();
-    private ArrayList<Goal> goals = new ArrayList<>();
+    private ArrayList<Goal> goals;
     private ArrayList<String> allInventoryStory;
     private Pane labelGoal,guidanceGoal,inputGoal, goalsContainerPane;
-    private VBox topVBox, dropdownContainer, goalsContainerVBox, createGoalContainer, allInventoryContainer;
+    private VBox topVBox, dropdownContainer, goalsContainerVBox, createGoalContainer, allInventoryVBox;
+
+    private ScrollPane allInventoryScrollPane;
     private ComboBox<String> goalDropdown;
     private AnchorPane bottomAnchorPane;
     private Button addGoalButton;
@@ -42,11 +46,12 @@ public class CreateGoals {
         newGame = GameManager.getInstance().getGame();
         allInventoryStory = currentStory.getAllInventoryItems();
         goalsContainerVBox = new VBox();
+         goals = new ArrayList<>();
 
         BorderPane root = new BorderPane();
         root.getStylesheets().addAll(
-                Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/Style/style.css")).toExternalForm(),
-                Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/Style/create-goals.css")).toExternalForm()
+                Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/style/style.css")).toExternalForm(),
+                Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/style/create-goals.css")).toExternalForm()
         );
 
         createTop();
@@ -67,7 +72,7 @@ public class CreateGoals {
 
         if (newGame != null) {
             goals = (ArrayList<Goal>) newGame.getGoals();
-            addGoalsToContainer();
+            if (goals != null) addGoalsToContainer();
         }
 
         Scene scene = new Scene(root, 1000, 600);
@@ -76,11 +81,22 @@ public class CreateGoals {
     }
 
     private void createTop() {
+        ImageView imageView = new ImageView(getClass().getResource("/edu/ntnu/paths/Controller/img/help-button.png").toExternalForm());
+        imageView.setFitWidth(40);
+        imageView.setPreserveRatio(true);
+        imageView.setSmooth(true);
+
+        AnchorPane imgAnchorPane = new AnchorPane();
+        AnchorPane.setRightAnchor(imageView, 10.0);
+        imgAnchorPane.getChildren().add(imageView);
+
+        imgAnchorPane.setOnMouseClicked(this::handleHelpPage);
+
         Label header = new Label("Set your goals for the game");
         header.setId("header");
         Label infoGoalsLabel = new Label("You can have as many goals as you would like,\nbut you can only have one of the score, gold and health type");
         infoGoalsLabel.setId("infoGoalsLabel");
-         topVBox = new VBox(header, infoGoalsLabel);
+        topVBox = new VBox(imgAnchorPane, header, infoGoalsLabel);
         topVBox.setAlignment(Pos.CENTER);
     }
 
@@ -110,13 +126,13 @@ public class CreateGoals {
 
         guidanceGoal = new VBox();
 
-        allInventoryContainer = new VBox();
-        allInventoryContainer.setSpacing(10);
-        allInventoryContainer.setAlignment(Pos.TOP_CENTER);
+        allInventoryVBox = new VBox();
+        allInventoryVBox.setSpacing(10);
+        allInventoryVBox.setAlignment(Pos.TOP_CENTER);
 
         feedbackLabel = new Label();
 
-        createGoalContainer.getChildren().addAll(labelGoal, inputGoal, guidanceGoal, allInventoryContainer, feedbackLabel);
+        createGoalContainer.getChildren().addAll(labelGoal, inputGoal, guidanceGoal, allInventoryVBox, feedbackLabel);
     }
 
     private void createRightSection() {
@@ -147,6 +163,7 @@ public class CreateGoals {
 
     private void handleDropdownChange(String selectedOption) {
         clearAllContainers();
+        if (goals == null) goals = new ArrayList<>();
 
         Label goalNameLabel = new Label(selectedOption + " goal");
         labelGoal.getChildren().add(goalNameLabel);
@@ -166,7 +183,7 @@ public class CreateGoals {
                 int maxVal = currentStory.findMaxGold();
                 int initialValue = currentStory.findMaxGold() / 2;
 
-                Label goldGuidanceLabel = new Label("Pssst...\nThe best path in the game gives " + maxVal + " gold");
+                Label goldGuidanceLabel = new Label("The best path in the game gives " + maxVal + " gold");
                 guidanceGoal.getChildren().add(goldGuidanceLabel);
 
                 SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(minVal, maxVal, initialValue, step);
@@ -190,7 +207,7 @@ public class CreateGoals {
                 int maxVal = currentStory.findMaxScore();
                 int initialValue = currentStory.findMaxScore() / 2;
 
-                Label scoreGuidanceLabel = new Label("Pssst...\nThe best path in the game gives " + maxVal + " score");
+                Label scoreGuidanceLabel = new Label("The best path in the game gives " + maxVal + " score");
                 guidanceGoal.getChildren().add(scoreGuidanceLabel);
 
                 SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(minVal, maxVal, initialValue, step);
@@ -201,15 +218,16 @@ public class CreateGoals {
                 inputGoal.getChildren().add(intSpinner);
             }
             case "Inventory" -> {
-                Label inventoryGuidanceLabel = new Label("Pssst...\nBelow you can see all items in the game");
+                Label inventoryGuidanceLabel = new Label("Below you can see all items in the game");
                 guidanceGoal.getChildren().add(inventoryGuidanceLabel);
                 for (String inventory : allInventoryStory) {
                     Pane inventoryPane = new Pane();
                     inventoryPane.getChildren().add(new Label(inventory));
-                    allInventoryContainer.getChildren().add(inventoryPane);
+                    allInventoryVBox.getChildren().add(inventoryPane);
                 }
                  inventoryTextField = new TextField();
                 inputGoal.getChildren().add(inventoryTextField);
+                allInventoryScrollPane = new ScrollPane(allInventoryVBox);
             }
         }
         if (!createGoalContainer.getChildren().contains(addGoalButton)) {
@@ -219,7 +237,6 @@ public class CreateGoals {
 
 
     private void addGoal(String goalName) {
-
         switch (goalName) {
             case "Gold" -> {
                 boolean goldGoalExists = false;
@@ -271,9 +288,12 @@ public class CreateGoals {
 
                 if (!allInventoryStory.contains(inventorySuggestion)) {
                     feedbackLabel.setText("Inventory not in story");
+                    feedbackLabel.setTextFill(Color.RED);
                 } else if (inventoryGoalList.contains(inventorySuggestion)) {
                     feedbackLabel.setText("Goal already added");
+                    feedbackLabel.setTextFill(Color.RED);
                 } else {
+                    feedbackLabel.setTextFill(Color.BLACK);
                     InventoryGoal inventoryGoal = new InventoryGoal();
                     inventoryGoalList.add(inventorySuggestion.toLowerCase());
                     inventoryGoal.inventoryGoal(inventoryGoalList);
@@ -299,35 +319,75 @@ public class CreateGoals {
         boolean addedInventoryGoal = false;
 
         for (Goal goal : goals) {
+            HBox hBox = null;
+
             if (goal instanceof InventoryGoal inventoryGoal) {
                 if (!addedInventoryGoal) {
                     List<String> mandatoryItems = inventoryGoal.getInventory();
                     for (String item : mandatoryItems) {
-                        Pane pane = new Pane();
-                        Label label = new Label("Inventory : " + item);
-                        pane.getChildren().add(label);
-                        goalsContainerVBox.getChildren().add(pane);
+                        hBox = createGoalHBox("Inventory: " + item, inventoryGoal);
+                        goalsContainerVBox.getChildren().add(hBox);
                     }
                     addedInventoryGoal = true;
                 }
             } else if (goal instanceof GoldGoal goldGoal) {
-                Pane pane = new Pane();
-                Label label = new Label("Gold : " + goldGoal.getGold());
-                pane.getChildren().add(label);
-                goalsContainerVBox.getChildren().add(pane);
+                hBox = createGoalHBox("Gold: " + goldGoal.getGold(), goldGoal);
+                goalsContainerVBox.getChildren().add(hBox);
             } else if (goal instanceof ScoreGoal scoreGoal) {
-                Pane pane = new Pane();
-                Label label = new Label("Score : " + scoreGoal.getScore());
-                pane.getChildren().add(label);
-                goalsContainerVBox.getChildren().add(pane);
+                hBox = createGoalHBox("Score: " + scoreGoal.getScore(), scoreGoal);
+                goalsContainerVBox.getChildren().add(hBox);
             } else if (goal instanceof HealthGoal healthGoal) {
-                Pane pane = new Pane();
-                Label label = new Label("Health : " + healthGoal.getHealth());
-                pane.getChildren().add(label);
-                goalsContainerVBox.getChildren().add(pane);
+                hBox = createGoalHBox("Health: " + healthGoal.getHealth(), healthGoal);
+                goalsContainerVBox.getChildren().add(hBox);
+            }
+
+            if (hBox != null) {
+                hBox.setSpacing(40);
             }
         }
     }
+
+    private HBox createGoalHBox(String labelText, Goal goal) {
+        HBox hBox = new HBox();
+        Label label = new Label(labelText);
+        hBox.getChildren().add(label);
+
+        Button removeButton = new Button("Remove");
+        removeButton.getStyleClass().addAll("remove-button", "black-and-white");
+
+        if (goal instanceof InventoryGoal inventoryGoal) {
+            removeButton.setOnAction(e -> {
+                goals.remove(inventoryGoal);
+                addGoalsToContainer();
+            });
+        } else if (goal instanceof GoldGoal goldGoal) {
+            removeButton.setOnAction(e -> {
+                goals.remove(goldGoal);
+                addGoalsToContainer();
+            });
+        } else if (goal instanceof ScoreGoal scoreGoal) {
+            removeButton.setOnAction(e -> {
+                goals.remove(scoreGoal);
+                addGoalsToContainer();
+            });
+        } else if (goal instanceof HealthGoal healthGoal) {
+            removeButton.setOnAction(e -> {
+                goals.remove(healthGoal);
+                addGoalsToContainer();
+            });
+        }
+
+        Region spacer = new Region();
+        HBox.setHgrow(spacer, Priority.ALWAYS);
+
+        HBox buttonContainer = new HBox(removeButton);
+        buttonContainer.setAlignment(Pos.CENTER_RIGHT);
+
+        hBox.getChildren().addAll(spacer, buttonContainer);
+
+        return hBox;
+    }
+
 
 
     private void clearAllContainers() {
@@ -335,13 +395,13 @@ public class CreateGoals {
         labelGoal.getChildren().clear();
         inputGoal.getChildren().clear();
         guidanceGoal.getChildren().clear();
-        allInventoryContainer.getChildren().clear();
+        allInventoryVBox.getChildren().clear();
         intSpinner = null;
         inventoryTextField = null;
     }
 
     private void beginGame(ActionEvent actionEvent) {
-        if (goals.size() == 0) {
+        if (goals == null || goals.size() == 0 ) {
             newGame = GameBuilder.newInstance()
                 .setStory(currentStory)
                 .setPlayer(PlayerManager.getInstance().getPlayer())
@@ -366,6 +426,12 @@ public class CreateGoals {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private void handleHelpPage(Event event) {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        HelpPage helpPage = new HelpPage();
+        helpPage.displayPopUp(stage);
     }
 }
 
