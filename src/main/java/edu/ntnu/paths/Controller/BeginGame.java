@@ -7,34 +7,45 @@ import edu.ntnu.paths.Managers.GameManager;
 import edu.ntnu.paths.StoryDetails.Link;
 import edu.ntnu.paths.StoryDetails.Passage;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class BeginGame {
 
-    private Game currentGame;
+    private Game currentGame, currentGameCopy;
+    private Player player;
     private BorderPane root;
     private VBox topVBox, centerVbox;
+    private HBox goalsGame;
     private AnchorPane bottomAnchorPane;
     private Button viewStatsButton;
-    private Pane gameDiv;
-
+    private StackPane gameDiv;
+    private Label healthLabel, goldLabel, scoreLabel, inventoryLabel, titleLabel, contentLabel;
     private ProgressBar healthBar;
 
     public void start(Stage stage) {
         currentGame = GameManager.getInstance().getGame();
+        currentGameCopy = new Game(currentGame);
+
+        player = currentGameCopy.getPlayer();
+        player.setInventory(new ArrayList<>());
         root = new BorderPane();
+        goalsGame = new HBox();
+
         root.setPadding(new Insets(10));
         root.getStylesheets().addAll(
-                Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/Style/style.css")).toExternalForm(),
-                Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/Style/begin-game.css")).toExternalForm()
+                Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/style/style.css")).toExternalForm(),
+                Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/style/begin-game.css")).toExternalForm()
         );
 
         createTop();
@@ -51,9 +62,20 @@ public class BeginGame {
     }
 
     private void createTop() {
-        Label header = new Label(currentGame.getStory().getTittle());
+        ImageView imageView = new ImageView(getClass().getResource("/edu/ntnu/paths/Controller/img/help-button.png").toExternalForm());
+        imageView.setFitWidth(40);
+        imageView.setPreserveRatio(true);
+        imageView.setSmooth(true);
+
+        AnchorPane imgAnchorPane = new AnchorPane();
+        AnchorPane.setRightAnchor(imageView, 10.0);
+        imgAnchorPane.getChildren().add(imageView);
+
+        imgAnchorPane.setOnMouseClicked(this::handleHelpPage);
+
+        Label header = new Label(currentGameCopy.getStory().getTittle());
         header.setId("header");
-        topVBox = new VBox(header);
+        topVBox = new VBox(imgAnchorPane, header);
         topVBox.setAlignment(Pos.CENTER);
     }
 
@@ -61,163 +83,204 @@ public class BeginGame {
         centerVbox = new VBox();
         centerVbox.setAlignment(Pos.CENTER);
 
-        Label goldLabel = new Label("Gold: ");
-        Label scoreLabel = new Label("Score: ");
-        Label inventoryLabel = new Label("Inventory: ");
+        goldLabel = new Label("Gold: " + player.getGold());
+        scoreLabel = new Label("Score: " + player.getScore());
+        inventoryLabel = new Label("Inventory: " + player.getInventory());
 
         HBox labelsBox = new HBox(goldLabel, scoreLabel, inventoryLabel);
         labelsBox.setSpacing(10);
         labelsBox.setAlignment(Pos.CENTER);
-        centerVbox.getChildren().add(labelsBox);
 
+        healthLabel = new Label(player.getHealth() + "%");
         healthBar = new ProgressBar();
         healthBar.setPrefWidth(200);
-        healthBar.setProgress(currentGame.getPlayer().getHealth() / 100.0);
+        healthBar.setProgress(currentGameCopy.getPlayer().getHealth() / 100.0);
         setHealthBarColor(healthBar);
-        centerVbox.getChildren().add(healthBar);
 
-        gameDiv = new Pane();
+        HBox healthBox = new HBox(healthBar, healthLabel);
+        healthBox.setSpacing(10);
+        healthBox.setAlignment(Pos.CENTER);
+        centerVbox.getChildren().addAll(labelsBox, healthBox);
+
+        gameDiv = new StackPane();
         gameDiv.getStyleClass().add("game-div");
-        gameDiv.setMinSize(800, 400);
+        gameDiv.setMinSize(1000, 300);
         Button startGameButton = new Button("start game");
         startGameButton.setAlignment(Pos.CENTER);
         gameDiv.getChildren().add(startGameButton);
-        startGameButton.setOnAction(this::startGame);
-        centerVbox.getChildren().add(gameDiv);
+        startGameButton.setOnAction(event -> startGame());
 
+        centerVbox.getChildren().add(gameDiv);
+        //goalProgress();
 
     }
 
-    private void startGame(ActionEvent actionEvent) {
+    private void startGame() {
         gameDiv.getChildren().clear();
-        Passage startPassage = currentGame.begin();
+        Passage startPassage = currentGameCopy.begin();
 
-        HBox passageBox = new HBox(10);
+        VBox passageBox = new VBox(10);
         passageBox.setPadding(new Insets(10));
 
-        Label titleLabel = new Label(startPassage.getTittle());
-        titleLabel.setStyle("-fx-font-size: 18px; -fx-font-weight: bold;");
+        titleLabel = new Label(startPassage.getTittle());
+        titleLabel.setStyle("-fx-font-size: 25px; -fx-font-weight: bold;");
 
-        Label contentLabel = new Label(startPassage.getContent());
-        contentLabel.setStyle("-fx-font-size: 14px;");
+        contentLabel = new Label(startPassage.getContent());
+        contentLabel.setStyle("-fx-font-size: 16px;");
         contentLabel.setWrapText(true);
-        contentLabel.setMaxWidth(300);
+        contentLabel.setMaxWidth(500);
 
-        passageBox.getChildren().addAll(titleLabel, contentLabel);
+        passageBox.getChildren().addAll( titleLabel, contentLabel);
+
+        HBox linksBox = new HBox(10);
 
         for (Link link : startPassage.getLinks()) {
             Label linkTextLabel = new Label(link.getText());
-            linkTextLabel.setStyle("-fx-font-size: 14px; -fx-font-weight: bold;");
+            linkTextLabel.setStyle("-fx-font-size: 16px; -fx-font-weight: bold;");
 
             Button linkButton = new Button(link.getReference());
-            linkButton.setStyle("-fx-font-size: 14px;");
+            linkButton.setStyle("-fx-font-size: 16px;");
 
-            VBox linkBox = new VBox(5);
-            linkBox.setPadding(new Insets(5));
-
-            linkBox.getChildren().addAll(linkTextLabel, linkButton);
+            VBox linkContentBox = new VBox(5);
+            linkContentBox.setPadding(new Insets(5));
+            linkContentBox.getChildren().addAll(linkTextLabel, linkButton);
 
             for (Action action : link.getActions()) {
                 Label actionLabel = new Label(action.toString());
-                actionLabel.setStyle("-fx-font-size: 12px; -fx-font-style: italic;");
-
-                linkBox.getChildren().add(actionLabel);
+                actionLabel.setStyle("-fx-font-size: 14px; -fx-font-style: italic;");
+                linkContentBox.getChildren().addAll(actionLabel);
             }
+            HBox linksContentPassageBox = new HBox(linkContentBox);
 
             linkButton.setOnAction(event -> {
-                Passage newPassage = currentGame.go(link);
-
-                Player player = currentGame.getPlayer();
-                for (Action action : link.getActions()) {
-                    if (action instanceof GoldAction) {
-                        int goldAmount = ((GoldAction) action).getGold();
-                        player.addGold(goldAmount);
-                    } else if (action instanceof HealthAction) {
-                        int healthAmount = ((HealthAction) action).getHealth();
-                        player.changeHealth(healthAmount);
-                    } else if (action instanceof ScoreAction) {
-                        int scoreAmount = ((ScoreAction) action).getPoints();
-                        player.addScore(scoreAmount);
-                    } else if (action instanceof InventoryAction) {
-                        String item = ((InventoryAction) action).getItem();
-                        player.addToInventory(item);
-                    }
-                }
-
+                Passage newPassage = currentGameCopy.go(link);
+                addAction(link);
                 loadPassage(newPassage);
             });
 
-            passageBox.getChildren().add(linkBox);
+            linksBox.getChildren().add(linksContentPassageBox);
         }
+        linksBox.setAlignment(Pos.CENTER);
+
+        passageBox.getChildren().add(linksBox);
 
         gameDiv.getChildren().add(passageBox);
+        passageBox.setAlignment(Pos.TOP_CENTER);
+
     }
+
+
 
     private void loadPassage(Passage passage) {
         gameDiv.getChildren().clear();
+        if (player.getHealth() == 0) {
+            gameOver();
+            return;
+        }
         setHealthBarColor(healthBar);
+        scoreLabel.setText("Score: " + player.getScore());
+        goldLabel.setText("Gold : " + player.getGold());
+        inventoryLabel.setText("Inventory : " + player.getInventory());
 
-        HBox passageBox = new HBox(10);
+        VBox passageBox = new VBox(10);
         passageBox.setPadding(new Insets(10));
 
-        Label titleLabel = new Label(passage.getTittle());
-        titleLabel.setStyle("-fx-font-size: 18px; -fx-font-weight: bold;");
+        ImageView imageView = new ImageView(getClass().getResource("/edu/ntnu/paths/Controller/img/restart-button.png").toExternalForm());
+        imageView.setFitWidth(40);
+        imageView.setPreserveRatio(true);
+        imageView.setSmooth(true);
 
-        Label contentLabel = new Label(passage.getContent());
-        contentLabel.setStyle("-fx-font-size: 14px;");
+        AnchorPane imgAnchorPane = new AnchorPane();
+        AnchorPane.setRightAnchor(imageView, 10.0);
+        imgAnchorPane.getChildren().add(imageView);
+
+        imageView.setOnMouseClicked(event -> {
+            currentGameCopy = new Game(currentGame);
+            player = currentGameCopy.getPlayer();
+            player.setInventory(new ArrayList<>());
+
+            goldLabel.setText("Gold: " + player.getGold());
+            scoreLabel.setText("Score: " + player.getScore());
+            inventoryLabel.setText("Inventory: " + player.getInventory());
+
+            setHealthBarColor(healthBar);
+            startGame();
+        });
+
+        titleLabel = new Label(passage.getTittle());
+        titleLabel.setStyle("-fx-font-size: 25px; -fx-font-weight: bold;");
+
+        contentLabel = new Label(passage.getContent());
+        contentLabel.setStyle("-fx-font-size: 16px;");
         contentLabel.setWrapText(true);
-        contentLabel.setMaxWidth(300);
-        passageBox.getChildren().addAll(titleLabel, contentLabel);
+        contentLabel.setMaxWidth(500);
+
+        passageBox.getChildren().addAll(imgAnchorPane, titleLabel, contentLabel);
+
+        HBox linksBox = new HBox(10);
 
         for (Link link : passage.getLinks()) {
             Label linkTextLabel = new Label(link.getText());
-            linkTextLabel.setStyle("-fx-font-size: 14px; -fx-font-weight:bold;");
+            linkTextLabel.setStyle("-fx-font-size: 16px; -fx-font-weight:bold;");
             Button linkButton = new Button(link.getReference());
-            linkButton.setStyle("-fx-font-size: 14px;");
-            VBox linkBox = new VBox(5);
-            linkBox.setPadding(new Insets(5));
+            linkButton.setStyle("-fx-font-size: 16px;");
 
-            linkBox.getChildren().addAll(linkTextLabel, linkButton);
+            VBox linkContentBox = new VBox(5);
+            linkContentBox.setPadding(new Insets(10));
+            linkContentBox.getChildren().addAll(linkTextLabel, linkButton);
 
             for (Action action : link.getActions()) {
                 Label actionLabel = new Label(action.toString());
-                actionLabel.setStyle("-fx-font-size: 12px; -fx-font-style: italic;");
-                linkBox.getChildren().add(actionLabel);
+                actionLabel.setStyle("-fx-font-size: 14px; -fx-font-style: italic;");
+                linkContentBox.getChildren().add(actionLabel);
             }
 
+            HBox linkBox = new HBox(10);
+            linkBox.getChildren().add(linkContentBox);
+
             linkButton.setOnAction(event -> {
-                Passage newPassage = currentGame.go(link);
-
-                Player player = currentGame.getPlayer();
-                for (Action action : link.getActions()) {
-                    if (action instanceof GoldAction) {
-                        int goldAmount = ((GoldAction) action).getGold();
-                        player.addGold(goldAmount);
-                    } else if (action instanceof HealthAction) {
-                        int healthAmount = ((HealthAction) action).getHealth();
-                        player.changeHealth(healthAmount);
-                    } else if (action instanceof ScoreAction) {
-                        int scoreAmount = ((ScoreAction) action).getPoints();
-                        player.addScore(scoreAmount);
-                    } else if (action instanceof InventoryAction) {
-                        String item = ((InventoryAction) action).getItem();
-                        player.addToInventory(item);
-                    }
-                }
-
+                Passage newPassage = currentGameCopy.go(link);
+                addAction(link);
                 loadPassage(newPassage);
             });
 
-            passageBox.getChildren().add(linkBox);
+            linksBox.getChildren().add(linkBox);
         }
 
+        if (passage.getLinks().size() == 0){
+            viewStatsButton.setDisable(false);
+        }
+
+        linksBox.setAlignment(Pos.CENTER);
+
+        passageBox.getChildren().add(linksBox);
+
         gameDiv.getChildren().add(passageBox);
+        passageBox.setAlignment(Pos.TOP_CENTER);
+    }
+
+
+    private void addAction(Link link) {
+        Player player = currentGameCopy.getPlayer();
+        for (Action action : link.getActions()) {
+            if (action instanceof GoldAction goldAction) {
+                player.addGold(goldAction.getGold());
+            } else if (action instanceof HealthAction healthAction) {
+                player.changeHealth(healthAction.getHealth());
+            } else if (action instanceof ScoreAction scoreAction) {
+                player.addScore(scoreAction.getPoints());
+            } else if (action instanceof InventoryAction inventoryAction) {
+                player.addToInventory(inventoryAction.getItem());
+            }
+        }
 
     }
 
-    private void setHealthBarColor(ProgressBar healthBar) {
-        double health = currentGame.getPlayer().getHealth();
 
+
+    private void setHealthBarColor(ProgressBar healthBar) {
+        double health = player.getHealth();
+        healthLabel.setText(health + "%");
         double fillRatio = health / 100.0;
 
         if (health >= 50) {
@@ -231,11 +294,62 @@ public class BeginGame {
         healthBar.setProgress(fillRatio);
     }
 
+/*    private void goalProgress() {
+        goalsGame.getChildren().clear();
+
+        int healthGoalGame = 0;
+        int goldGoalGame = 0;
+        int scoreGoalGame = 0;
+        List<String> inventoryGoalGame = new ArrayList<>();
+        boolean inventoryGoalBool = true;
+
+        for (Goal goal : currentGame.getGoals()) {
+            if (goal instanceof HealthGoal healthGoal) {
+                healthGoalGame = healthGoal.getHealth();
+            } else if (goal instanceof GoldGoal goldGoal) {
+                System.out.println("gold " + goldGoal.getGold());
+                goldGoalGame = goldGoal.getGold();
+            } else if (goal instanceof ScoreGoal scoreGoal) {
+                scoreGoalGame = scoreGoal.getScore();
+            } else if (goal instanceof InventoryGoal inventoryGoal) {
+                if (inventoryGoalBool) {
+                    inventoryGoalGame = inventoryGoal.getInventory();
+                    inventoryGoalBool = false;
+                }
+            }
+        }
+
+        healthGoalLabel = new Label("Health Goal: " + healthGoalGame);
+        goldGoalLabel = new Label("Gold Goal: " + goldGoalGame);
+        scoreGoalLabel = new Label("Score Goal: " + scoreGoalGame);
+        inventoryGoalLabel = new Label("Inventory Goal: " + inventoryGoalGame);
+
+        goalsGame = new HBox(healthGoalLabel, goldGoalLabel, scoreGoalLabel, inventoryGoalLabel);
+        goalsGame.setId("goalsGame");
+        goalsGame.setSpacing(20);
+        goalsGame.setAlignment(Pos.CENTER);
+        centerVbox.getChildren().add(goalsGame);
+    }*/
+
+    private void gameOver() {
+        gameDiv.getChildren().clear();
+        setHealthBarColor(healthBar);
+        titleLabel.setText("Game Over");
+        contentLabel.setText("");
+        titleLabel.setAlignment(Pos.TOP_CENTER);
+        viewStatsButton.setDisable(false);
+        Button startGameButton = new Button("start game");
+        startGameButton.setAlignment(Pos.CENTER);
+        startGameButton.setOnAction(event -> startGame());
+        gameDiv.getChildren().addAll(titleLabel, contentLabel, startGameButton);
+    }
+
 
     private void createBottom() {
         bottomAnchorPane = new AnchorPane();
         viewStatsButton = new Button("View Stats");
         viewStatsButton.setOnAction(this::handleViewStats);
+        viewStatsButton.setDisable(true);
         AnchorPane.setBottomAnchor(viewStatsButton, 20.0);
         AnchorPane.setRightAnchor(viewStatsButton, 50.0);
 
@@ -249,16 +363,29 @@ public class BeginGame {
     }
 
     private void handleViewStats(ActionEvent actionEvent) {
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        GameStatistics gameStatistics = new GameStatistics();
+        try {
+            gameStatistics.start(stage, currentGameCopy);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
+
     private void handleGoBack(ActionEvent actionEvent) {
-        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene
-                ().getWindow();
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         CreateGoals createGoals = new CreateGoals();
         try {
             createGoals.start(stage);
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private void handleHelpPage(Event event) {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        HelpPage helpPage = new HelpPage();
+        helpPage.displayPopUp(stage);
     }
 }
