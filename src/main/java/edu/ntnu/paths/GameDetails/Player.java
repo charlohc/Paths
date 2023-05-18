@@ -1,5 +1,6 @@
 package edu.ntnu.paths.GameDetails;
 
+import java.util.ArrayList;
 import java.util.List;
 //Mabye create builder class here
 public class Player {
@@ -32,7 +33,7 @@ public class Player {
         this.health = copyPlayer.getHealth();
         this.score = copyPlayer.getScore();
         this.gold = copyPlayer.getGold();
-        this.inventory = copyPlayer.getInventory();
+        this.inventory = new ArrayList<>(copyPlayer.getInventory());
     }
 
     public String getName() {
@@ -79,5 +80,9 @@ public class Player {
     public void addToInventory(String item) {
         if (item.isEmpty()) throw new NullPointerException("Item cannot be blank");
         inventory.add(item.trim().toLowerCase());
+    }
+
+    public void setInventory(List<String> inventory) {
+        this.inventory = inventory;
     }
 }
