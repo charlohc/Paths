@@ -3,18 +3,18 @@ package edu.ntnu.paths.Controller;
 import edu.ntnu.paths.GameDetails.Player;
 import edu.ntnu.paths.GameDetails.PlayerBuilder;
 import edu.ntnu.paths.Managers.PlayerManager;
-import edu.ntnu.paths.Managers.StoryManager;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 import java.util.Objects;
-import java.util.prefs.BackingStoreException;
 import java.util.prefs.Preferences;
 
 public class CreatePlayer {
@@ -33,8 +33,8 @@ public class CreatePlayer {
         root = new BorderPane();
         root.setPadding(new Insets(10));
         root.getStylesheets().addAll(
-                Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/Style/style.css")).toExternalForm(),
-                Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/Style/create-player.css")).toExternalForm()
+                Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/style/style.css")).toExternalForm(),
+                Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/style/create-player.css")).toExternalForm()
         );
         createGoalsButton = new Button("Create goals");
         createGoalsButton.setDisable(PlayerManager.getInstance().getPlayer() == null);
@@ -53,9 +53,20 @@ public class CreatePlayer {
     }
 
     private void createTop() {
+        ImageView imageView = new ImageView(getClass().getResource("/edu/ntnu/paths/Controller/img/help-button.png").toExternalForm());
+        imageView.setFitWidth(40);
+        imageView.setPreserveRatio(true);
+        imageView.setSmooth(true);
+
+        AnchorPane imgAnchorPane = new AnchorPane();
+        AnchorPane.setRightAnchor(imageView, 10.0);
+        imgAnchorPane.getChildren().add(imageView);
+
+        imgAnchorPane.setOnMouseClicked(this::handleHelpPage);
+
         Label header = new Label("Create Player");
         header.setId("header");
-        topVBox = new VBox(header);
+        topVBox = new VBox(imgAnchorPane, header);
         topVBox.setAlignment(Pos.CENTER);
     }
 
@@ -163,6 +174,10 @@ public class CreatePlayer {
             e.printStackTrace();
         }
     }
-
+    private void handleHelpPage(Event event) {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        HelpPage helpPage = new HelpPage();
+        helpPage.displayPopUp(stage);
+    }
 
 }
