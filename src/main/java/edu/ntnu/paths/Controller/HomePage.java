@@ -1,21 +1,17 @@
 package edu.ntnu.paths.Controller;
 
 import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
+import javafx.event.Event;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.util.Objects;
 
 public class HomePage {
@@ -23,6 +19,17 @@ public class HomePage {
     private final Scene scene;
 
     public HomePage() {
+        ImageView helpImageView = new ImageView(getClass().getResource("/edu/ntnu/paths/Controller/img/help-button.png").toExternalForm());
+        helpImageView.setFitWidth(40);
+        helpImageView.setPreserveRatio(true);
+        helpImageView.setSmooth(true);
+
+        AnchorPane imgAnchorPane = new AnchorPane();
+        AnchorPane.setRightAnchor(helpImageView, 10.0);
+        imgAnchorPane.getChildren().add(helpImageView);
+
+        imgAnchorPane.setOnMouseClicked(this::handleHelpPage);
+
         Label titleLabel = new Label("Paths");
         titleLabel.setId("titleLabel");
 
@@ -33,7 +40,7 @@ public class HomePage {
         importButton.setOnAction(this::openImportStoryScene);
         importButton.setId("importButton");
 
-        VBox container = new VBox(titleLabel, welcomeLabel, importButton);
+        VBox container = new VBox(imgAnchorPane, titleLabel, welcomeLabel, importButton);
         container.setId("container");
         container.getStyleClass().add("container");
         container.setSpacing(40);
@@ -41,8 +48,8 @@ public class HomePage {
         StackPane root = new StackPane(container);
         root.setStyle("-fx-background-size: cover; -fx-alignment: center");
         root.getStylesheets().addAll(
-                Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/Style/style.css")).toExternalForm(),
-                Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/Style/home-page.css")).toExternalForm()
+                Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/style/style.css")).toExternalForm(),
+                Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/style/home-page.css")).toExternalForm()
         );
         scene = new Scene(root, 1000, 600);
     }
@@ -55,6 +62,11 @@ public class HomePage {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    private void handleHelpPage(Event event) {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        HelpPage helpPage = new HelpPage();
+        helpPage.displayPopUp(stage);
     }
 
     public Scene getScene() {
