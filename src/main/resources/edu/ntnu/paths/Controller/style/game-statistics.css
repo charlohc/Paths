@@ -1,0 +1,15 @@
+#healthBox, #scoreBox, #inventoryBox, #goldBox {
+    -fx-border-color: black;
+    -fx-border-width: 2px;
+    -fx-border-radius: 10px;
+    -fx-padding: 15px;
+}
+
+#headerLabel {
+    -fx-font-size: 36px;
+}
+
+#infoLabel {
+    -fx-font-size: 20px;
+    -fx-padding: 0px 0px 0px 20px;
+}
