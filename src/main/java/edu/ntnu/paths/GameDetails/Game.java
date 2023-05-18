@@ -6,11 +6,9 @@ import edu.ntnu.paths.StoryDetails.Passage;
 import edu.ntnu.paths.StoryDetails.Story;
 import edu.ntnu.paths.Goals.Goal;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
-
-//Add exceptions
-//factory links og passage
-//deep copy alt med lister
 
 public class Game {
     private final Player player;
@@ -29,10 +27,16 @@ public class Game {
         }
     }
 
-    public Game (Game copyGame) {
-       this.player = copyGame.player;
-       this.story = copyGame.story;
-       this.goals = copyGame.goals;
+    public Game(Game copyGame) {
+        this.player = new Player(copyGame.getPlayer());
+        this.story = new Story(copyGame.getStory());
+
+        Collection<Goal> goals = copyGame.getGoals();
+        if (goals != null) {
+            this.goals = new ArrayList<>(goals);
+        } else {
+            this.goals = null;
+        }
     }
 
 
