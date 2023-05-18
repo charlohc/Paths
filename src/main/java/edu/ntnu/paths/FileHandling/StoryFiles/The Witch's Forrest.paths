@@ -1,0 +1,51 @@
+The Witch's Forrest
+
+::The Forest Path
+You step cautiously onto the overgrown path, the crunch of leaves beneath your feet echoing through the silent forest. The trees seem to whisper, warning you to turn back. But your determination pushes you forward.
+[Continue deeper into the forest](The Witch's Lair)
+
+::The Witch's Lair
+As you push through the dense underbrush, you stumble upon a clearing. In the center stands a dilapidated cottage, the home of the witch. A cold breeze sends shivers down your spine.
+[Investigate the cottage](The Cottage)
+
+::The Cottage
+You cautiously approach the cottage, its timeworn door creaking open as if inviting you inside. Inside, you find a cauldron bubbling with a mysterious potion. The air is thick with an otherworldly energy.
+[Sample the potion](The Enchanted Grove){InventoryAction:Green potion}
+
+::The Enchanted Grove
+As the potion touches your lips, a surge of magic courses through your veins. The world around you transforms into a vibrant and ethereal grove. Magical creatures dance among sparkling trees.
+[Follow the magical creatures](The Creatures){ScoreAction:30}
+[Explore the grove further](The Hidden Clearing){ScoreAction:10}
+
+::The Creatures
+The creatures lead you deeper into the grove, but their intentions were not pure. You find yourself ensnared in a web of vines, unable to break free. The witch reveals herself, cackling with glee.
+[Confront the witch](The Confrontation)
+[Search for an escape route](The Hidden Clearing)
+
+::The Confrontation
+Filled with determination, you confront the wicked witch, ready to face her head-on. The air crackles with tension as you draw your weapon, prepared for a fierce battle. However, the witch's power proves to be far greater than you anticipated. She unleashes a wave of dark magic that overwhelms you, leaving you powerless and defenseless.
+[Accept you faith](Lose){HealthAction:-100}
+
+::Lose
+Defeated and weakened, you lie on the ground, your spirit crushed by the witch's malevolence. She cackles triumphantly, relishing in her victory over you. As darkness engulfs your vision, you can't help but wonder if there was a way to overcome her dark powers. Your journey ends here, and the evil witch reigns supreme in the forest.
+
+::The Hidden Clearing
+As you explore further into the grove, you stumble upon a hidden clearing bathed in soft sunlight. The air is filled with tranquility, and you feel a sense of peace washing over you. Exhaustion takes hold, and you find a comfortable spot to rest.
+[Take a nap and rejuvenate](Sleepy time)
+[Go look for the creatures](The Creatures)
+
+::Sleepy Time
+You drift into a deep sleep, and as you awaken, you find yourself surrounded by a gentle aura. Standing before you is a kind-hearted witch, radiating warmth and generosity. She offers you a gift, a token of her goodwill.
+[Accept the witch's gift](Accepting the Gift){InventoryAction:Mysterious gift}{GoldAction:10}
+[Decline the witch's gift](Declining the Gift){ScoreAction:30}
+
+::Accepting the Gift
+Grateful for the witch's generosity, you accept the gift with gratitude. It fills you with a sense of positivity and empowerment. The witch smiles warmly before vanishing into thin air.
+[Continue your journey](The Forest Exit)
+
+::Declining the Gift
+Wary of the witch's intentions, you politely decline the gift. Anger flashes in her eyes, and her demeanor turns dark.
+[Confront the witch](The Confrontation){ScoreAction:20}
+
+::The Forest Exit
+With renewed energy, you leave the hidden clearing and resume your journey through the forest, leaving behind both the kind witch and the malevolent presence of the evil witch. The path to safety lies ahead, and you march forward, determined to escape her clutches.

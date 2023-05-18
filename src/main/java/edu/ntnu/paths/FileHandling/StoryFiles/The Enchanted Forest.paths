@@ -17,10 +17,10 @@ Curiosity leads you down the path to the entrance of a foreboding cave. Eerie so
 
 ::The Dragon's Lair
 You cautiously make your way through the dimly lit cave, and as you round a corner, you come face-to-face with a fearsome dragon. Its scales glisten with the hues of fire, and its eyes lock onto yours. You ready your weapon, prepared to face this formidable foe.
-[Engage in battle with the dragon](Victory){HealthAction:-30}{GoldAction:50}
+[Engage in battle with the dragon](Battle){HealthAction:-30}{GoldAction:50}
 [Flee from the dragon](The Path){HealthAction:-10}
 
-::Victory
+::Battle
 After a grueling battle, you emerge victorious over the dragon. With its defeat, a sense of peace washes over the cave. Among the dragon's hoard, you spot a glimmering gem that catches your eye.
 [Claim the gem as your prize](The Forest's Heart){ScoreAction:20}{InventoryAction:Dragon Gem}
 [Leave the gem and continue exploring](The Path)
