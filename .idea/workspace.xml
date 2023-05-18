@@ -4,17 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53a0d0a9-2fe9-40cf-a5cf-95adcfb50728" name="Changes" comment="implemented persistance goals in container">
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/BeginGame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/FileHandling/StoryFiles/The Enchanted Forest.paths" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/FileHandling/StoryFiles/The Haunted Manor.paths" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/Style/begin-game.css" afterDir="false" />
+    <list default="true" id="53a0d0a9-2fe9-40cf-a5cf-95adcfb50728" name="Changes" comment="improved the goals container">
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/GameStatistics.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/HelpPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/FileHandling/StoryFiles/The Witch's Forrest.paths" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/img/help-button.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/img/restart-button.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/style/game-statistics.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/BeginGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/BeginGame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/CreateGoals.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/CreateGoals.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/CreatePlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/CreatePlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/HomePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/ImportedStory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/ImportedStory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/StartGame.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/FileHandling/ReadFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/FileHandling/ReadFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Goals/Goal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Goals/Goal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/StoryDetails/Story.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/StoryDetails/Story.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/FileHandling/StoryFiles/The Enchanted Forest.paths" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/FileHandling/StoryFiles/The Enchanted Forest.paths" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/FileHandling/StoryFiles/The last person on earth.paths" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/FileHandling/StoryFiles/The last person on earth.paths" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/GameDetails/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/GameDetails/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/GameDetails/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/GameDetails/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Goals/InventoryGoal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Goals/InventoryGoal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/Style/begin-game.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/style/begin-game.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/Style/create-goals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/style/create-goals.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/Style/create-player.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/style/create-player.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/Style/home-page.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/style/home-page.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/Style/import-story.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/style/import-story.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/Style/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/style/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,8 +44,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
-        <option value="Class" />
         <option value="CSS File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -190,6 +206,7 @@
       <workItem from="1684165615578" duration="2507000" />
       <workItem from="1684182385572" duration="7421000" />
       <workItem from="1684275475347" duration="10367000" />
+      <workItem from="1684410792785" duration="33359000" />
     </task>
     <task id="LOCAL−00001" summary="New project with previous files - can now run fxml files">
       <created>1683466326399</created>
@@ -344,6 +361,7 @@
     <MESSAGE value="Added functionality Create Goal class" />
     <MESSAGE value="added example story" />
     <MESSAGE value="implemented persistance goals in container" />
-    <option name="LAST_COMMIT_MESSAGE" value="implemented persistance goals in container" />
+    <MESSAGE value="improved the goals container" />
+    <option name="LAST_COMMIT_MESSAGE" value="improved the goals container" />
   </component>
 </project>
