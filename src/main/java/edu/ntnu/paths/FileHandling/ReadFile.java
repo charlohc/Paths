@@ -33,7 +33,6 @@ public class ReadFile {
         ReadFile readFile = new ReadFile();
 
         if (file == null || file.length() == 0 || !file.getName().endsWith(".paths")) {
-            System.out.println("here 1");
             return null;
         }
 
@@ -41,7 +40,6 @@ public class ReadFile {
         try {
             myReader = new Scanner(file);
         } catch (FileNotFoundException e) {
-            System.out.println("here 2");
             return null;
         }
         StringBuilder storyInfo = new StringBuilder();
@@ -55,7 +53,6 @@ public class ReadFile {
         try {
             return readFile.getStory(storyInfo.toString());
         } catch (InvalidFileDataException e) {
-            System.out.println("here 3");
             return null;
         }
     }
@@ -105,7 +102,6 @@ public class ReadFile {
             }
 
         }
-
         return story;
     } catch (IndexOutOfBoundsException | IllegalArgumentException e ) {
         System.out.println(e.getMessage());
@@ -115,37 +111,36 @@ public class ReadFile {
 
     public static int addLink(String[] storyContentArray, Passage passage, int index) {
         while (!storyContentArray[index].isEmpty()) {
-
             String[] links = storyContentArray[index].split("[{}()]");
-
             String[] linksWithoutBlank = Arrays.stream(links).filter(x -> !x.isEmpty()).toArray(String[]::new);
 
+            String linkTitle = linksWithoutBlank[0].replace("[", "").replace("]", "");
+            String linkContent = linksWithoutBlank[1];
 
+            boolean isDuplicateLink = passage.getLinks().stream()
+                    .anyMatch(link -> link.getText().equals(linkTitle) && link.getReference().equals(linkContent));
 
-            Link linkFromNewPassage = null;
+            if (!isDuplicateLink) {
+                Link linkFromNewPassage = LinkBuilder.newInstance()
+                        .setText(linkTitle)
+                        .setReference(linkContent)
+                        .build();
+                for (int j = 2; j < linksWithoutBlank.length; j++) {
+                    linkFromNewPassage.addAction(setAction(linksWithoutBlank[j]));
+                }
 
-            linkFromNewPassage = LinkBuilder.newInstance()
-                    .setText(linksWithoutBlank[0].replace("[","").replace("]",""))
-                    .setReference(linksWithoutBlank[1])
-                    .build();
-
-
-
-            for (int j = 2; j < linksWithoutBlank.length; j++) {
-
-                linkFromNewPassage.addAction(setAction(linksWithoutBlank[j]));
-
+                passage.addLink(linkFromNewPassage);
             }
-
-            passage.addLink(linkFromNewPassage);
 
             if ((index + 1) == storyContentArray.length) {
                 break;
             }
             index++;
         }
+
         return index + 1;
     }
+
 
    public static Action setAction(String action) {
 
@@ -168,18 +163,16 @@ public class ReadFile {
 
          scoreAction.scoreAction(valueScoreAction);
          return scoreAction;
-     }
-     else if (action.contains("InventoryAction")) {
-        InventoryAction inventoryAction = new InventoryAction();
-         String[] inventoryItemArr = action.split(":");
-         String valueInventoryAction = inventoryItemArr[1];
-         inventoryAction.inventoryAction(valueInventoryAction.toLowerCase());
+     } else if (action.contains("InventoryAction")) {
+         InventoryAction inventoryAction = new InventoryAction();
+         String[] inventoryItems = action.split(":");
+         for (int i = 1; i < inventoryItems.length; i++) {
+             String inventoryItem = inventoryItems[i].trim();
+             inventoryAction.inventoryAction(inventoryItem.toLowerCase());
+         }
          return inventoryAction;
      }
-     else {
-         System.out.println("problem");
-     }
 
-        return null;
+       return null;
     }
 }
