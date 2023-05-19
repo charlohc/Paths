@@ -4,6 +4,7 @@ import edu.ntnu.paths.GameDetails.Game;
 import edu.ntnu.paths.GameDetails.Player;
 import edu.ntnu.paths.Goals.*;
 import edu.ntnu.paths.Managers.GameManager;
+import javafx.scene.shape.Circle;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.geometry.Insets;
@@ -11,8 +12,11 @@ import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 
 import java.util.Objects;
@@ -89,19 +93,15 @@ public class GameStatistics {
             goldGoalLabel = new Label("Gold Goal: " + getGoalValueOfType(GoldGoal.class));
             inventoryGoalLabel = new Label("Inventory Goal: " + getGoalValueOfType(InventoryGoal.class));
         }
-        Label healthLabel = new Label("Health: " + currentGame.getPlayer().getHealth());
-        Label scoreLabel = new Label("Score: " + currentGame.getPlayer().getScore());
-        Label goldLabel = new Label("Gold: " + currentGame.getPlayer().getGold());
-        Label inventoryLabel = new Label("Inventory: " + currentGame.getPlayer().getInventory());
+        Label healthLabel = new Label("Final Health: " + currentGame.getPlayer().getHealth());
+        Label scoreLabel = new Label("Final Score: " + currentGame.getPlayer().getScore());
+        Label goldLabel = new Label("Final Gold: " + currentGame.getPlayer().getGold());
+        Label inventoryLabel = new Label("Final Inventory: " + currentGame.getPlayer().getInventory());
 
-        VBox healthBox = new VBox(healthGoalLabel, healthLabel);
-        healthBox.setId("healthBox");
-        VBox scoreBox = new VBox(scoreGoalLabel, scoreLabel);
-        scoreBox.setId("scoreBox");
-        VBox goldBox = new VBox(goldGoalLabel, goldLabel);
-        goldBox.setId("goldBox");
-        VBox inventoryBox = new VBox(inventoryGoalLabel, inventoryLabel);
-        inventoryBox.setId("inventoryBox");
+        VBox healthBox = createGoalBox(healthGoalLabel, healthLabel, HealthGoal.class);
+        VBox scoreBox = createGoalBox(scoreGoalLabel, scoreLabel, ScoreGoal.class);
+        VBox goldBox = createGoalBox(goldGoalLabel, goldLabel, GoldGoal.class);
+        VBox inventoryBox = createGoalBox(inventoryGoalLabel, inventoryLabel, InventoryGoal.class);
 
         goalsBox.getChildren().addAll(healthBox, scoreBox, goldBox, inventoryBox);
         goalsBox.setSpacing(20);
@@ -110,19 +110,13 @@ public class GameStatistics {
         Label fulfilledGoalsLabel = new Label("Fulfilled Goals: ");
         int fulfilledGoalsCount = 0;
 
-        if (currentGame.getGoals() !=null) {
-        for (Goal goal : currentGame.getGoals()) {
-            if (goal instanceof HealthGoal healthGoal && healthGoal.isFulfilled(player)) {
-                fulfilledGoalsCount++;
-            } else if (goal instanceof ScoreGoal scoreGoal && scoreGoal.isFulfilled(player)) {
-                fulfilledGoalsCount++;
-            } else if (goal instanceof GoldGoal goldGoal && goldGoal.isFulfilled(player)) {
-                fulfilledGoalsCount++;
-            } else if (goal instanceof InventoryGoal inventoryGoal && inventoryGoal.isFulfilled(player)) {
-                fulfilledGoalsCount++;
+        if (currentGame.getGoals() != null) {
+            for (Goal goal : currentGame.getGoals()) {
+                if (goal.isFulfilled(player)) {
+                    fulfilledGoalsCount++;
+                }
             }
         }
-    }
 
         Label fulfilledCountLabel = new Label(String.valueOf(fulfilledGoalsCount));
 
@@ -151,7 +145,58 @@ public class GameStatistics {
         return "";
     }
 
+    private VBox createGoalBox(Label goalLabel, Label valueLabel, Class<? extends Goal> goalType) {
+        VBox goalBox = new VBox();
+        goalBox.setAlignment(Pos.CENTER);
 
+        Circle circle = new Circle(40);
+        circle.setFill(getGoalBackgroundColor(goalType));
+
+        ImageView actionImageView = getActionImageView(goalType);
+        actionImageView.setFitWidth(35);
+        actionImageView.setPreserveRatio(true);
+
+        StackPane stackPane = new StackPane();
+        stackPane.getChildren().addAll(circle, actionImageView);
+
+        goalBox.getChildren().addAll(stackPane, goalLabel, valueLabel);
+        VBox.setMargin(goalLabel, new Insets(5));
+        VBox.setMargin(valueLabel, new Insets(5));
+
+        return goalBox;
+    }
+
+    private Paint getGoalBackgroundColor(Class<? extends Goal> goalType) {
+        boolean isFulfilled = false;
+
+        for (Goal goal : currentGame.getGoals()) {
+            if (goalType.isInstance(goal)) {
+                if (goal.isFulfilled(player)) {
+                    isFulfilled = true;
+                    break;
+                }
+            }
+        }
+
+        return isFulfilled ? Color.LIGHTGREEN : Color.LIGHTBLUE;
+    }
+
+    private ImageView getActionImageView(Class<? extends Goal> goalType) {
+        Image actionImage;
+        if (goalType == HealthGoal.class) {
+            actionImage = new Image(getClass().getResource("/edu/ntnu/paths/Controller/img/heart.png").toExternalForm());
+        } else if (goalType == ScoreGoal.class) {
+            actionImage = new Image(getClass().getResource("/edu/ntnu/paths/Controller/img/trophy.png").toExternalForm());
+        } else if (goalType == GoldGoal.class) {
+            actionImage = new Image(getClass().getResource("/edu/ntnu/paths/Controller/img/coin.png").toExternalForm());
+        } else if (goalType == InventoryGoal.class) {
+            actionImage = new Image(getClass().getResource("/edu/ntnu/paths/Controller/img/bag.png").toExternalForm());
+        } else {
+            actionImage = null;
+        }
+
+        return new ImageView(actionImage);
+    }
 
 
     private void createBottom() {

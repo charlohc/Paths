@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53a0d0a9-2fe9-40cf-a5cf-95adcfb50728" name="Changes" comment="improved styling and functionality">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/img/bag.png" afterDir="false" />
+    <list default="true" id="53a0d0a9-2fe9-40cf-a5cf-95adcfb50728" name="Changes" comment="implemented icons to actions in passages">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/BeginGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/BeginGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/CreateGoals.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/CreateGoals.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/img/school-bag.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/style/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/style/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/GameStatistics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/GameStatistics.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,7 +186,7 @@
       <workItem from="1684472644092" duration="2545000" />
       <workItem from="1684490171879" duration="768000" />
       <workItem from="1684504145668" duration="1153000" />
-      <workItem from="1684530888462" duration="2790000" />
+      <workItem from="1684530888462" duration="4289000" />
     </task>
     <task id="LOCAL−00001" summary="New project with previous files - can now run fxml files">
       <created>1683466326399</created>
@@ -420,14 +416,19 @@
       <option name="presentableId" value="LOCAL−00038" />
       <updated>1684449278878</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL−00039" summary="implemented icons to actions in passages">
+      <created>1684533789950</created>
+      <option name="number" value="LOCAL−00039" />
+      <option name="presentableId" value="LOCAL−00039" />
+      <updated>1684533789950</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Implemented get functionality to action classes and added tests" />
     <MESSAGE value="Changed to be able to handle positive and negative changes to player health" />
     <MESSAGE value="Implemented method for finding gold and score for the best path" />
     <MESSAGE value="Improved styling classes" />
@@ -452,6 +453,7 @@
     <MESSAGE value="made deepcopy safer" />
     <MESSAGE value="added routing to helppage" />
     <MESSAGE value="improved styling and functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="improved styling and functionality" />
+    <MESSAGE value="implemented icons to actions in passages" />
+    <option name="LAST_COMMIT_MESSAGE" value="implemented icons to actions in passages" />
   </component>
 </project>
