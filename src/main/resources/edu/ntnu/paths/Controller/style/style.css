@@ -1,5 +1,4 @@
 .button {
-    -fx-background-color: #566D46;
     -fx-text-fill: #FFF;
     -fx-font-family: "Times New Roman", serif;
     -fx-font-size: 18px;
@@ -8,7 +7,6 @@
     -fx-background-radius: 10px;
     -fx-background-color: linear-gradient(to bottom, #3E502B, #566D46);
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 5, 0, 0, 1);
-    -fx-pref-width: 140px;
 }
 .button:hover {
     -fx-background-color: #669376;

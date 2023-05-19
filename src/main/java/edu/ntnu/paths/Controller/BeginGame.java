@@ -13,9 +13,11 @@ import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
+import javafx.util.Pair;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -146,9 +148,21 @@ public class BeginGame {
             linkContentBox.getChildren().addAll(linkTextLabel, linkButton);
 
             for (Action action : link.getActions()) {
-                Label actionLabel = new Label(action.toString());
+                Pair<Image, String> actionImageAndValue = getActionImageAndValue(action);
+                Image actionImage = actionImageAndValue.getKey();
+                String actionValue = actionImageAndValue.getValue();
+
+                Label actionLabel = new Label(actionValue);
+
                 actionLabel.setStyle("-fx-font-size: 14px; -fx-font-style: italic;");
-                linkContentBox.getChildren().addAll(actionLabel);
+
+                ImageView actionImageView = new ImageView(actionImage);
+                actionImageView.setFitWidth(20);
+                actionImageView.setPreserveRatio(true);
+
+                HBox actionHBox = new HBox();
+                actionHBox.getChildren().addAll(actionLabel, actionImageView );
+                linkContentBox.getChildren().add(actionHBox);
             }
             HBox linksContentPassageBox = new HBox(linkContentBox);
 
@@ -230,9 +244,19 @@ public class BeginGame {
             linkContentBox.getChildren().addAll(linkTextLabel, linkButton);
 
             for (Action action : link.getActions()) {
-                Label actionLabel = new Label(action.toString());
-                actionLabel.setStyle("-fx-font-size: 14px; -fx-font-style: italic;");
-                linkContentBox.getChildren().add(actionLabel);
+                Pair<Image, String> actionImageAndValue = getActionImageAndValue(action);
+                Image actionImage = actionImageAndValue.getKey();
+                String actionValue = actionImageAndValue.getValue();
+
+                Label actionLabel = new Label(actionValue);
+
+                ImageView actionImageView = new ImageView(actionImage);
+                actionImageView.setFitWidth(30);
+                actionImageView.setPreserveRatio(true);
+
+                HBox actionHBox = new HBox();
+                actionHBox.getChildren().addAll(actionLabel, actionImageView );
+                linkContentBox.getChildren().add(actionHBox);
             }
 
             HBox linkBox = new HBox(10);
@@ -259,6 +283,27 @@ public class BeginGame {
         passageBox.setAlignment(Pos.TOP_CENTER);
     }
 
+
+    private Pair<Image, String> getActionImageAndValue(Action action) {
+        if (action instanceof GoldAction goldAction) {
+            Image image = new Image(getClass().getResource("/edu/ntnu/paths/Controller/img/coin.png").toExternalForm());
+            String value = goldAction.getGold() + "";
+            return new Pair<>(image, value);
+        } else if (action instanceof HealthAction healthAction) {
+            Image image = new Image(getClass().getResource("/edu/ntnu/paths/Controller/img/heart.png").toExternalForm());
+            String value = healthAction.getHealth() + "";
+            return new Pair<>(image, value);
+        } else if (action instanceof ScoreAction scoreAction) {
+            Image image = new Image(getClass().getResource("/edu/ntnu/paths/Controller/img/trophy.png").toExternalForm());
+            String value = scoreAction.getPoints() + "";
+            return new Pair<>(image, value);
+        } else if (action instanceof InventoryAction inventoryAction) {
+            Image image = new Image(getClass().getResource("/edu/ntnu/paths/Controller/img/bag.png").toExternalForm());
+            String value = inventoryAction.getItem();
+            return new Pair<>(image, value);
+        }
+        return null;
+    }
 
     private void addAction(Link link) {
         Player player = currentGameCopy.getPlayer();

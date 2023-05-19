@@ -228,7 +228,7 @@ public class CreateGoals {
                 inventoryTextField = new TextField();
                 inputGoal.getChildren().add(inventoryTextField);
                 allInventoryScrollPane = new ScrollPane(allInventoryVBox);
-                addButtonWithImage(selectedOption, getClass().getResource("/edu/ntnu/paths/Controller/img/school-bag.png").toExternalForm());
+                addButtonWithImage(selectedOption, getClass().getResource("/edu/ntnu/paths/Controller/img/bag.png").toExternalForm());
                 break;
         }
     }
