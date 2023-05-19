@@ -4,33 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53a0d0a9-2fe9-40cf-a5cf-95adcfb50728" name="Changes" comment="improved the goals container">
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/GameStatistics.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/HelpPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/FileHandling/StoryFiles/The Witch's Forrest.paths" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/img/help-button.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/img/restart-button.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/style/game-statistics.css" afterDir="false" />
+    <list default="true" id="53a0d0a9-2fe9-40cf-a5cf-95adcfb50728" name="Changes" comment="improved styling and functionality">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/img/coin.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/img/heart.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/img/school-bag.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/img/trophy.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/BeginGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/BeginGame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/CreateGoals.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/CreateGoals.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/CreatePlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/CreatePlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/HomePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/ImportedStory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/ImportedStory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/StartGame.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/FileHandling/ReadFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/FileHandling/ReadFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/FileHandling/StoryFiles/The Enchanted Forest.paths" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/FileHandling/StoryFiles/The Enchanted Forest.paths" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/FileHandling/StoryFiles/The last person on earth.paths" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/FileHandling/StoryFiles/The last person on earth.paths" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/GameDetails/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/GameDetails/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/GameDetails/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/GameDetails/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Goals/InventoryGoal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Goals/InventoryGoal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/Style/begin-game.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/style/begin-game.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/Style/create-goals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/style/create-goals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/Style/create-player.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/style/create-player.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/Style/home-page.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/style/home-page.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/Style/import-story.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/style/import-story.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/Style/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/style/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -206,7 +186,8 @@
       <workItem from="1684165615578" duration="2507000" />
       <workItem from="1684182385572" duration="7421000" />
       <workItem from="1684275475347" duration="10367000" />
-      <workItem from="1684410792785" duration="33359000" />
+      <workItem from="1684410792785" duration="34055000" />
+      <workItem from="1684472644092" duration="2545000" />
     </task>
     <task id="LOCAL−00001" summary="New project with previous files - can now run fxml files">
       <created>1683466326399</created>
@@ -334,25 +315,115 @@
       <option name="presentableId" value="LOCAL−00021" />
       <updated>1684189832868</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL−00022" summary="implemented more test text files">
+      <created>1684448972664</created>
+      <option name="number" value="LOCAL−00022" />
+      <option name="presentableId" value="LOCAL−00022" />
+      <updated>1684448972664</updated>
+    </task>
+    <task id="LOCAL−00023" summary="renamed file">
+      <created>1684448990019</created>
+      <option name="number" value="LOCAL−00023" />
+      <option name="presentableId" value="LOCAL−00023" />
+      <updated>1684448990019</updated>
+    </task>
+    <task id="LOCAL−00024" summary="implemented new icon style buttons">
+      <created>1684449009155</created>
+      <option name="number" value="LOCAL−00024" />
+      <option name="presentableId" value="LOCAL−00024" />
+      <updated>1684449009155</updated>
+    </task>
+    <task id="LOCAL−00025" summary="tried to fix bug where cannot add more than one inventory per link">
+      <created>1684449049255</created>
+      <option name="number" value="LOCAL−00025" />
+      <option name="presentableId" value="LOCAL−00025" />
+      <updated>1684449049255</updated>
+    </task>
+    <task id="LOCAL−00026" summary="removed file">
+      <created>1684449058468</created>
+      <option name="number" value="LOCAL−00026" />
+      <option name="presentableId" value="LOCAL−00026" />
+      <updated>1684449058468</updated>
+    </task>
+    <task id="LOCAL−00027" summary="improved beginGame with better styling and more functionality">
+      <created>1684449088085</created>
+      <option name="number" value="LOCAL−00027" />
+      <option name="presentableId" value="LOCAL−00027" />
+      <updated>1684449088085</updated>
+    </task>
+    <task id="LOCAL−00028" summary="added more exception handling">
+      <created>1684449103955</created>
+      <option name="number" value="LOCAL−00028" />
+      <option name="presentableId" value="LOCAL−00028" />
+      <updated>1684449103955</updated>
+    </task>
+    <task id="LOCAL−00029" summary="added more exception handling to deep copy">
+      <created>1684449118568</created>
+      <option name="number" value="LOCAL−00029" />
+      <option name="presentableId" value="LOCAL−00029" />
+      <updated>1684449118568</updated>
+    </task>
+    <task id="LOCAL−00030" summary="made another export">
+      <created>1684449134354</created>
+      <option name="number" value="LOCAL−00030" />
+      <option name="presentableId" value="LOCAL−00030" />
+      <updated>1684449134354</updated>
+    </task>
+    <task id="LOCAL−00031" summary="renamed">
+      <created>1684449152698</created>
+      <option name="number" value="LOCAL−00031" />
+      <option name="presentableId" value="LOCAL−00031" />
+      <updated>1684449152698</updated>
+    </task>
+    <task id="LOCAL−00032" summary="added new class and styling GameStatistics">
+      <created>1684449173959</created>
+      <option name="number" value="LOCAL−00032" />
+      <option name="presentableId" value="LOCAL−00032" />
+      <updated>1684449173959</updated>
+    </task>
+    <task id="LOCAL−00033" summary="added new routing to HelpPage">
+      <created>1684449196368</created>
+      <option name="number" value="LOCAL−00033" />
+      <option name="presentableId" value="LOCAL−00033" />
+      <updated>1684449196368</updated>
+    </task>
+    <task id="LOCAL−00034" summary="added new routing to HelpPage">
+      <created>1684449202130</created>
+      <option name="number" value="LOCAL−00034" />
+      <option name="presentableId" value="LOCAL−00034" />
+      <updated>1684449202130</updated>
+    </task>
+    <task id="LOCAL−00035" summary="implemented new class HelpPage">
+      <created>1684449218257</created>
+      <option name="number" value="LOCAL−00035" />
+      <option name="presentableId" value="LOCAL−00035" />
+      <updated>1684449218257</updated>
+    </task>
+    <task id="LOCAL−00036" summary="made deepcopy safer">
+      <created>1684449243790</created>
+      <option name="number" value="LOCAL−00036" />
+      <option name="presentableId" value="LOCAL−00036" />
+      <updated>1684449243790</updated>
+    </task>
+    <task id="LOCAL−00037" summary="added routing to helppage">
+      <created>1684449265443</created>
+      <option name="number" value="LOCAL−00037" />
+      <option name="presentableId" value="LOCAL−00037" />
+      <updated>1684449265443</updated>
+    </task>
+    <task id="LOCAL−00038" summary="improved styling and functionality">
+      <created>1684449278878</created>
+      <option name="number" value="LOCAL−00038" />
+      <option name="presentableId" value="LOCAL−00038" />
+      <updated>1684449278878</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="New project with previous files - can now run fxml files" />
-    <MESSAGE value="Created new folder for javaFxml classes" />
-    <MESSAGE value="Renamed classes" />
-    <MESSAGE value="Improved the create user file" />
-    <MESSAGE value="Implemented the PlayerManager class to store information about the current player" />
-    <MESSAGE value="Implemented the CreateGoals controller and fxml file" />
-    <MESSAGE value="Made the create goals fxml scalable" />
-    <MESSAGE value="renamed files" />
-    <MESSAGE value="changed routing" />
-    <MESSAGE value="Implemented new functionality" />
-    <MESSAGE value="Changed size window" />
-    <MESSAGE value="Implemented more functionality to create goals" />
     <MESSAGE value="Implemented get functionality to action classes and added tests" />
     <MESSAGE value="Changed to be able to handle positive and negative changes to player health" />
     <MESSAGE value="Implemented method for finding gold and score for the best path" />
@@ -362,6 +433,22 @@
     <MESSAGE value="added example story" />
     <MESSAGE value="implemented persistance goals in container" />
     <MESSAGE value="improved the goals container" />
-    <option name="LAST_COMMIT_MESSAGE" value="improved the goals container" />
+    <MESSAGE value="implemented more test text files" />
+    <MESSAGE value="renamed file" />
+    <MESSAGE value="implemented new icon style buttons" />
+    <MESSAGE value="tried to fix bug where cannot add more than one inventory per link" />
+    <MESSAGE value="removed file" />
+    <MESSAGE value="improved beginGame with better styling and more functionality" />
+    <MESSAGE value="added more exception handling" />
+    <MESSAGE value="added more exception handling to deep copy" />
+    <MESSAGE value="made another export" />
+    <MESSAGE value="renamed" />
+    <MESSAGE value="added new class and styling GameStatistics" />
+    <MESSAGE value="added new routing to HelpPage" />
+    <MESSAGE value="implemented new class HelpPage" />
+    <MESSAGE value="made deepcopy safer" />
+    <MESSAGE value="added routing to helppage" />
+    <MESSAGE value="improved styling and functionality" />
+    <option name="LAST_COMMIT_MESSAGE" value="improved styling and functionality" />
   </component>
 </project>

@@ -14,6 +14,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -32,8 +33,7 @@ public class CreateGoals {
     private ArrayList<Goal> goals;
     private ArrayList<String> allInventoryStory;
     private Pane labelGoal,guidanceGoal,inputGoal, goalsContainerPane;
-    private VBox topVBox, dropdownContainer, goalsContainerVBox, createGoalContainer, allInventoryVBox;
-
+    private VBox topVBox, dropdownContainer, goalsContainerVBox, createGoalContainer, allInventoryVBox, buttonContainer;
     private ScrollPane allInventoryScrollPane;
     private ComboBox<String> goalDropdown;
     private AnchorPane bottomAnchorPane;
@@ -126,13 +126,15 @@ public class CreateGoals {
 
         guidanceGoal = new VBox();
 
+        buttonContainer = new VBox();
+
         allInventoryVBox = new VBox();
         allInventoryVBox.setSpacing(10);
         allInventoryVBox.setAlignment(Pos.TOP_CENTER);
 
         feedbackLabel = new Label();
 
-        createGoalContainer.getChildren().addAll(labelGoal, inputGoal, guidanceGoal, allInventoryVBox, feedbackLabel);
+        createGoalContainer.getChildren().addAll(labelGoal, inputGoal, guidanceGoal, allInventoryVBox, feedbackLabel, buttonContainer);
     }
 
     private void createRightSection() {
@@ -163,23 +165,18 @@ public class CreateGoals {
 
     private void handleDropdownChange(String selectedOption) {
         clearAllContainers();
+        clearButtons();
+
         if (goals == null) goals = new ArrayList<>();
 
         Label goalNameLabel = new Label(selectedOption + " goal");
         labelGoal.getChildren().add(goalNameLabel);
 
-        if (addGoalButton == null) {
-            addGoalButton = new Button("add goal");
-        }
-        addGoalButton.setOnAction(e -> {
-            addGoal(selectedOption);
-        });
-
         int minVal = 0;
         int step = 1;
 
         switch (selectedOption) {
-            case "Gold" -> {
+            case "Gold":
                 int maxVal = currentStory.findMaxGold();
                 int initialValue = currentStory.findMaxGold() / 2;
 
@@ -192,32 +189,35 @@ public class CreateGoals {
                 intSpinner.setValueFactory(valueFactory);
 
                 inputGoal.getChildren().add(intSpinner);
-            }
-            case "Health" -> {
-                int maxVal = 100;
-                int initialValue = 100;
-                SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(minVal, maxVal, initialValue, step);
+                addButtonWithImage(selectedOption, getClass().getResource("/edu/ntnu/paths/Controller/img/coin.png").toExternalForm());
+                break;
+            case "Health":
+                maxVal = 100;
+                initialValue = 100;
+                valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(minVal, maxVal, initialValue, step);
                 intSpinner = new Spinner<>();
                 intSpinner.setEditable(false);
                 intSpinner.setValueFactory(valueFactory);
 
                 inputGoal.getChildren().add(intSpinner);
-            }
-            case "Score" -> {
-                int maxVal = currentStory.findMaxScore();
-                int initialValue = currentStory.findMaxScore() / 2;
+                addButtonWithImage(selectedOption, getClass().getResource("/edu/ntnu/paths/Controller/img/heart.png").toExternalForm());
+                break;
+            case "Score":
+                maxVal = currentStory.findMaxScore();
+                initialValue = currentStory.findMaxScore() / 2;
 
                 Label scoreGuidanceLabel = new Label("The best path in the game gives " + maxVal + " score");
                 guidanceGoal.getChildren().add(scoreGuidanceLabel);
 
-                SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(minVal, maxVal, initialValue, step);
+                valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(minVal, maxVal, initialValue, step);
                 intSpinner = new Spinner<>();
                 intSpinner.setEditable(false);
                 intSpinner.setValueFactory(valueFactory);
 
                 inputGoal.getChildren().add(intSpinner);
-            }
-            case "Inventory" -> {
+                addButtonWithImage(selectedOption, getClass().getResource("/edu/ntnu/paths/Controller/img/trophy.png").toExternalForm());
+                break;
+            case "Inventory":
                 Label inventoryGuidanceLabel = new Label("Below you can see all items in the game");
                 guidanceGoal.getChildren().add(inventoryGuidanceLabel);
                 for (String inventory : allInventoryStory) {
@@ -225,16 +225,56 @@ public class CreateGoals {
                     inventoryPane.getChildren().add(new Label(inventory));
                     allInventoryVBox.getChildren().add(inventoryPane);
                 }
-                 inventoryTextField = new TextField();
+                inventoryTextField = new TextField();
                 inputGoal.getChildren().add(inventoryTextField);
                 allInventoryScrollPane = new ScrollPane(allInventoryVBox);
-            }
-        }
-        if (!createGoalContainer.getChildren().contains(addGoalButton)) {
-            createGoalContainer.getChildren().add(addGoalButton);
+                addButtonWithImage(selectedOption, getClass().getResource("/edu/ntnu/paths/Controller/img/school-bag.png").toExternalForm());
+                break;
         }
     }
 
+    private void addButtonWithImage(String goalType, String imagePath) {
+        Button button = createButtonWithImage(goalType, imagePath);
+        buttonContainer.getChildren().add(button);
+    }
+
+    private Button createButtonWithImage(String goalType, String imagePath) {
+        Button button = new Button();
+        Image image = new Image(imagePath);
+        ImageView imageView = new ImageView(image);
+        imageView.setFitHeight(25);
+        imageView.setFitWidth(35);
+
+        Label addGoalLabel = new Label("Add goal");
+        addGoalLabel.setTextFill(Color.WHITE);
+
+        HBox contentBox = new HBox();
+        contentBox.setSpacing(10);
+        contentBox.getChildren().addAll(addGoalLabel, imageView);
+
+        button.setGraphic(contentBox);
+
+        button.setOnAction(e -> {
+            addGoal(goalType);
+        });
+
+        return button;
+    }
+
+
+    private void clearButtons() {
+        buttonContainer.getChildren().clear();
+    }
+
+    private void clearAllContainers() {
+        feedbackLabel.setText("");
+        labelGoal.getChildren().clear();
+        inputGoal.getChildren().clear();
+        guidanceGoal.getChildren().clear();
+        allInventoryVBox.getChildren().clear();
+        intSpinner = null;
+        inventoryTextField = null;
+    }
 
     private void addGoal(String goalName) {
         switch (goalName) {
@@ -387,19 +427,6 @@ public class CreateGoals {
 
         return hBox;
     }
-
-
-
-    private void clearAllContainers() {
-        feedbackLabel.setText("");
-        labelGoal.getChildren().clear();
-        inputGoal.getChildren().clear();
-        guidanceGoal.getChildren().clear();
-        allInventoryVBox.getChildren().clear();
-        intSpinner = null;
-        inventoryTextField = null;
-    }
-
     private void beginGame(ActionEvent actionEvent) {
         if (goals == null || goals.size() == 0 ) {
             newGame = GameBuilder.newInstance()
