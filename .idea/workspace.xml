@@ -4,34 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53a0d0a9-2fe9-40cf-a5cf-95adcfb50728" name="Changes" comment="Added images and more styling">
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/JavaFX/BeginGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/JavaFX/BeginGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/JavaFX/CreateGoals.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/JavaFX/CreateGoals.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/JavaFX/CreatePlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/JavaFX/CreatePlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/JavaFX/GameStatistics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/JavaFX/GameStatistics.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/JavaFX/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/JavaFX/HomePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/JavaFX/ImportedStory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/JavaFX/ImportedStory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/img/bag.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/resources/img/bag.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/img/books.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/resources/img/books.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/img/coin.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/resources/img/coin.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/img/dragon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/resources/img/dragon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/img/forest.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/resources/img/forest.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/img/heart.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/resources/img/heart.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/img/help-button.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/resources/img/help-button.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/img/path.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/resources/img/path.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/img/relic.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/resources/img/relic.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/img/restart-button.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/resources/img/restart-button.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/img/ruins.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/resources/img/ruins.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/img/tree.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/resources/img/tree.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/img/trophy.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/resources/img/trophy.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/img/witch.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/resources/img/witch.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/style/begin-game.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/resources/style/begin-game.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/style/create-goals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/resources/style/create-goals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/style/create-player.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/resources/style/create-player.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/style/game-statistics.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/resources/style/game-statistics.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/style/home-page.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/resources/style/home-page.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/style/import-story.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/resources/style/import-story.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/style/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/resources/style/style.css" afterDir="false" />
+    <list default="true" id="53a0d0a9-2fe9-40cf-a5cf-95adcfb50728" name="Changes" comment="Renamed folder">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/FileHandling/ReadFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/FileHandling/ReadFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/FileHandling/ReadFileTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/FileHandling/ReadFileTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/FileHandling/WriteFileTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/FileHandling/WriteFileTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/GameDetails/GameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/GameDetails/GameTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,86 +73,93 @@
       <recent name="C:\Users\Charlotte\IdeaProjects\Paths_V2\paths_charlotte\src\main\resources\edu\ntnu\paths\Controller" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.edu.ntnu.paths.JavaFX.Main">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.Controller.Main" />
+  <component name="RunManager" selected="JUnit.GameTest">
+    <configuration name="GameTest$actionMethodsWorking.CorrectInventoryAfterChangingPassage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Paths_V2" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="edu.ntnu.paths.Controller.*" />
+          <option name="PATTERN" value="edu.ntnu.paths.GameDetails.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="edu.ntnu.paths.JavaFX.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.JavaFX.Main" />
-      <module name="Paths_V2" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="edu.ntnu.paths.JavaFX.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="InventoryActionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Paths_V2" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="edu.ntnu.paths.Actions.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="edu.ntnu.paths.Actions" />
-      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.Actions.InventoryActionTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ReadFileTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="paths_charlotte" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="edu.ntnu.paths.FileHandling.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="edu.ntnu.paths.FileHandling" />
-      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.FileHandling.ReadFileTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="StoryTest$getTotalActions.getAllInventoryItems" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Paths_V2" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="edu.ntnu.paths.StoryDetails.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="edu.ntnu.paths.StoryDetails.StoryTest" />
-      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.StoryDetails.StoryTest$getTotalActions" />
-      <option name="METHOD_NAME" value="getAllInventoryItems" />
+      <option name="PACKAGE_NAME" value="edu.ntnu.paths.GameDetails.GameTest" />
+      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.GameDetails.GameTest$actionMethodsWorking" />
+      <option name="METHOD_NAME" value="CorrectInventoryAfterChangingPassage" />
       <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GameTest$actionMethodsWorking.correctGoldPlayer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Paths_V2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.ntnu.paths.GameDetails.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="edu.ntnu.paths.GameDetails.GameTest" />
+      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.GameDetails.GameTest$actionMethodsWorking" />
+      <option name="METHOD_NAME" value="correctGoldPlayer" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GameTest$goalMethodsWorking.goalFulfilledInventory" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Paths_V2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.ntnu.paths.GameDetails.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="edu.ntnu.paths.GameDetails.GameTest" />
+      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.GameDetails.GameTest$goalMethodsWorking" />
+      <option name="METHOD_NAME" value="goalFulfilledInventory" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GameTest$goalMethodsWorking.goalFulfilledTrue" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Paths_V2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.ntnu.paths.GameDetails.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="edu.ntnu.paths.GameDetails.GameTest" />
+      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.GameDetails.GameTest$goalMethodsWorking" />
+      <option name="METHOD_NAME" value="goalFulfilledTrue" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GameTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Paths_V2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.ntnu.paths.GameDetails.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="edu.ntnu.paths.GameDetails" />
+      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.GameDetails.GameTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.edu.ntnu.paths.JavaFX.Main" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.ReadFileTest" />
-        <item itemvalue="JUnit.StoryTest$getTotalActions.getAllInventoryItems" />
-        <item itemvalue="JUnit.InventoryActionTest" />
+        <item itemvalue="JUnit.GameTest" />
+        <item itemvalue="JUnit.GameTest$goalMethodsWorking.goalFulfilledInventory" />
+        <item itemvalue="JUnit.GameTest$actionMethodsWorking.CorrectInventoryAfterChangingPassage" />
+        <item itemvalue="JUnit.GameTest$goalMethodsWorking.goalFulfilledTrue" />
+        <item itemvalue="JUnit.GameTest$actionMethodsWorking.correctGoldPlayer" />
       </list>
     </recent_temporary>
   </component>
@@ -464,7 +449,13 @@
       <option name="presentableId" value="LOCAL−00042" />
       <updated>1684679768764</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL−00043" summary="Renamed folder">
+      <created>1684687117716</created>
+      <option name="number" value="LOCAL−00043" />
+      <option name="presentableId" value="LOCAL−00043" />
+      <updated>1684687117716</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -482,7 +473,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Improved exception handling" />
     <MESSAGE value="Added functionality Create Goal class" />
     <MESSAGE value="added example story" />
     <MESSAGE value="implemented persistance goals in container" />
@@ -507,6 +497,7 @@
     <MESSAGE value="improved styling" />
     <MESSAGE value="implemented persistence to inventoryGoalsList to try to fix bug not able to add inventory after switching scene" />
     <MESSAGE value="Added images and more styling" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added images and more styling" />
+    <MESSAGE value="Renamed folder" />
+    <option name="LAST_COMMIT_MESSAGE" value="Renamed folder" />
   </component>
 </project>

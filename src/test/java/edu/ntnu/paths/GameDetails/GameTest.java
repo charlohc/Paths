@@ -1,6 +1,6 @@
 package edu.ntnu.paths.GameDetails;
 
-import edu.ntnu.paths.Actions.HealthAction;
+import edu.ntnu.paths.Actions.*;
 import edu.ntnu.paths.Goals.*;
 import edu.ntnu.paths.StoryDetails.*;
 import org.junit.jupiter.api.*;
@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
-//need to do more test containing action and goal, make sure that action and goal are changing between passages
 class GameTest {
     Game game;
     Player player;
@@ -24,12 +23,16 @@ class GameTest {
     ScoreGoal scoreGoal;
 
     HealthAction healthAction;
+    GoldAction goldAction;
+
+    InventoryAction inventoryAction;
     List<Goal> goals;
 
+    List<String> inventory;
     Link linkToPorchPassage, linkToNowhere;
 
     @BeforeEach
-    void setUp(){
+    void setUp() {
         goldGoal = new GoldGoal();
 
         healthGoal = new HealthGoal();
@@ -44,11 +47,19 @@ class GameTest {
 
         healthAction.healthAction(10);
 
+        goldAction = new GoldAction();
+
+        goldAction.goldAction(10);
+
+        inventoryAction = new InventoryAction();
+
+        inventoryAction.inventoryAction("sword");
+
 
         player = PlayerBuilder.newInstance()
                 .setName("Kari")
                 .setHealth(50)
-                .setGold(10)
+                .setGold(5)
                 .setScore(10)
                 .build();
 
@@ -64,9 +75,9 @@ class GameTest {
 
 
         story = StoryBuilder.newInstance()
-                    .setTitle("The last person on earth")
-                    .setOpeningPassage(openingPassage)
-                    .build();
+                .setTitle("The last person on earth")
+                .setOpeningPassage(openingPassage)
+                .build();
 
         story.addPassage(openingPassage);
 
@@ -81,7 +92,6 @@ class GameTest {
                 .build();
 
 
-
         openingPassage.addLink(linkToPorchPassage);
 
 
@@ -90,6 +100,10 @@ class GameTest {
 
         linkToPorchPassage.addAction(healthAction);
 
+        linkToPorchPassage.addAction(goldAction);
+
+        linkToPorchPassage.addAction(inventoryAction);
+
 
         goldGoal.goldGoal(10);
 
@@ -97,9 +111,8 @@ class GameTest {
 
         scoreGoal.scoreGoal(35);
 
-        List<String> inventory = new ArrayList<>();
-        inventory.add("axe");
-        inventory.add("key");
+        inventory = new ArrayList<>();
+        inventory.add("sword");
         inventoryGoal.inventoryGoal(inventory);
 
         goals.add(goldGoal);
@@ -114,15 +127,15 @@ class GameTest {
                 .build();
 
 
-
     }
+
     @Nested
     @DisplayName("Testing Game object constructor with invalid fields")
     class creatingInvalidGameObject {
 
         @Test
         void gameWithoutPlayer() {
-           assertThrows(NullPointerException.class, () -> {
+            assertThrows(NullPointerException.class, () -> {
                 Game gameWithoutPlayer = GameBuilder.newInstance()
                         .setPlayer(null)
                         .setStory(story)
@@ -148,10 +161,9 @@ class GameTest {
     class testingGameGetMethods {
         @Test
         void getPlayer() {
-            assertEquals(player.getName(),game.getPlayer().getName());
+            assertEquals(player.getName(), game.getPlayer().getName());
         }
 
-        //ok to test this way vs with whole object
         @Test
         void getStory() {
             Assertions.assertEquals(story.getTittle(), game.getStory().getTittle());
@@ -186,4 +198,96 @@ class GameTest {
             Assertions.assertNull(game.go(linkToNowhere));
         }
     }
+
+    @Nested
+    @DisplayName("Testing action methods affect player when moving between passages")
+    class actionMethodsWorking {
+        @Test
+        void correctValuesPlayerAfterChangingPassage() {
+            game.go(linkToPorchPassage);
+            Player playerAfterChangingPassage = new Player(player);
+
+            for (Action action : linkToPorchPassage.getActions()) {
+                if (action instanceof GoldAction goldAction) {
+                    playerAfterChangingPassage.addGold(goldAction.getGold());
+                } else if (action instanceof HealthAction healthAction) {
+                    playerAfterChangingPassage.changeHealth(healthAction.getHealth());
+                } else if (action instanceof ScoreAction scoreAction) {
+                    playerAfterChangingPassage.addScore(scoreAction.getPoints());
+                } else if (action instanceof InventoryAction inventoryAction) {
+                    playerAfterChangingPassage.addToInventory(inventoryAction.getItem());
+                }
+            }
+
+            Assertions.assertEquals(player.getGold() + 10, playerAfterChangingPassage.getGold());
+            Assertions.assertEquals(player.getHealth() + 10 , playerAfterChangingPassage.getHealth());
+        }
+
+        @Test
+        void CorrectInventoryAfterChangingPassage() {
+            game.go(linkToPorchPassage);
+            Player playerAfterChangingPassage = new Player(player);
+
+            for (Action action : linkToPorchPassage.getActions()) {
+                if (action instanceof GoldAction goldAction) {
+                    playerAfterChangingPassage.addGold(goldAction.getGold());
+                } else if (action instanceof HealthAction healthAction) {
+                    playerAfterChangingPassage.changeHealth(healthAction.getHealth());
+                } else if (action instanceof ScoreAction scoreAction) {
+                    playerAfterChangingPassage.addScore(scoreAction.getPoints());
+                } else if (action instanceof InventoryAction inventoryAction) {
+                    playerAfterChangingPassage.addToInventory(inventoryAction.getItem());
+                }
+            }
+
+            Assertions.assertEquals(new ArrayList<String>(), player.getInventory());
+            Assertions.assertEquals(inventory, playerAfterChangingPassage.getInventory());
+        }
+    }
+
+    @Nested
+    @DisplayName("Testing the goals methods")
+    class goalMethodsWorking {
+
+        @Test
+        void goalFulfilledGoldHealth(){
+            game.go(linkToPorchPassage);
+            Player playerAfterChangingPassage = new Player(player);
+
+            for (Action action : linkToPorchPassage.getActions()) {
+                if (action instanceof GoldAction goldAction) {
+                    playerAfterChangingPassage.addGold(goldAction.getGold());
+                } else if (action instanceof HealthAction healthAction) {
+                    playerAfterChangingPassage.changeHealth(healthAction.getHealth());
+                } else if (action instanceof ScoreAction scoreAction) {
+                    playerAfterChangingPassage.addScore(scoreAction.getPoints());
+                } else if (action instanceof InventoryAction inventoryAction) {
+                    playerAfterChangingPassage.addToInventory(inventoryAction.getItem());
+                }
+            }
+            Assertions.assertFalse(goldGoal.isFulfilled(player));
+            Assertions.assertTrue(goldGoal.isFulfilled(playerAfterChangingPassage));
+        }
+
+        @Test
+        void goalFulfilledInventory(){
+            game.go(linkToPorchPassage);
+            Player playerAfterChangingPassage = new Player(player);
+
+            for (Action action : linkToPorchPassage.getActions()) {
+                if (action instanceof GoldAction goldAction) {
+                    playerAfterChangingPassage.addGold(goldAction.getGold());
+                } else if (action instanceof HealthAction healthAction) {
+                    playerAfterChangingPassage.changeHealth(healthAction.getHealth());
+                } else if (action instanceof ScoreAction scoreAction) {
+                    playerAfterChangingPassage.addScore(scoreAction.getPoints());
+                } else if (action instanceof InventoryAction inventoryAction) {
+                    playerAfterChangingPassage.addToInventory(inventoryAction.getItem());
+                }
+            }
+            Assertions.assertFalse(inventoryGoal.isFulfilled(player));
+            Assertions.assertTrue(inventoryGoal.isFulfilled(playerAfterChangingPassage));
+        }
+    }
+
 }
