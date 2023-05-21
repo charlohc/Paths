@@ -37,14 +37,14 @@
     -fx-border-width: 2px;
     -fx-border-radius: 10px;
     -fx-max-width: 400px;
-    -fx-max-height: 290px;
-    -fx-pref-height: 290px;
+    -fx-max-height: 270px;
+    -fx-pref-height: 270px;
     -fx-pref-width: 350px;
-    -fx-padding: 10px;
+    -fx-padding: 0px 10px 10px 10px;
 }
 
 #containerForGoalsContainer {
-    -fx-padding: 0px 20px 40px 60px;
+    -fx-padding: 20px 20px 40px 60px;
 }
 
 #dropDownContainer {
@@ -76,4 +76,12 @@
     -fx-padding: 60px 0px 0px 0px;
     -fx-max-width: 400px;
     -fx-max-height: 200px;
+}
+
+#allInventoryVBox {
+    -fx-border-color: black;
+    -fx-border-width: 2px;
+    -fx-border-radius: 10px;
+    -fx-padding: 5px;
+    -fx-max-width: 300px;
 }

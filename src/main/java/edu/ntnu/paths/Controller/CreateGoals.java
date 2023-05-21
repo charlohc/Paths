@@ -37,8 +37,6 @@ public class CreateGoals {
     private ScrollPane allInventoryScrollPane;
     private ComboBox<String> goalDropdown;
     private AnchorPane bottomAnchorPane;
-    private Button addGoalButton;
-
     private Label feedbackLabel;
 
     public void start(Stage stage) {
@@ -81,7 +79,7 @@ public class CreateGoals {
     }
 
     private void createTop() {
-        ImageView imageView = new ImageView(getClass().getResource("/edu/ntnu/paths/Controller/img/help-button.png").toExternalForm());
+        ImageView imageView = new ImageView(Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/img/help-button.png")).toExternalForm());
         imageView.setFitWidth(40);
         imageView.setPreserveRatio(true);
         imageView.setSmooth(true);
@@ -166,6 +164,7 @@ public class CreateGoals {
     private void handleDropdownChange(String selectedOption) {
         clearAllContainers();
         clearButtons();
+        allInventoryVBox.setId(null);
 
         if (goals == null) goals = new ArrayList<>();
 
@@ -193,7 +192,7 @@ public class CreateGoals {
                 break;
             case "Health":
                 maxVal = 100;
-                initialValue = 100;
+                initialValue = 50;
                 valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(minVal, maxVal, initialValue, step);
                 intSpinner = new Spinner<>();
                 intSpinner.setEditable(false);
@@ -225,6 +224,7 @@ public class CreateGoals {
                     inventoryPane.getChildren().add(new Label(inventory));
                     allInventoryVBox.getChildren().add(inventoryPane);
                 }
+                allInventoryVBox.setId("allInventoryVBox");
                 inventoryTextField = new TextField();
                 inputGoal.getChildren().add(inventoryTextField);
                 allInventoryScrollPane = new ScrollPane(allInventoryVBox);
@@ -325,7 +325,6 @@ public class CreateGoals {
             }
             case "Inventory" -> {
                 String inventorySuggestion = inventoryTextField.getText().toLowerCase();
-
                 if (!allInventoryStory.contains(inventorySuggestion)) {
                     feedbackLabel.setText("Inventory not in story");
                     feedbackLabel.setTextFill(Color.RED);
@@ -396,8 +395,11 @@ public class CreateGoals {
         removeButton.getStyleClass().addAll("remove-button", "black-and-white");
 
         if (goal instanceof InventoryGoal inventoryGoal) {
+            int colonIndex = labelText.indexOf(":");
+            String inventory = labelText.substring(colonIndex + 1).trim();
             removeButton.setOnAction(e -> {
                 goals.remove(inventoryGoal);
+                inventoryGoalList.remove(inventory);
                 addGoalsToContainer();
             });
         } else if (goal instanceof GoldGoal goldGoal) {
