@@ -23,6 +23,9 @@ import javafx.util.Pair;
 import java.util.ArrayList;
 import java.util.Objects;
 
+/**
+ * The BeginGame class contains the game the user can interact with
+ */
 public class BeginGame {
 
     private Game currentGame, currentGameCopy;
@@ -37,6 +40,10 @@ public class BeginGame {
     private ProgressBar healthBar;
     private Image goldImage, scoreImage, healthImage, inventoryImage;
 
+    /**
+     * Starts the game and initializes the UI.
+     * @param stage the JavaFX stage to display the game UI on
+     */
     public void start(Stage stage) {
         currentGame = GameManager.getInstance().getGame();
         currentGameCopy = new Game(currentGame);
@@ -68,6 +75,10 @@ public class BeginGame {
         stage.show();
     }
 
+    /**
+     * Creates the top of the scene
+     * Containing the title of the story
+     */
     private void createTop() {
         ImageView imageView = new ImageView(getClass().getResource("/edu/ntnu/paths/resources/img/help-button.png").toExternalForm());
         imageView.setFitWidth(40);
@@ -86,6 +97,11 @@ public class BeginGame {
         topVBox.setAlignment(Pos.CENTER);
     }
 
+    /**
+     * Creates the center of the scene
+     * Contains information about the gold, inventory, score and health of the user
+     * displays a game div where the user can interact with the story
+     */
     private void createCentre() {
         centerVbox = new VBox();
         centerVbox.setAlignment(Pos.CENTER);
@@ -138,6 +154,10 @@ public class BeginGame {
         centerVbox.getChildren().add(gameDiv);
     }
 
+    /**
+     * Starts the game by displaying the initial passage and its associated content and links.
+     * Clears the existing game content and loads the starting passage.
+     */
     private void startGame() {
         gameDiv.getChildren().clear();
         Passage startPassage = currentGameCopy.begin();
@@ -212,6 +232,11 @@ public class BeginGame {
 
     }
 
+    /**
+     * Loads a passage into the game interface, displaying the passage content and associated links.
+     * Clears the existing game content and updates player stats and inventory.
+     * @param passage the Passage object to be loaded
+     */
     private void loadPassage(Passage passage) {
         gameDiv.getChildren().clear();
         if (player.getHealth() == 0) {
@@ -324,6 +349,11 @@ public class BeginGame {
         passageBox.setAlignment(Pos.TOP_CENTER);
     }
 
+    /**
+     * Retrieves the appropriate image based on the content of a passage.
+     * @param content the content of the passage
+     * @return the Image associated with the content, or null if no matching Image is found
+     */
     private Image imageFromContent(String content) {
         String contentLowerCase = content.toLowerCase();
         if (contentLowerCase.contains("witch")) {
@@ -346,6 +376,11 @@ public class BeginGame {
         return null;
     }
 
+    /**
+     * Retrieves the appropriate Image and value associated with an Action.
+     * @param action the Action object
+     * @return a Pair containing the Image and value associated with the Action, or null if the Action type is not recognized
+     */
     private Pair<Image, String> getActionImageAndValue(Action action) {
         if (action instanceof GoldAction goldAction) {
             String value = String.valueOf(goldAction.getGold());
@@ -363,6 +398,10 @@ public class BeginGame {
         return null;
     }
 
+    /**
+     * Adds the effects of the actions associated with a link to the player.
+     * @param link the Link object containing the actions
+     */
     private void addAction(Link link) {
         Player player = currentGameCopy.getPlayer();
         for (Action action : link.getActions()) {
@@ -379,6 +418,10 @@ public class BeginGame {
 
     }
 
+    /**
+     * Sets the color and fill ratio of the health bar based on the player's health value.
+     * @param healthBar the ProgressBar representing the health bar
+     */
     private void setHealthBarColor(ProgressBar healthBar) {
         double health = player.getHealth();
         healthLabel.setText(health + "%");
@@ -395,6 +438,10 @@ public class BeginGame {
         healthBar.setProgress(fillRatio);
     }
 
+    /**
+     * Displays the game over screen and shows the game over message.
+     * Allows the player to restart the game.
+     */
     private void gameOver() {
         gameDiv.getChildren().clear();
         setHealthBarColor(healthBar);
@@ -419,6 +466,10 @@ public class BeginGame {
     }
 
 
+    /**
+     * Creates the bottom of the scene
+     * Containing buttons to maneuver to other scenes
+     */
     private void createBottom() {
         bottomAnchorPane = new AnchorPane();
         viewStatsButton = new Button("View Stats");
@@ -436,6 +487,10 @@ public class BeginGame {
         root.setBottom(bottomAnchorPane);
     }
 
+    /**
+     * Handles the action event when the "View Statistics" button is clicked.
+     * @param actionEvent the action event triggered by clicking the "View Statistics" button
+     */
     private void handleViewStats(ActionEvent actionEvent) {
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         GameStatistics gameStatistics = new GameStatistics();
@@ -447,6 +502,10 @@ public class BeginGame {
     }
 
 
+    /**
+     * Handles the action event when the "Go Back" button is clicked.
+     * @param actionEvent the action event triggered by clicking the "Go Back" button
+     */
     private void handleGoBack(ActionEvent actionEvent) {
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         CreateGoals createGoals = new CreateGoals();
@@ -457,6 +516,10 @@ public class BeginGame {
         }
     }
 
+    /**
+     * Handles the action event when the "Information" button is clicked.
+     * @param event the action event triggered by clicking the "Information" button
+     */
     private void handleHelpPage(Event event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         HelpPage helpPage = new HelpPage();
