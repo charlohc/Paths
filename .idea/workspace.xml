@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="53a0d0a9-2fe9-40cf-a5cf-95adcfb50728" name="Changes" comment="cleaned up test file">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/GameDetails/PlayerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/GameDetails/PlayerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/Goals/HealthGoalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/Goals/HealthGoalTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,23 +70,7 @@
       <recent name="C:\Users\Charlotte\IdeaProjects\Paths_V2\paths_charlotte\src\main\resources\edu\ntnu\paths\Controller" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.GoldGoalTest">
-    <configuration name="GameTest$goalMethodsWorking.goalFulfilledInventory" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Paths_V2" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="edu.ntnu.paths.GameDetails.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="edu.ntnu.paths.GameDetails.GameTest" />
-      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.GameDetails.GameTest$goalMethodsWorking" />
-      <option name="METHOD_NAME" value="goalFulfilledInventory" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.HealthGoalTest">
     <configuration name="GameTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Paths_V2" />
       <extension name="coverage">
@@ -112,6 +96,21 @@
       </extension>
       <option name="PACKAGE_NAME" value="edu.ntnu.paths.Goals" />
       <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.Goals.GoldGoalTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HealthGoalTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Paths_V2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.ntnu.paths.Goals.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="edu.ntnu.paths.Goals" />
+      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.Goals.HealthGoalTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -150,11 +149,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.HealthGoalTest" />
         <item itemvalue="JUnit.GoldGoalTest" />
         <item itemvalue="JUnit.PlayerTest" />
         <item itemvalue="JUnit.PlayerTest$creatingInvalidPlayerObject.playerWithNegativeHealth" />
         <item itemvalue="JUnit.GameTest" />
-        <item itemvalue="JUnit.GameTest$goalMethodsWorking.goalFulfilledInventory" />
       </list>
     </recent_temporary>
   </component>
@@ -468,7 +467,19 @@
       <option name="presentableId" value="LOCAL−00046" />
       <updated>1684689183672</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL−00047" summary="cleaned up test file">
+      <created>1684689260278</created>
+      <option name="number" value="LOCAL−00047" />
+      <option name="presentableId" value="LOCAL−00047" />
+      <updated>1684689260278</updated>
+    </task>
+    <task id="LOCAL−00048" summary="cleaned up test file">
+      <created>1684689323406</created>
+      <option name="number" value="LOCAL−00048" />
+      <option name="presentableId" value="LOCAL−00048" />
+      <updated>1684689323406</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

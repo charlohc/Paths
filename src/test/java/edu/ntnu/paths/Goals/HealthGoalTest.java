@@ -14,7 +14,7 @@ class HealthGoalTest {
 
         player = PlayerBuilder.newInstance()
                 .setName("Kari")
-                .setHealth(50)
+                .setHealth(10)
                 .setGold(10)
                 .setScore(10)
                 .build();
