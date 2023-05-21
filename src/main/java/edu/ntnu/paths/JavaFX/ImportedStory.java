@@ -19,6 +19,9 @@ import java.io.File;
 import java.util.Objects;
 import java.util.prefs.Preferences;
 
+/**
+ * The imported Story class imports a story from the players file.
+ */
 public class ImportedStory {
 
     private final Preferences prefs = Preferences.userNodeForPackage(ImportedStory.class);
@@ -31,7 +34,10 @@ public class ImportedStory {
 
     private Button createPlayerButton;
 
-
+    /**
+     * Starts the application by creating and showing the main stage with the specified scene.
+     * @param stage the main stage of the application
+     */
     public void start(Stage stage) {
         BorderPane root = new BorderPane();
         root.getStylesheets().addAll(
@@ -56,6 +62,10 @@ public class ImportedStory {
         stage.show();
     }
 
+    /**
+     * Creates the top of the scene
+     * Containing a field for importing a file
+     */
     private void createTop() {
         ImageView imageView = new ImageView(getClass().getResource("/edu/ntnu/paths/resources/img/help-button.png").toExternalForm());
         imageView.setFitWidth(40);
@@ -80,6 +90,10 @@ public class ImportedStory {
         topVBox.setAlignment(Pos.CENTER);
     }
 
+    /**
+     * Creates the centre of the scene
+     * Contains information about the given file
+     */
     private void createCenter() {
         Label locationLabel = new Label("Location");
         filePathTextArea = new TextArea( prefs.get("filePath", ""));
@@ -99,6 +113,10 @@ public class ImportedStory {
         centerVBox.setAlignment(Pos.CENTER);
     }
 
+    /**
+     * Creates the bottom of the scene
+     * Containing buttons to maneuver to other scenes
+     */
     private void createBottom() {
         bottomAnchorPane = new AnchorPane();
         createPlayerButton.setOnAction(this::onCreatePlayerButtonClick);
@@ -113,6 +131,9 @@ public class ImportedStory {
         bottomAnchorPane.getChildren().addAll(createPlayerButton, goBackButton);
     }
 
+    /**
+     * Method for loading a file and returning information about the given file
+     */
     private void onSelectFileButtonClick() {
         feedbackLabel.setText("");
         FileChooser fileChooser = new FileChooser();
@@ -139,6 +160,10 @@ public class ImportedStory {
         }
     }
 
+    /**
+     * Handles the action event when the "Create Player" button is clicked.
+     * @param actionEvent the action event triggered by clicking the "Create Player" button
+     */
     private void onCreatePlayerButtonClick(ActionEvent actionEvent) {
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         CreatePlayer createPlayer = new CreatePlayer();
@@ -149,6 +174,10 @@ public class ImportedStory {
         }
     }
 
+    /**
+     * Handles the action event when the "Go Back" button is clicked.
+     * @param actionEvent the action event triggered by clicking the "Go Back" button
+     */
     private void onGoBackButtonClick(ActionEvent actionEvent) {
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         HomePage homePage = new HomePage();
@@ -160,6 +189,10 @@ public class ImportedStory {
             e.printStackTrace();
         }
     }
+    /**
+     * Handles the action event when the "Information" button is clicked.
+     * @param event the action event triggered by clicking the "Information" button
+     */
     private void handleHelpPage(Event event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         HelpPage helpPage = new HelpPage();

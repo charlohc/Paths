@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53a0d0a9-2fe9-40cf-a5cf-95adcfb50728" name="Changes" comment="implemented JavaDoc">
+    <list default="true" id="53a0d0a9-2fe9-40cf-a5cf-95adcfb50728" name="Changes" comment="Added JavaDoc">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/FileHandling/StoryFiles/The Enchanted Forest.paths" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/StoryFiles/The Enchanted Forest.paths" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/FileHandling/StoryFiles/The Haunted Manor.paths" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/StoryFiles/The Haunted Manor.paths" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/FileHandling/StoryFiles/The Witch's Forrest.paths" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/StoryFiles/The Witch's Forrest.paths" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/FileHandling/WriteFileTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/FileHandling/WriteFileTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/JavaFX/ImportedStory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/JavaFX/ImportedStory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +70,7 @@
       <recent name="C:\Users\Charlotte\IdeaProjects\Paths_V2\paths_charlotte\src\main\resources\edu\ntnu\paths\Controller" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.WriteFileTest">
+  <component name="RunManager" selected="JUnit.LinkTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.JavaFX.Main" />
       <module name="Paths_V2" />
@@ -87,7 +84,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PassageTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LinkTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Paths_V2" />
       <extension name="coverage">
         <pattern>
@@ -96,7 +93,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="edu.ntnu.paths.StoryDetails" />
-      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.StoryDetails.PassageTest" />
+      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.StoryDetails.LinkTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -149,11 +146,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.LinkTest" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.WriteFileTest" />
         <item itemvalue="JUnit.ReadFileTest" />
-        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.StoryTest" />
-        <item itemvalue="JUnit.PassageTest" />
       </list>
     </recent_temporary>
   </component>
@@ -190,36 +187,6 @@
       <workItem from="1684504145668" duration="1153000" />
       <workItem from="1684530888462" duration="4289000" />
       <workItem from="1684622548353" duration="1028000" />
-    </task>
-    <task id="LOCAL−00008" summary="renamed files">
-      <created>1683829883660</created>
-      <option name="number" value="LOCAL−00008" />
-      <option name="presentableId" value="LOCAL−00008" />
-      <updated>1683829883660</updated>
-    </task>
-    <task id="LOCAL−00009" summary="changed routing">
-      <created>1683829914546</created>
-      <option name="number" value="LOCAL−00009" />
-      <option name="presentableId" value="LOCAL−00009" />
-      <updated>1683829914546</updated>
-    </task>
-    <task id="LOCAL−00010" summary="Improved exception handling">
-      <created>1683829934633</created>
-      <option name="number" value="LOCAL−00010" />
-      <option name="presentableId" value="LOCAL−00010" />
-      <updated>1683829934633</updated>
-    </task>
-    <task id="LOCAL−00011" summary="Implemented new functionality">
-      <created>1683829956402</created>
-      <option name="number" value="LOCAL−00011" />
-      <option name="presentableId" value="LOCAL−00011" />
-      <updated>1683829956402</updated>
-    </task>
-    <task id="LOCAL−00012" summary="Changed size window">
-      <created>1683829974644</created>
-      <option name="number" value="LOCAL−00012" />
-      <option name="presentableId" value="LOCAL−00012" />
-      <updated>1683829974644</updated>
     </task>
     <task id="LOCAL−00013" summary="Implemented more functionality to create goals">
       <created>1683919313891</created>
@@ -485,7 +452,37 @@
       <option name="presentableId" value="LOCAL−00056" />
       <updated>1684692861801</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL−00057" summary="moved location of files">
+      <created>1684692968209</created>
+      <option name="number" value="LOCAL−00057" />
+      <option name="presentableId" value="LOCAL−00057" />
+      <updated>1684692968209</updated>
+    </task>
+    <task id="LOCAL−00058" summary="Added JavaDoc">
+      <created>1684694406219</created>
+      <option name="number" value="LOCAL−00058" />
+      <option name="presentableId" value="LOCAL−00058" />
+      <updated>1684694406219</updated>
+    </task>
+    <task id="LOCAL−00059" summary="Added JavaDoc">
+      <created>1684695705169</created>
+      <option name="number" value="LOCAL−00059" />
+      <option name="presentableId" value="LOCAL−00059" />
+      <updated>1684695705169</updated>
+    </task>
+    <task id="LOCAL−00060" summary="Added JavaDoc">
+      <created>1684698456749</created>
+      <option name="number" value="LOCAL−00060" />
+      <option name="presentableId" value="LOCAL−00060" />
+      <updated>1684698456749</updated>
+    </task>
+    <task id="LOCAL−00061" summary="Added JavaDoc">
+      <created>1684698469019</created>
+      <option name="number" value="LOCAL−00061" />
+      <option name="presentableId" value="LOCAL−00061" />
+      <updated>1684698469019</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -503,8 +500,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="implemented new icon style buttons" />
-    <MESSAGE value="tried to fix bug where cannot add more than one inventory per link" />
     <MESSAGE value="removed file" />
     <MESSAGE value="improved beginGame with better styling and more functionality" />
     <MESSAGE value="added more exception handling" />
@@ -528,6 +523,8 @@
     <MESSAGE value="cleaned up pom file" />
     <MESSAGE value="Added background image" />
     <MESSAGE value="implemented JavaDoc" />
-    <option name="LAST_COMMIT_MESSAGE" value="implemented JavaDoc" />
+    <MESSAGE value="moved location of files" />
+    <MESSAGE value="Added JavaDoc" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added JavaDoc" />
   </component>
 </project>
