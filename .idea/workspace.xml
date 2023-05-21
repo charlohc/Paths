@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="53a0d0a9-2fe9-40cf-a5cf-95adcfb50728" name="Changes" comment="cleaned up test file">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/StoryDetails/PassageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/StoryDetails/PassageTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,18 +71,16 @@
       <recent name="C:\Users\Charlotte\IdeaProjects\Paths_V2\paths_charlotte\src\main\resources\edu\ntnu\paths\Controller" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.PassageTest">
-    <configuration name="InventoryGoalTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.JavaFX.Main" />
       <module name="Paths_V2" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="edu.ntnu.paths.Goals.*" />
+          <option name="PATTERN" value="edu.ntnu.paths.JavaFX.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="edu.ntnu.paths.Goals" />
-      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.Goals.InventoryGoalTest" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -132,16 +131,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ScoreGoalTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="StoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Paths_V2" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="edu.ntnu.paths.Goals.*" />
+          <option name="PATTERN" value="edu.ntnu.paths.StoryDetails.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="edu.ntnu.paths.Goals" />
-      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.Goals.ScoreGoalTest" />
+      <option name="PACKAGE_NAME" value="edu.ntnu.paths.StoryDetails" />
+      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.StoryDetails.StoryTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -149,11 +148,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.StoryTest" />
         <item itemvalue="JUnit.PassageTest" />
         <item itemvalue="JUnit.PassageTest$creatingInvalidPassageObject.passageInvalidTittle" />
         <item itemvalue="JUnit.LinkTest" />
-        <item itemvalue="JUnit.ScoreGoalTest" />
-        <item itemvalue="JUnit.InventoryGoalTest" />
       </list>
     </recent_temporary>
   </component>
@@ -190,12 +189,6 @@
       <workItem from="1684504145668" duration="1153000" />
       <workItem from="1684530888462" duration="4289000" />
       <workItem from="1684622548353" duration="1028000" />
-    </task>
-    <task id="LOCAL−00003" summary="Renamed classes">
-      <created>1683497126466</created>
-      <option name="number" value="LOCAL−00003" />
-      <option name="presentableId" value="LOCAL−00003" />
-      <updated>1683497126466</updated>
     </task>
     <task id="LOCAL−00004" summary="Improved the create user file">
       <created>1683755521105</created>
@@ -485,7 +478,13 @@
       <option name="presentableId" value="LOCAL−00051" />
       <updated>1684689492426</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL−00052" summary="cleaned up test file">
+      <created>1684689570199</created>
+      <option name="number" value="LOCAL−00052" />
+      <option name="presentableId" value="LOCAL−00052" />
+      <updated>1684689570199</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
