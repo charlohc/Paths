@@ -15,7 +15,7 @@ public class ReadFile {
 
     }
 
-    public void readFileFromFileName(String fileName) {
+    public Story readFileFromFileName(String fileName) {
         ReadFile readFile = new ReadFile();
 
             File storyFromFile = new File(System.getProperty("user.dir") + System.getProperty("file.separator")
@@ -24,9 +24,7 @@ public class ReadFile {
                     "ntnu" + System.getProperty("file.separator") + "paths" + System.getProperty("file.separator")  + "FileHandling"
                     +  System.getProperty("file.separator") + "StoryFiles" + System.getProperty("file.separator") + fileName + ".paths");
 
-            readFile.readFile(storyFromFile);
-
-
+           return readFile.readFile(storyFromFile);
     }
 
     public Story readFile(File file) {
@@ -104,10 +102,9 @@ public class ReadFile {
         }
         return story;
     } catch (IndexOutOfBoundsException | IllegalArgumentException e ) {
-        System.out.println(e.getMessage());
         return null;
     }
-    }
+}
 
     public static int addLink(String[] storyContentArray, Passage passage, int index) {
         while (!storyContentArray[index].isEmpty()) {

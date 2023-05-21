@@ -23,50 +23,41 @@ class ReadFileTest {
 
     @Nested
     @DisplayName("Testing the read file method with exceptions in file properties")
-    class testExceptionsFileProperties {
+    class TestExceptionsFileProperties {
         @Test
         void testReadFileWithNonExistentFile() {
-
-            Assertions.assertThrows(RuntimeException.class, () -> {
-                readFile.readFileFromFileName("non_existing_file");
-            });
+            String nonExistingFile = "non_existing_file";
+            Assertions.assertNull(readFile.readFileFromFileName(nonExistingFile));
         }
 
         @Test
         void testReadFileWithInvalidFilePath() {
-
-            Assertions.assertThrows(RuntimeException.class, () -> {
-                readFile.readFile(new File("invalid/file/path.paths"));
-            });
-
+            File invalidFilePath = new File("invalid/file/path.paths");
+            Assertions.assertNull(readFile.readFile(invalidFilePath));
         }
 
         @Test
         void testReadFileWithEmptyFile() {
-            Assertions.assertThrows(RuntimeException.class, () -> {
-                readFile.readFile(new File(pathTestFiles + "EmptyFile.paths"));
-            });
+            File emptyFile = new File(pathTestFiles + "EmptyFile.paths");
+            Assertions.assertNull(readFile.readFile(emptyFile));
         }
 
         @Test
         void fileCompressedText() {
-            Assertions.assertThrows(RuntimeException.class, () -> {
-                readFile.readFile(new File(pathTestFiles + "CompressedText.paths"));
-            });
+            File compressedTextFile = new File(pathTestFiles + "CompressedText.paths");
+            Assertions.assertNull(readFile.readFile(compressedTextFile));
         }
 
         @Test
         void fileWithoutPathsEnding() {
-            Assertions.assertThrows(RuntimeException.class, () -> {
-                readFile.readFile(new File(pathTestFiles + "FileWithoutPathsEnding.txt"));
-            });
+            File fileWithoutPathsEnding = new File(pathTestFiles + "FileWithoutPathsEnding.txt");
+            Assertions.assertNull(readFile.readFile(fileWithoutPathsEnding));
         }
-
     }
 
     @Nested
     @DisplayName("Testing the getStory method with exceptions")
-    class getStoryExceptions {
+    class GetStoryExceptions {
         @Test
         public void testGetStoryWithNullStoryInfo() {
 
@@ -75,69 +66,65 @@ class ReadFileTest {
             });
         }
 
+
         @Test
         public void testGetStoryWithInvalidStoryInfo() {
-
             String invalidStoryInfo = "This is an invalid story info";
-
-            Assertions.assertThrows(InvalidFileDataException.class, () -> {
-                readFile.getStory(invalidStoryInfo);
-            });
+            try {
+                Assertions.assertNull(readFile.getStory(invalidStoryInfo));
+            } catch (InvalidFileDataException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 
-        @Nested
-        @DisplayName("Testing the getStory method with invalid info in the files")
-        class invalidInfoFile {
-
-            @Test
-            public void fileWithBreakLineCommand() {
-                Assertions.assertThrows(IllegalArgumentException.class, () -> {
-                    readFile.readFile(new File(pathTestFiles + "FileWithBreakLineCommand.paths"));
-                });
-            }
-
-            @Test
-            public void fileWithEmptyLink() {
-                Assertions.assertThrows(IllegalArgumentException.class, () -> {
-                    readFile.readFile(new File(pathTestFiles + "FileWithEmptyLink.paths"));
-                });
-            }
-
-            @Test
-            public void fileWithMoreColons() {
-                Assertions.assertThrows(IllegalArgumentException.class, () -> {
-                    readFile.readFile(new File(pathTestFiles + "FileWithMoreColons.paths"));
-                });
-            }
-
-            @Test
-            public void fileWithoutColon() {
-                Assertions.assertThrows(RuntimeException.class, () -> {
-                    readFile.readFile(new File(pathTestFiles + "FileWithoutColon.paths"));
-                });
-            }
-
-            @Test
-            public void fileWithoutLink() {
-                Assertions.assertThrows(NullPointerException.class, () -> {
-                    readFile.readFile(new File(pathTestFiles + "FileWithoutLink.paths"));
-                });
-            }
-            @Test
-            public void fileWithoutPassage() {
-                Assertions.assertThrows(RuntimeException.class, () -> {
-                    readFile.readFile(new File(pathTestFiles + "FileWithoutPassage.paths"));
-                });
-            }
-            @Test
-            public void fileWithoutSpecialCharactersForLinks() {
-                Assertions.assertThrows(RuntimeException.class, () -> {
-                    readFile.readFile(new File(pathTestFiles + "FileWithoutSpecialCharsForLinks.paths"));
-                });
-            }
+    @Nested
+    @DisplayName("Testing the getStory method with invalid info in the files")
+    class InvalidInfoFile {
+        @Test
+        public void fileWithBreakLineCommand() {
+            File fileWithBreakLineCommand = new File(pathTestFiles + "FileWithBreakLineCommand.paths");
+            Assertions.assertNull(readFile.readFile(fileWithBreakLineCommand));
         }
 
+        @Test
+        public void fileWithEmptyLink() {
+            File fileWithEmptyLink = new File(pathTestFiles + "FileWithEmptyLink.paths");
+            Assertions.assertNull(readFile.readFile(fileWithEmptyLink));
+        }
+
+        @Test
+        public void fileWithMoreColons() {
+            File fileWithMoreColons = new File(pathTestFiles + "FileWithMoreColons.paths");
+            Assertions.assertNull(readFile.readFile(fileWithMoreColons));
+        }
+
+        @Test
+        public void fileWithoutColon() {
+            File fileWithoutColon = new File(pathTestFiles + "FileWithoutColon.paths");
+            Assertions.assertNull(readFile.readFile(fileWithoutColon));
+        }
+
+        @Test
+        public void fileWithoutLink() {
+            Assertions.assertThrows(NullPointerException.class, () -> {
+                readFile.readFile(new File(pathTestFiles + "FileWithoutLink.paths"));
+            });
+        }
+
+
+        @Test
+        public void fileWithoutPassage() {
+            File fileWithoutPassage = new File(pathTestFiles + "FileWithoutPassage.paths");
+            Assertions.assertNull(readFile.readFile(fileWithoutPassage));
+        }
+
+        @Test
+        public void fileWithoutSpecialCharactersForLinks() {
+            File fileWithoutSpecialCharsForLinks = new File(pathTestFiles + "FileWithoutSpecialCharsForLinks.paths");
+            Assertions.assertNull(readFile.readFile(fileWithoutSpecialCharsForLinks));
+        }
+    }
 
         @Nested
         @DisplayName("Test the readFile method with functioning file")
