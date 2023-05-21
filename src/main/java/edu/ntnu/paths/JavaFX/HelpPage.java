@@ -8,8 +8,15 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+/**
+ * The HelpPage class displays a pop-up window with help information.
+ */
 public class HelpPage {
 
+    /**
+     * Displays the help pop-up window.
+     * @param parentStage the parent stage to which the pop-up window is attached
+     */
     public void displayPopUp(Stage parentStage) {
         Stage popupStage = new Stage();
         popupStage.initModality(Modality.WINDOW_MODAL);
