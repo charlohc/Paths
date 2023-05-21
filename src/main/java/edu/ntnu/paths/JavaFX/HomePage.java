@@ -13,10 +13,17 @@ import javafx.stage.Stage;
 
 import java.util.Objects;
 
+/**
+ * The HomePage class represents the home page of the application.
+ */
 public class HomePage {
 
     private final Scene scene;
 
+    /**
+     * Constructs a new instance of the HomePage class.
+     * Initializes the UI elements and sets up the scene.
+     */
     public HomePage() {
         ImageView helpImageView = new ImageView(Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/resources/img/help-button.png")).toExternalForm());
         helpImageView.setFitWidth(40);
@@ -59,6 +66,11 @@ public class HomePage {
         scene = new Scene(root, 1000, 600);
     }
 
+
+    /**
+     * Handles the action event when the "Import story" button is clicked.
+     * @param actionEvent the action event triggered by clicking the "Import story" button
+     */
     private void openImportStoryScene(ActionEvent actionEvent) {
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         ImportedStory importedStory = new ImportedStory();
@@ -68,12 +80,21 @@ public class HomePage {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Handles the action event when the "Information" button is clicked.
+     * @param event the action event triggered by clicking the "Information" button
+     */
     private void handleHelpPage(Event event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         HelpPage helpPage = new HelpPage();
         helpPage.displayPopUp(stage);
     }
 
+    /**
+     * Returns the scene associated with the HomePage.
+     * @return the scene of the home page
+     */
     public Scene getScene() {
         return scene;
     }
