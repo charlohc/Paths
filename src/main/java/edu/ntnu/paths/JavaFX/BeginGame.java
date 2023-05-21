@@ -169,7 +169,7 @@ public class BeginGame {
         titleLabel.setId("titleLabel");
 
         contentLabel = new Label(startPassage.getContent());
-        contentLabel.setStyle("-fx-font-size: 16px;");
+        contentLabel.setStyle("-fx-font-size: 16px; -fx-font-weight: normal;");
         contentLabel.setWrapText(true);
         contentLabel.setMaxWidth(700);
 
@@ -280,7 +280,7 @@ public class BeginGame {
         titleLabel.setStyle("-fx-font-size: 25px; -fx-font-weight: bold;");
 
         contentLabel = new Label(passage.getContent());
-        contentLabel.setStyle("-fx-font-size: 16px;");
+        contentLabel.setStyle("-fx-font-size: 16px; -fx-font-weight: normal;");
         contentLabel.setWrapText(true);
         contentLabel.setMaxWidth(700);
 
