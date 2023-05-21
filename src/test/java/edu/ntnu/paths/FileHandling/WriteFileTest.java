@@ -85,7 +85,7 @@ class WriteFileTest {
         goldActionIncrease10.goldAction(10);
         healthActionIncrease10.healthAction(10);
         scoreActionIncrease10.scoreAction(10);
-        inventoryActionSword.inventoryAction("Sword");
+        inventoryActionSword.inventoryAction("sword");
 
 
         linkToPorchPassage.addAction(goldActionIncrease10);
