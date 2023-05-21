@@ -2,6 +2,11 @@
     -fx-font-size: 36px;
 }
 
+#titleLabel {
+    -fx-font-size: 25px;
+    -fx-font-weight: bold;
+}
+
 .game-div {
     -fx-border-color: black;
     -fx-border-width: 2px;
@@ -13,4 +18,19 @@
     -fx-border-width: 2px;
     -fx-border-radius: 5px;
     -fx-border-style: solid;
+}
+
+#image-view {
+    -fx-fit-width: 20px;
+    -fx-fit-height: 20px;
+}
+
+#GameOver {
+    -fx-font-family: "Arial";
+    -fx-font-size: 80px;
+    -fx-font-weight: bold;
+    -fx-fill: #00b300;
+    -fx-stroke: black;
+    -fx-stroke-width: 2px;
+    -fx-effect: innershadow(gaussian, #00b300, 10, 1, 0, 0);
 }
