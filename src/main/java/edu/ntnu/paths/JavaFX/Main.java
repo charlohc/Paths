@@ -7,10 +7,23 @@ import javafx.stage.Stage;
 import java.util.prefs.BackingStoreException;
 import java.util.prefs.Preferences;
 
+/**
+ * The main class that serves as the entry point for the JavaFX application.
+ */
 public class Main extends Application {
+
     private final Preferences prefs = Preferences.userNodeForPackage(ImportedStory.class);
+
+    /**
+     * The main method that launches the JavaFX application.
+     *
+     */
+    public static void main(String[] args) {
+        launch();
+    }
+
     @Override
-    public void start(Stage stage){
+    public void start(Stage stage) {
         HomePage homePage = new HomePage();
         Scene scene = homePage.getScene();
 
@@ -24,15 +37,10 @@ public class Main extends Application {
 
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             try {
-
                 prefs.removeNode();
             } catch (BackingStoreException e) {
                 throw new RuntimeException(e);
             }
         }));
-    }
-
-    public static void main(String[] args) {
-        launch();
     }
 }
