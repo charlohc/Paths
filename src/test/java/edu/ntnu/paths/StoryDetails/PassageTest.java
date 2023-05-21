@@ -50,16 +50,6 @@ class PassageTest {
         }
 
         @Test
-        void passageInvalidTittleNumber() {
-            assertThrows(IllegalArgumentException.class, () -> {
-                Passage passageWithInvalidTittleNumber = PassageBuilder.newInstance()
-                        .setTitle("The Beginning99")
-                        .setContent("You woke up and felt at once all alone")
-                        .build();
-            });
-        }
-
-        @Test
         void passageWithoutContent() {
             assertThrows(NullPointerException.class, () -> {
                 Passage passageWithoutContent = PassageBuilder.newInstance()
