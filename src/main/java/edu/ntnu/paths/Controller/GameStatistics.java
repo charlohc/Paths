@@ -150,7 +150,7 @@ public class GameStatistics {
         goalBox.setAlignment(Pos.CENTER);
 
         Circle circle = new Circle(40);
-        circle.setFill(getGoalBackgroundColor(goalType));
+            circle.setFill(getGoalBackgroundColor(goalType));
 
         ImageView actionImageView = getActionImageView(goalType);
         actionImageView.setFitWidth(35);
@@ -168,16 +168,16 @@ public class GameStatistics {
 
     private Paint getGoalBackgroundColor(Class<? extends Goal> goalType) {
         boolean isFulfilled = false;
-
-        for (Goal goal : currentGame.getGoals()) {
-            if (goalType.isInstance(goal)) {
-                if (goal.isFulfilled(player)) {
-                    isFulfilled = true;
-                    break;
+        if (currentGame.getGoals() != null) {
+            for (Goal goal : currentGame.getGoals()) {
+                if (goalType.isInstance(goal)) {
+                    if (goal.isFulfilled(player)) {
+                        isFulfilled = true;
+                        break;
+                    }
                 }
             }
         }
-
         return isFulfilled ? Color.LIGHTGREEN : Color.LIGHTBLUE;
     }
 
