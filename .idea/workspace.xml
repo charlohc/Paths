@@ -70,22 +70,7 @@
       <recent name="C:\Users\Charlotte\IdeaProjects\Paths_V2\paths_charlotte\src\main\resources\edu\ntnu\paths\Controller" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.HealthGoalTest">
-    <configuration name="GameTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Paths_V2" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="edu.ntnu.paths.GameDetails.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="edu.ntnu.paths.GameDetails" />
-      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.GameDetails.GameTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.ScoreGoalTest">
     <configuration name="GoldGoalTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Paths_V2" />
       <extension name="coverage">
@@ -116,18 +101,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PlayerTest$creatingInvalidPlayerObject.playerWithNegativeHealth" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="InventoryGoalTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Paths_V2" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="edu.ntnu.paths.GameDetails.*" />
+          <option name="PATTERN" value="edu.ntnu.paths.Goals.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="edu.ntnu.paths.GameDetails.PlayerTest" />
-      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.GameDetails.PlayerTest$creatingInvalidPlayerObject" />
-      <option name="METHOD_NAME" value="playerWithNegativeHealth" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="edu.ntnu.paths.Goals" />
+      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.Goals.InventoryGoalTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -147,13 +131,28 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ScoreGoalTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Paths_V2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.ntnu.paths.Goals.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="edu.ntnu.paths.Goals" />
+      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.Goals.ScoreGoalTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ScoreGoalTest" />
+        <item itemvalue="JUnit.InventoryGoalTest" />
         <item itemvalue="JUnit.HealthGoalTest" />
         <item itemvalue="JUnit.GoldGoalTest" />
         <item itemvalue="JUnit.PlayerTest" />
-        <item itemvalue="JUnit.PlayerTest$creatingInvalidPlayerObject.playerWithNegativeHealth" />
-        <item itemvalue="JUnit.GameTest" />
       </list>
     </recent_temporary>
   </component>

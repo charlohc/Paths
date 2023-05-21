@@ -29,23 +29,6 @@ class InventoryGoalTest {
         inventoryGoal.inventoryGoal(mandatoryItems);
 
     }
-
-/*    @Nested
-    @DisplayName("Testing the inventoryGoal method with valid and invalid mandatory item list input")
-    class testingGoldGoalMethod {
-        @Test
-        void inventoryGoalValidInput() {
-            Assertions.assertTrue(inventoryGoal.inventoryGoal(mandatoryItems));
-        }
-
-        @Test
-        void healthGoalInvalidInput() {
-            ArrayList<String> mandatoryItemsEmpty = new ArrayList<>();
-            Assertions.assertFalse(inventoryGoal.inventoryGoal(mandatoryItemsEmpty));
-        }
-    }*/
-
-
     @Nested
     @DisplayName("Testing the isFulfilled method with valid and invalid player, and valid and invalid inventory list")
     class testingIsFulfilledMethod {

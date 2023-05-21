@@ -17,7 +17,7 @@ class ScoreGoalTest {
                 .setName("Kari")
                 .setHealth(50)
                 .setGold(10)
-                .setScore(10)
+                .setScore(5)
                 .build();
 
         scoreGoal.scoreGoal(10);
