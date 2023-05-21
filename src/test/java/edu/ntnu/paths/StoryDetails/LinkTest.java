@@ -107,12 +107,12 @@ class LinkTest {
     class testingGetMethods {
         @Test
         void getText() {
-            Assertions.assertEquals("text about next passage", linkToPorchPassage.getText());
+            Assertions.assertEquals("Go outside", linkToPorchPassage.getText());
         }
 
         @Test
         void getReference() {
-            Assertions.assertEquals("reference to the next passage", linkToPorchPassage.getReference());
+            Assertions.assertEquals("The porch", linkToPorchPassage.getReference());
         }
 
         @Test
