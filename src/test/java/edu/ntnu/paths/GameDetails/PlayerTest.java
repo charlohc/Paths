@@ -8,8 +8,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class PlayerTest {
-    Player originalPlayer;
-    Player copyPlayer;
+    Player originalPlayer, copyPlayer;
 
     @BeforeEach
     void setUp() {
@@ -40,11 +39,11 @@ class PlayerTest {
             });
         }
         @Test
-        void playerWithZeroHealth() {
+        void playerWithNegativeHealth() {
             assertThrows(IllegalArgumentException.class, () -> {
                 Player playerWithZeroHealth = PlayerBuilder.newInstance()
                         .setName("Kari")
-                        .setHealth(0)
+                        .setHealth(-10)
                         .setGold(10)
                         .setScore(10)
                         .build();

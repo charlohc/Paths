@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53a0d0a9-2fe9-40cf-a5cf-95adcfb50728" name="Changes" comment="Renamed folder">
+    <list default="true" id="53a0d0a9-2fe9-40cf-a5cf-95adcfb50728" name="Changes" comment="cleaned up test file">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/FileHandling/ReadFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/FileHandling/ReadFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/FileHandling/ReadFileTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/FileHandling/ReadFileTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/FileHandling/WriteFileTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/FileHandling/WriteFileTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/GameDetails/GameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/GameDetails/GameTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/GameDetails/PlayerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/GameDetails/PlayerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +70,7 @@
       <recent name="C:\Users\Charlotte\IdeaProjects\Paths_V2\paths_charlotte\src\main\resources\edu\ntnu\paths\Controller" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.GameTest">
+  <component name="RunManager" selected="JUnit.PlayerTest">
     <configuration name="GameTest$actionMethodsWorking.CorrectInventoryAfterChangingPassage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Paths_V2" />
       <extension name="coverage">
@@ -85,22 +82,6 @@
       <option name="PACKAGE_NAME" value="edu.ntnu.paths.GameDetails.GameTest" />
       <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.GameDetails.GameTest$actionMethodsWorking" />
       <option name="METHOD_NAME" value="CorrectInventoryAfterChangingPassage" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GameTest$actionMethodsWorking.correctGoldPlayer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Paths_V2" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="edu.ntnu.paths.GameDetails.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="edu.ntnu.paths.GameDetails.GameTest" />
-      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.GameDetails.GameTest$actionMethodsWorking" />
-      <option name="METHOD_NAME" value="correctGoldPlayer" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -122,22 +103,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GameTest$goalMethodsWorking.goalFulfilledTrue" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Paths_V2" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="edu.ntnu.paths.GameDetails.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="edu.ntnu.paths.GameDetails.GameTest" />
-      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.GameDetails.GameTest$goalMethodsWorking" />
-      <option name="METHOD_NAME" value="goalFulfilledTrue" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="GameTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Paths_V2" />
       <extension name="coverage">
@@ -153,13 +118,44 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="PlayerTest$creatingInvalidPlayerObject.playerWithNegativeHealth" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Paths_V2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.ntnu.paths.GameDetails.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="edu.ntnu.paths.GameDetails.PlayerTest" />
+      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.GameDetails.PlayerTest$creatingInvalidPlayerObject" />
+      <option name="METHOD_NAME" value="playerWithNegativeHealth" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PlayerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Paths_V2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.ntnu.paths.GameDetails.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="edu.ntnu.paths.GameDetails" />
+      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.GameDetails.PlayerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.PlayerTest" />
+        <item itemvalue="JUnit.PlayerTest$creatingInvalidPlayerObject.playerWithNegativeHealth" />
         <item itemvalue="JUnit.GameTest" />
         <item itemvalue="JUnit.GameTest$goalMethodsWorking.goalFulfilledInventory" />
         <item itemvalue="JUnit.GameTest$actionMethodsWorking.CorrectInventoryAfterChangingPassage" />
-        <item itemvalue="JUnit.GameTest$goalMethodsWorking.goalFulfilledTrue" />
-        <item itemvalue="JUnit.GameTest$actionMethodsWorking.correctGoldPlayer" />
       </list>
     </recent_temporary>
   </component>
@@ -455,7 +451,25 @@
       <option name="presentableId" value="LOCAL−00043" />
       <updated>1684687117716</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL−00044" summary="implemented some more tests">
+      <created>1684689154438</created>
+      <option name="number" value="LOCAL−00044" />
+      <option name="presentableId" value="LOCAL−00044" />
+      <updated>1684689154438</updated>
+    </task>
+    <task id="LOCAL−00045" summary="Fixed old tests not working">
+      <created>1684689173451</created>
+      <option name="number" value="LOCAL−00045" />
+      <option name="presentableId" value="LOCAL−00045" />
+      <updated>1684689173451</updated>
+    </task>
+    <task id="LOCAL−00046" summary="cleaned up test file">
+      <created>1684689183672</created>
+      <option name="number" value="LOCAL−00046" />
+      <option name="presentableId" value="LOCAL−00046" />
+      <updated>1684689183672</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -473,9 +487,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added functionality Create Goal class" />
-    <MESSAGE value="added example story" />
-    <MESSAGE value="implemented persistance goals in container" />
     <MESSAGE value="improved the goals container" />
     <MESSAGE value="implemented more test text files" />
     <MESSAGE value="renamed file" />
@@ -498,6 +509,9 @@
     <MESSAGE value="implemented persistence to inventoryGoalsList to try to fix bug not able to add inventory after switching scene" />
     <MESSAGE value="Added images and more styling" />
     <MESSAGE value="Renamed folder" />
-    <option name="LAST_COMMIT_MESSAGE" value="Renamed folder" />
+    <MESSAGE value="implemented some more tests" />
+    <MESSAGE value="Fixed old tests not working" />
+    <MESSAGE value="cleaned up test file" />
+    <option name="LAST_COMMIT_MESSAGE" value="cleaned up test file" />
   </component>
 </project>
