@@ -17,6 +17,9 @@ import javafx.stage.Stage;
 import java.util.Objects;
 import java.util.prefs.Preferences;
 
+/**
+ * The CreatePlayer class lets the user create a player, with values name, gold and health.
+ */
 public class CreatePlayer {
 
     private final Preferences prefs = Preferences.userNodeForPackage(CreatePlayer.class);
@@ -28,7 +31,10 @@ public class CreatePlayer {
 
     private Label feedbackLabel;
 
-
+    /**
+     * Starts the CreatePlayer scene.
+     * @param stage the primary stage for the scene
+     */
     public void start(Stage stage) {
         root = new BorderPane();
         root.setPadding(new Insets(10));
@@ -52,6 +58,10 @@ public class CreatePlayer {
         stage.show();
     }
 
+    /**
+     * Creates the top of the scene
+     * Contains information about the current scene
+     */
     private void createTop() {
         ImageView imageView = new ImageView(getClass().getResource("/edu/ntnu/paths/resources/img/help-button.png").toExternalForm());
         imageView.setFitWidth(40);
@@ -70,6 +80,10 @@ public class CreatePlayer {
         topVBox.setAlignment(Pos.CENTER);
     }
 
+    /**
+     * Creates the centre of the scene
+     * Contains input field and spinners so the user can set the gold, health and name value
+     */
     private void createCentre() {
         centerVbox = new VBox(10);
         centerVbox.setId("playerDetails");
@@ -97,6 +111,10 @@ public class CreatePlayer {
         submitButton.setOnAction(event -> handleSubmit(nameField, healthField, goldField));
     }
 
+    /**
+     * Creates the bottom of the scene
+     * Containing buttons to maneuver to other scenes
+     */
     private void createBottom() {
         bottomAnchorPane = new AnchorPane();
 
@@ -114,6 +132,12 @@ public class CreatePlayer {
 
     }
 
+    /**
+     * Handles the submit action when creating a new player.
+     * @param nameField the TextField for entering the player's name
+     * @param healthField the Spinner for selecting the player's health value
+     * @param goldField the Spinner for selecting the player's gold value
+     */
     private void handleSubmit(TextField nameField, Spinner<Integer> healthField, Spinner<Integer> goldField) {
         String name = nameField.getText();
         int health = healthField.getValue();
@@ -155,6 +179,11 @@ public class CreatePlayer {
         createGoalsButton.setDisable(false);
     }
 
+    /**
+     * Handles the action when the "Create goals" button is clicked.
+     * @param actionEvent the action event triggered by the button click
+     *
+     */
     private void handleCreateGoals(ActionEvent actionEvent) {
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         CreateGoals createGoals = new CreateGoals();
@@ -165,6 +194,10 @@ public class CreatePlayer {
         }
     }
 
+    /**
+     * Handles the action event when the "Go Back" button is clicked.
+     * @param actionEvent the action event triggered by clicking the "Go Back" button
+     */
     private void handleGoBack(ActionEvent actionEvent) {
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         ImportedStory importedStory = new ImportedStory();
@@ -174,6 +207,11 @@ public class CreatePlayer {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Handles the action event when the "Information" button is clicked.
+     * @param event the action event triggered by clicking the "Information" button
+     */
     private void handleHelpPage(Event event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         HelpPage helpPage = new HelpPage();

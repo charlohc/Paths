@@ -22,7 +22,7 @@ import javafx.stage.Stage;
 import java.util.Objects;
 
 /**
- * The GameStatistics file displays the statistics of the current game played.
+ * The GameStatistics class displays the statistics of the current game played.
  */
 public class GameStatistics {
 
