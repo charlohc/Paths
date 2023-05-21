@@ -1,4 +1,4 @@
-package edu.ntnu.paths.Controller;
+package edu.ntnu.paths.JavaFX;
 
 import edu.ntnu.paths.GameDetails.Game;
 import edu.ntnu.paths.GameDetails.GameBuilder;

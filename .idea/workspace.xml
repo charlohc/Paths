@@ -4,15 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53a0d0a9-2fe9-40cf-a5cf-95adcfb50728" name="Changes" comment="implemented icons to actions in passages">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="53a0d0a9-2fe9-40cf-a5cf-95adcfb50728" name="Changes" comment="Added images and more styling">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/BeginGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/BeginGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/CreateGoals.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/CreateGoals.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/GameStatistics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/GameStatistics.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/style/begin-game.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/style/begin-game.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/style/create-goals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/style/create-goals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/style/game-statistics.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/Controller/style/game-statistics.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/BeginGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/JavaFX/BeginGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/CreateGoals.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/JavaFX/CreateGoals.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/CreatePlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/JavaFX/CreatePlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/GameStatistics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/JavaFX/GameStatistics.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/HelpPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/JavaFX/HelpPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/JavaFX/HomePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/ImportedStory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/JavaFX/ImportedStory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/Controller/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/JavaFX/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,13 +79,26 @@
       <recent name="C:\Users\Charlotte\IdeaProjects\Paths_V2\paths_charlotte\src\main\resources\edu\ntnu\paths\Controller" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.edu.ntnu.paths.JavaFX.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.Controller.Main" />
       <module name="Paths_V2" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="edu.ntnu.paths.Controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="edu.ntnu.paths.JavaFX.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.JavaFX.Main" />
+      <module name="Paths_V2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.ntnu.paths.JavaFX.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -100,21 +116,6 @@
       </extension>
       <option name="PACKAGE_NAME" value="edu.ntnu.paths.Actions" />
       <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.Actions.InventoryActionTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PlayerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Paths_V2" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="edu.ntnu.paths.GameDetails.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="edu.ntnu.paths.GameDetails" />
-      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.GameDetails.PlayerTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -153,11 +154,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.edu.ntnu.paths.JavaFX.Main" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.ReadFileTest" />
         <item itemvalue="JUnit.StoryTest$getTotalActions.getAllInventoryItems" />
         <item itemvalue="JUnit.InventoryActionTest" />
-        <item itemvalue="JUnit.PlayerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -429,16 +430,31 @@
       <option name="presentableId" value="LOCAL−00039" />
       <updated>1684533789950</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL−00040" summary="improved styling">
+      <created>1684679675364</created>
+      <option name="number" value="LOCAL−00040" />
+      <option name="presentableId" value="LOCAL−00040" />
+      <updated>1684679675364</updated>
+    </task>
+    <task id="LOCAL−00041" summary="implemented persistence to inventoryGoalsList to try to fix bug not able to add inventory after switching scene">
+      <created>1684679745198</created>
+      <option name="number" value="LOCAL−00041" />
+      <option name="presentableId" value="LOCAL−00041" />
+      <updated>1684679745198</updated>
+    </task>
+    <task id="LOCAL−00042" summary="Added images and more styling">
+      <created>1684679768764</created>
+      <option name="number" value="LOCAL−00042" />
+      <option name="presentableId" value="LOCAL−00042" />
+      <updated>1684679768764</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Changed to be able to handle positive and negative changes to player health" />
-    <MESSAGE value="Implemented method for finding gold and score for the best path" />
-    <MESSAGE value="Improved styling classes" />
     <MESSAGE value="Improved exception handling" />
     <MESSAGE value="Added functionality Create Goal class" />
     <MESSAGE value="added example story" />
@@ -461,6 +477,9 @@
     <MESSAGE value="added routing to helppage" />
     <MESSAGE value="improved styling and functionality" />
     <MESSAGE value="implemented icons to actions in passages" />
-    <option name="LAST_COMMIT_MESSAGE" value="implemented icons to actions in passages" />
+    <MESSAGE value="improved styling" />
+    <MESSAGE value="implemented persistence to inventoryGoalsList to try to fix bug not able to add inventory after switching scene" />
+    <MESSAGE value="Added images and more styling" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added images and more styling" />
   </component>
 </project>

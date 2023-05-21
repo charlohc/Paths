@@ -1,11 +1,9 @@
-package edu.ntnu.paths.Controller;
+package edu.ntnu.paths.JavaFX;
 
-import edu.ntnu.paths.Managers.StoryManager;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.util.prefs.BackingStoreException;
 import java.util.prefs.Preferences;
 

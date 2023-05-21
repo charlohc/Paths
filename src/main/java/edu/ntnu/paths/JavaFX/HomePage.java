@@ -1,4 +1,4 @@
-package edu.ntnu.paths.Controller;
+package edu.ntnu.paths.JavaFX;
 
 import javafx.event.ActionEvent;
 import javafx.event.Event;
