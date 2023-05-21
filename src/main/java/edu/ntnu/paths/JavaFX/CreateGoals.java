@@ -23,6 +23,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * The CreateGoals class lets the user set goals to achieve throughout the gameplay.
+ */
 public class CreateGoals {
 
     private Game newGame;
@@ -39,6 +42,11 @@ public class CreateGoals {
     private AnchorPane bottomAnchorPane;
     private Label feedbackLabel;
 
+    /**
+     * Starts the CreateGoals scene.
+     * @param stage the JavaFX stage to display the scene
+     *
+     */
     public void start(Stage stage) {
         currentStory = StoryManager.getInstance().getStory();
         newGame = GameManager.getInstance().getGame();
@@ -78,6 +86,10 @@ public class CreateGoals {
         stage.show();
     }
 
+    /**
+     * Created the top of the application
+     * Contains information about the scene
+     */
     private void createTop() {
         ImageView imageView = new ImageView(Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/resources/img/help-button.png")).toExternalForm());
         imageView.setFitWidth(40);
@@ -98,6 +110,10 @@ public class CreateGoals {
         topVBox.setAlignment(Pos.CENTER);
     }
 
+    /**
+     * Creates the left section of the scene
+     * Contains a drop-down menu with the different goals type
+     */
     private void createLeftSection() {
         dropdownContainer = new VBox();
         dropdownContainer.setSpacing(10);
@@ -112,6 +128,10 @@ public class CreateGoals {
         dropdownContainer.getChildren().add(goalDropdown);
     }
 
+    /**
+     * Creates the centre of the scene
+     * Contains a field for selecting the goal, and information about the extent of the goal in the game
+     */
     private void createCentre() {
         createGoalContainer = new VBox();
         createGoalContainer.setSpacing(15);
@@ -135,6 +155,10 @@ public class CreateGoals {
         createGoalContainer.getChildren().addAll(labelGoal, inputGoal, guidanceGoal, allInventoryVBox, feedbackLabel, buttonContainer);
     }
 
+    /**
+     * Creates the right section of the scene
+     * Contains a container with the saved goals
+     */
     private void createRightSection() {
         Label yourGoalsLabel = new Label("Your selected goals");
         yourGoalsLabel.setId("yourGoalsLabel");
@@ -145,6 +169,10 @@ public class CreateGoals {
         BorderPane.setMargin(goalsContainerPane, new Insets(100, 50, 0, 0));
     }
 
+    /**
+     * Creates the bottom of the scene
+     * Containing buttons to maneuver to other scenes
+     */
     private void createBottom() {
         bottomAnchorPane = new AnchorPane();
 
@@ -161,6 +189,10 @@ public class CreateGoals {
         bottomAnchorPane.getChildren().addAll(startGameButton, goBackButton);
     }
 
+    /**
+     * Handles the change of the dropdown selection in the CreateGoals scene.
+     * @param selectedOption the selected option from the dropdown
+     */
     private void handleDropdownChange(String selectedOption) {
         clearAllContainers();
         clearButtons();
@@ -233,11 +265,22 @@ public class CreateGoals {
         }
     }
 
+    /**
+     * Adds a button with an image to the button container.
+     * @param goalType the type of goal associated with the button
+     * @param imagePath the path to the image for the button
+     */
     private void addButtonWithImage(String goalType, String imagePath) {
         Button button = createButtonWithImage(goalType, imagePath);
         buttonContainer.getChildren().add(button);
     }
 
+    /**
+     * Creates a button with an image and text for adding a goal.
+     * @param goalType the type of goal associated with the button
+     * @param imagePath the path to the image for the button
+     * @return the created button
+     */
     private Button createButtonWithImage(String goalType, String imagePath) {
         Button button = new Button();
         Image image = new Image(imagePath);
@@ -262,10 +305,16 @@ public class CreateGoals {
     }
 
 
+    /**
+     * Removes all the buttons in the buttonsContainer
+     */
     private void clearButtons() {
         buttonContainer.getChildren().clear();
     }
 
+    /**
+     * Clears all the containers
+     */
     private void clearAllContainers() {
         feedbackLabel.setText("");
         labelGoal.getChildren().clear();
@@ -276,6 +325,10 @@ public class CreateGoals {
         inventoryTextField = null;
     }
 
+    /**
+     * Adds a goal of the specified type to the list of goals.
+     * @param goalName The name of the goal type to add
+     */
     private void addGoal(String goalName) {
         switch (goalName) {
             case "Gold" -> {
@@ -353,6 +406,9 @@ public class CreateGoals {
         addGoalsToContainer();
     }
 
+    /**
+     * Adds the goals to the goals container in the user interface.
+     */
     private void addGoalsToContainer() {
         goalsContainerVBox.getChildren().clear();
         boolean addedInventoryGoal = false;
@@ -386,6 +442,15 @@ public class CreateGoals {
         }
     }
 
+    /**
+     * Creates an HBox container for displaying a goal in the goals container.
+     * The HBox contains a label with the provided text and a "Remove" button.
+     * The button is associated with the given goal and performs the corresponding removal action when clicked.
+     * The HBox also includes a spacer and a button container for proper alignment.
+     * @param labelText The text to be displayed in the label, representing the goal.
+     * @param goal The goal object associated with the HBox.
+     * @return The HBox container displaying the goal with a remove button.
+     */
     private HBox createGoalHBox(String labelText, Goal goal) {
         HBox hBox = new HBox();
         Label label = new Label(labelText);
@@ -429,6 +494,13 @@ public class CreateGoals {
 
         return hBox;
     }
+
+    /**
+     * Begins the game based on the selected goals.
+     * If no goals are selected, a default game is created without any goals.
+     * After starting the game, the BeginGame window is displayed.
+     * @param actionEvent The action event that triggers the method.
+     */
     private void beginGame(ActionEvent actionEvent) {
         if (goals == null || goals.size() == 0 ) {
             newGame = GameBuilder.newInstance()
@@ -447,6 +519,10 @@ public class CreateGoals {
         }
     }
 
+    /**
+     * Handles the action event when the "Go Back" button is clicked.
+     * @param actionEvent the action event triggered by clicking the "Go Back" button
+     */
     private void goBack(ActionEvent actionEvent) {
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         CreatePlayer createPlayer = new CreatePlayer();
@@ -457,6 +533,10 @@ public class CreateGoals {
         }
     }
 
+    /**
+     * Handles the action event when the "Information" button is clicked.
+     * @param event the action event triggered by clicking the "Information" button
+     */
     private void handleHelpPage(Event event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         HelpPage helpPage = new HelpPage();
