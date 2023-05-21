@@ -21,6 +21,9 @@ import javafx.stage.Stage;
 
 import java.util.Objects;
 
+/**
+ * The GameStatistics file displays the statistics of the current game played.
+ */
 public class GameStatistics {
 
     private BorderPane root;
@@ -30,7 +33,11 @@ public class GameStatistics {
     private Game currentGame;
     private Player player, playerBeforeGame;
 
-
+    /**
+     * Starts the game interface with the specified stage and current game.
+     * @param stage the stage to display the game interface
+     * @param currentGameCopy the copy of the current game
+     */
     public void start(Stage stage, Game currentGameCopy) {
         currentGame = currentGameCopy;
         player = currentGameCopy.getPlayer();
@@ -57,6 +64,10 @@ public class GameStatistics {
         stage.show();
     }
 
+    /**
+     * Created the top of the application
+     * Contains information about the scene
+     */
     private void createTop() {
         ImageView imageView = new ImageView(getClass().getResource("/edu/ntnu/paths/resources/img/help-button.png").toExternalForm());
         imageView.setFitWidth(40);
@@ -77,6 +88,10 @@ public class GameStatistics {
         topVBox.setAlignment(Pos.CENTER);
     }
 
+    /**
+     * Creates the centre of the application
+     * Contains information about the different goals, and what values the player has obtained throughout the game
+     */
     private void createCentre() {
         centerVbox = new VBox();
         HBox goalsBox = new HBox();
@@ -146,6 +161,11 @@ public class GameStatistics {
         }
     }
 
+    /**
+     * Returns the value of a specific goal type in the current game.
+     * @param goalType the class object representing the goal type
+     * @return the value of the goal type, or an empty string if the goal type is not found
+     */
     private String getGoalValueOfType(Class<? extends Goal> goalType) {
         for (Goal goal : currentGame.getGoals()) {
             if (goalType.isInstance(goal)) {
@@ -163,6 +183,14 @@ public class GameStatistics {
         return "";
     }
 
+    /**
+     * Creates a VBox containing the goal information.
+     * @param goalLabel the label displaying the goal name
+     * @param startValueLabel the label displaying the starting value of the goal
+     * @param valueLabel the label displaying the current value of the goal
+     * @param goalType the class object representing the goal type
+     * @return the VBox containing the goal information
+     */
     private VBox createGoalBox(Label goalLabel, Label startValueLabel, Label valueLabel, Class<? extends Goal> goalType) {
         VBox goalBox = new VBox();
         goalBox.setAlignment(Pos.CENTER);
@@ -186,6 +214,11 @@ public class GameStatistics {
         return goalBox;
     }
 
+    /**
+     * Returns the background color for a goal based on its fulfillment status.
+     * @param goalType the class object representing the goal type
+     * @return the background color for the goal
+     */
     private Paint getGoalBackgroundColor(Class<? extends Goal> goalType) {
         boolean isFulfilled = false;
         if (currentGame.getGoals() != null) {
@@ -201,6 +234,11 @@ public class GameStatistics {
         return isFulfilled ? Color.LIGHTGREEN : Color.LIGHTBLUE;
     }
 
+    /**
+     * Returns the ImageView representing the action associated with a specific goal type.
+     * @param goalType the class object representing the goal type
+     * @return the ImageView representing the action associated with the goal type, or null if not found
+     */
     private ImageView getActionImageView(Class<? extends Goal> goalType) {
         Image actionImage;
         if (goalType == HealthGoal.class) {
@@ -218,7 +256,10 @@ public class GameStatistics {
         return new ImageView(actionImage);
     }
 
-
+    /**
+     * Creates the bottom of the scene
+     * Containing buttons to maneuver to other scenes
+     */
     private void createBottom() {
         bottomAnchorPane = new AnchorPane();
 
@@ -232,6 +273,10 @@ public class GameStatistics {
 
     }
 
+    /**
+     * Handles the action event when the "Go Back" button is clicked.
+     * @param actionEvent the action event triggered by clicking the "Go Back" button
+     */
     private void handleGoBack(ActionEvent actionEvent) {
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         BeginGame beginGame = new BeginGame();
@@ -241,6 +286,11 @@ public class GameStatistics {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Handles the action event when the "Information" button is clicked.
+     * @param event the action event triggered by clicking the "Information" button
+     */
     private void handleHelpPage(Event event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         HelpPage helpPage = new HelpPage();
