@@ -7,40 +7,41 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
+/**
+ * Utility class for writing a Story object to a file.
+ */
 public class WriteFile {
 
+    /**
+     * Writes a Story object to a file.
+     *
+     * @param story The Story object to write.
+     * @throws StoryExistException If a story with the same name already exists.
+     */
     public void writeStoryToFile(Story story) throws StoryExistException {
-
         String text = story.toString();
 
         try {
-
             String fileName = story.getTittle();
-            String filePath = System.getProperty("user.dir") + System.getProperty("file.separator")
-                    + "src" + System.getProperty("file.separator") + "main" + System.getProperty("file.separator")
-                    + "java" + System.getProperty("file.separator")  + "edu" + System.getProperty("file.separator") +
-                    "ntnu" + System.getProperty("file.separator") + "paths" + System.getProperty("file.separator")  + "FileHandling"
-                    +  System.getProperty("file.separator") + "StoryFiles" + System.getProperty("file.separator") + fileName + ".paths";
+            String filePath = System.getProperty("user.dir") + File.separator
+                    + "src" + File.separator + "main" + File.separator
+                    + "java" + File.separator + "edu" + File.separator +
+                    "ntnu" + File.separator + "paths" + File.separator  + "FileHandling"
+                    +  File.separator + "StoryFiles" + File.separator + fileName + ".paths";
 
             if (new File(filePath).exists()) {
-                throw new StoryExistException("Story with the given name already exist");
+                throw new StoryExistException("Story with the given name already exists.");
             }
+
             FileWriter fWriter = new FileWriter(filePath);
-
             fWriter.write(text);
-
             fWriter.close();
-
-        }
-        catch (IOException e) {
-
+        } catch (IOException e) {
             System.out.print(e.getMessage());
         }
-
     }
 
     public static void main(String[] args) {
 
     }
-
 }
