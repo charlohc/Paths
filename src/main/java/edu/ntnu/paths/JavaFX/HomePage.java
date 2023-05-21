@@ -39,7 +39,7 @@ public class HomePage {
         Label titleLabel = new Label("Paths");
         titleLabel.setId("titleLabel");
 
-        Label welcomeLabel = new Label("Welcome to Story Game");
+        Label welcomeLabel = new Label("The game where the player decides it's own destiny...");
         welcomeLabel.setId("welcomeLabel");
 
         Button importButton = new Button("Import story");
