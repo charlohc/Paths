@@ -6,10 +6,9 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 import java.util.Objects;
@@ -19,7 +18,7 @@ public class HomePage {
     private final Scene scene;
 
     public HomePage() {
-        ImageView helpImageView = new ImageView(getClass().getResource("/edu/ntnu/paths/resources/img/help-button.png").toExternalForm());
+        ImageView helpImageView = new ImageView(Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/resources/img/help-button.png")).toExternalForm());
         helpImageView.setFitWidth(40);
         helpImageView.setPreserveRatio(true);
         helpImageView.setSmooth(true);
@@ -46,7 +45,13 @@ public class HomePage {
         container.setSpacing(40);
 
         StackPane root = new StackPane(container);
-        root.setStyle("-fx-background-size: cover; -fx-alignment: center");
+        root.setStyle("-fx-alignment: center;");
+        root.setBackground(new Background(new BackgroundImage(
+                new Image(Objects.requireNonNull(getClass().getResourceAsStream("/edu/ntnu/paths/resources/img/background.jpg"))),
+                BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT,
+                BackgroundPosition.DEFAULT,
+                new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, false, false, true, true)
+        )));
         root.getStylesheets().addAll(
                 Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/resources/style/style.css")).toExternalForm(),
                 Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/resources/style/home-page.css")).toExternalForm()

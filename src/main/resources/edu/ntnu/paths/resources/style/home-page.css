@@ -1,14 +1,15 @@
 .container {
     -fx-background-size: cover;
     -fx-alignment: center;
-    -fx-padding: 20px;
+    -fx-padding: 10px;
 }
 
 #titleLabel {
-    -fx-font-size: 36pt;
+    -fx-font-size: 60pt;
     -fx-text-fill: black;
     -fx-wrap-text: true;
-    -fx-margin-bottom: 20px;
+    -fx-margin-bottom: 10px;
+    -fx-margin-top: -100px;
 }
 
 #welcomeLabel {

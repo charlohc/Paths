@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53a0d0a9-2fe9-40cf-a5cf-95adcfb50728" name="Changes" comment="cleaned up test file">
+    <list default="true" id="53a0d0a9-2fe9-40cf-a5cf-95adcfb50728" name="Changes" comment="cleaned up pom file">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/resources/img/background.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/JavaFX/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/JavaFX/HomePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/resources/style/home-page.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/resources/style/home-page.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,12 +190,6 @@
       <workItem from="1684504145668" duration="1153000" />
       <workItem from="1684530888462" duration="4289000" />
       <workItem from="1684622548353" duration="1028000" />
-    </task>
-    <task id="LOCAL−00004" summary="Improved the create user file">
-      <created>1683755521105</created>
-      <option name="number" value="LOCAL−00004" />
-      <option name="presentableId" value="LOCAL−00004" />
-      <updated>1683755521105</updated>
     </task>
     <task id="LOCAL−00005" summary="Implemented the PlayerManager class to store information about the current player">
       <created>1683755578523</created>
@@ -484,7 +479,13 @@
       <option name="presentableId" value="LOCAL−00052" />
       <updated>1684689570199</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL−00053" summary="cleaned up pom file">
+      <created>1684690740580</created>
+      <option name="number" value="LOCAL−00053" />
+      <option name="presentableId" value="LOCAL−00053" />
+      <updated>1684690740580</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -502,7 +503,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="improved the goals container" />
     <MESSAGE value="implemented more test text files" />
     <MESSAGE value="renamed file" />
     <MESSAGE value="implemented new icon style buttons" />
@@ -527,6 +527,7 @@
     <MESSAGE value="implemented some more tests" />
     <MESSAGE value="Fixed old tests not working" />
     <MESSAGE value="cleaned up test file" />
-    <option name="LAST_COMMIT_MESSAGE" value="cleaned up test file" />
+    <MESSAGE value="cleaned up pom file" />
+    <option name="LAST_COMMIT_MESSAGE" value="cleaned up pom file" />
   </component>
 </project>
