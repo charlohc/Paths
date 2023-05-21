@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53a0d0a9-2fe9-40cf-a5cf-95adcfb50728" name="Changes" comment="cleaned up pom file">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/resources/img/background.jpg" afterDir="false" />
+    <list default="true" id="53a0d0a9-2fe9-40cf-a5cf-95adcfb50728" name="Changes" comment="implemented JavaDoc">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/JavaFX/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/JavaFX/HomePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/resources/style/home-page.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/ntnu/paths/resources/style/home-page.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/FileHandling/StoryFiles/The Enchanted Forest.paths" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/StoryFiles/The Enchanted Forest.paths" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/FileHandling/StoryFiles/The Haunted Manor.paths" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/StoryFiles/The Haunted Manor.paths" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/FileHandling/StoryFiles/The Witch's Forrest.paths" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/StoryFiles/The Witch's Forrest.paths" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/FileHandling/WriteFileTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/FileHandling/WriteFileTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +73,7 @@
       <recent name="C:\Users\Charlotte\IdeaProjects\Paths_V2\paths_charlotte\src\main\resources\edu\ntnu\paths\Controller" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.WriteFileTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.JavaFX.Main" />
       <module name="Paths_V2" />
@@ -82,37 +83,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LinkTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Paths_V2" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="edu.ntnu.paths.StoryDetails.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="edu.ntnu.paths.StoryDetails" />
-      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.StoryDetails.LinkTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PassageTest$creatingInvalidPassageObject.passageInvalidTittle" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Paths_V2" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="edu.ntnu.paths.StoryDetails.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="edu.ntnu.paths.StoryDetails.PassageTest" />
-      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.StoryDetails.PassageTest$creatingInvalidPassageObject" />
-      <option name="METHOD_NAME" value="passageInvalidTittle" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -127,6 +97,21 @@
       </extension>
       <option name="PACKAGE_NAME" value="edu.ntnu.paths.StoryDetails" />
       <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.StoryDetails.PassageTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ReadFileTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Paths_V2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.ntnu.paths.FileHandling.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="edu.ntnu.paths.FileHandling" />
+      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.FileHandling.ReadFileTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -147,13 +132,28 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="WriteFileTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Paths_V2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.ntnu.paths.FileHandling.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="edu.ntnu.paths.FileHandling" />
+      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.FileHandling.WriteFileTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.WriteFileTest" />
+        <item itemvalue="JUnit.ReadFileTest" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.StoryTest" />
         <item itemvalue="JUnit.PassageTest" />
-        <item itemvalue="JUnit.PassageTest$creatingInvalidPassageObject.passageInvalidTittle" />
-        <item itemvalue="JUnit.LinkTest" />
       </list>
     </recent_temporary>
   </component>
@@ -190,24 +190,6 @@
       <workItem from="1684504145668" duration="1153000" />
       <workItem from="1684530888462" duration="4289000" />
       <workItem from="1684622548353" duration="1028000" />
-    </task>
-    <task id="LOCAL−00005" summary="Implemented the PlayerManager class to store information about the current player">
-      <created>1683755578523</created>
-      <option name="number" value="LOCAL−00005" />
-      <option name="presentableId" value="LOCAL−00005" />
-      <updated>1683755578523</updated>
-    </task>
-    <task id="LOCAL−00006" summary="Implemented the CreateGoals controller and fxml file">
-      <created>1683755636722</created>
-      <option name="number" value="LOCAL−00006" />
-      <option name="presentableId" value="LOCAL−00006" />
-      <updated>1683755636722</updated>
-    </task>
-    <task id="LOCAL−00007" summary="Made the create goals fxml scalable">
-      <created>1683807454240</created>
-      <option name="number" value="LOCAL−00007" />
-      <option name="presentableId" value="LOCAL−00007" />
-      <updated>1683807454240</updated>
     </task>
     <task id="LOCAL−00008" summary="renamed files">
       <created>1683829883660</created>
@@ -485,7 +467,25 @@
       <option name="presentableId" value="LOCAL−00053" />
       <updated>1684690740580</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL−00054" summary="Added background image">
+      <created>1684691984422</created>
+      <option name="number" value="LOCAL−00054" />
+      <option name="presentableId" value="LOCAL−00054" />
+      <updated>1684691984422</updated>
+    </task>
+    <task id="LOCAL−00055" summary="implemented JavaDoc">
+      <created>1684692049524</created>
+      <option name="number" value="LOCAL−00055" />
+      <option name="presentableId" value="LOCAL−00055" />
+      <updated>1684692049524</updated>
+    </task>
+    <task id="LOCAL−00056" summary="implemented JavaDoc">
+      <created>1684692861801</created>
+      <option name="number" value="LOCAL−00056" />
+      <option name="presentableId" value="LOCAL−00056" />
+      <updated>1684692861801</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -503,8 +503,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="implemented more test text files" />
-    <MESSAGE value="renamed file" />
     <MESSAGE value="implemented new icon style buttons" />
     <MESSAGE value="tried to fix bug where cannot add more than one inventory per link" />
     <MESSAGE value="removed file" />
@@ -528,6 +526,8 @@
     <MESSAGE value="Fixed old tests not working" />
     <MESSAGE value="cleaned up test file" />
     <MESSAGE value="cleaned up pom file" />
-    <option name="LAST_COMMIT_MESSAGE" value="cleaned up pom file" />
+    <MESSAGE value="Added background image" />
+    <MESSAGE value="implemented JavaDoc" />
+    <option name="LAST_COMMIT_MESSAGE" value="implemented JavaDoc" />
   </component>
 </project>
