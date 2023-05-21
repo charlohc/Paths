@@ -35,8 +35,8 @@ public class ImportedStory {
     public void start(Stage stage) {
         BorderPane root = new BorderPane();
         root.getStylesheets().addAll(
-                Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/style/style.css")).toExternalForm(),
-                Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/style/import-story.css")).toExternalForm()
+                Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/resources/style/style.css")).toExternalForm(),
+                Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/resources/style/import-story.css")).toExternalForm()
         );
         createPlayerButton = new Button("Create Player");
         createPlayerButton.setDisable(StoryManager.getInstance().getStory() == null);
@@ -57,7 +57,7 @@ public class ImportedStory {
     }
 
     private void createTop() {
-        ImageView imageView = new ImageView(getClass().getResource("/edu/ntnu/paths/Controller/img/help-button.png").toExternalForm());
+        ImageView imageView = new ImageView(getClass().getResource("/edu/ntnu/paths/resources/img/help-button.png").toExternalForm());
         imageView.setFitWidth(40);
         imageView.setPreserveRatio(true);
         imageView.setSmooth(true);

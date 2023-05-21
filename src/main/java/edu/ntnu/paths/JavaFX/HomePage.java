@@ -19,7 +19,7 @@ public class HomePage {
     private final Scene scene;
 
     public HomePage() {
-        ImageView helpImageView = new ImageView(getClass().getResource("/edu/ntnu/paths/Controller/img/help-button.png").toExternalForm());
+        ImageView helpImageView = new ImageView(getClass().getResource("/edu/ntnu/paths/resources/img/help-button.png").toExternalForm());
         helpImageView.setFitWidth(40);
         helpImageView.setPreserveRatio(true);
         helpImageView.setSmooth(true);
@@ -48,8 +48,8 @@ public class HomePage {
         StackPane root = new StackPane(container);
         root.setStyle("-fx-background-size: cover; -fx-alignment: center");
         root.getStylesheets().addAll(
-                Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/style/style.css")).toExternalForm(),
-                Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/style/home-page.css")).toExternalForm()
+                Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/resources/style/style.css")).toExternalForm(),
+                Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/resources/style/home-page.css")).toExternalForm()
         );
         scene = new Scene(root, 1000, 600);
     }

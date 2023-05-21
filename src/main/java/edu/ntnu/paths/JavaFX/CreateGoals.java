@@ -48,8 +48,8 @@ public class CreateGoals {
 
         BorderPane root = new BorderPane();
         root.getStylesheets().addAll(
-                Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/style/style.css")).toExternalForm(),
-                Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/style/create-goals.css")).toExternalForm()
+                Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/resources/style/style.css")).toExternalForm(),
+                Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/resources/style/create-goals.css")).toExternalForm()
         );
 
         createTop();
@@ -79,7 +79,7 @@ public class CreateGoals {
     }
 
     private void createTop() {
-        ImageView imageView = new ImageView(Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/img/help-button.png")).toExternalForm());
+        ImageView imageView = new ImageView(Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/resources/img/help-button.png")).toExternalForm());
         imageView.setFitWidth(40);
         imageView.setPreserveRatio(true);
         imageView.setSmooth(true);
@@ -188,7 +188,7 @@ public class CreateGoals {
                 intSpinner.setValueFactory(valueFactory);
 
                 inputGoal.getChildren().add(intSpinner);
-                addButtonWithImage(selectedOption, getClass().getResource("/edu/ntnu/paths/Controller/img/coin.png").toExternalForm());
+                addButtonWithImage(selectedOption, getClass().getResource("/edu/ntnu/paths/resources/img/coin.png").toExternalForm());
                 break;
             case "Health":
                 maxVal = 100;
@@ -199,7 +199,7 @@ public class CreateGoals {
                 intSpinner.setValueFactory(valueFactory);
 
                 inputGoal.getChildren().add(intSpinner);
-                addButtonWithImage(selectedOption, getClass().getResource("/edu/ntnu/paths/Controller/img/heart.png").toExternalForm());
+                addButtonWithImage(selectedOption, getClass().getResource("/edu/ntnu/paths/resources/img/heart.png").toExternalForm());
                 break;
             case "Score":
                 maxVal = currentStory.findMaxScore();
@@ -214,7 +214,7 @@ public class CreateGoals {
                 intSpinner.setValueFactory(valueFactory);
 
                 inputGoal.getChildren().add(intSpinner);
-                addButtonWithImage(selectedOption, getClass().getResource("/edu/ntnu/paths/Controller/img/trophy.png").toExternalForm());
+                addButtonWithImage(selectedOption, getClass().getResource("/edu/ntnu/paths/resources/img/trophy.png").toExternalForm());
                 break;
             case "Inventory":
                 Label inventoryGuidanceLabel = new Label("Below you can see all items in the game");
@@ -228,7 +228,7 @@ public class CreateGoals {
                 inventoryTextField = new TextField();
                 inputGoal.getChildren().add(inventoryTextField);
                 allInventoryScrollPane = new ScrollPane(allInventoryVBox);
-                addButtonWithImage(selectedOption, getClass().getResource("/edu/ntnu/paths/Controller/img/bag.png").toExternalForm());
+                addButtonWithImage(selectedOption, getClass().getResource("/edu/ntnu/paths/resources/img/bag.png").toExternalForm());
                 break;
         }
     }

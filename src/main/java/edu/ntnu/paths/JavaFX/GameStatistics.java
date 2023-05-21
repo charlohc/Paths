@@ -40,8 +40,8 @@ public class GameStatistics {
 
         root.setPadding(new Insets(10));
         root.getStylesheets().addAll(
-                Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/style/style.css")).toExternalForm(),
-                Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/style/game-statistics.css")).toExternalForm()
+                Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/resources/style/style.css")).toExternalForm(),
+                Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/resources/style/game-statistics.css")).toExternalForm()
         );
 
         createTop();
@@ -58,7 +58,7 @@ public class GameStatistics {
     }
 
     private void createTop() {
-        ImageView imageView = new ImageView(getClass().getResource("/edu/ntnu/paths/Controller/img/help-button.png").toExternalForm());
+        ImageView imageView = new ImageView(getClass().getResource("/edu/ntnu/paths/resources/img/help-button.png").toExternalForm());
         imageView.setFitWidth(40);
         imageView.setPreserveRatio(true);
         imageView.setSmooth(true);
@@ -204,13 +204,13 @@ public class GameStatistics {
     private ImageView getActionImageView(Class<? extends Goal> goalType) {
         Image actionImage;
         if (goalType == HealthGoal.class) {
-            actionImage = new Image(Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/img/heart.png")).toExternalForm());
+            actionImage = new Image(Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/resources/img/heart.png")).toExternalForm());
         } else if (goalType == ScoreGoal.class) {
-            actionImage = new Image(Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/img/trophy.png")).toExternalForm());
+            actionImage = new Image(Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/resources/img/trophy.png")).toExternalForm());
         } else if (goalType == GoldGoal.class) {
-            actionImage = new Image(Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/img/coin.png")).toExternalForm());
+            actionImage = new Image(Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/resources/img/coin.png")).toExternalForm());
         } else if (goalType == InventoryGoal.class) {
-            actionImage = new Image(Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/img/bag.png")).toExternalForm());
+            actionImage = new Image(Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/resources/img/bag.png")).toExternalForm());
         } else {
             actionImage = null;
         }

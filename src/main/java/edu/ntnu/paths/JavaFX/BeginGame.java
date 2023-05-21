@@ -40,10 +40,10 @@ public class BeginGame {
     public void start(Stage stage) {
         currentGame = GameManager.getInstance().getGame();
         currentGameCopy = new Game(currentGame);
-        goldImage = new Image(getClass().getResource("/edu/ntnu/paths/Controller/img/coin.png").toExternalForm());
-        healthImage = new Image(getClass().getResource("/edu/ntnu/paths/Controller/img/heart.png").toExternalForm());
-        scoreImage = new Image(getClass().getResource("/edu/ntnu/paths/Controller/img/trophy.png").toExternalForm());
-        inventoryImage = new Image(getClass().getResource("/edu/ntnu/paths/Controller/img/bag.png").toExternalForm());
+        goldImage = new Image(getClass().getResource("/edu/ntnu/paths/resources/img/coin.png").toExternalForm());
+        healthImage = new Image(getClass().getResource("/edu/ntnu/paths/resources/img/heart.png").toExternalForm());
+        scoreImage = new Image(getClass().getResource("/edu/ntnu/paths/resources/img/trophy.png").toExternalForm());
+        inventoryImage = new Image(getClass().getResource("/edu/ntnu/paths/resources/img/bag.png").toExternalForm());
         player = currentGameCopy.getPlayer();
         player.setInventory(new ArrayList<>());
         root = new BorderPane();
@@ -51,8 +51,8 @@ public class BeginGame {
 
         root.setPadding(new Insets(10));
         root.getStylesheets().addAll(
-                Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/style/style.css")).toExternalForm(),
-                Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/style/begin-game.css")).toExternalForm()
+                Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/resources/style/style.css")).toExternalForm(),
+                Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/resources/style/begin-game.css")).toExternalForm()
         );
 
         createTop();
@@ -69,7 +69,7 @@ public class BeginGame {
     }
 
     private void createTop() {
-        ImageView imageView = new ImageView(getClass().getResource("/edu/ntnu/paths/Controller/img/help-button.png").toExternalForm());
+        ImageView imageView = new ImageView(getClass().getResource("/edu/ntnu/paths/resources/img/help-button.png").toExternalForm());
         imageView.setFitWidth(40);
         imageView.setPreserveRatio(true);
         imageView.setSmooth(true);
@@ -226,7 +226,7 @@ public class BeginGame {
         VBox passageBox = new VBox(10);
         passageBox.setPadding(new Insets(10));
 
-        ImageView imageViewRestart = new ImageView(getClass().getResource("/edu/ntnu/paths/Controller/img/restart-button.png").toExternalForm());
+        ImageView imageViewRestart = new ImageView(getClass().getResource("/edu/ntnu/paths/resources/img/restart-button.png").toExternalForm());
         imageViewRestart.setFitWidth(35);
         imageViewRestart.setPreserveRatio(true);
         imageViewRestart.setSmooth(true);
@@ -327,21 +327,21 @@ public class BeginGame {
     private Image imageFromContent(String content) {
         String contentLowerCase = content.toLowerCase();
         if (contentLowerCase.contains("witch")) {
-            return new Image(Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/img/witch.png")).toExternalForm());
+            return new Image(Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/resources/img/witch.png")).toExternalForm());
         } else if (contentLowerCase.contains("library") || contentLowerCase.contains("books")) {
-            return new Image(Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/img/books.png")).toExternalForm());
+            return new Image(Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/resources/img/books.png")).toExternalForm());
         } else if (contentLowerCase.contains("path")) {
-            return new Image(Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/img/path.png")).toExternalForm());
+            return new Image(Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/resources/img/path.png")).toExternalForm());
         } else if (contentLowerCase.contains("forest")) {
-            return new Image(Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/img/forest.png")).toExternalForm());
+            return new Image(Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/resources/img/forest.png")).toExternalForm());
         } else if (contentLowerCase.contains("dragon")) {
-            return new Image(Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/img/dragon.png")).toExternalForm());
+            return new Image(Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/resources/img/dragon.png")).toExternalForm());
         } else if (contentLowerCase.contains("tree")) {
-            return new Image(Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/img/tree.png")).toExternalForm());
+            return new Image(Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/resources/img/tree.png")).toExternalForm());
         } else if (contentLowerCase.contains("relic")) {
-            return new Image(Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/img/relic.png")).toExternalForm());
+            return new Image(Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/resources/img/relic.png")).toExternalForm());
         } else if (contentLowerCase.contains("ruins")) {
-            return new Image(Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/img/ruins.png")).toExternalForm());
+            return new Image(Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/resources/img/ruins.png")).toExternalForm());
         }
         return null;
     }

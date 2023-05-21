@@ -33,8 +33,8 @@ public class CreatePlayer {
         root = new BorderPane();
         root.setPadding(new Insets(10));
         root.getStylesheets().addAll(
-                Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/style/style.css")).toExternalForm(),
-                Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/Controller/style/create-player.css")).toExternalForm()
+                Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/resources/style/style.css")).toExternalForm(),
+                Objects.requireNonNull(getClass().getResource("/edu/ntnu/paths/resources/style/create-player.css")).toExternalForm()
         );
         createGoalsButton = new Button("Create goals");
         createGoalsButton.setDisable(PlayerManager.getInstance().getPlayer() == null);
@@ -53,7 +53,7 @@ public class CreatePlayer {
     }
 
     private void createTop() {
-        ImageView imageView = new ImageView(getClass().getResource("/edu/ntnu/paths/Controller/img/help-button.png").toExternalForm());
+        ImageView imageView = new ImageView(getClass().getResource("/edu/ntnu/paths/resources/img/help-button.png").toExternalForm());
         imageView.setFitWidth(40);
         imageView.setPreserveRatio(true);
         imageView.setSmooth(true);
