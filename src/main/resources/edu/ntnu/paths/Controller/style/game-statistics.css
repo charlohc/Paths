@@ -5,6 +5,10 @@
     -fx-padding: 15px;
 }
 
+#circle, goalsBox {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 10, 0, 0, 0);
+}
+
 #headerLabel {
     -fx-font-size: 36px;
 }
