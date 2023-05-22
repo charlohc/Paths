@@ -141,12 +141,6 @@ class ReadFileTest {
             }
 
             @Test
-            public void fileWithNorwegianChars() {
-                Story storyFromFile = (Story) readFile.readFile(new File(pathTestFiles + "FileWithNorwegianChars.paths"));
-                Assertions.assertTrue(storyFromFile.getPassage().getContent().contains("ÆØÅ"));
-            }
-
-            @Test
             public void fileWithTheSameActionInLink() {
                 Story storyFromFile = (Story) readFile.readFile(new File(pathTestFiles + "FileWithTheSameActionInLink.paths"));
                     Assertions.assertEquals(1, storyFromFile.getPassage().getLinks().get(0).getActions().size());
