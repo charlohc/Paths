@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53a0d0a9-2fe9-40cf-a5cf-95adcfb50728" name="Changes" comment="fixed bug background circle no goals">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="53a0d0a9-2fe9-40cf-a5cf-95adcfb50728" name="Changes" comment="removed test conflicting with test coverage">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/FileHandling/ReadFileTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/FileHandling/ReadFileTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/FileHandling/TestFiles/FileWithNorwegianChars.paths" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +69,7 @@
       <recent name="C:\Users\Charlotte\IdeaProjects\Paths_V2\paths_charlotte\src\main\resources\edu\ntnu\paths\Controller" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ReadFileTest$functioningFile.fileWithNorwegianChars">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.JavaFX.Main" />
       <module name="paths_charlotte" />
@@ -150,10 +146,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.ReadFileTest$functioningFile.fileWithNorwegianChars" />
         <item itemvalue="JUnit.ReadFileTest (1)" />
         <item itemvalue="JUnit.WriteFileTest (1)" />
-        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.LinkTest" />
       </list>
     </recent_temporary>
@@ -192,19 +188,7 @@
       <workItem from="1684530888462" duration="4289000" />
       <workItem from="1684622548353" duration="1028000" />
       <workItem from="1684744270274" duration="127000" />
-      <workItem from="1684744766737" duration="528000" />
-    </task>
-    <task id="LOCAL−00020" summary="added example story">
-      <created>1684158975636</created>
-      <option name="number" value="LOCAL−00020" />
-      <option name="presentableId" value="LOCAL−00020" />
-      <updated>1684158975636</updated>
-    </task>
-    <task id="LOCAL−00021" summary="implemented persistance goals in container">
-      <created>1684189832868</created>
-      <option name="number" value="LOCAL−00021" />
-      <option name="presentableId" value="LOCAL−00021" />
-      <updated>1684189832868</updated>
+      <workItem from="1684744766737" duration="4660000" />
     </task>
     <task id="LOCAL−00022" summary="implemented more test text files">
       <created>1684448972664</created>
@@ -488,7 +472,19 @@
       <option name="presentableId" value="LOCAL−00068" />
       <updated>1684701457867</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL−00069" summary="added plugin for checking test coverage">
+      <created>1684745317714</created>
+      <option name="number" value="LOCAL−00069" />
+      <option name="presentableId" value="LOCAL−00069" />
+      <updated>1684745317715</updated>
+    </task>
+    <task id="LOCAL−00070" summary="removed test conflicting with test coverage">
+      <created>1684745337191</created>
+      <option name="number" value="LOCAL−00070" />
+      <option name="presentableId" value="LOCAL−00070" />
+      <updated>1684745337191</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -506,8 +502,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="removed file" />
-    <MESSAGE value="improved beginGame with better styling and more functionality" />
     <MESSAGE value="added more exception handling" />
     <MESSAGE value="added more exception handling to deep copy" />
     <MESSAGE value="made another export" />
@@ -531,6 +525,8 @@
     <MESSAGE value="implemented JavaDoc" />
     <MESSAGE value="moved location of files" />
     <MESSAGE value="Added JavaDoc" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added JavaDoc" />
+    <MESSAGE value="added plugin for checking test coverage" />
+    <MESSAGE value="removed test conflicting with test coverage" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed test conflicting with test coverage" />
   </component>
 </project>
