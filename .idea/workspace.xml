@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53a0d0a9-2fe9-40cf-a5cf-95adcfb50728" name="Changes" comment="added new folder for tests">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="53a0d0a9-2fe9-40cf-a5cf-95adcfb50728" name="Changes" comment="Added read me file">
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/JavaFX/CreatePlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/JavaFX/CreatePlayer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -194,13 +193,7 @@
       <workItem from="1684530888462" duration="4289000" />
       <workItem from="1684622548353" duration="1028000" />
       <workItem from="1684744270274" duration="127000" />
-      <workItem from="1684744766737" duration="10438000" />
-    </task>
-    <task id="LOCAL−00023" summary="renamed file">
-      <created>1684448990019</created>
-      <option name="number" value="LOCAL−00023" />
-      <option name="presentableId" value="LOCAL−00023" />
-      <updated>1684448990019</updated>
+      <workItem from="1684744766737" duration="10574000" />
     </task>
     <task id="LOCAL−00024" summary="implemented new icon style buttons">
       <created>1684449009155</created>
@@ -490,7 +483,13 @@
       <option name="presentableId" value="LOCAL−00071" />
       <updated>1684752238877</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL−00072" summary="Added read me file">
+      <created>1684766171349</created>
+      <option name="number" value="LOCAL−00072" />
+      <option name="presentableId" value="LOCAL−00072" />
+      <updated>1684766171349</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -508,7 +507,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added more exception handling to deep copy" />
     <MESSAGE value="made another export" />
     <MESSAGE value="renamed" />
     <MESSAGE value="added new class and styling GameStatistics" />
@@ -533,6 +531,7 @@
     <MESSAGE value="added plugin for checking test coverage" />
     <MESSAGE value="removed test conflicting with test coverage" />
     <MESSAGE value="added new folder for tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="added new folder for tests" />
+    <MESSAGE value="Added read me file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added read me file" />
   </component>
 </project>

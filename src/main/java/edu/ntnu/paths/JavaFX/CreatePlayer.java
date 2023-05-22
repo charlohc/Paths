@@ -98,7 +98,7 @@ public class CreatePlayer {
         Spinner<Integer> healthField = new Spinner<>(0, 100, prefs.getInt("health", 100));
 
         Label goldLabel = new Label("Player Gold");
-        Spinner<Integer> goldField = new Spinner<>(0, 9999, prefs.getInt("gold", 10));
+        Spinner<Integer> goldField = new Spinner<>(0, 9999, prefs.getInt("gold", 0));
 
         feedbackLabel = new Label();
         feedbackLabel.setWrapText(true);
