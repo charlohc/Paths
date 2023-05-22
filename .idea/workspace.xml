@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53a0d0a9-2fe9-40cf-a5cf-95adcfb50728" name="Changes" comment="removed test conflicting with test coverage">
+    <list default="true" id="53a0d0a9-2fe9-40cf-a5cf-95adcfb50728" name="Changes" comment="added new folder for tests">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,25 +48,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_directory_selection&quot;: &quot;C:/Users/Charlotte/IdeaProjects/Paths_V2/paths_charlotte/src/main/java/edu/ntnu/paths/Controller&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Charlotte/IdeaProjects/JavaFX 17 Swapping Scenes Demo&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_directory_selection": "C:/Users/Charlotte/IdeaProjects/Paths_V2/paths_charlotte/src/main/java/edu/ntnu/paths/Controller",
+    "last_opened_file_path": "C:/Users/charl/Documents/Paths_V2/paths_charlotte/src/main/java/edu/ntnu/paths",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\charl\Documents\Paths_V2\paths_charlotte\src\main\java\edu\ntnu\paths" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\charl\Documents\Paths_V2\paths_charlotte" />
+      <recent name="C:\Users\charl\Documents\Paths_V2\paths_charlotte\src" />
       <recent name="C:\Users\Charlotte\IdeaProjects\Paths_V2\paths_charlotte\src\main\resources\edu\ntnu\paths\Controller" />
     </key>
   </component>
@@ -188,13 +194,7 @@
       <workItem from="1684530888462" duration="4289000" />
       <workItem from="1684622548353" duration="1028000" />
       <workItem from="1684744270274" duration="127000" />
-      <workItem from="1684744766737" duration="4660000" />
-    </task>
-    <task id="LOCAL−00022" summary="implemented more test text files">
-      <created>1684448972664</created>
-      <option name="number" value="LOCAL−00022" />
-      <option name="presentableId" value="LOCAL−00022" />
-      <updated>1684448972664</updated>
+      <workItem from="1684744766737" duration="10438000" />
     </task>
     <task id="LOCAL−00023" summary="renamed file">
       <created>1684448990019</created>
@@ -484,7 +484,13 @@
       <option name="presentableId" value="LOCAL−00070" />
       <updated>1684745337191</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL−00071" summary="added new folder for tests">
+      <created>1684752238877</created>
+      <option name="number" value="LOCAL−00071" />
+      <option name="presentableId" value="LOCAL−00071" />
+      <updated>1684752238877</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -502,7 +508,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added more exception handling" />
     <MESSAGE value="added more exception handling to deep copy" />
     <MESSAGE value="made another export" />
     <MESSAGE value="renamed" />
@@ -527,6 +532,7 @@
     <MESSAGE value="Added JavaDoc" />
     <MESSAGE value="added plugin for checking test coverage" />
     <MESSAGE value="removed test conflicting with test coverage" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed test conflicting with test coverage" />
+    <MESSAGE value="added new folder for tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="added new folder for tests" />
   </component>
 </project>
