@@ -463,6 +463,22 @@ public class BeginGame {
         gameOverContainer.getChildren().addAll(titleLabel, restart);
 
         gameDiv.getChildren().addAll(gameOverContainer);
+
+        restart.setOnMouseClicked(event -> {
+            currentGameCopy = new Game(currentGame);
+            player = currentGameCopy.getPlayer();
+            player.setInventory(new ArrayList<>());
+
+            goldLabel.setText("Gold: " + player.getGold());
+            scoreLabel.setText("Score: " + player.getScore());
+            inventoryLabel.setText("Inventory: " + player.getInventory());
+            viewStatsButton.setDisable(true);
+            goBackButton.setDisable(true);
+
+
+            setHealthBarColor(healthBar);
+            startGame();
+        });
     }
 
 

@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53a0d0a9-2fe9-40cf-a5cf-95adcfb50728" name="Changes" comment="changed initial value of the gold value in the spinner to 0">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/JavaFX/BeginGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/JavaFX/BeginGame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +54,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "last_directory_selection": "C:/Users/Charlotte/IdeaProjects/Paths_V2/paths_charlotte/src/main/java/edu/ntnu/paths/Controller",
-    "last_opened_file_path": "C:/Users/charl/Documents/Paths_V2/paths_charlotte/src/main/java/edu/ntnu/paths",
+    "last_opened_file_path": "C:/Users/charl/Documents/Paths_10044/paths_charlotte",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -194,6 +194,7 @@
       <workItem from="1684622548353" duration="1028000" />
       <workItem from="1684744270274" duration="127000" />
       <workItem from="1684744766737" duration="10804000" />
+      <workItem from="1684778200361" duration="94000" />
     </task>
     <task id="LOCAL−00025" summary="tried to fix bug where cannot add more than one inventory per link">
       <created>1684449049255</created>
