@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53a0d0a9-2fe9-40cf-a5cf-95adcfb50728" name="Changes" comment="Added JavaDoc">
+    <list default="true" id="53a0d0a9-2fe9-40cf-a5cf-95adcfb50728" name="Changes" comment="fixed bug background circle no goals">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/JavaFX/BeginGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/JavaFX/BeginGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/JavaFX/HelpPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/JavaFX/HelpPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/JavaFX/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/JavaFX/HomePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/FileHandling/ReadFileTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/FileHandling/ReadFileTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/edu/ntnu/paths/FileHandling/TestFiles/FileWithNorwegianChars.paths" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,10 +73,10 @@
       <recent name="C:\Users\Charlotte\IdeaProjects\Paths_V2\paths_charlotte\src\main\resources\edu\ntnu\paths\Controller" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.ReadFileTest$functioningFile.fileWithNorwegianChars">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.JavaFX.Main" />
-      <module name="Paths_V2" />
+      <module name="paths_charlotte" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="edu.ntnu.paths.JavaFX.*" />
@@ -101,8 +102,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ReadFileTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Paths_V2" />
+    <configuration name="ReadFileTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="paths_charlotte" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="edu.ntnu.paths.FileHandling.*" />
@@ -116,23 +117,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Paths_V2" />
+    <configuration name="ReadFileTest$functioningFile.fileWithNorwegianChars" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="paths_charlotte" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="edu.ntnu.paths.StoryDetails.*" />
+          <option name="PATTERN" value="edu.ntnu.paths.FileHandling.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="edu.ntnu.paths.StoryDetails" />
-      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.StoryDetails.StoryTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="edu.ntnu.paths.FileHandling.ReadFileTest" />
+      <option name="MAIN_CLASS_NAME" value="edu.ntnu.paths.FileHandling.ReadFileTest$functioningFile" />
+      <option name="METHOD_NAME" value="fileWithNorwegianChars" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WriteFileTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Paths_V2" />
+    <configuration name="WriteFileTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="paths_charlotte" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="edu.ntnu.paths.FileHandling.*" />
@@ -148,11 +150,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ReadFileTest$functioningFile.fileWithNorwegianChars" />
+        <item itemvalue="JUnit.ReadFileTest (1)" />
+        <item itemvalue="JUnit.WriteFileTest (1)" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.LinkTest" />
-        <item itemvalue="JUnit.WriteFileTest" />
-        <item itemvalue="JUnit.ReadFileTest" />
-        <item itemvalue="JUnit.StoryTest" />
       </list>
     </recent_temporary>
   </component>
@@ -189,6 +191,8 @@
       <workItem from="1684504145668" duration="1153000" />
       <workItem from="1684530888462" duration="4289000" />
       <workItem from="1684622548353" duration="1028000" />
+      <workItem from="1684744270274" duration="127000" />
+      <workItem from="1684744766737" duration="528000" />
     </task>
     <task id="LOCAL−00020" summary="added example story">
       <created>1684158975636</created>
