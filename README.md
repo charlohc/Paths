@@ -43,9 +43,6 @@ mvn test
 After running the commands locate the site folder in the target folder, and open the index.html file in you preferred browser
 
 ```sh
-mvn clean test
-```
-```sh
 mvn jacoco:report
 ```
 ---

@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53a0d0a9-2fe9-40cf-a5cf-95adcfb50728" name="Changes" comment="Added read me file">
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/JavaFX/CreatePlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/JavaFX/CreatePlayer.java" afterDir="false" />
+    <list default="true" id="53a0d0a9-2fe9-40cf-a5cf-95adcfb50728" name="Changes" comment="changed initial value of the gold value in the spinner to 0">
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -193,13 +193,7 @@
       <workItem from="1684530888462" duration="4289000" />
       <workItem from="1684622548353" duration="1028000" />
       <workItem from="1684744270274" duration="127000" />
-      <workItem from="1684744766737" duration="10574000" />
-    </task>
-    <task id="LOCAL−00024" summary="implemented new icon style buttons">
-      <created>1684449009155</created>
-      <option name="number" value="LOCAL−00024" />
-      <option name="presentableId" value="LOCAL−00024" />
-      <updated>1684449009155</updated>
+      <workItem from="1684744766737" duration="10804000" />
     </task>
     <task id="LOCAL−00025" summary="tried to fix bug where cannot add more than one inventory per link">
       <created>1684449049255</created>
@@ -489,7 +483,13 @@
       <option name="presentableId" value="LOCAL−00072" />
       <updated>1684766171349</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL−00073" summary="changed initial value of the gold value in the spinner to 0">
+      <created>1684766305614</created>
+      <option name="number" value="LOCAL−00073" />
+      <option name="presentableId" value="LOCAL−00073" />
+      <updated>1684766305614</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -507,7 +507,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="made another export" />
     <MESSAGE value="renamed" />
     <MESSAGE value="added new class and styling GameStatistics" />
     <MESSAGE value="added new routing to HelpPage" />
@@ -532,6 +531,7 @@
     <MESSAGE value="removed test conflicting with test coverage" />
     <MESSAGE value="added new folder for tests" />
     <MESSAGE value="Added read me file" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added read me file" />
+    <MESSAGE value="changed initial value of the gold value in the spinner to 0" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed initial value of the gold value in the spinner to 0" />
   </component>
 </project>
