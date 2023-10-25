@@ -139,6 +139,9 @@ public class ImportedStory {
         FileChooser fileChooser = new FileChooser();
         ReadFile readFile = new ReadFile();
         fileChooser.setTitle("Choose story file");
+        File initialDirectory = new File("src/main/java/edu/ntnu/paths/StoryFiles");
+        initialDirectory = new File(System.getProperty("user.dir"), initialDirectory.getPath());
+        fileChooser.setInitialDirectory(initialDirectory);
         File file = fileChooser.showOpenDialog(null);
         Story storyFromFile = readFile.readFile(file);
         if (storyFromFile != null) {

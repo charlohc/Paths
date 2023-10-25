@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53a0d0a9-2fe9-40cf-a5cf-95adcfb50728" name="Changes" comment="changed initial value of the gold value in the spinner to 0">
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/JavaFX/BeginGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/JavaFX/BeginGame.java" afterDir="false" />
+    <list default="true" id="53a0d0a9-2fe9-40cf-a5cf-95adcfb50728" name="Changes" comment="Added eventhandler to restart button">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/JavaFX/HelpPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/JavaFX/HelpPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/JavaFX/ImportedStory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ntnu/paths/JavaFX/ImportedStory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,23 +50,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_directory_selection": "C:/Users/Charlotte/IdeaProjects/Paths_V2/paths_charlotte/src/main/java/edu/ntnu/paths/Controller",
-    "last_opened_file_path": "C:/Users/charl/Documents/Paths_10044/paths_charlotte",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_directory_selection&quot;: &quot;C:/Users/Charlotte/IdeaProjects/Paths_V2/paths_charlotte/src/main/java/edu/ntnu/paths/Controller&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/charl/Documents/Paths_10044/paths_charlotte&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\charl\Documents\Paths_V2\paths_charlotte\src\main\java\edu\ntnu\paths" />
@@ -194,13 +197,8 @@
       <workItem from="1684622548353" duration="1028000" />
       <workItem from="1684744270274" duration="127000" />
       <workItem from="1684744766737" duration="10804000" />
-      <workItem from="1684778200361" duration="94000" />
-    </task>
-    <task id="LOCAL−00025" summary="tried to fix bug where cannot add more than one inventory per link">
-      <created>1684449049255</created>
-      <option name="number" value="LOCAL−00025" />
-      <option name="presentableId" value="LOCAL−00025" />
-      <updated>1684449049255</updated>
+      <workItem from="1684778200361" duration="334000" />
+      <workItem from="1698227071513" duration="513000" />
     </task>
     <task id="LOCAL−00026" summary="removed file">
       <created>1684449058468</created>
@@ -490,7 +488,13 @@
       <option name="presentableId" value="LOCAL−00073" />
       <updated>1684766305614</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL−00074" summary="Added eventhandler to restart button">
+      <created>1684778395496</created>
+      <option name="number" value="LOCAL−00074" />
+      <option name="presentableId" value="LOCAL−00074" />
+      <updated>1684778395496</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -508,7 +512,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="renamed" />
     <MESSAGE value="added new class and styling GameStatistics" />
     <MESSAGE value="added new routing to HelpPage" />
     <MESSAGE value="implemented new class HelpPage" />
@@ -533,6 +536,7 @@
     <MESSAGE value="added new folder for tests" />
     <MESSAGE value="Added read me file" />
     <MESSAGE value="changed initial value of the gold value in the spinner to 0" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed initial value of the gold value in the spinner to 0" />
+    <MESSAGE value="Added eventhandler to restart button" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added eventhandler to restart button" />
   </component>
 </project>

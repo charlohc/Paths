@@ -40,7 +40,7 @@ public class HelpPage {
         There is a special requirement for this filetype. There are three stories located in the StoryFiles folder.
         These follow the requirements for the \".paths\" filetype.
         After importing the file, you get information about the selected file.
-        The broken links symbolize links with references to passages that do not exist.""");
+        The dead links symbolize links with references to passages that do not exist.""");
         importTextLabel.setStyle("-fx-line-spacing: 3px;");
 
 
